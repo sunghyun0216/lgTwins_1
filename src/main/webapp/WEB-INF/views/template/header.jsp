@@ -53,9 +53,9 @@
 				</div>
 			</li>
 			
-			<!-- Brand -->
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/">Logo</a>
-			
+			<!-- Brand, logo -->
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="https://www.lgtwins.com/images/twins_logoB.png" alt="My Image" width="150" height="100"></a>
+																			
 			<!-- Dropdown -->
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
