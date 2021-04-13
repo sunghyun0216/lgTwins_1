@@ -7,7 +7,6 @@
 	<typeAliases>
 <!-- 		<typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/> -->
 		
-		
 	</typeAliases>
 
 </configuration>  
