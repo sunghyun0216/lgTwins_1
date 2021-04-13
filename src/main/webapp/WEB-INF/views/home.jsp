@@ -1,14 +1,36 @@
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page session="false" %>
-<html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<!doctype html>
+<html lang="en">
 <head>
-	<title>Home</title>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<c:import url="./template/bootStrap.jsp"></c:import>
+
+<link rel="stylesheet" href="./resources/css/test.css">
+<title>Home</title>
+<style type="text/css">
+#d1 {
+	width: 200px;
+	height: 200px;
+	background-color: red;
+	overflow: hidden;
+}
+
+#d2 {
+	width: 50px;
+	height: 50px;
+	background-color: yellow;
+	margin: 75px auto; /* 간격 */
+}
+</style>
 </head>
 <body>
-<h1>
-	Hello world!for margin hyelin to main(브랜치 병합 용도)수정
-</h1>
-
-<P>  The time on the server is ${serverTime}. </P>
+	<c:import url="./template/header.jsp"></c:import>
+	<div></div>
 </body>
 </html>
