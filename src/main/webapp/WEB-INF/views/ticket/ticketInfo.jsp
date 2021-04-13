@@ -9,14 +9,13 @@
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<c:import url="./template/bootStrap.jsp"></c:import>
+<c:import url="../template/bootStrap.jsp"></c:import>
 
-<title>Home</title>
+<title>ticketInfo</title>
 
-</style>
 </head>
 <body>
-	<c:import url="./template/header.jsp"></c:import>
-	<div></div>
+	<c:import url="../template/header.jsp"></c:import>
+	<h1>ticketInfo</h1>
 </body>
 </html>

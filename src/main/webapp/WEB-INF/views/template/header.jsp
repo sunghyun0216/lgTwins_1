@@ -61,8 +61,8 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> 티켓 </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">티켓 예매</a> 
-					<a class="dropdown-item" href="#">티켓 안내</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/ticket/bookTicket">티켓 예매</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/ticket/ticketInfo">티켓 안내</a> 
 				</div>
 			</li>
 			
