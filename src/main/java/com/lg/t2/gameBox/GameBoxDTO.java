@@ -2,7 +2,7 @@ package com.lg.t2.gameBox;
 
 import java.util.Date;
 
-public class gameBoxDTO {
+public class GameBoxDTO {
 	
 	private long orderNum;
 	private String team;
@@ -10,6 +10,7 @@ public class gameBoxDTO {
 	private String place;
 	private Date playDate;
 	private String playing;
+	
 	public long getOrderNum() {
 		return orderNum;
 	}

@@ -5,8 +5,9 @@
   
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/> -->
+		<typeAlias type="com.lg.t2.gameBox.GameBoxDTO" alias="GameBoxDTO"/> 
 		
 	</typeAliases>
-
-</configuration>  
+		
+</configuration>
+  
