@@ -12,5 +12,9 @@
 	<select id="getSelect" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
 		select * from gameBox where orderNum = #{orderNum}
 	</select>
+	
+	<insert id="setInsert" parameterType="com.lg.t2.gameBox.GameBoxDTO">
+		insert into gameBox values(gameBox_SEQ.nextval, #{team}, #{score}, #{place}, sysdate ,#{playing})
+	</insert>
 
 </mapper>  

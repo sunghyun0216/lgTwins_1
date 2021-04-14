@@ -47,8 +47,8 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> 경기 기록 </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">gamebox</a> 
-					<a class="dropdown-item" href="#">경기일정</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameBoxList">gamebox</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameCalendar">경기일정</a> 
 					<a class="dropdown-item" href="#">순위</a> 
 				</div>
 			</li>
