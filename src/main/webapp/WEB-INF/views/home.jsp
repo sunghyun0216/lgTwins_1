@@ -11,23 +11,8 @@
 
 <c:import url="./template/bootStrap.jsp"></c:import>
 
-<link rel="stylesheet" href="./resources/css/test.css">
 <title>Home</title>
-<style type="text/css">
-#d1 {
-	width: 200px;
-	height: 200px;
-	background-color: red;
-	overflow: hidden;
-}
 
-#d2 {
-	width: 50px;
-	height: 50px;
-	background-color: yellow;
-	margin: 75px auto; /* 간격 */
-}
-</style>
 </head>
 <body>
 	<c:import url="./template/header.jsp"></c:import>
