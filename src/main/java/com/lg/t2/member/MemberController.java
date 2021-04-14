@@ -17,6 +17,23 @@ public class MemberController {
 	@Autowired
 	private MemberService memberService;
 	
+	@RequestMapping("memberJoinCheck")
+	public void memberJoinCheck()throws Exception{}
+	
+	@GetMapping("memberIdCheck")
+	public String memberIdCheck(MemberDTO memberDTO, Model model)throws Exception{
+		memberDTO = memberService.memberIdCheck(memberDTO);
+		String result = "0";
+		if(memberDTO==null) {
+			result="1";
+		}
+		
+		model.addAttribute("result", result);
+		
+		return "common/ajaxResult";
+		
+	}
+	
 	@RequestMapping("memberLogin") //memberLogin
 	public void memberLogin()throws Exception{}
 	

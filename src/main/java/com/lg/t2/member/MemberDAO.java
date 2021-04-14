@@ -11,6 +11,12 @@ package com.lg.t2.member;
   private SqlSession sqlSession;
   private final String NAMESPACE="com.lg.t2.member.MemberDAO.";
   
+  
+  
+  public MemberDTO memberIdCheck(MemberDTO memberDTO)throws Exception{
+	  return sqlSession.selectOne(NAMESPACE+"memberIdcheck", memberDTO);
+  }
+  
   public int memberJoin(MemberDTO memberDTO)throws Exception{
 	  return sqlSession.insert(NAMESPACE+"memberJoin", memberDTO);
   }

@@ -4,6 +4,10 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lg.t2.member.MemberDAO">
+ 
+	<select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
+		select id from memeber where id = #{id}
+	</select>
 
 	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
 		select * from member where id=#{id} and pw=#{pw}
@@ -13,8 +17,6 @@
 	<insert id="memberJoin" parameterType="MemberDTO">
 		insert into member values(#{id},#{pw},#{name},#{phone})
 	</insert>
- 
-
 
 
 
