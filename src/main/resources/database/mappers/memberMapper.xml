@@ -10,11 +10,10 @@
 	</select>
 
 
-<!-- 	<insert id="memberJoin" parameterType="MemeberDTO">
-		insert into member values(#{id}, #{pw}, #{name}, #{phone} )
-	</insert> -->
+	<insert id="memberJoin" parameterType="MemberDTO">
+		insert into member values(#{id},#{pw},#{name},#{phone})
+	</insert>
  
-
 
 
 
