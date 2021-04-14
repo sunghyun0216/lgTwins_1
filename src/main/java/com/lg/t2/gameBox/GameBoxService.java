@@ -23,5 +23,9 @@ public class GameBoxService {
 	public GameBoxDTO getSelect(GameBoxDTO gameBoxDTO) throws Exception{
 		return gameBoxDAO.getSelect(gameBoxDTO);
 	}
+	
+	public int setInsert(GameBoxDTO gameBoxDTO)throws Exception{
+		return gameBoxDAO.setInsert(gameBoxDTO);
+	}
 
 }
