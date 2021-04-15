@@ -10,7 +10,14 @@ public class GameBoxDTO {
 	private String place;
 	private Date playDate;
 	private String playing;
+	private String wwl;
 	
+	public String getWwl() {
+		return wwl;
+	}
+	public void setWwl(String wwl) {
+		this.wwl = wwl;
+	}
 	public long getOrderNum() {
 		return orderNum;
 	}

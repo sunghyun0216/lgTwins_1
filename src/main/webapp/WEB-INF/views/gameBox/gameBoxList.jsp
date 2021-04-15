@@ -28,6 +28,7 @@
 				<th>장소</th>
 				<th>경기시간</th>
 				<th>경기여부</th>
+				<th>승패</th>
 				
 			</tr>
 		</thead>
@@ -40,13 +41,21 @@
 				<td>${dto.place}</td>
 				<td>${dto.playDate}</td>
 				<td>${dto.playing}</td>
+				<td>${dto.wwl}</td>
 			</tr>
 		</c:forEach>
 
 		</tbody>
 	
 	</table>
+	
+	<a href="./${result}Insert" class="btn  btn-info" role="button">경기기록 등록</a>
+	<button type="button" class="btn btn-danger">경기기록 삭제</button>
+	
+	<c:catch>
 
+	
+	</c:catch>
 
 </body>
 </html>

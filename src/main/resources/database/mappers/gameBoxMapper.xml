@@ -15,7 +15,7 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="com.lg.t2.gameBox.GameBoxDTO">
-		insert into gameBox values(gameBox_SEQ.nextval, #{team}, #{score}, #{place}, sysdate ,#{playing})
+		insert into gameBox values(gameBox_SEQ.nextval, #{team}, #{score}, #{place}, sysdate ,#{playing}, #{wwl})
 	</insert>
 
 </mapper>  

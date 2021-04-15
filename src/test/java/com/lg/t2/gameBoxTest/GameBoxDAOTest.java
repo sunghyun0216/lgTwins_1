@@ -31,18 +31,20 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		gameBoxDTO.setPlace("잠실");
 		gameBoxDTO.setPlayDate(null);
 		gameBoxDTO.setPlaying("경기전");
+		gameBoxDTO.setWwl(null);
 		assertNotNull(gameBoxDTO);
 	}
 
 	//@Test
 	public void setInsertTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
-		gameBoxDTO.setOrderNum(0);
+		gameBoxDTO.setOrderNum(2000);
 		gameBoxDTO.setTeam("sk");
 		gameBoxDTO.setScore(0);
 		gameBoxDTO.setPlace("문학");
 		gameBoxDTO.setPlayDate(null);
 		gameBoxDTO.setPlaying("시작전");
+		gameBoxDTO.setWwl("승");
 		int result = gameBoxDAO.setInsert(gameBoxDTO);
 		assertEquals(1, result);
 	}

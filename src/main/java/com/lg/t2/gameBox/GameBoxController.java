@@ -37,5 +37,14 @@ public class GameBoxController {
 		mv.setViewName("gameBox/gameBoxSelect");
 		return mv;
 	}
+	
+	@RequestMapping("/gameBox/setInsert")
+	public ModelAndView setInsert(GameBoxDTO gameBoxDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = gameBoxService.setInsert(gameBoxDTO);
+		mv.addObject("result", "result");
+		mv.setViewName("gameBox/gameBoxInsert");
+		return mv;
+	}
 
 }
