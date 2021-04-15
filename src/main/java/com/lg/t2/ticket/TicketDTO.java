@@ -4,10 +4,9 @@ import java.util.Date;
 
 public class TicketDTO {
 	private String teamName;
-	private	Date playdate;
+	private	Date playDate;
 	private String teamLogo;
-	private String sitNum;
-	private long price;
+
 	
 	public String getTeamName() {
 		return teamName;
@@ -15,11 +14,11 @@ public class TicketDTO {
 	public void setTeamName(String teamName) {
 		this.teamName = teamName;
 	}
-	public Date getPlaydate() {
-		return playdate;
+	public Date getPlayDate() {
+		return playDate;
 	}
-	public void setPlaydate(Date playdate) {
-		this.playdate = playdate;
+	public void setPlaydate(Date playDate) {
+		this.playDate = playDate;
 	}
 	public String getTeamLogo() {
 		return teamLogo;
@@ -27,18 +26,7 @@ public class TicketDTO {
 	public void setTeamLogo(String teamLogo) {
 		this.teamLogo = teamLogo;
 	}
-	public long getPrice() {
-		return price;
-	}
-	public void setPrice(long price) {
-		this.price = price;
-	}
-	public String getSitNum() {
-		return sitNum;
-	}
-	public void setSitNum(String sitNum) {
-		this.sitNum = sitNum;
-	}
+
 	
 	
 }

@@ -12,7 +12,7 @@ public class TicketDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.lg.t2.ticket.TicketDAO.";
 	
-	public List<TicketDTO> getList(TicketDTO ticketDTO ) throws Exception {
-		return sqlSession.selectList(NAMESPACE+"getList", ticketDTO);
+	public List<TicketDTO> getList() throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getList");
 	}
 }
