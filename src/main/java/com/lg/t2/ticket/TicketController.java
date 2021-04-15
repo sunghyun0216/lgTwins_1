@@ -24,6 +24,10 @@ public class TicketController {
 		model.addAttribute("list", ar);
 	}
 	
+	@RequestMapping("/ticket/purchaseTicket")
+	public void Purcahse()throws Exception{
+		
+	}
 
 	
 	@RequestMapping("/ticket/ticketInfo")
