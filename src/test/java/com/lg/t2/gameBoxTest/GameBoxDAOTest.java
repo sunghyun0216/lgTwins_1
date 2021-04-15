@@ -34,7 +34,7 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		assertNotNull(gameBoxDTO);
 	}
 
-	@Test
+	//@Test
 	public void setInsertTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(0);

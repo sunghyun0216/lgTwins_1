@@ -6,7 +6,8 @@
 <mapper namespace="com.lg.t2.gameBox.GameBoxDAO">
 
 	<select id="getList" resultType="com.lg.t2.gameBox.GameBoxDTO">
-		select * from gameBox order by orderNum desc
+<!-- 		select * from gameBox order by orderNum desc -->
+		select * from gameBox where team='엘지'
 	</select>
 
 	<select id="getSelect" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
