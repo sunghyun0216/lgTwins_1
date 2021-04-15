@@ -18,6 +18,8 @@
 	<c:import url="../template/header.jsp"></c:import>
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX </h4>
 
+
+
 	<table class="table">
 		<thead class="thead-dark">  
 			<tr>

@@ -105,11 +105,11 @@ caption {
 
 </style>
 
-<form name="frm" method="post" action="gameCalendar.jp">         
+<form name="frm" method="post" action="gameCalendar">         
 
   <caption>
   <div class="t_div1">
-  <button type="button" onclick="location='gameCalendar.jp?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
+  <button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
   </div class>
  
   <div class="t_div2">
@@ -117,7 +117,7 @@ caption {
   </div class="t_div3">
   
   <div style="">
-  <button type="button" onclick="location='gameCalendar.jp?year=<%=n_y%>&month=<%=n_m%>'">다음</button>
+  <button type="button" onclick="location='gameCalendar?year=<%=n_y%>&month=<%=n_m%>'">다음</button>
   </div>
   
   </caption>
