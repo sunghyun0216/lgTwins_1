@@ -5,8 +5,9 @@
   
 <configuration>
 	<typeAliases>
-<!-- 		<typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/> -->
-		
+<!-- <typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/> -->
+	<!-- DTO 등록  -->	
+	
 	</typeAliases>
 
 </configuration>  
