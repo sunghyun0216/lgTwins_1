@@ -6,7 +6,7 @@
 <mapper namespace="com.lg.t2.member.MemberDAO">
  
 	<select id="memberIdCheck" parameterType="MemberDTO" resultType="MemberDTO">
-		select id from memeber where id = #{id}
+		select id from member where id = #{id}
 	</select>
 
 	<select id="memberLogin" parameterType="MemberDTO" resultType="MemberDTO">
