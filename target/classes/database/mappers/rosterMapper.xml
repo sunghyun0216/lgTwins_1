@@ -4,12 +4,9 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lg.t2.roster.RosterDAO">
-	
-	<!-- 모든 포지션 이름 검색 -->
-	<select id="getALLPosiList" resultType="com.lg.t2.roster.RosterPositionDTO">
-	select *from teamPosiName 
+	<select id="getPositionList" resultType="com.lg.t2.roster.PositionListDTO" >
+		select * from teamPosiName
 	</select>
-	
 </mapper>  
 
 <!-- <mapper namespace="com.iu.s3.bankbook.BankBookDAO">

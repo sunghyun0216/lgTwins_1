@@ -7,8 +7,7 @@
 	<typeAliases>
 <!-- <typeAlias type="com.iu.s3.member.MemberDTO" alias="MemberDTO"/> -->
 	<!-- DTO 등록  -->	
-	<typeAlias type="com.lg.t2.roster.RosterPositionDTO" alias="RosterPositionDTO"/>
-	<typeAlias type="com.lg.t2.roster.RosterDTO" alias="RosterDTO"/>
+	<typeAlias type="com.lg.t2.roster.PositionListDTO" alias="PositionListDTO"/>
 	</typeAliases>
 
 </configuration>  

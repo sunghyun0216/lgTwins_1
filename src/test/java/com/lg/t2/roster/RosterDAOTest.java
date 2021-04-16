@@ -20,7 +20,7 @@ public class RosterDAOTest extends MyAbstractTest {
 
 	@Test
 	public void getListTest()throws Exception{
-		List<RosterPositionDTO> ar = rosterDAO.getALLPosiList();
+		List<PositionListDTO> ar = rosterDAO.getPositionList();
 		assertNotEquals(0, ar.size());
 	}
 }

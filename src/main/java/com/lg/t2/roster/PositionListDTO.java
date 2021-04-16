@@ -1,14 +1,6 @@
 package com.lg.t2.roster;
 
-public class RosterPositionDTO {
-	
-	/*CREATE TABLE teamPosiName(
-			posiNum NUMBER, -- 기본키X 
-			posiName VARCHAR2(50), --포지션 이름 ()
-
-			CONSTRAINT tpsin_PK Primary KEY (posiNum) 
-			)
-	  */
+public class PositionListDTO {
 	
 	private int posiNum;
 	private String posiName;
@@ -25,6 +17,8 @@ public class RosterPositionDTO {
 	public void setPosiName(String posiName) {
 		this.posiName = posiName;
 	}
+	
+	
 	
 	
 }

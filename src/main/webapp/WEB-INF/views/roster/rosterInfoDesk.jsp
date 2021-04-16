@@ -5,11 +5,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Roster Info List Page</title>
+<title>Team-player infoDesk Page</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
-<h1>Roster List</h1>
+<h1>teamList</h1>
 </body>
 </html>
