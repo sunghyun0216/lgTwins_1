@@ -3,11 +3,13 @@
     PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.lg.t2.roaster.RoasterDAO">
+<mapper namespace="com.lg.t2.roster.RosterDAO">
 	
-	<select id="getSelect" parameterType="RoasterDTO" resultType="RoasterDTO">
-		select * from where num=#{num}
+	<!-- 모든 포지션 이름 검색 -->
+	<select id="getALLPosiList" resultType="com.lg.t2.roster.RosterPositionDTO">
+	select *from teamPosiName 
 	</select>
+	
 </mapper>  
 
 <!-- <mapper namespace="com.iu.s3.bankbook.BankBookDAO">
