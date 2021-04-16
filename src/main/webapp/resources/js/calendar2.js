@@ -49,12 +49,26 @@ const renderCalendar = () => {
     const condition = i >= firstDateIndex && i < lastDateIndex + 1
                       ? 'this'
                       : 'other';
-
-    dates[i] = `<div class="date"><span class="${condition}">${date}</span></div>`;// 혹시모름
+    dates[i] = `<div class="date"><span class="${condition}">${date}</span><div class="aaa${i}"></div></div>`;// 혹시모름
   })
 
   // Dates 그리기
   document.querySelector('.dates').innerHTML = dates.join(''); //여기
+
+   	console.log(firstDateIndex);
+   	console.log(lastDateIndex);
+	
+	
+	for(let index=firstDateIndex; index<=lastDateIndex; index++){
+		
+		if(firstDateIndex < lastDateIndex){
+			document.querySelector('.aaa'+index).innerHTML = "LG VS "
+	  	}
+	}
+	
+  	
+  
+
 }
 
 renderCalendar();
