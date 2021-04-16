@@ -124,7 +124,7 @@ caption {
  
 </form>
 
-   <table>
+   <table  items="${list}" var="dto">
     
       <tr>
          <th>일</th>
@@ -144,19 +144,23 @@ caption {
       for(int s=1; s<dayOfweek; s++){
          out.print("<td></td>");
          count++;
+         
       }
       
       //날짜 출력하는 설정
       for(int d=1; d<=lastday; d++) {
          count++;
          String color ="#555555";
+        
+         
          if(count == 7){
         	 color="blue";
          } else if(count == 1){
         	 color="red";
          }
       %>
-         <td style="color:<%=color%>"><%=d %></td>
+   
+         <td style="color:<%=color%>"><%=d %>  왜안대지 ${dto.team}</td>
       <%   
       	//개행을 위한 설정
          if(count==7){

@@ -7,7 +7,9 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -18,7 +20,11 @@ public class GameBoxController {
 	private GameBoxService gameBoxService;
 
 	@RequestMapping("/gameBox/gameCalendar")
-	public void List()throws Exception{}
+	public void List(GameBoxDTO gameBoxDTO, ModelAndView mv)throws Exception{
+		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+		mv.addObject("list", ar);
+
+	}
 
 	@RequestMapping("/gameBox/gameBoxList")
 	public void getList(GameBoxDTO gameBoxDTO, Model model)throws Exception{
@@ -38,12 +44,11 @@ public class GameBoxController {
 		return mv;
 	}
 	
-	@RequestMapping("/gameBox/setInsert")
-	public ModelAndView setInsert(GameBoxDTO gameBoxDTO)throws Exception{
+	@RequestMapping(value = "/gameBox/gameBoxInsert", method= {RequestMethod.GET, RequestMethod.POST})
+	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		int result = gameBoxService.setInsert(gameBoxDTO);
-		mv.addObject("result", "result");
 		mv.setViewName("gameBox/gameBoxInsert");
+		mv.addObject("result", "result");
 		return mv;
 	}
 

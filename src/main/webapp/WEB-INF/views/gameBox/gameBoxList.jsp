@@ -49,7 +49,7 @@
 	
 	</table>
 	
-	<a href="./${result}Insert" class="btn  btn-info" role="button">경기기록 등록</a>
+	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기기록 등록</a>
 	<button type="button" class="btn btn-danger">경기기록 삭제</button>
 	
 	<c:catch>
