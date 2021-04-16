@@ -19,16 +19,25 @@ public class GameBoxController {
 	@Autowired
 	private GameBoxService gameBoxService;
 
+//	@RequestMapping("/gameBox/gameCalendar")
+//	public void List(GameBoxDTO gameBoxDTO, ModelAndView mv)throws Exception{
+//		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+//		
+//		mv.addObject("list", ar);
+//
+//	}
 	@RequestMapping("/gameBox/gameCalendar")
-	public void List(GameBoxDTO gameBoxDTO, ModelAndView mv)throws Exception{
+	public void getList2(GameBoxDTO gameBoxDTO, Model model)throws Exception{
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
-		mv.addObject("list", ar);
+		
+		model.addAttribute("list", ar);
 
 	}
 
 	@RequestMapping("/gameBox/gameBoxList")
 	public void getList(GameBoxDTO gameBoxDTO, Model model)throws Exception{
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+		
 		model.addAttribute("list", ar);
 
 	}

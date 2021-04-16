@@ -14,3 +14,4 @@ const today = {
 for (let key in today) {
     document.getElementById(key).textContent = today[key];    
 }
+
