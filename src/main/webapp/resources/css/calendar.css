@@ -1,0 +1,40 @@
+@charset "UTF-8";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.totalbox {
+  position: relative;
+  width: 100%;
+  height: 60%;
+  overflow: hidden;
+  text-align: center;
+  background-color: white;
+
+}
+
+.upper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 30px;
+  background-color: grey;
+}
+
+.year{
+	width: 60%;
+  	height: 0%;
+  	background-color: red;
+}
+
+ 
+.lower {
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  font-size: 16px;
+}
+

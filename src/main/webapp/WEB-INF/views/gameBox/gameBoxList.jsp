@@ -12,17 +12,27 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 
 <title>Home</title>
-
+ <link rel="stylesheet" href="../resources/css/calendar.css">
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX </h4>
 
-
-
-	<table class="table">
+<div class="totalbox">
+	<div class="upper">
+		<div id="year"></div>
+		<div id="month"></div>
+		<div id="date"></div>
+		<div id="day"></div>
+		
+	</div>
+	
+	<div class="lower">
+	
+			<table class="table">
 		<thead class="thead-dark">  
 			<tr>
+				<th>순서</th>
 				<th>팀명</th>
 				<th>스코어</th>
 				<th>장소</th>
@@ -36,6 +46,7 @@
 		<tbody>	
 		<c:forEach items="${list}" var="dto">
 			<tr>
+				<td>${dto.orderNum }</td>
 				<td>${dto.team}</td>
 				<td>${dto.score}</td>
 				<td>${dto.place}</td>
@@ -48,14 +59,15 @@
 		</tbody>
 	
 	</table>
+	</div>
+	
+</div>
+<script type="text/javascript" src="../resources/js/calendar.js"></script>   
+
+
 	
 	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기기록 등록</a>
 	<button type="button" class="btn btn-danger">경기기록 삭제</button>
-	
-	<c:catch>
-
-	
-	</c:catch>
 
 </body>
 </html>
