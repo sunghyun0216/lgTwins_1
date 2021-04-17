@@ -7,6 +7,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,13 +20,27 @@ public class GameBoxController {
 	@Autowired
 	private GameBoxService gameBoxService;
 
-//	@RequestMapping("/gameBox/gameCalendar")
-//	public void List(GameBoxDTO gameBoxDTO, ModelAndView mv)throws Exception{
-//		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
-//		
-//		mv.addObject("list", ar);
-//
-//	}
+	@RequestMapping("/gameBox/gameBoxUpdate")
+	public void setUpdate(GameBoxDTO gameBoxDTO, Model model)throws Exception{
+		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
+		model.addAttribute("dto", gameBoxDTO);	
+		
+	}
+	
+	@RequestMapping(value = "/gameBox/gameBoxUpdate", method = RequestMethod.POST)
+	public String setUpdate(GameBoxDTO gameBoxDTO)throws Exception{
+		int result = gameBoxService.setUpdate(gameBoxDTO);
+		return "redirect:./gameBoxList";
+	}
+
+	
+	@RequestMapping("/gameBox/gameBoxSelect")
+	public void getList3(GameBoxDTO gameBoxDTO, Model model)throws Exception{
+		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+		
+		model.addAttribute("list", ar);
+	}
+	
 	@RequestMapping("/gameBox/gameCalendar")
 	public void getList2(GameBoxDTO gameBoxDTO, Model model)throws Exception{
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
@@ -53,12 +68,50 @@ public class GameBoxController {
 		return mv;
 	}
 	
-	@RequestMapping(value = "/gameBox/gameBoxInsert", method= {RequestMethod.GET, RequestMethod.POST})
+	@GetMapping(("/gameBox/gameBoxInsert"))
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
+
+		System.out.println("zzzzzzzzzzzzzs"); //이건 찍혔잖음
+		
 		mv.setViewName("gameBox/gameBoxInsert");
 		mv.addObject("result", "result");
 		return mv;
 	}
+	
+//	@RequestMapping(value="gameBoxInsertSex", method= {RequestMethod.GET, RequestMethod.POST})
+	@PostMapping(("/gameBox/gameBoxInsertSex"))//머지
+	public String setInsert(GameBoxDTO gameBoxDTO, Model model)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("ㅋㅋㅋㅋ"); //이건 찍혔잖음??
+		System.out.println(gameBoxDTO.getTeam());
+		System.out.println(gameBoxDTO.getScore());
+		System.out.println(gameBoxDTO.getPlace());
+		System.out.println(gameBoxDTO.getWwl());
+		System.out.println(gameBoxDTO.getPlayDate());
+//		int result = gameBoxService.setInsert(gameBoxDTO);
+		
+		//자 이제 너가 해야할 부분이야
+		//여기서는 저값을 다 넘겼으니깐 이제 매퍼로 넘겨서 저장을 하고?? ㅇㅋ??
+		
+		//그럼 저 result값에 1이 넘어올거야 아마도? 
+		
+		//그럼 if문 걸어서 result가 1이면??
+		
+		//다시 리스트를 조회를 해야겠지?
+		//리스트는 어케조회하나?ㄴ
+		
+		//이걸 마지막에 해주면 리스트로 화면이 넘어가겠지?
+		//아마도임 만약 안넘어가면
+		//저 return에 리스트 화면으로 넘기면되고
+		//아마 넘어갈거같긴함 ㅇㅋ?  ㄴㅇㅈ
+//		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+//		
+//		model.addAttribute("list", ar);
+		
+		
+		return "gameBox/gameBoxInsert";
+	}
 
+	
 }

@@ -32,6 +32,7 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		gameBoxDTO.setPlayDate(null);
 		gameBoxDTO.setPlaying("경기전");
 		gameBoxDTO.setWwl(null);
+		gameBoxDTO.setLogo(null);
 		assertNotNull(gameBoxDTO);
 	}
 
@@ -48,4 +49,14 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		int result = gameBoxDAO.setInsert(gameBoxDTO);
 		assertEquals(1, result);
 	}
+	//@Test
+	public void setUpdateTest()throws Exception{
+		GameBoxDTO gameBoxDTO = new GameBoxDTO();
+		gameBoxDTO.setOrderNum(1);
+		gameBoxDTO = gameBoxDAO.getSelect(gameBoxDTO);
+		gameBoxDTO.setPlaying("경기종료");
+		int result = gameBoxDAO.setUpdate(gameBoxDTO);
+		assertEquals(1, result);
+	}
+
 }

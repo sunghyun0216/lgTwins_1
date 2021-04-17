@@ -11,7 +11,14 @@ public class GameBoxDTO {
 	private Date playDate;
 	private String playing;
 	private String wwl;
+	private String logo;
 	
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 	public String getWwl() {
 		return wwl;
 	}

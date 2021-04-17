@@ -27,5 +27,9 @@ public class GameBoxService {
 	public int setInsert(GameBoxDTO gameBoxDTO)throws Exception{
 		return gameBoxDAO.setInsert(gameBoxDTO);
 	}
+	
+	public int setUpdate(GameBoxDTO gameBoxDTO)throws Exception{
+		return gameBoxDAO.setUpdate(gameBoxDTO);
+	}
 
 }

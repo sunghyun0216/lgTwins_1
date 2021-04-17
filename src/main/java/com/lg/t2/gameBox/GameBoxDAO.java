@@ -27,5 +27,8 @@ public class GameBoxDAO {
 		return sqlSession.insert(NAMESPACE+"setInsert", gameBoxDTO);
 	}
 	
+	public int setUpdate(GameBoxDTO gameBoxDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdate", gameBoxDTO);
+	}
 	
 }

@@ -23,13 +23,6 @@
   height: 30px;
   background-color: grey;
 }
-
-.year{
-	width: 60%;
-  	height: 0%;
-  	background-color: red;
-}
-
  
 .lower {
   display: flex;
