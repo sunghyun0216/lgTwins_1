@@ -68,29 +68,29 @@ public class GameBoxController {
 		return mv;
 	}
 	
-	@GetMapping(("/gameBox/gameBoxInsert"))
+	@GetMapping("/gameBox/gameBoxInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-
-		System.out.println("zzzzzzzzzzzzzs"); //이건 찍혔잖음
 		
 		mv.setViewName("gameBox/gameBoxInsert");
 		mv.addObject("result", "result");
 		return mv;
 	}
+
 	
-//	@RequestMapping(value="gameBoxInsertSex", method= {RequestMethod.GET, RequestMethod.POST})
-	@PostMapping(("/gameBox/gameBoxInsertSex"))//머지
+	@PostMapping("/gameBox/gameBoxInsert")//머지
 	public String setInsert(GameBoxDTO gameBoxDTO, Model model)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		System.out.println("ㅋㅋㅋㅋ"); //이건 찍혔잖음??
-		System.out.println(gameBoxDTO.getTeam());
-		System.out.println(gameBoxDTO.getScore());
-		System.out.println(gameBoxDTO.getPlace());
-		System.out.println(gameBoxDTO.getWwl());
-		System.out.println(gameBoxDTO.getPlayDate());
-//		int result = gameBoxService.setInsert(gameBoxDTO);
+	
+		int result = gameBoxService.setInsert(gameBoxDTO);
 		
+		String message = "등록실패";
+		
+		if(result>0) {
+			message="등록성공";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./gameBoxList");
 		//자 이제 너가 해야할 부분이야
 		//여기서는 저값을 다 넘겼으니깐 이제 매퍼로 넘겨서 저장을 하고?? ㅇㅋ??
 		
@@ -109,8 +109,7 @@ public class GameBoxController {
 //		
 //		model.addAttribute("list", ar);
 		
-		
-		return "gameBox/gameBoxInsert";
+		return "common/commonResult";
 	}
 
 	
