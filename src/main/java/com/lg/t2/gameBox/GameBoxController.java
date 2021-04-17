@@ -90,25 +90,7 @@ public class GameBoxController {
 		}
 		
 		model.addAttribute("msg", message);
-		model.addAttribute("path", "./gameBoxList");
-		//자 이제 너가 해야할 부분이야
-		//여기서는 저값을 다 넘겼으니깐 이제 매퍼로 넘겨서 저장을 하고?? ㅇㅋ??
-		
-		//그럼 저 result값에 1이 넘어올거야 아마도? 
-		
-		//그럼 if문 걸어서 result가 1이면??
-		
-		//다시 리스트를 조회를 해야겠지?
-		//리스트는 어케조회하나?ㄴ
-		
-		//이걸 마지막에 해주면 리스트로 화면이 넘어가겠지?
-		//아마도임 만약 안넘어가면
-		//저 return에 리스트 화면으로 넘기면되고
-		//아마 넘어갈거같긴함 ㅇㅋ?  ㄴㅇㅈ
-//		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
-//		
-//		model.addAttribute("list", ar);
-		
+		model.addAttribute("path", "./gameBoxList");		
 		return "common/commonResult";
 	}
 

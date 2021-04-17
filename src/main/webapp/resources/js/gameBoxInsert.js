@@ -4,7 +4,7 @@
 
 $("#btn").click(function(){
 	let result = true;
-	alert("z");
+	alert("새로운 정보를 등록합니다.");
 	console.log($("#team").val());
 	
 	let frm = document.getElementById("frm");

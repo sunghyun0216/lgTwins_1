@@ -26,6 +26,6 @@
 	승패 <input type ="text" name="score" value=${dto.wwl}><br>
 	<button class="btn btn  btn-info"> Update </button>
 	</form>		
-이게 업데이트에서 보냐주 ㄴ여 기도 마찬가지로 서브밋없는데? 서브밋을 무조건 해야하는구나 안해도됨 그,거해줄경우
+
 </body>
 </html>
