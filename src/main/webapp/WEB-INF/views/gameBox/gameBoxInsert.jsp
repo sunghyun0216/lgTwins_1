@@ -50,9 +50,8 @@
 		</div>
 	
 		<input type="submit" id="btn" value="등록" class="btn btn-primary" >
-		
-<!-- 		<input type="button" id="btn" value="등록" class="btn btn-primary"> -->
 		<input type="button" id="add" value="세부기록" class="btn btn-danger">
+		
 	</form>
 </div>
 

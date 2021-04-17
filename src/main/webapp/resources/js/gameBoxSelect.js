@@ -1,11 +1,9 @@
 /**
  * 
  */
-
-$("#btn").click(function(){
+ $("#btn").click(function(){
 	let result = true;
-	alert("새로운 정보를 등록합니다.");
-	console.log($("#team").val());
+	alert("정보가 변경됩니다.");
 	
 	let frm = document.getElementById("frm");
 	if(result){
@@ -13,6 +11,5 @@ $("#btn").click(function(){
 	}else {
 		alert("필수 요소를 입력하세요");
 	}
-	
 	
 });
