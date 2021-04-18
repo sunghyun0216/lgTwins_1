@@ -21,7 +21,7 @@
 	<form id="frmUpdate" action="./gameBoxUpdate" method="post">
 	
 		<input type="hidden" name="orderNum" id="orderNum" value="${dto.orderNum}">
-	
+		<h3>${dto.team}</h3>
 		<div class="form-group">
 		<label for="playing">경기여부 :</label>
 			<select id="playing" name="playing" size="1" >

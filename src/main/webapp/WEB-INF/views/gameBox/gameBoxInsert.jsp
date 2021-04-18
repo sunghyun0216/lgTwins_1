@@ -11,10 +11,19 @@
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
-
+<style type="text/css">
+	.r1{
+		color: red;
+	}
+	
+	.r2{
+		color: blue;
+	}
+</style>
 </head>
 <body>
 <c:import url="../template/header.jsp"></c:import>
+
 
 <div class="container">
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX > 경기기록 입력 </h4>
@@ -22,31 +31,37 @@
 		<div class="form-group">
 			<label for="team">팀명 :</label> 
 			<input type="text" class="form-control myCheck" id="team" name="team">
+			<h5 id = "teamResult"></h5>
 		</div>
 		
 		<div class="form-group">
 			<label for="score">스코어 :</label> 
 			<input type="text" class="form-control myCheck" id="score" name="score">
+			<h5 id = "scoreResult"></h5>
 		</div>
 	
 		<div class="form-group">
 			<label for="place">장소 :</label> 
 			<input type="text" class="form-control myCheck" id="place" name="place">
+			<h5 id = "placeResult"></h5>
 		</div>
 		
 		<div class="form-group">
 			<label for="playDate">경기시간 :</label> 
 			<input type="text" class="form-control myCheck" id="playDate" name="playDate">
+			<h5 id = "playDateResult"></h5> <!-- 2021/04/08 -->
 		</div>
 	
 		<div class="form-group">
 			<label for="playing">경기여부 :</label> 
 			<input type="text" class="form-control myCheck" id="playing" name="playing">
+			<h5 id = "playingResult"></h5> <!-- 무조건 경기전 -->
 		</div>
 	
 		<div class="form-group">
 			<label for="wwl">승패 :</label> 
 			<input type="text" class="form-control myCheck" id="wwl" name="wwl">
+			<h5 id = "wwlResult"></h5> <!-- 시작전 -->
 		</div>
 	
 		<input type="submit" id="btn" value="등록" class="btn btn-primary" >

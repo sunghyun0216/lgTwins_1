@@ -24,17 +24,10 @@ public class GameBoxController {
 	@GetMapping("/gameBox/gameBoxUpdate")
 	public void setUpdate(GameBoxDTO gameBoxDTO, Model model)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("z");
-		
-	
+
 		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
 	
 		model.addAttribute("dto",gameBoxDTO);
-		
-//		mv.setViewName("gameBox/gameBoxUpdate");
-//		mv.addObject("result", "result");
-		
-//		return mv;
 	}
 	
 	@PostMapping("/gameBox/gameBoxUpdate")
@@ -45,7 +38,6 @@ public class GameBoxController {
 		System.out.println(gameBoxDTO.getOrderNum());
 		
 		int result = gameBoxService.setUpdate(gameBoxDTO);	
-		System.out.println("zz");
 		
 		String message = "등록실패";
 		
