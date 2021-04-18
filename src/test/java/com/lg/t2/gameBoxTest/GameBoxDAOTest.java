@@ -49,12 +49,14 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		int result = gameBoxDAO.setInsert(gameBoxDTO);
 		assertEquals(1, result);
 	}
-	//@Test
+	@Test
 	public void setUpdateTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(1);
 		gameBoxDTO = gameBoxDAO.getSelect(gameBoxDTO);
 		gameBoxDTO.setPlaying("경기종료");
+		gameBoxDTO.setWwl("패");
+		gameBoxDTO.setScore(1);
 		int result = gameBoxDAO.setUpdate(gameBoxDTO);
 		assertEquals(1, result);
 	}

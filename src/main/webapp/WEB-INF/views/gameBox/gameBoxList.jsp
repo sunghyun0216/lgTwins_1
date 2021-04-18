@@ -51,9 +51,8 @@
 				<td>${dto.score}</td>
 				<td>${dto.place}</a></td>
 				<td>${dto.playDate}</td>
-				<td><a href="./gameBoxSelect?playing=${dto.playing}">${dto.playing}</a></td>
+				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
 				<td>${dto.wwl}</td>
-				
 			</tr>
 		</c:forEach>
 
@@ -65,9 +64,7 @@
 </div>
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   
 
-	
 	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기기록 등록</a>
-	<button type="button" class="btn btn-danger">경기기록 삭제</button>
 
 </body>
 </html>

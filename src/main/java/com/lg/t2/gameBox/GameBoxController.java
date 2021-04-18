@@ -4,6 +4,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.tomcat.util.log.UserDataHelper.Mode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,19 +21,42 @@ public class GameBoxController {
 	@Autowired
 	private GameBoxService gameBoxService;
 
-	@RequestMapping("/gameBox/gameBoxUpdate")
+	@GetMapping("/gameBox/gameBoxUpdate")
 	public void setUpdate(GameBoxDTO gameBoxDTO, Model model)throws Exception{
-		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
-		model.addAttribute("dto", gameBoxDTO);	
+		ModelAndView mv = new ModelAndView();
+		System.out.println("z");
 		
+	
+		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
+	
+		model.addAttribute("dto",gameBoxDTO);
+		
+//		mv.setViewName("gameBox/gameBoxUpdate");
+//		mv.addObject("result", "result");
+		
+//		return mv;
 	}
 	
-	@RequestMapping(value = "/gameBox/gameBoxUpdate", method = RequestMethod.POST)
-	public String setUpdate(GameBoxDTO gameBoxDTO)throws Exception{
-		int result = gameBoxService.setUpdate(gameBoxDTO);
-		return "redirect:./gameBoxList";
+	@PostMapping("/gameBox/gameBoxUpdate")
+	public String setUpdate2(GameBoxDTO gameBoxDTO, Model model)throws Exception{
+		
+		System.out.println(gameBoxDTO.getScore());
+		System.out.println(gameBoxDTO.getWwl());
+		System.out.println(gameBoxDTO.getOrderNum());
+		
+		int result = gameBoxService.setUpdate(gameBoxDTO);	
+		System.out.println("zz");
+		
+		String message = "등록실패";
+		
+		if(result>0) {
+			message="등록성공";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./gameBoxList");		
+		return "common/commonResult";
 	}
-
 	
 	@RequestMapping("/gameBox/gameBoxSelect")
 	public void getList3(GameBoxDTO gameBoxDTO, Model model)throws Exception{
@@ -57,14 +81,14 @@ public class GameBoxController {
 
 	}
 
-	@RequestMapping(value = "gameBoxSelect")
+	@RequestMapping(value = "gameBoxUpdate")
 	public ModelAndView getSelect(GameBoxDTO gameBoxDTO)throws Exception{
 
 		ModelAndView mv = new ModelAndView();
 		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
 
 		mv.addObject("dto", gameBoxDTO);
-		mv.setViewName("gameBox/gameBoxSelect");
+		mv.setViewName("gameBox/gameBoxUpdate");
 		return mv;
 	}
 	

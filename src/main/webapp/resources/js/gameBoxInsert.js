@@ -1,7 +1,6 @@
 /**
  * 
  */
-
 $("#btn").click(function(){
 	let result = true;
 	alert("새로운 정보를 등록합니다.");

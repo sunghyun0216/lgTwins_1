@@ -19,7 +19,7 @@
 	</insert>
 	
 	<update id="setUpdate" parameterType="com.lg.t2.gameBox.GameBoxDTO">
-		update gameBox set score=#{score}, playDate=#{playDate}, playing=#{playing}, wwl=#{wwl} where orderNum=#{orderNum}
-	</update>
+		update gameBox set score=#{score}, wwl=#{wwl}, playing=#{playing} where orderNum=#{orderNum}
+	</update> 
 
 </mapper>  
