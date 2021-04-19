@@ -7,7 +7,6 @@
 
 	<select id="getList" resultType="com.lg.t2.match.MatchDAO">
 		select * from match 
-
 	</select>
 
 </mapper>  
