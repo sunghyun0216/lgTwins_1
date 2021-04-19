@@ -21,7 +21,7 @@
 	<form id="frmUpdate" action="./gameBoxUpdate" method="post">
 	
 		<input type="hidden" name="orderNum" id="orderNum" value="${dto.orderNum}">
-		<h3>${dto.team}</h3>
+		<h4>${dto.team}</h4>
 		<div class="form-group">
 		<label for="playing">경기여부 :</label>
 			<select id="playing" name="playing" size="1" >
@@ -34,12 +34,17 @@
 		
 		<div class="form-group">
 			<label for="score">스코어 :</label> 
-			<input type="text" class="form-control myCheck" id="score" name="score">
+			<input type="number" id="score" name="score">
 		</div>
 		
 		<div class="form-group">
 			<label for="wwl">승패 : </label>
-			<input type="text" class="form-control myCheck" id="wwl" name="wwl">
+			<select id="wwl" name="wwl" size="1" >
+				<option value="경기전" selected>-</option>
+				<option value="승">승</option>
+				<option value="패">패</option>
+				<option value="무">무</option>	
+			</select><br>
 		</div>
 		
 		<input type="submit" id="btnUpdate" value="UPDATE" class="btn btn-primary" >

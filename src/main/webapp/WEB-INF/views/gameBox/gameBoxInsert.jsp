@@ -6,10 +6,13 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
+
+<link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
+
 <title>Insert title here</title>
 <style type="text/css">
 	.r1{
@@ -36,7 +39,7 @@
 		
 		<div class="form-group">
 			<label for="score">스코어 :</label> 
-			<input type="text" class="form-control myCheck" id="score" name="score">
+			<input type="number" class="form-control myCheck" id="score" name="score">
 			<h5 id = "scoreResult"></h5>
 		</div>
 	
@@ -54,13 +57,23 @@
 	
 		<div class="form-group">
 			<label for="playing">경기여부 :</label> 
-			<input type="text" class="form-control myCheck" id="playing" name="playing">
+			<select id="playing" name="playing" size="1" >
+				<option value="경기전" selected>경기전</option>
+				<option value="경기중">경기중</option>
+				<option value="경기종료">경기종료</option>
+				<option value="경기취소">경기취소</option>	
+			</select><br>
 			<h5 id = "playingResult"></h5> <!-- 무조건 경기전 -->
 		</div>
 	
 		<div class="form-group">
 			<label for="wwl">승패 :</label> 
-			<input type="text" class="form-control myCheck" id="wwl" name="wwl">
+			<select id="wwl" name="wwl" size="1" >
+				<option value="경기전" selected>-</option>
+				<option value="승">승</option>
+				<option value="패">패</option>
+				<option value="무">무</option>	
+			</select><br>
 			<h5 id = "wwlResult"></h5> <!-- 시작전 -->
 		</div>
 	
@@ -71,5 +84,6 @@
 </div>
 
 <script type="text/javascript" src="../resources/js/gameBoxInsert.js"></script>
+
 </body>
 </html>

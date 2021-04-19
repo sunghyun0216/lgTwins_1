@@ -17,18 +17,14 @@ $("#btn").click(function(){
 });
 
 let id = document.getElementById("team");
-let score = document.getElementById("team");
+let score = document.getElementById("score");
 let place = document.getElementById("place");
 let playDate = document.getElementById("playDate");
-let playing = document.getElementById("playing");
-let wwl = document.getElementById("wwl");
 
 let teamCheckResult = false;
 let scoreCheckResult = false;
 let placeCheckResult = false;
 let playCheckDateResult = false;
-let playingCheckResult = false;
-let wwlCheckResult = false;
 
 id.addEventListener("blur", function(){
 	let message = "팀명은 2글자 이상입니다.";
@@ -46,6 +42,26 @@ id.addEventListener("blur", function(){
 		
 });
 
+score.addEventListener("click", function(){
+	alert("숫자만 입력가능합니다.");
+});
 
+place.addEventListener("blur", function(){
+	let message = "장소는 2글자 이상입니다.";
+	let c= "r1";
+	if(place.value.length>=2){
+		message ="확인 되었습니다.";
+		c="r2";
+		placeCheckResult=true;
+	} else{
+		placeCheckResult=false;
+	}
+	let placeResult = document.getElementById("placeResult")
+	placeResult.innerHTML=message;
+	placeResult.setAttribute("class",c);	
+});
 
+playDate.addEventListener("blur", function(){
+	
+});
 

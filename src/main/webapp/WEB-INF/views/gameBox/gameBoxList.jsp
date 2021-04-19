@@ -64,7 +64,7 @@
 </div>
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   
 
-	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기기록 등록</a>
+	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기일정 등록</a>
 
 </body>
 </html>

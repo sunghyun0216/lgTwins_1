@@ -1,6 +1,14 @@
 /**
  * 
  */
+ 
+ let score = document.getElementById("score");
+ let scoreCheckResult = false;
+ 
+score.addEventListener("click", function(){
+	alert("숫자만 입력가능합니다.");
+});
+ 
 $("#btnUpdate").click(function(){
 	let result = true;
 	alert("정보가 변경됩니다."); 
