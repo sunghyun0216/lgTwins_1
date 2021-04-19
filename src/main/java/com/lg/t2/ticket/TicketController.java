@@ -25,9 +25,13 @@ public class TicketController {
 	}
 	
 	@RequestMapping("/ticket/purchaseTicket")
-	public void Purcahse()throws Exception{
-		
+	public ModelAndView getSelect(TicketDTO ticketDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		ticketDTO = ticketService.getSelect(ticketDTO);
+		mv.addObject("dto",ticketDTO);
+		return mv;
 	}
+	
 
 	
 	@RequestMapping("/ticket/ticketInfo")

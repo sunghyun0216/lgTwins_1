@@ -7,4 +7,8 @@
 	<select id="getList"  resultType="com.lg.t2.ticket.TicketDTO">
 		select * from lgtwins order by playdate asc
 	</select>
+	
+	<select id="getSelect" parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
+		select * from lgtwins where num=#{num}
+	</select>
 </mapper>  

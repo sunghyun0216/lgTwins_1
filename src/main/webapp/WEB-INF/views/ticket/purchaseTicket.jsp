@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,6 +15,7 @@
 <title>Insert title here</title>
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
+<fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
 </head>
 <body>
 <div class="container">
@@ -22,11 +25,16 @@
     <li>tab3</li>
   </ul>
   <div class="tab_cont">
+  
     <div class="on">
-      tab1_content
+    <h3>ddd ${dto.teamName}</h3>
+    <h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</h3>
+    <h3>ddd ${dto.teamLogo}</h3>
     </div>
+    
+    <!-- 좌석 선택창 -->
     <div>
-    <!--탭 메뉴  -->
+    <!--탭 메뉴 jquery에서 버튼이벤트 안에 if문추가해서 변수방지 구현  -->
 	    <select name="language" onchange="handleOnChange(this)">
 		  <option value="korean">한국어</option>
 		  <option value="english">영어</option>

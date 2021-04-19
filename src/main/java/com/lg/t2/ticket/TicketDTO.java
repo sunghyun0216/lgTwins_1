@@ -3,10 +3,18 @@ package com.lg.t2.ticket;
 import java.util.Date;
 
 public class TicketDTO {
+	private long num;
 	private String teamName;
 	private	Date playDate;
 	private String teamLogo;
-
+	
+	
+	public long getNum() {
+		return num;
+	}
+	public void setNum(long num) {
+		this.num = num;
+	}
 	
 	public String getTeamName() {
 		return teamName;
@@ -17,7 +25,7 @@ public class TicketDTO {
 	public Date getPlayDate() {
 		return playDate;
 	}
-	public void setPlaydate(Date playDate) {
+	public void setPlayDate(Date playDate) {
 		this.playDate = playDate;
 	}
 	public String getTeamLogo() {

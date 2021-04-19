@@ -36,11 +36,7 @@
 						<td>${dto.teamName}</td>
 						<c:if test="${today > playDate }">
 							<td>
-								
-								<form method="post" action="/kakaoPay">
-								    <button>결제하기</button>
-								</form>
-								
+								<a href="./purchaseTicket?num=${dto.num}" class="btn btn-primary" role="button">결제하기</a>
 							</td>
 						</c:if>
 

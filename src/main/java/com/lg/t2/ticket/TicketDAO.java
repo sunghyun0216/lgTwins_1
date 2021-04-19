@@ -15,4 +15,9 @@ public class TicketDAO {
 	public List<TicketDTO> getList() throws Exception {
 		return sqlSession.selectList(NAMESPACE+"getList");
 	}
+	
+	public TicketDTO getSelect(TicketDTO ticketDTO) throws Exception {
+		// TODO Auto-generated method stub
+		return sqlSession.selectOne(NAMESPACE+"getSelect", ticketDTO);
+	}
 }

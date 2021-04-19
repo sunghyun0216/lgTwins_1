@@ -13,4 +13,8 @@ public class TicketService {
 	public List<TicketDTO> getList()throws Exception{
 		return ticketDAO.getList();
 	}
+	
+	public TicketDTO getSelect(TicketDTO ticketDTO)throws Exception{
+		return ticketDAO.getSelect(ticketDTO);
+	}
 }

@@ -17,10 +17,21 @@ public class TicketTest extends MyAbstractTest{
 	@Autowired
 	private TicketDAO ticketDAO;
 	
-	@Test
+//	@Test
 	public void getListTest()throws Exception{
 		List<TicketDTO> ar = ticketDAO.getList();
 		assertNotEquals(0, ar.size());
 	}
+	
+	@Test
+	public void getSelectTest()throws Exception{
+		TicketDTO ticketDTO = new TicketDTO();
+		TicketDTO ar = ticketDAO.getSelect(ticketDTO);
+		assertNotEquals(0, ar);
+	}
+	
+	
+	
+	
 
 }
