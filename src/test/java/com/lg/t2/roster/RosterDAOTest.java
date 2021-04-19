@@ -18,9 +18,16 @@ public class RosterDAOTest extends MyAbstractTest {
 	@Autowired
 	private RosterDAO rosterDAO;
 
+//	@Test
+//	public void getListTest() throws Exception {
+//		List<PositionListDTO> ar = rosterDAO.getPositionList();
+//		assertNotEquals(0, ar.size());
+//	}
 	@Test
-	public void getListTest()throws Exception{
-		List<PositionListDTO> ar = rosterDAO.getPositionList();
-		assertNotEquals(0, ar.size());
+	public void getRosterPerPosiListTest () throws Exception{
+		
+		List<RosterDTO> ar2 = rosterDAO.getRosterPerPosiList();
+		assertNotEquals(0, ar2.size());
 	}
+	
 }
