@@ -16,6 +16,8 @@
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.min.js" ></script>
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 <fmt:formatDate value="${now}" pattern="yyyy-MM-dd" var="today" />
+
+
 </head>
 <body>
 <div class="container">
@@ -25,7 +27,7 @@
     <li>tab3</li>
   </ul>
   <div class="tab_cont">
-  
+  	<!-- 티켓정보 확인창 -->
     <div class="on">
     <h3>ddd ${dto.teamName}</h3>
     <h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</h3>
@@ -35,26 +37,48 @@
     <!-- 좌석 선택창 -->
     <div>
     <!--탭 메뉴 jquery에서 버튼이벤트 안에 if문추가해서 변수방지 구현  -->
-	    <select name="language" onchange="handleOnChange(this)">
-		  <option value="korean">한국어</option>
-		  <option value="english">영어</option>
-		  <option value="chinese">중국어</option>
-		  <option value="spanish">스페인어</option>
+    	
+		<select size=6 name="language" onchange="handleOnChange(this)">
+			<optgroup label="블루">
+			    <option value="b101">101블록</option>
+			    <option value="b102">102블록</option>
+			  </optgroup>
+			  <optgroup label="레드">
+			    <option value="b201">201블록</option>
+			    <option value="b202">202블록</option>
+			  </optgroup>
+			  <optgroup label="블루">
+			    <option value="b301">301블록</option>
+			    <option value="b302">302블록</option>
+			  </optgroup>
+			  <optgroup label="그린">
+			    <option value="b401">401블록</option>
+			    <option value="b402">402블록</option>
+			  </optgroup>
 		</select>
-		<p id='result'></p>
+		
+		
+		<h3 id='result'></h3>
 	</div>
-    <div>
+	
+	<!-- 결제 창 -->
+	<div>
       tab3_content
+      
     </div>
-  </div>
-  <button id="prev">이전</button>
-  <button id="next">다음</button>
+    
 </div>
-<div>
-
+  
+</div>
+  <div>
+	  <button id="prev">이전</button>
+	  <button id="next">다음</button>
+	  <button id="check">check</button>
+  </div>
 </div>
 
 
 <script type="text/javascript" src="../resources/jquery/tabMenu.js"></script>
+<script type="text/javascript" src="../resources/jquery/comboBox.js"></script>
 </body>
 </html>

@@ -2,21 +2,14 @@
  * 
  */
 var idx = 0
-
-function handleOnChange(e) {
-  // 선택된 데이터의 텍스트값 가져오기
-  const text = e.options[e.selectedIndex].text;
-  
-  // 선택한 텍스트 출력
-  document.getElementById('result').innerHTML= text;
-}	
-
 	
 	
   $("#next").click(function() {
 	if(idx<2){
 	idx++
 	console.log(idx)
+	console.log(result)
+
     $(".tab_title li").removeClass("on");
     $(".tab_title li").eq(idx).addClass("on");
     $(".tab_cont > div").hide();
@@ -28,6 +21,7 @@ function handleOnChange(e) {
 	if(idx>0){
 	idx--
 	console.log(idx)
+	console/log(value);
     $(".tab_title li").removeClass("on");
     $(".tab_title li").eq(idx).addClass("on");
     $(".tab_cont > div").hide();
