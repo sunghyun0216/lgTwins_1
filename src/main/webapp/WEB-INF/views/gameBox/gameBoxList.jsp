@@ -91,7 +91,7 @@
 		</thead>
 		
 		<tbody>	
-			<c:forEach items="${list2}" var="dto">
+			<c:forEach items="${list5}" var="dto">
 			<tr>
 				<td>${dto.score1}</td>
 				<td>${dto.score2}</td>
@@ -111,9 +111,10 @@
 		</tbody>
 		
 </table>
+
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   
 
-	<a href="./gameBoxInsert" class="btn  btn-info" role="button">경기일정 등록</a>
+	<a href="./gameBoxInsert" class="btn btn-info" role="button">경기일정 등록</a>
 
 </body>
 </html>

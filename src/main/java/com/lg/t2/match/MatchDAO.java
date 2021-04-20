@@ -15,8 +15,8 @@ public class MatchDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.lg.t2.match.MatchDAO.";
 	
-	public List<MatchDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<MatchDTO> getList5()throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList5");
 	}
 	
 }

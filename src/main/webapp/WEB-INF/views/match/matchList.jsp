@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,7 +30,7 @@
 		</thead>
 		
 		<tbody>			
-			<c:forEach items="${list2}" var="dto">
+			<c:forEach items="${list5}" var="dto">
 			<tr>
 				<td>${dto.score1}</td>
 				<td>${dto.score2}</td>

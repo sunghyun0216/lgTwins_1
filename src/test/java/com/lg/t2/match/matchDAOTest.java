@@ -16,7 +16,7 @@ public class matchDAOTest extends MyAbstractTest{
 	
 	@Test
 	public void getListTest()throws Exception {
-		List<MatchDTO> ar = matchDAO.getList();
+		List<MatchDTO> ar = matchDAO.getList5();
 		assertNotEquals(5, ar.size());
 	}
 

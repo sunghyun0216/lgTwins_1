@@ -13,8 +13,8 @@ public class MatchService {
 	@Autowired
 	private MatchDAO matchDAO;
 	
-	public List<MatchDTO> getList(MatchDTO matchDTO)throws Exception{
-		return matchDAO.getList();
+	public List<MatchDTO> getList5(MatchDTO matchDTO)throws Exception{
+		return matchDAO.getList5();
 	}	
 	
 }
