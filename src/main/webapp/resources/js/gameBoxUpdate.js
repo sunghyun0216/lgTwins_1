@@ -22,12 +22,17 @@ $("#btnUpdate").click(function(){
 	
 });
 
-$("#btnDelete").click(function(){
-	let result = true;
-	alert("기록이 삭제됩니다."); 
-	let frm = document.getElementById("frmUpdate");
-	if(result){
-		$("#btnDelete").submit();
-	}
-	
-});
+let del = document.getElementById("delete");
+let frmDelete = document.getElementById("frmDelete");
+let orderNum = $("#orderNum").val();
+		
+console.log(orderNum);
+
+del.addEventListener("click", function() {
+	let result = confirm("정말 삭제하시겠습니까?");
+
+		if (result) {
+			frmDelete.setAttribute("method", "post");
+			frmDelete.submit();
+			}
+		});

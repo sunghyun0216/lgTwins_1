@@ -19,7 +19,7 @@ public class MatchController {
 	@Autowired
 	private MatchService matchService;
 	
-	@PostMapping("/gameBox/gameBoxList")
+	@PostMapping("/match/matchList")
 	public void getList5(MatchDTO matchDTO, Model model)throws Exception{
 		List<MatchDTO> ar = matchService.getList5(matchDTO);
 		model.addAttribute("list5", ar);

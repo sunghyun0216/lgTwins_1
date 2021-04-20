@@ -46,12 +46,17 @@
 				<option value="무">무</option>	
 			</select><br>
 		</div>
-		
 		<input type="submit" id="btnUpdate" value="UPDATE" class="btn btn-primary" >
-		<input type="submit" id="btnDelete" value="Delete" class="btn btn-danger" >
+		
 	</form>		
+
+	<a href="#" id="delete" class="btn btn-danger">Delete</a>
+		<form action="./gameBoxDelete?orderNum=${dto.orderNum}" id="frmDelete" method="post">
+			<%-- <input type="hidden" name="orderNum" value="${dto.orderNum}"> --%>
+		</form>
 </div>
-	
+
 <script type="text/javascript" src="../resources/js/gameBoxUpdate.js"></script> 
+
 </body>
 </html>

@@ -8,8 +8,7 @@ $(function(){
 	let mm = date.getMonth()+1;
 	let dd = date.getDate();
 	
-	$(".upper").append('<div id="year">'+yyyy+'년 </div>');
-	$(".upper").append('<div id="month">'+mm+'월 </div>');
-	$(".upper").append('<div id="date">'+dd+'일</div>');
+	$(".go-today").append('<div id="yearMonthDate" style="width:130px;">'+yyyy+'년 ' +mm+'월 '+dd+'일 </div>');
+
 	
 });

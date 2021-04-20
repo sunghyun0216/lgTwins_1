@@ -24,7 +24,6 @@ public class GameBoxController {
 	@PostMapping("/gameBox/gameBoxDelete")
 	public ModelAndView setDelete(GameBoxDTO gameBoxDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("z");
 		int result = gameBoxService.setDelete(gameBoxDTO);
 		String message = "삭제 실패";
 		String path = "./gameBoxList";
@@ -32,7 +31,6 @@ public class GameBoxController {
 		if(result>0) {
 			message = "삭제 성공";
 		}
-		System.out.println("z");
 		mv.addObject("msg", message);
 		mv.addObject("path", path);
 		mv.setViewName("common/commonResult");
@@ -51,10 +49,6 @@ public class GameBoxController {
 	
 	@PostMapping("/gameBox/gameBoxUpdate")
 	public String setUpdate2(GameBoxDTO gameBoxDTO, Model model)throws Exception{
-		
-		System.out.println(gameBoxDTO.getScore());
-		System.out.println(gameBoxDTO.getWwl());
-		System.out.println(gameBoxDTO.getOrderNum());
 		
 		int result = gameBoxService.setUpdate(gameBoxDTO);	
 		

@@ -25,8 +25,8 @@
 <div class="totalbox">
 	<div class="upper">
 		 <button class="nav-btn go-prev">&lt;</button>
-		 <div id="day"> 
-		 <button class="nav-btn go-today">Today</button>
+		 <div id="day">
+		 <button class="nav-btn go-today"></button>
 		 <button class="nav-btn go-next">&gt;</button>
 		 </div>
 	</div>
@@ -106,7 +106,7 @@
 				<td>${dto.hits}</td>
 				<td>${dto.mistake}</td>
 				<td>${dto.balls}</td>
-			</tr>
+			</tr> 
 			</c:forEach>
 		</tbody>
 		
