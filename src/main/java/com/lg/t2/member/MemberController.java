@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.lg.t2.member.MemberDTO;
+
 @Controller
 @RequestMapping("/member/**")
 public class MemberController {
@@ -70,5 +72,57 @@ public class MemberController {
 		
 	}
 
+	@RequestMapping("memberUpdate") // MemberUpdate
+	public void memberUpdate()throws Exception{}
+	
+	@RequestMapping(value="memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(MemberDTO memberDTO, HttpSession session)throws Exception{
+		int result = memberService.memberUpdate(memberDTO);
+		
+		if(result>0) {
+			session.setAttribute("member", memberDTO);
+		}
+		return "redirect:../";
+	}
+	
+	@RequestMapping("memberDelete") // MemberDelete
+	public String memberDelete(HttpSession session)throws Exception{
+		MemberDTO memberDTO =(MemberDTO)session.getAttribute("member");
+		int result = memberService.memberDelete(memberDTO, session);
+		
+		session.invalidate();
+		
+		return "redirect:../";
+	}
+	
+	
+	@RequestMapping("memberPage") //MemberPage
+	public void memberPage()throws Exception{
+		
+	}
+	
+	@RequestMapping("memberLogout") //MemberLogout
+	public String memberLogout(HttpSession session)throws Exception{
+		session.invalidate();
+		return "redirect:../";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

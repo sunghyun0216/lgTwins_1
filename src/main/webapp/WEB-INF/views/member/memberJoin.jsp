@@ -7,6 +7,15 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <c:import url="../template/bootStrap.jsp"></c:import>
+<style type="text/css">
+	.r1{
+		color: red;
+	}
+	
+	.r2{
+		color: blue;
+	}
+</style>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -14,11 +23,11 @@
 	
 		<h2 class="mt-4">회원가입</h2>
 
-		<form id="frm" action="./memberJoin" method="post" enctype="multipart/form-data">
+		<form id="frm" action="./memberJoin" method="post">
 			<div class="form-group">
 				<label for="id">ID</label> 
 				<input type="text" class="form-control"	id="id" name="id">
-				<h4 id="idCheckResult"></h4>
+				<h4 id="idResult"></h4>
 			
 				<!-- ID 는 6글자 이상 -->			
 			</div>
@@ -55,6 +64,6 @@
 		</form>
 		
 	</div>
-	<script type="text/javascript" src="../resources/jquery/memberJoin.js"></script>
+ 	<script type="text/javascript" src="../resources/jquery/memberJoin.js"></script>
 </body>
 </html>

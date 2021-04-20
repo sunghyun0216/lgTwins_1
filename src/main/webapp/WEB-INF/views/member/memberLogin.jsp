@@ -16,7 +16,8 @@
 	<c:import url="../template/header.jsp"></c:import>
 
 	<div class="container">
-		<h2>Member Login Page</h2>
+		<h2>LG TWINS</h2>
+		<h2>로그인</h2>
 	
 		<form action="./memberLogin" method="post">
 			<div class="form-group">
@@ -31,12 +32,11 @@
 				<label for="pw">Password</label> <input
 					type="password" class="form-control" id="pw" name="pw">
 			</div>
-			<div class="form-group form-check">
-				<input type="checkbox" class="form-check-input" id="exampleCheck1">
-				<label class="form-check-label" for="exampleCheck1">Check me
-					out</label>
-			</div>
-			<button type="submit" class="btn btn-primary">Submit</button>
+
+			
+			<a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">회원가입</a><td>
+			
+			<button type="submit" class="btn btn-primary">로그인</button>
 		</form>
 	</div>
 

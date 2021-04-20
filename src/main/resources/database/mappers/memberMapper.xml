@@ -13,11 +13,16 @@
 		select * from member where id=#{id} and pw=#{pw}
 	</select>
 
-
 	<insert id="memberJoin" parameterType="MemberDTO">
 		insert into member values(#{id},#{pw},#{name},#{phone})
 	</insert>
 
+	<update id="memberUpdate" parameterType="MemberDTO">
+		update member set pw=#{pw}, name=#{name}, phone=#{phone} where id=#{id}
+	</update>
 
+	<delete id="memberDelete" parameterType="MemberDTO">
+		delete member where id=#{id}
+	</delete>
 
 </mapper>  
