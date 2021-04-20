@@ -61,7 +61,5 @@ place.addEventListener("blur", function(){
 	placeResult.setAttribute("class",c);	
 });
 
-playDate.addEventListener("blur", function(){
-	
-});
+
 

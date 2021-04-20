@@ -49,7 +49,7 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameBoxList">gamebox</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameCalendar">경기일정</a> 
-					<a class="dropdown-item" href="#">순위</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/match/matchList">꾸아아가</a> 
 				</div>
 			</li>
 			

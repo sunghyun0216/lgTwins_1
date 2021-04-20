@@ -71,8 +71,8 @@
 
 </div>	
 
-<table class="table">
-		<thead class>  
+<table>
+		<thead>  
 			<tr>
 				<th>1</th>
 				<th>2</th>

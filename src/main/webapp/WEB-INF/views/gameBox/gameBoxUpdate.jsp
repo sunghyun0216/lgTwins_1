@@ -48,6 +48,7 @@
 		</div>
 		
 		<input type="submit" id="btnUpdate" value="UPDATE" class="btn btn-primary" >
+		<input type="submit" id="btnDelete" value="Delete" class="btn btn-danger" >
 	</form>		
 </div>
 	

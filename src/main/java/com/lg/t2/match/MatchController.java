@@ -11,16 +11,16 @@ import com.lg.t2.gameBox.GameBoxDTO;
 import com.lg.t2.gameBox.GameBoxService;
 
 @Controller
-@RequestMapping("/match/**")
+//@RequestMapping("/match/**")
 public class MatchController {
 
 	@Autowired
 	private MatchService matchService;
 	
-	@RequestMapping("/gameBox/gameBoxList")
+	@RequestMapping("/match/matchList")
 	public void getList(MatchDTO matchDTO, Model model)throws Exception{
 		List<MatchDTO> ar = matchService.getList(matchDTO);
-		model.addAttribute("list2", ar);
+		model.addAttribute("list", ar);
 	}
 	
 }

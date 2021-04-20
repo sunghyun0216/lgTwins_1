@@ -14,6 +14,9 @@ public class GameBoxDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE ="com.lg.t2.gameBox.GameBoxDAO.";
 	
+	public int setDelete(GameBoxDTO gameBoxDTO)throws Exception{
+		return sqlSession.delete(NAMESPACE+"setDelete", gameBoxDTO);
+	}
 
 	public List<GameBoxDTO> getList()throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getList");

@@ -6,8 +6,8 @@
 <mapper namespace="com.lg.t2.gameBox.GameBoxDAO">
 
 	<select id="getList" resultType="com.lg.t2.gameBox.GameBoxDTO">
-<!-- 		select * from gameBox order by orderNum desc -->
-		select * from gameBox where team='엘지'
+		select * from gameBox order by orderNum desc
+<!-- 		select * from gameBox where team='엘지' -->
 	</select>
 
 	<select id="getSelect" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
@@ -21,5 +21,9 @@
 	<update id="setUpdate" parameterType="com.lg.t2.gameBox.GameBoxDTO">
 		update gameBox set score=#{score}, wwl=#{wwl}, playing=#{playing} where orderNum=#{orderNum}
 	</update> 
+
+	<delete id="setDelete" parameterType="com.lg.t2.gameBox.GameBoxDTO">
+		delete gameBox where orderNum=#{orderNum}
+	</delete>
 
 </mapper>  

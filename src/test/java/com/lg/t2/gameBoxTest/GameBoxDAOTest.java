@@ -49,7 +49,7 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		int result = gameBoxDAO.setInsert(gameBoxDTO);
 		assertEquals(1, result);
 	}
-	@Test
+	//@Test
 	public void setUpdateTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(1);
@@ -61,4 +61,13 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		assertEquals(1, result);
 	}
 
+	@Test
+	public void setDeleteTest()throws Exception{
+		GameBoxDTO gameBoxDTO = new GameBoxDTO();
+		gameBoxDTO.setOrderNum(33);
+		int result = gameBoxDAO.setDelete(gameBoxDTO);
+
+		assertEquals(1, result);
+	}
+	
 }

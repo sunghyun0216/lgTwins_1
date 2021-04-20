@@ -31,5 +31,9 @@ public class GameBoxService {
 	public int setUpdate(GameBoxDTO gameBoxDTO)throws Exception{
 		return gameBoxDAO.setUpdate(gameBoxDTO);
 	}
+	
+	public int setDelete(GameBoxDTO gameBoxDTO)throws Exception{
+		return gameBoxDAO.setDelete(gameBoxDTO);
+	}
 
 }

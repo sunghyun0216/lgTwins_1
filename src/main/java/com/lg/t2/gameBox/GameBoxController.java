@@ -20,6 +20,25 @@ public class GameBoxController {
 
 	@Autowired
 	private GameBoxService gameBoxService;
+	
+	@PostMapping("/gameBox/gameBoxDelete")
+	public ModelAndView setDelete(GameBoxDTO gameBoxDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("z");
+		int result = gameBoxService.setDelete(gameBoxDTO);
+		String message = "삭제 실패";
+		String path = "./gameBoxList";
+		
+		if(result>0) {
+			message = "삭제 성공";
+		}
+		System.out.println("z");
+		mv.addObject("msg", message);
+		mv.addObject("path", path);
+		mv.setViewName("common/commonResult");
+		
+		return mv;
+	}
 
 	@GetMapping("/gameBox/gameBoxUpdate")
 	public void setUpdate(GameBoxDTO gameBoxDTO, Model model)throws Exception{
