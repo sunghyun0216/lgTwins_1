@@ -6,8 +6,19 @@
 <mapper namespace="com.lg.t2.gameBox.GameBoxDAO">
 
 	<select id="getList" resultType="com.lg.t2.gameBox.GameBoxDTO">
-		select * from gameBox order by orderNum desc
+<!-- 		select * from gameBox order by orderNum desc -->
 <!-- 		select * from gameBox where team='엘지' -->
+
+			select a.ordernum, a.team, a.score, a.place, a.playdate, a.playing, a.wwl, 
+			b.score1, b.score2, b.score3, b.score4, b.score5, b.score6, b.score7, b.score8, b.score9, b.runs, b.hits, b.mistake, b.balls
+			from gamebox a join match b
+			on (a.ordernum = b.ordernum)
+			where a.team = '엘지' 
+			and TO_CHAR(playDate,'YYYY-MM-DD') = TO_CHAR(#{playDate, jdbcType=DATE},'YYYY-MM-DD')
+			or a.ordernum = (select ordernum+1 from gamebox
+			where team='엘지' and TO_CHAR(playDate,'YYYY-MM-DD') = TO_CHAR(#{playDate, jdbcType=DATE},'YYYY-MM-DD'))
+		
+		
 	</select>
 
 	<select id="getSelect" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">

@@ -5,8 +5,8 @@
 
 <mapper namespace="com.lg.t2.match.MatchDAO">
 
-	<select id="getList" resultType="com.lg.t2.match.MatchDTO">
-		select * from match where orderNum='1'
+	<select id="getList5" resultType="com.lg.t2.match.MatchDTO">
+		select * from match where orderNum=1
 	</select>
 
 </mapper>  

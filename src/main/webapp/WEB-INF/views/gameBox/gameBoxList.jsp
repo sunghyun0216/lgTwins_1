@@ -9,8 +9,7 @@
 
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Home</title>
@@ -67,10 +66,6 @@
 
 </div>
 
-<div>
-
-</div>	
-
 <table>
 		<thead>  
 			<tr>
@@ -91,7 +86,7 @@
 		</thead>
 		
 		<tbody>	
-			<c:forEach items="${list5}" var="dto">
+			<c:forEach items="${list}" var="dto">
 			<tr>
 				<td>${dto.score1}</td>
 				<td>${dto.score2}</td>
@@ -109,7 +104,6 @@
 			</tr> 
 			</c:forEach>
 		</tbody>
-		
 </table>
 
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   

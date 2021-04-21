@@ -1,5 +1,8 @@
 package com.lg.t2.gameBox;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -80,6 +83,30 @@ public class GameBoxController {
 
 	@RequestMapping("/gameBox/gameBoxList")
 	public void getList(GameBoxDTO gameBoxDTO, Model model)throws Exception{
+		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+		
+		Calendar cal = Calendar.getInstance();
+		String format_time1 = format1.format(cal.getTime());
+		
+//		Date today = new Date(0, 0, 0);
+//		System.out.println(today);
+//		SimpleDateFormat date = new SimpleDateFormat("yyyy-mm-dd");
+//		System.out.println(date.format(today));
+		
+		String date = format_time1;
+		String yyyy = date.substring(0, 4);
+		String mm = date.substring(5, 7);
+		String dd = date.substring(8, 10);
+		String sss = yyyy + "-" + mm + "-" + dd;
+	
+		Date ddddddd = Date.valueOf(sss);
+
+		System.out.println(ddddddd);
+		
+		gameBoxDTO.setPlayDate(ddddddd);
+		
+		System.out.println(gameBoxDTO.getPlayDate());
+	
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
 		
 		model.addAttribute("list", ar);
