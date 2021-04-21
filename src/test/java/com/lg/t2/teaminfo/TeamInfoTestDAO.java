@@ -13,7 +13,7 @@ import com.lg.t2.MyAbstractTest;
 public class TeamInfoTestDAO extends MyAbstractTest {
 
 	@Autowired
-	private TeamInfoDAO teamInfoDAO; //DAO가 생성이 안된데..??
+	private TeamInfoDAO teamInfoDAO;
 	
 	@Test
 	public void getAllRosterInfoTest() throws Exception {
