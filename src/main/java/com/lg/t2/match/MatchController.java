@@ -16,12 +16,38 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lg.t2.gameBox.GameBoxDTO;
 
 
+
 @Controller
 //@RequestMapping("/match/**")
 public class MatchController {
 
 	@Autowired
 	private MatchService matchService;
+	
+	@PostMapping("/gameBox/gameBoxUpdate2")
+	public void setUpdate(MatchDTO matchDTO, Model model)throws Exception{
+		ModelAndView mv = new ModelAndView();
+
+		matchDTO = matchService.getSelect(matchDTO);	
+	
+		model.addAttribute("dto",matchDTO);
+	}
+	
+	@RequestMapping("/gameBox/gameBoxUpdate2")
+	public String setUpdate2(MatchDTO matchDTO, Model model)throws Exception{
+		
+		int result = matchService.setUpdate(matchDTO);	
+		
+		String message = "등록실패";
+		
+		if(result>0) {
+			message="등록성공";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./gameBoxList");		
+		return "gameBox/gameBoxList";
+	}
 	
 	@GetMapping("/match/matchList")
 	public void getList5(MatchDTO matchDTO, Model model)throws Exception{
@@ -31,7 +57,7 @@ public class MatchController {
 	
 	@RequestMapping(value = "gameBoxUpdate2")
 	public ModelAndView getSelect(MatchDTO matchDTO)throws Exception{
-
+		System.out.println("zzzzzzzzzzzzzㅋㅋㅋㅇㅋ");
 		ModelAndView mv = new ModelAndView();
 		matchDTO = matchService.getSelect(matchDTO);
 

@@ -14,7 +14,7 @@
 	</select>
 
 	<insert id="setInsert" parameterType="com.lg.t2.match.MatchDTO">
-		insert into match values(match_SEQ.nextval, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{runs}, #{hits}, #{mistake}, #{balls} )
+		insert into match values(65, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{runs}, #{hits}, #{mistake}, #{balls} )
 	</insert>
 
 	<update id="setUpdate" parameterType="com.lg.t2.match.MatchDTO">

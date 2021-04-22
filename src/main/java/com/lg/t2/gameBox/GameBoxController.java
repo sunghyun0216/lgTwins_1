@@ -94,7 +94,7 @@ public class GameBoxController {
 		String mm = date.substring(5, 7);
 		String dd = date.substring(8, 10);
 		String sss = yyyy + "-" + mm + "-" + dd;
-	
+
 		Date ddddddd = Date.valueOf(sss);
 
 		System.out.println(ddddddd);

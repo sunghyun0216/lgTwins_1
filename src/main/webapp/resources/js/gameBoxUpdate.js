@@ -22,11 +22,25 @@ $("#btnUpdate").click(function(){
 	
 });
 
+let update2 = document.getElementById("update2");
+let frmUpdate2 = document.getElementById("frmUpdate2");
+
+update2.addEventListener("click", function(){
+	console.log("zz");
+	let result = confirm("변경 하시겠습니까?")
+	
+	if(result){
+		frmUpdate2.setAttribute("method", "post");
+		frmUpdate2.submit();
+	}
+	
+});
+
+
 let del = document.getElementById("delete");
 let frmDelete = document.getElementById("frmDelete");
 let orderNum = $("#orderNum").val();
 		
-console.log(orderNum);
 
 del.addEventListener("click", function() {
 	let result = confirm("정말 삭제하시겠습니까?");

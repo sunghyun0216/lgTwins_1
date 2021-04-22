@@ -7,8 +7,7 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
@@ -49,8 +48,8 @@
 		<input type="submit" id="btnUpdate" value="일반 기록 수정" class="btn btn-primary" >
 		</form>		
 		
-			<form id="frmUpdate2" action="./gameBoxUpdate2" method="post">
-			<a href="./gameBoxUpdate2" id="Update2" class="btn btn-info">세부 기록 수정</a>
+		<a href="#" id="update2" class="btn btn-info">세부 기록 수정</a>
+		<form action="./gameBoxUpdate2?orderNum=${dto.orderNum}" id="frmUpdate2" method="post">
 
 		</form>
 		
