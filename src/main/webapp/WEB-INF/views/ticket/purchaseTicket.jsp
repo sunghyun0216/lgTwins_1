@@ -38,7 +38,7 @@
     <div>
     <!--탭 메뉴 jquery에서 버튼이벤트 안에 if문추가해서 변수방지 구현  -->
     	
-		<select size=6 name="language" onchange="handleOnChange(this)">
+		<select size=6 name="class_block" onchange="handleOnChange(this)">
 			<optgroup label="블루">
 			    <option value="b101">101블록</option>
 			    <option value="b102">102블록</option>
@@ -56,9 +56,17 @@
 			    <option value="b402">402블록</option>
 			  </optgroup>
 		</select>
-		
+		<!-- 이프문이용해서  -->
+		<select name="sitNum" onchange="handleOnChange2(this)">
+			<option value="01">01</option>
+			<option value="02">02</option>
+			<option value="03">03</option>
+			<option value="04">04<option>
+		</select>
 		
 		<h3 id='result'></h3>
+		<h3 id='result2'></h3>
+		<h3 id='valResult'></h3>
 	</div>
 	
 	<!-- 결제 창 -->
