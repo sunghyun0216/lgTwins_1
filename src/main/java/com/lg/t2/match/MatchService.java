@@ -21,4 +21,12 @@ public class MatchService {
 		return matchDAO.setInsert(matchDTO);
 	}
 	
+	public int setUpdate(MatchDTO matchDTO)throws Exception{
+		return matchDAO.setUpdate(matchDTO);
+	}
+	
+	public MatchDTO getSelect(MatchDTO matchDTO) throws Exception{
+		return matchDAO.getSelect(matchDTO);
+	}
+	
 }

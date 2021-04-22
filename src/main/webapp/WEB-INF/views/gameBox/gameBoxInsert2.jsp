@@ -17,7 +17,7 @@
 	<div class="container">
 		<h4 class="table" class="thead-dark">경기기록 > GAME BOX > 경기기록 입력 >> gameBox 입력</h4>
 		<form id="frm" action="./gameBoxInsert2" method="post">
-		
+			
 			<div class="form-group">
 				<label for="team"> 1회 :</label> <select id="one" name="one" size="1">
 					<option value="0" selected>0</option>

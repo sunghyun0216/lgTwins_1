@@ -6,7 +6,6 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import com.lg.t2.gameBox.GameBoxDTO;
 
 @Repository
 public class MatchDAO {
@@ -19,8 +18,16 @@ public class MatchDAO {
 		return sqlSession.selectList(NAMESPACE+"getList5");
 	}
 	
+	public MatchDTO getSelect(MatchDTO matchDTO)throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getSelect", matchDTO);
+	}
+	
 	public int setInsert(MatchDTO matchDTO)throws Exception{
 		return sqlSession.insert(NAMESPACE+"setInsert", matchDTO);
+	}
+	
+	public int setUpdate(MatchDTO matchDTO)throws Exception{
+		return sqlSession.update(NAMESPACE+"setUpdate", matchDTO);
 	}
 	
 }

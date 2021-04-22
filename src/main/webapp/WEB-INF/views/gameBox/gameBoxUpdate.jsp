@@ -46,13 +46,18 @@
 				<option value="무">무</option>	
 			</select><br>
 		</div>
-		<input type="submit" id="btnUpdate" value="UPDATE" class="btn btn-primary" >
+		<input type="submit" id="btnUpdate" value="일반 기록 수정" class="btn btn-primary" >
+		</form>		
 		
-	</form>		
+			<form id="frmUpdate2" action="./gameBoxUpdate2" method="post">
+			<a href="./gameBoxUpdate2" id="Update2" class="btn btn-info">세부 기록 수정</a>
 
-	<a href="#" id="delete" class="btn btn-danger">Delete</a>
+		</form>
+		
+		<a href="#" id="delete" class="btn btn-danger">경기 기록 삭제</a>
 		<form action="./gameBoxDelete?orderNum=${dto.orderNum}" id="frmDelete" method="post">
 			<%-- <input type="hidden" name="orderNum" value="${dto.orderNum}"> --%>
+			
 		</form>
 </div>
 

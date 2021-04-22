@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lg.t2.gameBox.GameBoxDTO;
@@ -27,6 +28,18 @@ public class MatchController {
 		List<MatchDTO> ar = matchService.getList5(matchDTO);
 		model.addAttribute("list5", ar);
 	}	
+	
+	@RequestMapping(value = "gameBoxUpdate2")
+	public ModelAndView getSelect(MatchDTO matchDTO)throws Exception{
+
+		ModelAndView mv = new ModelAndView();
+		matchDTO = matchService.getSelect(matchDTO);
+
+		mv.addObject("dto", matchDTO);
+		mv.setViewName("gameBox/gameBoxUpdate2");
+		return mv;
+	}
+	
 	
 	@GetMapping("/gameBox/gameBoxInsert2")
 	public ModelAndView setInsert()throws Exception{
@@ -49,8 +62,8 @@ public class MatchController {
 		}
 		
 		model.addAttribute("msg", message);
-		model.addAttribute("path", "./commonResult");
-		return "common/commonResult";	
+		model.addAttribute("path", "./gameBoxList");
+		return "gameBox/gameBoxList";	
 	}
 	
 	

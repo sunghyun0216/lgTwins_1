@@ -16,6 +16,7 @@ public class MatchDTO {
 	private long hits;
 	private long mistake;
 	private long balls;
+	
 	public long getOrderNum() {
 		return orderNum;
 	}

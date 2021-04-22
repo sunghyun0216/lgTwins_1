@@ -8,9 +8,18 @@
 	<select id="getList5" resultType="com.lg.t2.match.MatchDTO">
 		select * from match where orderNum=1
 	</select>
+	
+	<select id="getSelect" parameterType="com.lg.t2.match.MatchDTO" resultType="com.lg.t2.match.MatchDTO">
+		select * from match where orderNum = #{orderNum}
+	</select>
 
 	<insert id="setInsert" parameterType="com.lg.t2.match.MatchDTO">
-		insert into match values(59, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{runs}, #{hits}, #{mistake}, #{balls} )
+		insert into match values(match_SEQ.nextval, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{runs}, #{hits}, #{mistake}, #{balls} )
 	</insert>
 
+	<update id="setUpdate" parameterType="com.lg.t2.match.MatchDTO">
+		update match set score1=#{score1}, score2=#{score2}, score3=#{score3}, score4=#{score4}, score5=#{score5}, score6=#{score6}, score7=#{score7},
+		score8=#{score8}, score9=#{score9}, runs=#{runs}, hits=#{hits}, mistake=#{mistake}, balls=#{balls} where orderNum=#{orderNum}
+	</update> 
+		
 </mapper>  
