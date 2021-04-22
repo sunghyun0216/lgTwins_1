@@ -1,11 +1,18 @@
 package com.lg.t2.match;
 
+import java.sql.Date;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.lg.t2.gameBox.GameBoxDTO;
 
 
 @Controller
@@ -20,6 +27,31 @@ public class MatchController {
 		List<MatchDTO> ar = matchService.getList5(matchDTO);
 		model.addAttribute("list5", ar);
 	}	
+	
+	@GetMapping("/gameBox/gameBoxInsert2")
+	public ModelAndView setInsert()throws Exception{
+		ModelAndView mv = new ModelAndView();
+		
+		mv.setViewName("gameBox/gameBoxInsert2");
+		mv.addObject("result", "result");
+		return mv;
+	}
 
+	@PostMapping("/gameBox/gameBoxInsert2")//머지
+	public String setInsert(MatchDTO matchDTO, Model model)throws Exception{
+	
+		int result = matchService.setInsert(matchDTO);
+		
+		String message = "등록실패";
+		
+		if(result>0) {
+			message="등록성공";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", "./commonResult");
+		return "common/commonResult";	
+	}
+	
 	
 }

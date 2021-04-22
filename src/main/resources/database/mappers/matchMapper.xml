@@ -9,4 +9,8 @@
 		select * from match where orderNum=1
 	</select>
 
+	<insert id="setInsert" parameterType="com.lg.t2.match.MatchDTO">
+		insert into match values(59, #{score1}, #{score2}, #{score3}, #{score4}, #{score5}, #{score6}, #{score7}, #{score8}, #{score9}, #{runs}, #{hits}, #{mistake}, #{balls} )
+	</insert>
+
 </mapper>  

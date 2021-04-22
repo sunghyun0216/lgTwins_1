@@ -6,8 +6,7 @@
 <head>
 <!-- Required meta tags -->
 <meta charset="utf-8">
-<meta name="viewport"
-	content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 
@@ -92,9 +91,9 @@
 			</div>
 
 			<input type="submit" id="btn" value="등록" class="btn btn-primary">
-			<input type="button" id="add" value="세부기록" class="btn btn-danger">
-
 		</form>
+		
+		
 	</div>
 
 	<script type="text/javascript" src="../resources/js/gameBoxInsert.js"></script>

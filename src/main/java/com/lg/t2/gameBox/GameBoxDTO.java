@@ -25,8 +25,7 @@ public class GameBoxDTO {
 	private long hits;
 	private long mistake;
 	private long balls;
-	
-	
+		
 	
 	public long getScore1() {
 		return score1;

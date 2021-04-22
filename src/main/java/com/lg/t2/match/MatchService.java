@@ -17,4 +17,8 @@ public class MatchService {
 		return matchDAO.getList5();
 	}	
 	
+	public int setInsert(MatchDTO matchDTO)throws Exception{
+		return matchDAO.setInsert(matchDTO);
+	}
+	
 }

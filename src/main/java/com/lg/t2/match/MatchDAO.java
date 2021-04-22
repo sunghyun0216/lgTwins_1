@@ -19,4 +19,8 @@ public class MatchDAO {
 		return sqlSession.selectList(NAMESPACE+"getList5");
 	}
 	
+	public int setInsert(MatchDTO matchDTO)throws Exception{
+		return sqlSession.insert(NAMESPACE+"setInsert", matchDTO);
+	}
+	
 }
