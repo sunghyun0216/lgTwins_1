@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lg.t2.teamsort.TeamSortDAO">
+	
+	<!-- 모든 팀원 리스트 조회 : 선수 전체 용 -->
+	<select id="getGroupList" resultType="TeamGroupDTO">
+		SELECT * FROM teamGroup
+	</select>
+	
+	<select id="getPostionList" resultType="TeamPositionDTO">
+		SELECT * FROM teamPosition
+	</select>
+	 
+</mapper>  
+

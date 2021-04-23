@@ -17,17 +17,10 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="teamInfo_header">
 		<div class="team_group" id="teamInfoposi_nev">
-		<a href = ""> 코칭 스태프</a>
+		<a href = ""> 코칭 스태프</a> 
 		<a href = ""> 선수단 </a>
 		</div>
 		
-		<div class="team_posi">
-		<a href = "">투수</a>
-		<a href = "">포수</a>
-		<a href = "">외야수</a>
-		<a href = "">내야수</a>
-		<a href = "">육성선수</a>
-		</div>
 		
 	</div>
 	<div class="teamInfo_contents">

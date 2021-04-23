@@ -12,6 +12,7 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 //
 //    CONSTRAINT BioInfo_PK PRIMARY KEY (tbNum),
 //    CONSTRAINT tpNum_FK FOREIGN KEY(tbNum) REFERENCES twinsMemberInfo(tNum) On DELETE CASCADE
+	
 	private int tbNum;
 	private Date birth;
 	private int height;
@@ -140,7 +141,5 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 		// TODO Auto-generated method stub
 		super.setTpName(tpName);
 	}
-	
-	
 	
 }

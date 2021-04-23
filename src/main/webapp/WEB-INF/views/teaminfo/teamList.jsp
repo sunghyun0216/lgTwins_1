@@ -33,6 +33,7 @@
 		</div>
 	</div>
 	<div class="team_p_Info_contents">
+	<button class="seeOnlyAdmin" action="" >선추 추가하기  </button>
 		<ul>
 		<c:forEach items="${rosterdto}" var="rosterdto" > <!-- 호출하는 리스트  -->
 			<li class="info_brick" id =""><!-- javascript로 아이디 줄 것  -->	
@@ -40,14 +41,15 @@
 				<div class="bg"></div> 
 				<div class="likeComments"></div>
 				<div class="info_text">
-					<p class="back_number">${rosterdto.backNum}</p>
+					<h4 class="back_number">${rosterdto.backNum}</h4>
 					<h3 class="nameK"> ${rosterdto.tKName}</h3>
 					<p class="nameE">${rosterdto.tEName}</p>
-					<p class="position"> ${rosterdto.tpName} ● ${rosterdto.usehand}</p>
+					<p class="position"> ${rosterdto.tpName} . ${rosterdto.usehand}</p>
 				</div>
-				<div class="img_wrap">
+				<div class="img_wrap" url="">
 					<img src="">
 				</div>
+				
 				<button class="seeOnlyAdmin" action="" >삭제하기 </button>
 			</a>
 			</li>
