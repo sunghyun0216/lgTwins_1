@@ -54,6 +54,7 @@
 				<td>${dto.score}</td>
 				<td>${dto.place}</td>
 				<td>${dto.playDate}</td>
+			
 				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
 				<td>${dto.wwl}</td>
 			</tr>
@@ -105,6 +106,7 @@
 			</c:forEach>
 		</tbody>
 </table>
+</c:if>
 
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   
 

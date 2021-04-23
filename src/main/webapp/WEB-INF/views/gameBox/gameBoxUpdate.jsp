@@ -24,7 +24,7 @@
 		<div class="form-group">
 		<label for="playing">경기여부 :</label>
 			<select id="playing" name="playing" size="1" >
-				<option value="경기전" selected>경기전</option>
+				<option value="경기전">경기전</option>
 				<option value="경기중">경기중</option>
 				<option value="경기종료">경기종료</option>
 				<option value="경기취소">경기취소</option>	
@@ -46,15 +46,18 @@
 			</select><br>
 		</div>
 		<input type="submit" id="btnUpdate" value="일반 기록 수정" class="btn btn-primary" >
-		</form>		
+		</form>	
 		
-		<a href="./gameBoxUpdate2?orderNum=${dto.orderNum}" id="frmUpdate2" class="btn btn-info">세부 기록 수정</a>
+		<a href="./gameBoxUpdate2?orderNum=${dto.orderNum}" id="frmUpdate2" class="btn btn-info">세부 기록 수정</a><br>
 	
-		<a href="#" id="delete" class="btn btn-danger">경기 기록 삭제</a>
-		<form action="./gameBoxDelete?orderNum=${dto.orderNum}" id="frmDelete" method="post">
-			<%-- <input type="hidden" name="orderNum" value="${dto.orderNum}"> --%>
+	
+		
+		<form action="./gameBoxDelete?orderNum=${dto.orderNum}" id="frmDelete" method="get">
+<!-- 		<a href="#" id="delete" class="btn btn-danger">경기 기록 삭제</a> -->
+			<input type="hidden" name="orderNum" value="${dto.orderNum}">
 			
 		</form>
+		
 </div>
 
 <script type="text/javascript" src="../resources/js/gameBoxUpdate.js"></script> 
