@@ -24,30 +24,32 @@ public class MatchController {
 	@Autowired
 	private MatchService matchService;
 	
-	@PostMapping("/gameBox/gameBoxUpdate2")
-	public void setUpdate(MatchDTO matchDTO, Model model)throws Exception{
-		ModelAndView mv = new ModelAndView();
+	@GetMapping("/gameBox/gameBoxUpdate2")
+	public void setUpdate(MatchDTO matchDTO , Model model)throws Exception{
 
-		matchDTO = matchService.getSelect(matchDTO);	
-	
+		matchDTO = matchService.getSelect(matchDTO);
+		
 		model.addAttribute("dto",matchDTO);
 	}
 	
-	@RequestMapping("/gameBox/gameBoxUpdate2")
-	public String setUpdate2(MatchDTO matchDTO, Model model)throws Exception{
+	@PostMapping("/gameBox/gameBoxUpdate2")
+	public ModelAndView setUpdate2(MatchDTO matchDTO, ModelAndView mv)throws Exception{
 		
 		int result = matchService.setUpdate(matchDTO);	
-		
+		System.out.println("zzzz");
 		String message = "등록실패";
 		
 		if(result>0) {
 			message="등록성공";
+			mv.setViewName("redirect: ./gameBoxList");
+		} else {
+			mv.addObject("msg", "수정실패");
+			mv.addObject("path", "./gameBoxUpdate");		
+			mv.setViewName("common/commonResult");
 		}
-		
-		model.addAttribute("msg", message);
-		model.addAttribute("path", "./gameBoxList");		
-		return "gameBox/gameBoxList";
+		return mv;
 	}
+	
 	
 	@GetMapping("/match/matchList")
 	public void getList5(MatchDTO matchDTO, Model model)throws Exception{

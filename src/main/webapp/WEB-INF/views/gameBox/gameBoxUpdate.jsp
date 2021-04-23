@@ -48,11 +48,8 @@
 		<input type="submit" id="btnUpdate" value="일반 기록 수정" class="btn btn-primary" >
 		</form>		
 		
-		<a href="#" id="update2" class="btn btn-info">세부 기록 수정</a>
-		<form action="./gameBoxUpdate2?orderNum=${dto.orderNum}" id="frmUpdate2" method="post">
-
-		</form>
-		
+		<a href="./gameBoxUpdate2?orderNum=${dto.orderNum}" id="frmUpdate2" class="btn btn-info">세부 기록 수정</a>
+	
 		<a href="#" id="delete" class="btn btn-danger">경기 기록 삭제</a>
 		<form action="./gameBoxDelete?orderNum=${dto.orderNum}" id="frmDelete" method="post">
 			<%-- <input type="hidden" name="orderNum" value="${dto.orderNum}"> --%>
