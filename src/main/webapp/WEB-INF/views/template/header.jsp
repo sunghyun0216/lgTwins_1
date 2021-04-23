@@ -29,10 +29,10 @@
 				<div class="dropdown-menu">
 					<div class="row">
 						<div class="col">
-						 	<a class="dropdown-item " href="#">선수단</a> <!-- 1. teamIntro board 실행뒤, 팀table에서 오직 선수만을 조회는 GET,POST 값 요청하기 --> 
+						 	<a class="dropdown-item " href="${pageContext.request.contextPath}/teaminfo/teamList">선수단</a> 
 						</div>
 						<div class="col">
-							<a class="dropdown-item" href="#">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
+							<a class="dropdown-item" href="">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
 							<a class="dropdown-item" href="#">포수</a> 
 							<a class="dropdown-item" href="#">내야수</a> 
 							<a class="dropdown-item" href="#">외야수</a> 
