@@ -32,6 +32,7 @@
     <h3>팀${dto.teamName}</h3>
     <h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</h3>
     <h3><img width=50px height=50px src=${dto.teamLogo}></h3>
+    
     </div>
     
     <!-- 좌석 선택창 -->
@@ -66,17 +67,16 @@
 		
 		<h3 id='result'></h3>
 		<h3 id='result2'></h3>
-		<h3 id='valResult'></h3>
-		<h3 id='price'></h3>
+		
 	</div>
 	
 	<!-- 결제 창 -->
 	<div>
-		<h3>팀${dto.teamName}</h3>
-    	<h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</h3>
-    	<h3><img width=50px height=50px src=${dto.teamLogo}></h3>
-		<h3 id='valResult'></h3>
-		<h3 id='price'></h3>
+		<h3>팀명:${dto.teamName}</h3>
+		<h3><img width=50px height=50px src=${dto.teamLogo}></h3>
+    	<h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" />시합날짜: ${playDate}</h3>
+    	티켓번호:<h3 id='valResult'></h3>
+		가격:<h3 id='price'></h3>
       <input type="button" id="btn" class="btn btn-primary" value="결제하기">
     </div>
     

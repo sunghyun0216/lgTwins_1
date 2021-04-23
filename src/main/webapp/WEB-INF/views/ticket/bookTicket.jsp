@@ -36,7 +36,7 @@
 						<td>${dto.teamName}</td>
 						<c:if test="${today > playDate }">
 							<td>
-								<a href="./purchaseTicket?num=${dto.num}" class="btn btn-primary" role="button">결제하기</a>
+								<button onclick="window.open('./purchaseTicket?num=${dto.num}','window_name','width=1000,height=800,location=no,status=no,scrollbars=yes');">결제하기</button>
 							</td>
 						</c:if>
 

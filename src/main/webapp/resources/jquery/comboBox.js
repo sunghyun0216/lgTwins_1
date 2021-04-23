@@ -4,7 +4,7 @@
 var valResult=0;
 var value=0;
 var value2=0;
-var price=0
+var price=1;
 
 function handleOnChange(e) {
   // 선택된 데이터의 텍스트값 가져오기
@@ -36,6 +36,7 @@ function handleOnChange2(e) {
 	document.getElementById('valResult').innerText
     = valResult;
 
+
 	if(value>100 && value<103){
 		price=18000;
 		
@@ -53,4 +54,9 @@ function handleOnChange2(e) {
 	document.getElementById('price').innerText
     = price;
 
+	document.getElementById('price').value
+    = price;
+
   });
+
+
