@@ -37,6 +37,7 @@
 		<ul>
 		<c:forEach items="${rosterdto}" var="rosterdto" > <!-- 호출하는 리스트  -->
 			<li class="info_brick" id =""><!-- javascript로 아이디 줄 것  -->	
+			
 			<a id="teamInfo_per">
 				<div class="bg"></div> 
 				<div class="likeComments"></div>
@@ -49,9 +50,7 @@
 				<div class="img_wrap" url="">
 					<img src="">
 				</div>
-				
-				<button class="seeOnlyAdmin" action="" >삭제하기 </button>
-			</a>
+				<input type="button" onclick="del(${board.seq})">
 			</li>
 			</c:forEach>
 		</ul>

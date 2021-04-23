@@ -35,11 +35,11 @@ public class TeamInfoController {
 	}
 	
 	@GetMapping("teaminfo/teamPerInfo/*") // 전달값은... teamMemberInfoDTO.tNum으로 해야 한다 
-	public ModelAndView getPerInfoSelect () {
+	public ModelAndView getPerInfoSelect (int tNum) {
 		ModelAndView mv = new ModelAndView();
 		//MemberBioDTO bioDTO = teamInfoService.getPerInfoSelect(); // 팀맴버디티오 전달해야한다.
 		//파라미터를 어떻게 전달 받아야 할까?
-		mv.addObject("rosterdto",bioDTO);
+		mv.addObject("rosterdto",tNum);
 		mv.setViewName("teaminfo/teamPerInfo");
 		return mv;
 	}

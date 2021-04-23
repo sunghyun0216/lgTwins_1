@@ -21,7 +21,7 @@
 	</select>	
 	<!--(그룹 별 조회 : 포지션 별 코치리스트)-->
 	<!--개인별 정보 불러오기-->
-	<select id= "getPerInfoSelect" parameterType="TeamMemberInfoDTO" resultType="MemberBioDTO">
+	<select id= "getPerInfoSelect" parameterType="int" resultType="MemberBioDTO">
 		SELECT * FROM twinsMemberInfo, memberBio WHERE tNum = tbNum AND tNum = #{tNum}
 	</select> 
 	<!-- 팀원 정보 추가하기 : 테이블 분리가 되어있기 때문에 테이블별로 각각 2번 시행한다.  -->

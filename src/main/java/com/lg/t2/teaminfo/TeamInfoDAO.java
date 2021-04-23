@@ -26,8 +26,8 @@ public class TeamInfoDAO {
 		return sqlSession.selectList(NAMESPACE+"getRosterPerPosiSelect", posi );
 	}
 	//성공 선수 개별 정보 조회하기(단독 페이지) 
-	public MemberBioDTO getPerInfoSelect(TeamMemberInfoDTO teamMemberInfoDTO) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getPerInfoSelect",teamMemberInfoDTO);
+	public MemberBioDTO getPerInfoSelect(int tNum) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getPerInfoSelect",tNum);
 	}
 	//선수 정보 입력하기 step1 : team 정보 삽입하기 
 	public int setTeamInfoInsert (MemberBioDTO memberBioDTO) throws Exception{

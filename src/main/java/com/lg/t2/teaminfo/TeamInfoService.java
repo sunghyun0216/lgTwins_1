@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.lg.t2.teamsort.TeamGroupDTO;
 import com.lg.t2.teamsort.TeamPositionDTO;
@@ -24,10 +25,11 @@ public class TeamInfoService {
 		return teamSortDAO.getPostionList();
 	}
 	
-	//1. 팀 조회하기
+	//1. 팀 조회하기 (선수 전체 조회하기)
 	public List<TeamMemberInfoDTO> getRosterInfoSelect() throws Exception{
 		return teamInfoDAO.getRosterInfoSelect();
 	}
+	
 	////2. 포지션 별 선수 조회하기 (선수 단독)
 	public List<TeamMemberInfoDTO> getRosterPerPosiSelect (int posi)throws Exception{
 		
@@ -35,7 +37,7 @@ public class TeamInfoService {
 	}
 	
 	//3. 개별 선수 정보 출력하기 
-	public MemberBioDTO getPerInfoSelect(TeamMemberInfoDTO teamMemberInfoDTO) throws Exception{
-		return teamInfoDAO.getPerInfoSelect(teamMemberInfoDTO);
+	public MemberBioDTO getPerInfoSelect(@RequestParam("tNum")int tNum) throws Exception{
+		return teamInfoDAO.getPerInfoSelect(tNum);
 	}
 }
