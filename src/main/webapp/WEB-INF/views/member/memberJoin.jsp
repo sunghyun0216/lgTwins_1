@@ -57,6 +57,17 @@
 				<input type="text" class="form-control etc"	id="phone" name="phone">
 				<!-- 비어 있으면 X -->
 			</div>			
+			
+			<div class="form-group">
+				<label for="email">Email</label> 
+				<input type="text" class="form-control etc"	id="email" name="email">
+				<!-- 비어 있으면 X -->
+			</div>
+				
+			<div class="form-group">
+				<label for="avatar">Avatar</label> 
+				<input type="file" class="form-control etc"	id="avatar" name="avatar">
+			</div>	
 				
 						
 			<input type="submit" id="btn" value="JOIN" class="btn btn-primary" >

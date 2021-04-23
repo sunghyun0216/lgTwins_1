@@ -6,7 +6,21 @@ public class MemberDTO {
 	private String pw;
 	private String name;
 	private String phone;
+	private String email;
+	private MemberFileDTO memberFileDTO;
 	
+	public MemberFileDTO getMemberFileDTO() {
+		return memberFileDTO;
+	}
+	public void setMemberFileDTO(MemberFileDTO memberFileDTO) {
+		this.memberFileDTO = memberFileDTO;
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
 	public String getId() {
 		return id;
 	}

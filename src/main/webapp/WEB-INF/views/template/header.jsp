@@ -70,10 +70,11 @@
 			<!-- Dropdown -->
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
-				data-toggle="dropdown"> 고객문의 </a>
+				data-toggle="dropdown"> Twins </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">공지사항</a> 
-					<a class="dropdown-item" href="#">qna</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항/이벤트</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">twins news</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/story/storyList">twins story</a>
 				</div>
 			</li>
 		</ul>
