@@ -6,8 +6,8 @@
 <configuration>
 	<typeAliases>
 	<!-- DTO 등록  -->
-<!-- 		<typeAlias type="com.lg.t2.teaminfo.TeamMemberInfoDTO" alias="TeamMemberInfoDTO"/> -->
-<!-- 		<typeAlias type="com.lg.t2.teaminfo.MemberBioDTO" alias="MemberBioDTO"/>  -->
+	<typeAlias type="com.lg.t2.teaminfo.TeamMemberInfoDTO" alias="TeamMemberInfoDTO"/>
+	<typeAlias type="com.lg.t2.teaminfo.MemberBioDTO" alias="MemberBioDTO"/> 
 	</typeAliases>
 
 </configuration>  

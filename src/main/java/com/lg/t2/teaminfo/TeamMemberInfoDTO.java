@@ -21,6 +21,7 @@ public class TeamMemberInfoDTO {
 	private String tKName;
 	private String tEName;
 	private String usehand;
+	private int joinyear;
 	private int grNum;
 	private int psNum;
 //	//JOIN 연산 뒤 따라 붙는 칼럼들
@@ -57,6 +58,13 @@ public class TeamMemberInfoDTO {
 	}
 	public void setUsehand(String usehand) {
 		this.usehand = usehand;
+	}
+	
+	public int getJoinyear() {
+		return joinyear;
+	}
+	public void setJoinyear(int joinyear) {
+		this.joinyear = joinyear;
 	}
 	public int getGrNum() {
 		return grNum;

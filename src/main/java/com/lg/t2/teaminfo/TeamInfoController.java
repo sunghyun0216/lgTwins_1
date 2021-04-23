@@ -4,23 +4,24 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller // controller 지정 어노테이션
-@RequestMapping("/teaminfo/**") //출력할 뷰의 경로
+@Controller
+@RequestMapping("/teaminfo/**")//view 위치 알려주기
 public class TeamInfoController {
 	
 	@Autowired
-	private TeamInfoService teamInfoService;
+	private TeamInfoService teamInfoService;	
 	
-	public ModelAndView getAllRosterInfo ()throws Exception{
+	@RequestMapping("getRosterList")
+	public ModelAndView getRosterInfoSelect()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
-		List<TemaMemberInfoDTO> ar = teamInfoService.getAllRosterInfo();
-		
-		return mv;
+		List<TeamMemberInfoDTO> rosterList = teamInfoService.getRosterInfoSelect();
+		mv.addObject("roster",rosterList); // jsp 맵핑할 용어, 배열이름
+		mv.setViewName("teaminfo/teamList");
+		return mv; 
 	}
-	
 	
 }

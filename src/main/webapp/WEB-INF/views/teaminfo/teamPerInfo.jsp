@@ -16,25 +16,23 @@
 <body>
 	<c:import url="./template/header.jsp"></c:import>
 	<div class="teamInfo_header">
-	<!-- 불러와야 하는 데이터 1: team DATA, position DATA -->
-	<!-- 불러와야 하는 데이터 2: 선수단 List 혹은 Coach List DATA -->
 		<div class="team_group" id="teamInfoposi_nev">
-		<a href = ""> 코칭 스태프</a> <!-- 페이지 이동X -->
-		<a href = ""> 선수단 </a> <!-- 페이지 이동 X -->
+		<a href = ""> 코칭 스태프</a>
+		<a href = ""> 선수단 </a>
 		</div>
 		
-		<div class="team_posi"> <!-- TeamPerInfo 페이지 이동 -->
-		<a href = "teamList?posiNum=11">투수</a> <!-- post 방식의 요청  -->
-		<a href = "teamList?posiNum=12">포수</a>
-		<a href = "teamList?posiNum=13">외야수</a>
-		<a href = "teamList?posiNum=14">내야수</a>
-		<a href = "teamList?posiNum=15">육성선수</a>
+		<div class="team_posi">
+		<a href = "">투수</a>
+		<a href = "">포수</a>
+		<a href = "">외야수</a>
+		<a href = "">내야수</a>
+		<a href = "">육성선수</a>
 		</div>
 		
 	</div>
 	<div class="teamInfo_contents">
 		<ul>
-		<c:forEach items="${roster}" var="" > <!-- 호출하는 리스트  -->
+		<c:forEach var="roster" items=""> <!-- 호출하는 리스트  -->
 			<li class="info_brick" id =""><!-- javascript로 아이디 줄 것  -->	
 			<a id="teamInfo_per">
 				<div class="bg"></div> 
