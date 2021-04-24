@@ -94,7 +94,7 @@
 
 
 <script type="text/javascript" src="../resources/jquery/iamport.js"></script>
-<script type="text/javascript" src="../resources/jquery/tabMenu.js"></script>
-<script type="text/javascript" src="../resources/jquery/comboBox.js"></script>
+<!-- <script type="text/javascript" src="../resources/jquery/tabMenu.js"></script> -->
+<!-- <script type="text/javascript" src="../resources/jquery/comboBox.js"></script> -->
 </body>
 </html>
