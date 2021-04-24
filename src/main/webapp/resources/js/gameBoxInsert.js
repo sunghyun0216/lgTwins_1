@@ -20,11 +20,13 @@ let id = document.getElementById("team");
 let score = document.getElementById("score");
 let place = document.getElementById("place");
 let playDate = document.getElementById("playDate");
+let playTime = document.getElementById("playTime");
 
 let teamCheckResult = false;
 let scoreCheckResult = false;
 let placeCheckResult = false;
 let playCheckDateResult = false;
+let	playChecktimeResult = false;
 
 id.addEventListener("blur", function(){
 	let message = "팀명은 2글자 이상입니다.";

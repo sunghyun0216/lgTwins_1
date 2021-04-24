@@ -72,27 +72,30 @@ public class MatchController {
 	@GetMapping("/gameBox/gameBoxInsert2")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
+		System.out.println("z");
 		mv.setViewName("gameBox/gameBoxInsert2");
 		mv.addObject("result", "result");
 		return mv;
 	}
 
 	@PostMapping("/gameBox/gameBoxInsert2")//머지
-	public String setInsert(MatchDTO matchDTO, Model model)throws Exception{
+	public ModelAndView setInsert(MatchDTO matchDTO, ModelAndView mv)throws Exception{
 	
 		int result = matchService.setInsert(matchDTO);
 		
 		String message = "등록실패";
+		System.out.println("Zz");
 		
 		if(result>0) {
 			message="등록성공";
+			mv.setViewName("redirect: ./gameBoxList");
+		} else {
+			mv.addObject("msg", "수정실패");
+			mv.addObject("path", "./gameBoxInsert");
+			mv.setViewName("common/commonResult");
 		}
 		
-		model.addAttribute("msg", message);
-		model.addAttribute("path", "./gameBoxList");
-		return "gameBox/gameBoxList";	
+		return mv;	
 	}
-	
-	
+
 }

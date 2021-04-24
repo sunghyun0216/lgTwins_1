@@ -17,7 +17,7 @@ public class GameBoxService {
 //	private HttpSession session;
 	
 	public List<GameBoxDTO> getList(GameBoxDTO gameBoxDTO)throws Exception{
-		return gameBoxDAO.getList();
+		return gameBoxDAO.getList(gameBoxDTO);
 	}
 
 	public GameBoxDTO getSelect(GameBoxDTO gameBoxDTO) throws Exception{

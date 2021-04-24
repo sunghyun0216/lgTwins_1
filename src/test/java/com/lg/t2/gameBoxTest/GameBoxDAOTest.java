@@ -16,11 +16,11 @@ public class GameBoxDAOTest extends MyAbstractTest{
 	@Autowired
 	private GameBoxDAO gameBoxDAO;
 
-	@Test
-	public void getListTest()throws Exception {
-		List<GameBoxDTO> ar = gameBoxDAO.getList();
-		assertNotEquals(0, ar.size());
-	}
+//	@Test
+//	public void getListTest()throws Exception {
+//		List<GameBoxDTO> ar = gameBoxDAO.getList();
+//		assertNotEquals(0, ar.size());
+//	}
 
 	@Test
 	public void getSelectTest()throws Exception {

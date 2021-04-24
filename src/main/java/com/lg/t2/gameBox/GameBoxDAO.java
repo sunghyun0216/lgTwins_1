@@ -18,8 +18,8 @@ public class GameBoxDAO {
 		return sqlSession.delete(NAMESPACE+"setDelete", gameBoxDTO);
 	}
 
-	public List<GameBoxDTO> getList()throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getList");
+	public List<GameBoxDTO> getList(GameBoxDTO gameBoxDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getList", gameBoxDTO);
 	}
 	
 	public GameBoxDTO getSelect(GameBoxDTO gameBoxDTO)throws Exception{

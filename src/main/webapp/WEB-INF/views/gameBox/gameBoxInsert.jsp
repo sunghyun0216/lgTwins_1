@@ -10,14 +10,9 @@
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 
-<link
-	href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.css"
-	rel="stylesheet">
-<script
-	src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-bs4.min.js"></script>
-<link rel="stylesheet" href="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.css">
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script src="//mugifly.github.io/jquery-simple-datetimepicker/jquery.simple-dtpicker.js"></script>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
 <title>Insert title here</title>
 <style type="text/css">
@@ -56,16 +51,34 @@
 			</div>
 
 			<div class="form-group">
-				<label for="playDate">경기날짜 및 시간:</label>
+				<label for="playDate">경기날짜 :</label>
 				<script>
 					$(function() {
-						$('.datetimepicker').appendDtpicker({'locale' : 'ko'});
+						$( "#datepicker1" ).datepicker({
+						    dateFormat: 'yy년 mm월 dd일',
+						    prevText: '이전 달',
+						    nextText: '다음 달',
+						    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+						    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+						    dayNames: ['일','월','화','수','목','금','토'],
+						    dayNamesShort: ['일','월','화','수','목','금','토'],
+						    dayNamesMin: ['일','월','화','수','목','금','토'],
+						    showMonthAfterYear: true,
+						    changeMonth: true,
+						    changeYear: true,
+						    yearSuffix: '년'
+						  });
 					});
 				</script>
-				<input type="text" class="datetimepicker" id="playDate" name="playDate">
-				<h5 id="playDateResult"></h5>
-				<!-- 2021/04/08 -->
+				<input type="text" id="datepicker1" name="playDate">
+				<h5 id="playDateResult"></h5>	
 			</div>
+			
+			<div class="form-group">
+				<label for="playTime">경기시간 :</label> <input type="text" class="form-control myCheck" id="playTime" name="playTime">
+				<h5 id="timeResult"></h5>
+			</div>
+
 
 			<div class="form-group">
 				<label for="playing">경기여부 :</label> <select id="playing"

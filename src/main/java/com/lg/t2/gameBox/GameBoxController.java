@@ -83,30 +83,17 @@ public class GameBoxController {
 
 	@RequestMapping("/gameBox/gameBoxList")
 	public void getList(GameBoxDTO gameBoxDTO, Model model)throws Exception{
-		
-		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+				
+		SimpleDateFormat format1 = new SimpleDateFormat ("yyyyMMdd");
 		
 		Calendar cal = Calendar.getInstance();
-		String format_time1 = format1.format(cal.getTime());
+		String format_Date = format1.format(cal.getTime());
 		
-		String date = format_time1;
-		String yyyy = date.substring(0, 4);
-		String mm = date.substring(5, 7);
-		String dd = date.substring(8, 10);
-		String sss = yyyy + "-" + mm + "-" + dd;
-
-		Date ddddddd = Date.valueOf(sss);
-
-		System.out.println(ddddddd);
-		
-		gameBoxDTO.setPlayDate(ddddddd);
-		
-		System.out.println(gameBoxDTO.getPlayDate());
+		gameBoxDTO.setPlayDate(format_Date);
 	
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
 		
 		model.addAttribute("list", ar);
-
 	}
 
 	@RequestMapping(value = "gameBoxUpdate")
@@ -123,7 +110,7 @@ public class GameBoxController {
 	@GetMapping("/gameBox/gameBoxInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		
+		System.out.println("Z");
 		mv.setViewName("gameBox/gameBoxInsert");
 		mv.addObject("result", "result");
 		return mv;
@@ -135,29 +122,26 @@ public class GameBoxController {
 	
 		int result = gameBoxService.setInsert(gameBoxDTO);
 		
-		SimpleDateFormat format1 = new SimpleDateFormat ( "yyyy-MM-dd");
+		System.out.println("Zzzz");
+		System.out.println(gameBoxDTO.getPlayTime());
+		String message = "등록실패";
+		
+		
+		SimpleDateFormat format1 = new SimpleDateFormat ("yyyyMMdd");
 		
 		Calendar cal = Calendar.getInstance();
-		String format_time1 = format1.format(cal.getTime());
+		String format_Date = format1.format(cal.getTime());
 		
-		String date = format_time1;
-		String yyyy = date.substring(0, 4);
-		String mm = date.substring(5, 7);
-		String dd = date.substring(8, 10);
-		String sss = yyyy + "-" + mm + "-" + dd;
+		gameBoxDTO.setPlayDate(format_Date);
 	
-		Date ddddddd = Date.valueOf(sss);
+		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
 		
-		gameBoxDTO.setPlayDate(ddddddd);
+		model.addAttribute("list", ar);
 		
-		String message = "등록실패";
 		
 		if(result>0) {
 			message="등록성공";
 		}
-		
-		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
-		model.addAttribute("list", ar);
 		
 		model.addAttribute("msg", message);
 		model.addAttribute("path", "./gameBoxInsert2");
