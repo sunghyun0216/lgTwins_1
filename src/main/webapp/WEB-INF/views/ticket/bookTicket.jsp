@@ -34,12 +34,12 @@
 						<td>잠실</td>
 						<td><img width=50px height=50px src=${dto.teamLogo}></td>
 						<td>${dto.teamName}</td>
-						<c:if test="${today > playDate }">
-							<td>
+<%-- 						<c:if test="${today > playDate }">
+ --%>							<td>
 								<button onclick="window.open('./purchaseTicket?num=${dto.num}','window_name','width=1000,height=800,location=no,status=no,scrollbars=yes');">결제하기</button>
 							</td>
-						</c:if>
-
+<%-- 						</c:if>
+ --%>
 					</tr>
 				</c:forEach>
 			</tbody>

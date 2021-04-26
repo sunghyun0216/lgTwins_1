@@ -4,6 +4,7 @@ var value=0;
 var value2=0;
 var price=1;
 
+
 function handleOnChange(e) {
   // 선택된 데이터의 텍스트값 가져오기
   value = e.value;
@@ -84,6 +85,38 @@ var idx = 0
 	    $(".tab_cont > div").eq(idx).show();
 	}
   });
+
+
+ 
+
+$('#check').on('click', function(){
+	var teamName=document.getElementById("teamName").value
+	var teamLogo=document.getElementById("teamLogo").value
+	var playDate=new Date();
+/*	var playDate=document.getElementById("playDate").value*/
+	/*날짜 형식에 따라 저장안될떄가 있음*/
+	console.log(teamName);
+	console.log(teamLogo);
+	console.log(playDate);
+        var form = {
+                teamName: teamName,
+                teamLogo: teamLogo,
+				playDate: playDate,
+				sitNum: valResult,
+				price: price
+        }
+        $.ajax({
+            url: "writeTicket",
+            type: "POST",
+            data: form,
+            success: function(data){
+                $('#resultDTO').text(data);
+            },
+            error: function(){
+                alert("simpleWithObject err");
+            }
+        });
+    });
 
 
 /*아임포트api*/

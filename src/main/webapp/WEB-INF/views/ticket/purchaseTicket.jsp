@@ -29,10 +29,9 @@
   <div class="tab_cont">
   	<!-- 티켓정보 확인창 -->
     <div class="on">
-    <h3>팀${dto.teamName}</h3>
-    <h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</h3>
-    <h3><img width=50px height=50px src=${dto.teamLogo}></h3>
-    
+    <input type="text" id="teamName" value="${dto.teamName}">
+    <input type="text" id="teamLogo" value="${dto.teamLogo}">
+    <input type="text" id="playDate" value="${dto.playDate}">
     </div>
     
     <!-- 좌석 선택창 -->
@@ -76,7 +75,6 @@
 		<h3><img width=50px height=50px src=${dto.teamLogo}></h3>
     	<h3><fmt:formatDate value="${dto.playDate}" pattern="yyyy-MM-dd" var="playDate" />시합날짜: ${playDate}</h3>
     	티켓번호:<h3 id='valResult'></h3>
-    	<input type="text" id='valResult' value="valResult">
 		가격:<h3 id='price'></h3>
       <input type="button" id="btn" class="btn btn-primary" value="결제하기">
     </div>
