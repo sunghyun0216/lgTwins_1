@@ -14,18 +14,18 @@
 	</select>
 	
 	<!--(그룹 별 조회 : 포지션 별 선수 리스트)-->
-	<select id="getRosterPerPosiSelect" parameterType="int" resultType="TeamMemberInfoDTO">
+	<select id="getRosterPerPosiSelect" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO" resultType="TeamMemberInfoDTO">
 		SELECT T.*, P.tpname,G.tgname 
 		FROM twinsMemberInfo T, teamPostion P, teamGroup G 
 		WHERE T.psnum = P.tpNum AND T.grNum = G.tgnum AND ( P.tpNum = #{psNum})
 	</select>	
 	<!--(그룹 별 조회 : 포지션 별 코치리스트)-->
 	<!--개인별 정보 불러오기-->
-	<select id= "getPerInfoSelect" parameterType="int" resultType="MemberBioDTO">
+	<select id= "getPerInfoSelect" parameterType="int" resultType="com.lg.t2.teaminfo.MemberBioDTO">
 		SELECT * FROM twinsMemberInfo, memberBio WHERE tNum = tbNum AND tNum = #{tNum}
 	</select> 
 	<!-- 팀원 정보 추가하기 : 테이블 분리가 되어있기 때문에 테이블별로 각각 2번 시행한다.  -->
-	<insert id="setTeamInfoInsert" parameterType="MemberBioDTO">
+	<insert id="setTeamInfoInsert" parameterType="com.lg.t2.teaminfo.MemberBioDTO">
 		INSERT INTO twinsMemberInfo VALUES (TINFO_SEQ.nextval, #{backNum},#{tKName},#{tEName},#{useHand},#{joinyear},#{grNum},#{psNum})	
 	</insert>
 	
@@ -34,14 +34,14 @@
 	</insert>
 	
 	<!--팀원 갱신하기 -->
-	<update id="setTeamInfoUpdate" parameterType="TeamMemberInfoDTO">
+	<update id="setTeamInfoUpdate" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO">
 		UPDATE twinsMemberInfo 
 		SET backNum=#{backNum}, tKName = #{tKName}, tEName = #{tEName}, useHand = #{useHand}, joinyear = #{joinyear}, grNum= #{grNum},psNum = #{psNum}
 		WHERE tNum = #{tNum}
 	</update>
 	
 	<!-- 팀원 삭제하기 //팀원 삭제시 다른 것들은 자동 삭제가 된다-->
-	<delete id="setTeamInfoDelete" parameterType="TeamMemberInfoDTO" >
+	<delete id="setTeamInfoDelete" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO" >
 		DELETE twinsMemberInfo 
 		WHERE tNum=#{tNum}
 	</delete>

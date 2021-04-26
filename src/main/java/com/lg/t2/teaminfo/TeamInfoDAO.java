@@ -15,8 +15,6 @@ public class TeamInfoDAO {
 	private final String NAMESPACE="com.lg.t2.teaminfo.TeamInfoDAO.";
 	
 	
-	//포지션 List 가져오기
-	
 	//성공 선수단 리스트 가져오기 결과 : teammemberinfoDTO
 	public List<TeamMemberInfoDTO> getRosterInfoSelect() throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getRosterInfoSelect");
@@ -25,7 +23,7 @@ public class TeamInfoDAO {
 	public List<TeamMemberInfoDTO> getRosterPerPosiSelect (int posi)throws Exception{
 		return sqlSession.selectList(NAMESPACE+"getRosterPerPosiSelect", posi );
 	}
-	//성공 선수 개별 정보 조회하기(단독 페이지) 
+	//성공, 선수 개별 정보 조회하기(단독 페이지) 
 	public MemberBioDTO getPerInfoSelect(int tNum) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getPerInfoSelect",tNum);
 	}

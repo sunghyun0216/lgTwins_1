@@ -24,12 +24,16 @@
 		<a href = ""> 선수단 </a> <!-- 페이지 이동 X -->
 		</div>
 		
-		<div class="team_posi"> <!-- TeamPerInfo 페이지 이동 -->
-		<a href = "${pageContext.request.contextPath}/teaminfo/teamList">투수</a> <!-- post 방식의 요청  -->
-		<a href = "${pageContext.request.contextPath}/teaminfo/teamList">포수</a>
-		<a href = "${pageContext.request.contextPath}/teaminfo/teamList">외야수</a>
-		<a href = "${pageContext.request.contextPath}/teaminfo/teamList">내야수</a>
-		<a href = "${pageContext.request.contextPath}/teaminfo/teamList">육성선수</a>
+		<div class="team_posiList"> <!-- TeamPerInfo 검색처리 -->
+		<a href = "${pageContext.request.contextPath}/teaminfo/teamListposi.do?id=${11}">투수</a> <!-- get 방식의 요청  -->
+		<a href = "${pageContext.request.contextPath}/teaminfo/teamListposi.do?id=${12}">포수</a>
+		<a href = "${pageContext.request.contextPath}/teaminfo/teamListposi.do?id=${13}">외야수</a>
+		<a href = "${pageContext.request.contextPath}/teaminfo/teamListposi.do?id=${14}">내야수</a>
+		<a href = "${pageContext.request.contextPath}/teaminfo/teamListposi.do?id=${15}">육성선수</a>
+		
+		<!-- 
+			boardUpdate.do?id=${board.id} // 파라미터 넘겨주는 기법
+		 -->
 		</div>
 	</div>
 	<div class="team_p_Info_contents">
@@ -38,7 +42,7 @@
 		<c:forEach items="${rosterdto}" var="rosterdto" > <!-- 호출하는 리스트  -->
 			<li class="info_brick" id =""><!-- javascript로 아이디 줄 것  -->	
 			
-			<a id="teamInfo_per">
+			<a id="teamInfo_per" url=".do?tNum=${rosterdto.tNum}">
 				<div class="bg"></div> 
 				<div class="likeComments"></div>
 				<div class="info_text">
@@ -50,7 +54,7 @@
 				<div class="img_wrap" url="">
 					<img src="">
 				</div>
-				<input type="button" onclick="del(${board.seq})">
+				<input type="button" onclick="del(${roster.seq})"> 선수삭제
 			</li>
 			</c:forEach>
 		</ul>

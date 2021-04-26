@@ -15,34 +15,49 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<div class="teamInfo_header">
-		<div class="team_group" id="teamInfoposi_nev">
-		<a href = ""> 코칭 스태프</a> 
-		<a href = ""> 선수단 </a>
+	
+	<div class="player_info">
+		<div class="player_private">
+		<ul>
+			<p id ="player_backNum">${memberBio.backNum}</p>
+			<li>${memberBio.posiName}</li>
+			<li>${memberBio.usehand}</li>
+			<li>${memberBio.tKName}</li>
+			<li>${memberBio.birth}</li>
+			<li>${memberBio.height} ＊ ${memberBio.weigth}</li>
+			<li>${memberBio.edu}</li>
+			<li>${memberBio.edu}년 입단</li>
+		</ul>
+			<ul>	
+			</ul>
+		</div>
+		<div class="player_photo">
+			<img src="">
+		</div>
+		<div class="player_record_thisyear">
 		</div>
 		
-		
-	</div>
-	<div class="teamInfo_contents">
-		<ul>
-		<c:forEach var="roster" items=""> <!-- 호출하는 리스트  -->
-			<li class="info_brick"><!-- javascript로 아이디 줄 것  -->	
-			<a class="teamInfo_per" url="./teamPerInfo/${roster.tNum}">
-				<div class="bg"></div> 
-				<div class="likeComments"></div>
-				<div class="info_text">
-					<p class="back_number">${roster.backNum}</p>
-					<h3 class="nameK"> ${roster.tKName}</h3>
-					<p class="nameE">${roster.tEName}</p>
-					<p class="position"> ${roster.tpName} . ${roster.usehand}</p>
+		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 -->
+		<div class="record_desk">
+			<div class="player_record">
+				<div>
+					<h3>최근 경기기록</h3>
+					<!-- 상세보기 버튼 만들기 -->
 				</div>
-				<div class="img_wrap">
-					<img src="">
+				<div>
+					<h3> 시즌별 경기기록</h3>
 				</div>
-			</a>
-			</li>
-			</c:forEach>
-		</ul>
+			</div>
+			<div class="player_photoes">
+			<!-- 사진추가 버튼 생성하기 -->
+			</div>
+			<div class="player_career">
+			<!-- 이력추가 버튼 만들기 -->
+			</div>
+			<div class="player_salary">
+			<!-- 정보 추가 버튼 만들기 -->
+			</div>
+		</div>
 	</div>
 </body>
 </html>

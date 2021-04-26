@@ -17,7 +17,4 @@ public class TeamGroupDTO {
 	public void setTgNum(int tgNum) {
 		this.tgNum = tgNum;
 	}
-	
-	
-	
 }
