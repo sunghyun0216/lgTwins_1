@@ -17,4 +17,8 @@ public class TicketService {
 	public TicketDTO getSelect(TicketDTO ticketDTO)throws Exception{
 		return ticketDAO.getSelect(ticketDTO);
 	}
+	
+	public int setWrite(PurchaseTicketDTO purchaseTicketDTO)throws Exception{
+		return ticketDAO.setWrite(purchaseTicketDTO);
+	}
 }

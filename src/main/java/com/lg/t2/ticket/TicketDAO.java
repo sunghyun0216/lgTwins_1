@@ -20,4 +20,9 @@ public class TicketDAO {
 		// TODO Auto-generated method stub
 		return sqlSession.selectOne(NAMESPACE+"getSelect", ticketDTO);
 	}
+	
+	public int setWrite(PurchaseTicketDTO purchaseTicketDTO)throws Exception{
+		int result = sqlSession.insert(NAMESPACE+"setWrite",purchaseTicketDTO);
+		return result;
+	}
 }
