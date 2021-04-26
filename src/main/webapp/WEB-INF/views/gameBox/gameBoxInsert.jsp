@@ -14,6 +14,12 @@
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
 
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+<script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
+
 <title>Insert title here</title>
 <style type="text/css">
 .r1 {
@@ -55,7 +61,7 @@
 				<script>
 					$(function() {
 						$( "#datepicker1" ).datepicker({
-						    dateFormat: 'yy년 mm월 dd일',
+						    dateFormat: 'yymmdd',
 						    prevText: '이전 달',
 						    nextText: '다음 달',
 						    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
@@ -75,7 +81,13 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="playTime">경기시간 :</label> <input type="text" class="form-control myCheck" id="playTime" name="playTime">
+				<label for="playTime">경기시간 :</label> 
+			<script>
+				$(function() {
+   					 $('.timepicker').timepicker();
+							});
+				</script>
+				<input type="text" class="timepicker" id="timepicker" name="playTime">
 				<h5 id="timeResult"></h5>
 			</div>
 

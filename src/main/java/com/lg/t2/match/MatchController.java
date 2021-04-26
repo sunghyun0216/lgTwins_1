@@ -28,20 +28,20 @@ public class MatchController {
 	public void setUpdate(MatchDTO matchDTO , Model model)throws Exception{
 
 		matchDTO = matchService.getSelect(matchDTO);
-		
+		System.out.println("업데11");
 		model.addAttribute("dto",matchDTO);
 	}
 	
 	@PostMapping("/gameBox/gameBoxUpdate2")
-	public ModelAndView setUpdate2(MatchDTO matchDTO, ModelAndView mv)throws Exception{
+	public ModelAndView setUpdate(MatchDTO matchDTO, ModelAndView mv)throws Exception{
 		
 		int result = matchService.setUpdate(matchDTO);	
-		System.out.println("zzzz");
+		System.out.println("업데22");
 		String message = "등록실패";
 		
 		if(result>0) {
 			message="등록성공";
-			mv.setViewName("redirect: ./gameBoxList");
+			mv.setViewName("redirect:./gameBoxList");
 		} else {
 			mv.addObject("msg", "수정실패");
 			mv.addObject("path", "./gameBoxUpdate");		

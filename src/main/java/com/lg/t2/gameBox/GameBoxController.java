@@ -31,6 +31,7 @@ public class GameBoxController {
 		String message = "삭제 실패";
 		String path = "./gameBoxList";
 		
+		System.out.println("딜리트");
 		if(result>0) {
 			message = "삭제 성공";
 		}
@@ -46,7 +47,7 @@ public class GameBoxController {
 		ModelAndView mv = new ModelAndView();
 
 		gameBoxDTO = gameBoxService.getSelect(gameBoxDTO);
-	
+		System.out.println("업데1");
 		model.addAttribute("dto",gameBoxDTO);
 	}
 	
@@ -60,7 +61,7 @@ public class GameBoxController {
 		if(result>0) {
 			message="등록성공";
 		}
-		
+		System.out.println("업데2");
 		model.addAttribute("msg", message);
 		model.addAttribute("path", "./gameBoxList");		
 		return "common/commonResult";
@@ -90,7 +91,7 @@ public class GameBoxController {
 		String format_Date = format1.format(cal.getTime());
 		
 		gameBoxDTO.setPlayDate(format_Date);
-	
+		System.out.println(format_Date);
 		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
 		
 		model.addAttribute("list", ar);
@@ -110,7 +111,7 @@ public class GameBoxController {
 	@GetMapping("/gameBox/gameBoxInsert")
 	public ModelAndView setInsert()throws Exception{
 		ModelAndView mv = new ModelAndView();
-		System.out.println("Z");
+		System.out.println("인서트1");
 		mv.setViewName("gameBox/gameBoxInsert");
 		mv.addObject("result", "result");
 		return mv;
@@ -122,7 +123,7 @@ public class GameBoxController {
 	
 		int result = gameBoxService.setInsert(gameBoxDTO);
 		
-		System.out.println("Zzzz");
+		System.out.println("인서트2");
 		System.out.println(gameBoxDTO.getPlayTime());
 		String message = "등록실패";
 		

@@ -21,14 +21,22 @@
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX </h4>
 
 
+
+<%-- 		<caption> --%>
+<!-- 			<div class="t_div1"> -->
+<%-- 				<button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button> --%>
+<!-- 			</div class> -->
+
 <div class="totalbox">
 	<div class="upper">
-		 <button class="nav-btn go-prev">&lt;</button>
+		 <button class="nav-btn go-prev" onclick="location='gameBoxList?">&lt;</button>
 		 <div id="day">
 		 <button class="nav-btn go-today"></button>
 		 <button class="nav-btn go-next">&gt;</button>
 		 </div>
 	</div>
+
+</form>
 
 	<div class="lower">
 	
