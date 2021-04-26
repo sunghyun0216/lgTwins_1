@@ -7,30 +7,12 @@
 
 	
 	<select id="getList" resultType="NoticeDTO" parameterType="Pager">
-		select * from
-			(select rownum R, N.* from
-				(select * from notice where
-					<choose>
-						<when test="kind=='title'">
-							title
-						</when>
-						
-						<when test="kind =='Contents'">
-							contents
-						</when>
-						
-						<otherwise>
-							date
-						</otherwise>
-					
-					</choose>
-					
-				  like '%' || #{search} || '%' and num > 0 order by num desc) N)
-		where R between #{startRow} and #{lastRow}
+		select * from notice order by regdate desc
 	</select>
+	
 
-
-
+	
+	
 
 
 

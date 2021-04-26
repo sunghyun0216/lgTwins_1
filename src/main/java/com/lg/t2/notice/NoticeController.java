@@ -29,7 +29,7 @@ public class NoticeController {
 		return mv;
 	}
 	
-	@RequestMapping("noticeList(String, Object)")
+	@RequestMapping("noticeList")
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
