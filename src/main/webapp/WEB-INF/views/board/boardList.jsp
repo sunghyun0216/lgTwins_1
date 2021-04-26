@@ -26,11 +26,15 @@
 			<tbody>
 			<c:forEach items="${list}" var="dto">
 					<tr>
-						<td>${dto.title}</td>
+						<td><a href="./${board}Select?num=${dto.num}"> <c:catch>
+									<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
+								</c:catch> ${dto.title}
+						</a></td>
 						<td>${dto.contents}</td>
 						<td>${dto.regDate}</td>
+
 					</tr>
-			</c:forEach>
+				</c:forEach>
 			</tbody>
 
 		</table>
@@ -39,11 +43,11 @@
 	<div class="container">
 		<ul class="pagination">
 
-		<c:if test="${pager.pre}">	
-	    <li class="page-item"><a class="page-link p" href="#" title="${pager.startNum-1}">Previous</a></li>
-	   </c:if>
+			<c:if test="${pager.pre}">	
+		    <li class="page-item"><a class="page-link p" href="#" title="${pager.startNum-1}">Previous</a></li>
+		   </c:if>
 	   
-	   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+	   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">	
 	   
 	    <li class="page-item"><a class="page-link p" href="#" title="${i}">${i}</a></li>
 	   </c:forEach>
@@ -70,31 +74,22 @@
 			</form>
 		</div>
 
-		<a href="./${board}Insert" class="btn  btn-primary" role="button">Write</a>
-		<script type="text/javascript">
-	$(".p").click(function(){
-		let kind= '${pager.kind}'; //Title, Wrirer, Contents
-		$(".sel").each(function() {
-			let t = $(this).text(); //Title, Wrirer, Contents
-			if(t == kind){
-				$(this).prop("selected", true);
-			}
-		});
-		
-		$(".p").click(function () {
-			let curPage = $(this).attr("title");
-			$("#curPage").val(curPage);
-			let search= '${pager.search}';
-			$("#frm").submit();
-		
+	<script type="text/javascript">
+	let kind= '${pager.kind}';//Title, Writer, Contents
+	$(".sel").each(function() {
+		let t = $(this).text();//Title, Writer, Contents
+		if(t == kind){
+			$(this).prop("selected", true);
+		}
+	});
+	
+	$(".p").click(function () {
+		let curPage = $(this).attr("title");
+		$("#curPage").val(curPage);
+		let search= '${pager.search}';
 		$("#frm").submit();
 		
-		/* $("#curPage").val(curPage);
-		$("#kind").val(kind);
-		$("#search").val(search);
-		 */
-		
-		//location.href="./${board}List?curPage="+curPage+"&kind=${pager.kind}&search=${pager.search}";
+
 		
 	});
 	

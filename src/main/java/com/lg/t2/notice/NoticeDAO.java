@@ -18,19 +18,17 @@ public class NoticeDAO implements BoardDAO{
 	
 	private final String NAMESPACE="com.lg.t2.board.notice.NoticeDAO.";
 
-	@Override
+	@Override // List
 	public List<BoardDTO> getList(Pager pager) throws Exception {
-	//22번	
 		return sqlSession.selectList(NAMESPACE+"getList", pager);
 	}
 
-	@Override
+	@Override // TotalCount
 	public long getTotalCount(Pager pager) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.selectOne(NAMESPACE+"getTotalCount", pager);
 	}
 
-	@Override
+	@Override // Select
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
 		
 		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
@@ -38,20 +36,17 @@ public class NoticeDAO implements BoardDAO{
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE+"setUpdate", boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
 	
 }

@@ -1,4 +1,4 @@
-package com.lg.t2.notice;
+package com.lg.t2.news;
 
 import java.util.List;
 
@@ -14,34 +14,34 @@ import com.lg.t2.util.FileManager;
 import com.lg.t2.util.Pager;
 
 @Service
-public class NoticeService implements BoardService {
+public class NewsService implements BoardService{
 
 	@Autowired
-	private NoticeDAO noticeDAO;
+	private NewsDAO newsDAO;
 	
 	@Autowired
 	private FileManager fileManager;
 	
 	@Autowired
 	private HttpSession session;
-	
-	
-	@Override //List
-	public List<BoardDTO> getList(Pager pager) throws Exception {
+
+	@Override
+	public List<BoardDTO> getList(Pager pager)throws Exception{
 		pager.makeRow();
-		long totalCount = noticeDAO.getTotalCount(pager);
+		long totalCount = newsDAO.getTotalCount(pager);
 		pager.makeNum(totalCount);
-		return noticeDAO.getList(pager);
+		return newsDAO.getList(pager);
 	}
+	
 
 	@Override
 	public BoardDTO getSelect(BoardDTO boardDTO) throws Exception {
-		return noticeDAO.getSelect(boardDTO);
+		return newsDAO.getSelect(boardDTO);
 	}
 
 	@Override
 	public int setInsert(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
-	
+		// TODO Auto-generated method stub
 		return 0;
 	}
 
@@ -53,9 +53,15 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		return noticeDAO.setDelete(boardDTO);
+		// TODO Auto-generated method stub
+		return 0;
 	}
+	
+	
 
+	
+	
+	
 	
 	
 	

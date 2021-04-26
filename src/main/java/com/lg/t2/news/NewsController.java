@@ -1,10 +1,9 @@
-package com.lg.t2.notice;
+package com.lg.t2.news;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -12,29 +11,18 @@ import com.lg.t2.board.BoardDTO;
 import com.lg.t2.util.Pager;
 
 @Controller
-@RequestMapping("/notice/**")
-public class NoticeController {
+@RequestMapping("/news/**")
+public class NewsController {
 
 	@Autowired
-	private NoticeService noticeService;
+	private NewsService newsService;
 	
-	@GetMapping("noticeSelect") // Select
-	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
-		ModelAndView mv = new ModelAndView();
-		boardDTO = noticeService.getSelect(boardDTO);
-		mv.addObject("dto",boardDTO);
-		mv.addObject("board","notice");
-		mv.setViewName("board/boardSelect");
-		
-		return mv;
-	}
-	
-	@RequestMapping("noticeList") // List
+	@RequestMapping("newsList") // List
 	public ModelAndView getList(Pager pager)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		System.out.println(pager.getCurPage());
 		
-		List<BoardDTO> ar = noticeService.getList(pager);
+		List<BoardDTO> ar = newsService.getList(pager);
 		
 		mv.addObject("list", ar);
 		mv.setViewName("board/boardList");
@@ -43,5 +31,7 @@ public class NoticeController {
 		
 		return mv;
 	}
+	
+	
 	
 }

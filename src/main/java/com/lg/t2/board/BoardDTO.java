@@ -4,9 +4,18 @@ import java.sql.Date;
 
 public class BoardDTO {
 
+	private long num;
 	private String title;
 	private String contents;
 	private Date regDate;
+	
+	
+	public long getNum() {
+		return num;
+	}
+	public void setNum(long num) {
+		this.num = num;
+	}
 	public String getTitle() {
 		return title;
 	}
@@ -26,12 +35,6 @@ public class BoardDTO {
 		this.regDate = regDate;
 	}
 	
-	
-	
-	
-	
-	
-	
-	
+
 	
 }
