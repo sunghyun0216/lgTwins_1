@@ -24,7 +24,7 @@ public class GameBoxController {
 	@Autowired
 	private GameBoxService gameBoxService;
 	
-	@PostMapping("/gameBox/gameBoxDelete")
+	@RequestMapping("/gameBox/gameBoxDelete")
 	public ModelAndView setDelete(GameBoxDTO gameBoxDTO)throws Exception{
 		ModelAndView mv = new ModelAndView();
 		int result = gameBoxService.setDelete(gameBoxDTO);

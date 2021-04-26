@@ -16,7 +16,7 @@
 	
 <div  class="container">
 <h3 class="table"class="thead-dark"> 경기기록 > GAME BOX > 경기결과 수정 > 세부결과 수정</h3>
-	<form id="frmUpdate3" action="./gameBoxUpdate2" method="post">
+	<form id="frmUpdate3" action="./gameBoxUpdate2" method="post"> 
 	<input type="hidden" name="orderNum" id="orderNum" value="${dto.orderNum}">
 	
 		<div class="form-group">

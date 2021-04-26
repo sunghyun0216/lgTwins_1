@@ -1,20 +1,27 @@
 /**
  * 
  */
+//전날
+
+//$("#all").click(function(){
+//$(".check").click(function(){
+
+$(".go-prev").click(function(){
+		alert("z");
+	});
+
 
 $(function(){
 	let today = new Date();
 	let yestertday = new Date(today.setDate(today.getDate()-1));
-	console.log(yesterday);
 	
-	$(".go-prev").click(alert("z"))
+	$(".go-prev").click(function(){
+		alert("z");
+	});
 	
 });
 
-
-
-
-
+//현재날짜 표시
 $(function(){
 	let date = new Date();
 	let yyyy = date.getFullYear();
@@ -25,8 +32,9 @@ $(function(){
 
 });
 
+//담날
 $(function(){
 	let today = new Date();
 	let tomorrow = new Date(today.setDate(today.getDate()+1));
-	console.log(tomorrow);
+	
 });

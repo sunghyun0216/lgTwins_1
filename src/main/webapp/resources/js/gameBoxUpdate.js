@@ -26,7 +26,7 @@ let update2 = document.getElementById("update2");
 let frmUpdate2 = document.getElementById("frmUpdate2");
 
 update2.addEventListener("click", function(){
-	console.log("zz");
+	alert("zz");
 	let result = confirm("변경 하시겠습니까?")
 	
 	if(result){
@@ -36,17 +36,21 @@ update2.addEventListener("click", function(){
 	
 });
 
+$("#frmUpdate2").click(function(){
+	alert("zz")
+});
 
-let del = document.getElementById("delete");
-let frmDelete = document.getElementById("frmDelete");
-let orderNum = $("#orderNum").val();
-		
+//let del = document.getElementById("delete");
+//let frmDelete = document.getElementById("frmDelete");
+//let orderNum = $("#orderNum").val();
+//	
+$("delete").click(function(){
+	
+	alert("Z");
+});
 
-del.addEventListener("click", function() {
-	let result = confirm("정말 삭제하시겠습니까?");
-
-		if (result) {
-			frmDelete.setAttribute("method", "post");
-			frmDelete.submit();
-			}
-		});
+//$("#btnUpdate").click(function(){	
+//
+//del.addEventListener("click", function() {
+//	alert("Z")
+//		});
