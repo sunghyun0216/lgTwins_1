@@ -153,9 +153,8 @@ caption {
         	 color="red";
          }
       %>
-			<td style="color:<%=color%>"><%=d %> <c:forEach items="${list}"
-					var="dto">
-	         	${dto.team} 
+			<td style="color:<%=color%>"><%=d %> <c:forEach items="${list}" var="dto">
+	         	${dto.team}
 	         </c:forEach></td>
 			<%   
       	//개행을 위한 설정

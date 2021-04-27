@@ -44,7 +44,7 @@ $("#frmUpdate2").click(function(){
 //let frmDelete = document.getElementById("frmDelete");
 //let orderNum = $("#orderNum").val();
 //	
-$("delete").click(function(){
+$("#delete").click(function(){
 	
 	alert("Z");
 });

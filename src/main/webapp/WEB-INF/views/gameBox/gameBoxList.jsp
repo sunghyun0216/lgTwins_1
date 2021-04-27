@@ -1,31 +1,62 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-
 <!doctype html>
 <html lang="en">
 
-<head>
-
+<head> 
 <!-- Required meta tags -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.8.18/themes/base/jquery-ui.css" />
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.8.18/jquery-ui.min.js"></script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+<link rel="stylesheet" href="//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.css">
+<script src='//cdn.rawgit.com/fgelinas/timepicker/master/jquery.ui.timepicker.js'></script>
 <title>Home</title>
 
 <link rel="stylesheet" href="../resources/css/calendar.css">
+
+<script>
+			$(function() {
+				  $( "#datepicker2" ).datepicker({
+				    dateFormat: 'yy년 mm월 dd일',
+				    prevText: '이전 달',
+				    nextText: '다음 달',
+				    monthNames: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+				    monthNamesShort: ['1월','2월','3월','4월','5월','6월','7월','8월','9월','10월','11월','12월'],
+				    dayNames: ['일','월','화','수','목','금','토'],
+				    dayNamesShort: ['일','월','화','수','목','금','토'],
+				    dayNamesMin: ['일','월','화','수','목','금','토'],
+				    showMonthAfterYear: true,
+				    changeMonth: true,
+				    changeYear: true,
+				    yearSuffix: '년'
+				  });
+			});
+</script>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX </h4>
+
+<form name="frm" method="post" action="gameBoxList">
+
+<!-- 1. 옆에 버튼을 만들어서 날짜값을 셋팅후 버튼을 누르면 컨트롤러로 그 값을 보낸다. -->
+<!-- 2. 날짜를 선택하면 바로 컨트롤러로 날짜값을 보낸다 -->
 
 <div class="totalbox">
 	<div class="upper">
-		 <button class="nav-btn go-prev">&lt;</button>
-		 <div id="day">
-		 <button class="nav-btn go-today"></button>
-		 <button class="nav-btn go-next">&gt;</button>
+		<input type="text" id="datepicker2" class="go-today" style="width: 155px; text-align: center;">
+		
 		 </div>
 	</div>
 
@@ -114,7 +145,7 @@
 
 <script type="text/javascript" src="../resources/js/calendar.js"></script>   
 
-	<a href="./gameBoxInsert" class="btn btn-info" role="button">경기일정 등록</a>
+<a href="./gameBoxInsert" class="btn btn-info" role="button">경기일정 등록</a>
 
 </body>
 </html>
