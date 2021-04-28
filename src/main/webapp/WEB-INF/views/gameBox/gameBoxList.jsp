@@ -48,19 +48,22 @@
 	
 <h4 class="table"class="thead-dark"> 경기기록 > GAME BOX </h4>
 
-<form name="frm" method="post" action="gameBoxList">
-
-<!-- 1. 옆에 버튼을 만들어서 날짜값을 셋팅후 버튼을 누르면 컨트롤러로 그 값을 보낸다. -->
-<!-- 2. 날짜를 선택하면 바로 컨트롤러로 날짜값을 보낸다 -->
+<form name="frm" method="get" action="./gameBoxList">
+<!-- 옆에 버튼을 만들어서 날짜값을 셋팅후 버튼을 누르면 컨트롤러로 그 값을 보낸다. -->
 
 <div class="totalbox">
 	<div class="upper">
-		<input type="text" id="datepicker2" class="go-today" style="width: 155px; text-align: center;">
+		<input type="text" id="datepicker2" class="go-today" style="width: 160px; text-align: center;">
+		<input type="submit" class="btn btn-primary" id="kiki" style="width: 70px; text-align: center;" value="이동">
+		<input type="hidden" id="playDate" name="playDate">
 		
-		 </div>
+		<input type="hidden" id="dateDate" name="dateDate" value="${date}">
+		
+<!-- 		<button class="btn btn-primary" id="kiki">이동</button> -->
 	</div>
+</div>
 
-</form>
+</form> 
 
 	<div class="lower">
 	

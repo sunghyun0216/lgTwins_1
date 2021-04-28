@@ -39,20 +39,41 @@
 		<h4 class="table" class="thead-dark">경기기록 > GAME BOX > 경기기록 입력</h4>
 		<form id="frm" action="./gameBoxInsert" method="post">
 			<div class="form-group">
-				<label for="team">팀명 :</label> <input type="text"
-					class="form-control myCheck" id="team" name="team">
+				<label for="team">팀명 :</label> 
+					<select class="form-control myCheck" id="text"
+					name="text" size="1">
+					<option value="엘지" selected>엘지</option>
+					<option value="두산">두산</option>
+					<option value="롯데">롯데</option>
+					<option value="SSG">SSG</option>
+					<option value="엔씨">엔씨</option>
+					<option value="한화">한화</option>
+					<option value="케이티">케이티</option>
+					<option value="삼성">삼성</option>
+					<option value="키움">키움</option>
+					<option value="기아">기아</option>
+				</select>
 				<h5 id="teamResult"></h5>
 			</div>
 
 			<div class="form-group">
-				<label for="score">스코어 :</label> <input type="number"
-					class="form-control myCheck" id="score" name="score">
+				<label for="score">스코어 :</label> <input type="number" class="form-control myCheck" id="score" name="score">
 				<h5 id="scoreResult"></h5>
 			</div>
 
 			<div class="form-group">
-				<label for="place">장소 :</label> <input type="text"
-					class="form-control myCheck" id="place" name="place">
+				<label for="place">장소 :</label> 
+					<select class="form-control myCheck" id="place" name="place" size="1">
+					<option value="잠실" selected>잠실</option>
+					<option value="사직">사직</option>
+					<option value="문학">문학</option>
+					<option value="창원">창원</option>
+					<option value="대전">대전</option>
+					<option value="수원">수원</option>
+					<option value="대구">대구</option>
+					<option value="고척">고척</option>
+					<option value="광주">광주</option>
+				</select>
 				<h5 id="placeResult"></h5>
 			</div>
 
@@ -76,7 +97,7 @@
 						  });
 					});
 				</script>
-				<input type="text" id="datepicker1" name="playDate">
+				<input type="text" class="form-control myCheck" id="datepicker1" name="playDate">
 				<h5 id="playDateResult"></h5>	
 			</div>
 			
@@ -87,25 +108,25 @@
    					 $('.timepicker').timepicker();
 							});
 				</script>
-				<input type="text" class="timepicker" id="timepicker" name="playTime">
+				<input type="text" class="timepicker" id="timepicker" name="playTime" >
 				<h5 id="timeResult"></h5>
 			</div>
 
 
 			<div class="form-group">
-				<label for="playing">경기여부 :</label> <select id="playing"
+				<label for="playing">경기여부 :</label> <select class="form-control myCheck" id="playing"
 					name="playing" size="1">
 					<option value="경기전" selected>경기전</option>
 					<option value="경기중">경기중</option>
 					<option value="경기종료">경기종료</option>
 					<option value="경기취소">경기취소</option>
-				</select><br>
+				</select>
 				<h5 id="playingResult"></h5>
 				<!-- 무조건 경기전 -->
 			</div>
 
 			<div class="form-group">
-				<label for="wwl">승패 :</label> <select id="wwl" name="wwl" size="1">
+				<label for="wwl">승패 :</label> <select class="form-control myCheck" id="wwl" name="wwl" size="1">
 					<option value="경기전" selected>-</option>
 					<option value="승">승</option>
 					<option value="패">패</option>

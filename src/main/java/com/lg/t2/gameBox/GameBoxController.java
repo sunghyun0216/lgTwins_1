@@ -76,8 +76,17 @@ public class GameBoxController {
 	
 	@RequestMapping("/gameBox/gameCalendar")
 	public void getList2(GameBoxDTO gameBoxDTO, Model model)throws Exception{
-		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+		SimpleDateFormat format1 = new SimpleDateFormat ("yyyyMMdd");
 		
+		Calendar cal = Calendar.getInstance();
+		String format_Date = format1.format(cal.getTime());
+		
+		gameBoxDTO.setPlayDate(format_Date);
+		
+		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+
+		System.out.println(ar);
+		System.out.println(ar.get(0));
 		model.addAttribute("list", ar);
 
 	}
@@ -90,10 +99,17 @@ public class GameBoxController {
 		Calendar cal = Calendar.getInstance();
 		String format_Date = format1.format(cal.getTime());
 		
-		gameBoxDTO.setPlayDate(format_Date);
-		System.out.println(format_Date);
-		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+		System.out.println("!!!!!!!!!!!!!!!!!!");
+		System.out.println(gameBoxDTO.getPlayDate());
 		
+		String date = gameBoxDTO.getPlayDate();
+		if(gameBoxDTO.getPlayDate() == null) {
+			gameBoxDTO.setPlayDate(format_Date);
+		}
+		
+		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
+
+		model.addAttribute("date", date);
 		model.addAttribute("list", ar);
 	}
 
