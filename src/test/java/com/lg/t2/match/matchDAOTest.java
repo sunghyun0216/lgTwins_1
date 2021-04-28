@@ -71,7 +71,7 @@ public class matchDAOTest extends MyAbstractTest{
 		public void setUpdateTest()throws Exception{
 			MatchDTO matchDTO = new MatchDTO();
 			
-			matchDTO.setOrderNum(1);
+			matchDTO.setOrderNum(45);
 			matchDTO = matchDAO.getSelect(matchDTO);
 			matchDTO.setScore1(9);
 			matchDTO.setScore2(9);
@@ -84,7 +84,7 @@ public class matchDAOTest extends MyAbstractTest{
 			matchDTO.setScore9(9);
 			matchDTO.setRuns(9);
 			matchDTO.setHits(9);
-			matchDTO.setMistake(9);
+			matchDTO.setMistake(9999);
 			matchDTO.setBalls(9);
 	
 			int result = matchDAO.setUpdate(matchDTO);

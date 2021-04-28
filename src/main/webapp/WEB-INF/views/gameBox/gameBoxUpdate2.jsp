@@ -75,8 +75,8 @@
 		</div>
 		
 		<div class="form-group">
-			<label for="errors"> ERRORS :</label> 
-			<input type="number" id="errors" name="errors" VALUE=0>
+			<label for="mistake"> ERRORS :</label> 
+			<input type="number" id="mistake" name="mistake" VALUE=0>
 		</div>
 		
 		<div class="form-group">
