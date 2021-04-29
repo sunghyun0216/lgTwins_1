@@ -16,9 +16,8 @@ public class TeamInfoController {
 	@Autowired
 	private TeamInfoService teamInfoService;	
 	
-	
-	//모든 선수 출력
-	@RequestMapping("teaminfo/teamList")
+	//모든 선수 출력 : 성공 
+	@RequestMapping("teaminfo/rosterList") //요청 이름
 	public ModelAndView getRosterInfoSelect()throws Exception{
 		ModelAndView mv = new ModelAndView();
 		List<TeamMemberInfoDTO> rosterList = teamInfoService.getRosterInfoSelect();
@@ -26,24 +25,25 @@ public class TeamInfoController {
 		mv.setViewName("teaminfo/teamList"); //값의 의미 : 출력할 jsp 파일 이름
 		return mv; 
 	}
-	//포지션 별 출력
-	@RequestMapping("teaminfo/teamListposi.do")//href 구현하기
-	public ModelAndView getRosterPerPosiSelect (int posiNum)throws Exception{
+	
+	//포지션 별 출력 : 성공
+	@RequestMapping("teaminfo/teamList/posi.do")//href 구현하기
+	public ModelAndView getRosterPerPosiSelect (TeamMemberInfoDTO teamMemberInfoDTO)throws Exception{
 		//포지션 넘버 가져오기 
 		ModelAndView mv = new ModelAndView();
-		List<TeamMemberInfoDTO> rosterList = teamInfoService.getRosterPerPosiSelect(posiNum); //포지션 번호 전해야 한다.
+		List<TeamMemberInfoDTO> rosterList = teamInfoService.getRosterPerPosiSelect(teamMemberInfoDTO); //포지션 번호 전해야 한다.
 		mv.addObject("rosterdto",rosterList); //다음 페이지에 넘길 파라미터값을 저장한다.
 		mv.setViewName("teaminfo/teamList");
 		return mv;
 	}
 	//선수 개인 페이지 이동
-	@GetMapping("/teamPerInfo.do") // 전달값은... teamMemberInfoDTO.tNum으로 해야 한다 
-	public ModelAndView getPerInfoSelect (int tNum) {
+	@RequestMapping("teaminfo/teamPerInfo")
+	public ModelAndView getPerInfoSelect (TeamMemberInfoDTO teamMemberInfoDTO) throws Exception {
+	
 		ModelAndView mv = new ModelAndView();
-		//MemberBioDTO bioDTO = teamInfoService.getPerInfoSelect(); // 팀맴버디티오 전달해야한다.
-		//파라미터를 어떻게 전달 받아야 할까?
-		mv.addObject("rosterdto",tNum);
-		mv.setViewName("teaminfo/teamPerInfo");
+		MemberBioDTO bioDTO = teamInfoService.getPerInfoSelect(teamMemberInfoDTO);
+		mv.addObject("biodto",bioDTO);
+		mv.setViewName("teaminfo/teamPerInfo"); // 출력할 view 페이지
 		return mv;
 	}
 	

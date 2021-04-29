@@ -14,16 +14,52 @@
 	</select>
 	
 	<!--(그룹 별 조회 : 포지션 별 선수 리스트)-->
-	<select id="getRosterPerPosiSelect" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO" resultType="TeamMemberInfoDTO">
+	<select id="getRosterPerPosiSelect" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO" resultType="com.lg.t2.teaminfo.TeamMemberInfoDTO">
 		SELECT T.*, P.tpname,G.tgname 
 		FROM twinsMemberInfo T, teamPostion P, teamGroup G 
 		WHERE T.psnum = P.tpNum AND T.grNum = G.tgnum AND ( P.tpNum = #{psNum})
 	</select>	
 	<!--(그룹 별 조회 : 포지션 별 코치리스트)-->
+	
 	<!--개인별 정보 불러오기-->
-	<select id= "getPerInfoSelect" parameterType="int" resultType="com.lg.t2.teaminfo.MemberBioDTO">
-		SELECT * FROM twinsMemberInfo, memberBio WHERE tNum = tbNum AND tNum = #{tNum}
+	<select id= "getPerInfoSelect" parameterType="com.lg.t2.teaminfo.TeamMemberInfoDTO" resultType="com.lg.t2.teaminfo.MemberBioDTO">
+		SELECT M.*, B.*, TP.tpname FROM twinsMemberInfo M, memberBio B, teamPostion TP 
+		WHERE M.tNum = B.tbNum AND tp.tpnum = m.psnum AND( M.tNum = #{tNum} )
 	</select> 
+	
+	<!-- 선수 기록(성적) 가져오기 -->
+	<select id="getMemberRecord">
+	
+	</select>
+	
+	<!-- 사진 가져오기  -->
+	<select id="getMemberPhotoesList">
+	
+	
+	</select>
+	<!-- 사진 등록하기 -->
+	
+	<!-- 이력 가져오기  -->
+	<select id="getMemberCareerList">
+	
+	</select>
+	
+	<!-- 이력 등록하기 -->
+	
+	<!-- 이력 수정하기 -->
+	
+	<!-- 이력 삭제하기 -->
+	
+	<!-- 연봉 가져오기  -->
+	<select id="getMemberPayList">
+	
+	</select>
+	<!-- 연봉 추가하기 -->
+	
+	<!-- 연봉 삭제하기 -->
+	
+	<!-- 연봉 수정하기 -->
+	
 	<!-- 팀원 정보 추가하기 : 테이블 분리가 되어있기 때문에 테이블별로 각각 2번 시행한다.  -->
 	<insert id="setTeamInfoInsert" parameterType="com.lg.t2.teaminfo.MemberBioDTO">
 		INSERT INTO twinsMemberInfo VALUES (TINFO_SEQ.nextval, #{backNum},#{tKName},#{tEName},#{useHand},#{joinyear},#{grNum},#{psNum})	
@@ -45,6 +81,9 @@
 		DELETE twinsMemberInfo 
 		WHERE tNum=#{tNum}
 	</delete>
+	
 	<!-- 사진 파일 추가하기  -->
+	
+	
 </mapper>  
 

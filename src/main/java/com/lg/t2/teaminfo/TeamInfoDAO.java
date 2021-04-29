@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class TeamInfoDAO {
-//DAO의 역할:MyBatis를 이용한 데이터 베이스 접근 객체
+//DAO의 역할:MyBatis를 이용한 데이터 베이스로와 객체 이어준다 접근
 	
 	@Autowired
 	private SqlSession sqlSession;
@@ -20,12 +20,12 @@ public class TeamInfoDAO {
 		return sqlSession.selectList(NAMESPACE+"getRosterInfoSelect");
 	}
 	//성공 선수 포지션별로 가져오기 파라: 선수 int값 결과 값: teamMemberInfoDTO
-	public List<TeamMemberInfoDTO> getRosterPerPosiSelect (int posi)throws Exception{
-		return sqlSession.selectList(NAMESPACE+"getRosterPerPosiSelect", posi );
+	public List<TeamMemberInfoDTO> getRosterPerPosiSelect (TeamMemberInfoDTO teamMemberinfoDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getRosterPerPosiSelect",teamMemberinfoDTO);
 	}
 	//성공, 선수 개별 정보 조회하기(단독 페이지) 
-	public MemberBioDTO getPerInfoSelect(int tNum) throws Exception{
-		return sqlSession.selectOne(NAMESPACE+"getPerInfoSelect",tNum);
+	public MemberBioDTO getPerInfoSelect(TeamMemberInfoDTO teamMemberinfoDTO) throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getPerInfoSelect",teamMemberinfoDTO);
 	}
 	//선수 정보 입력하기 step1 : team 정보 삽입하기 
 	public int setTeamInfoInsert (MemberBioDTO memberBioDTO) throws Exception{

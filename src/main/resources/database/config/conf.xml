@@ -12,6 +12,9 @@
 	<typeAlias type="com.lg.t2.teamsort.TeamGroupDTO" alias="TeamGroupDTO"/>
 	<typeAlias type="com.lg.t2.teamsort.TeamPositionDTO" alias="TeamPositionDTO"/>
 	
+	<typeAlias type="com.lg.t2.record.TeamCareerDTO" alias="TeamCareerDTO"/>
+	<typeAlias type="com.lg.t2.record.TeamPayDTO" alias="TeamPayDTO"/>
+	<typeAlias type="com.lg.t2.record.TeamPhotoDTO" alias="TeamPhotoDTO"/>
 	</typeAliases>
 
 </configuration>  

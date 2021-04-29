@@ -30,14 +30,19 @@ public class TeamInfoService {
 		return teamInfoDAO.getRosterInfoSelect();
 	}
 	
-	////2. 포지션 별 선수 조회하기 (선수 단독)
+	////2. 포지션 별 선수 조회하기 (포지션만 가지고?)
 	public List<TeamMemberInfoDTO> getRosterPerPosiSelect (TeamMemberInfoDTO teamMemberInfoDTO)throws Exception{
 		return teamInfoDAO.getRosterPerPosiSelect(teamMemberInfoDTO);
 	}
 	
 	//3. 개별 선수 정보 출력하기 
-	public MemberBioDTO getPerInfoSelect(@RequestParam("tNum")int tNum) throws Exception{
-		return teamInfoDAO.getPerInfoSelect(tNum);
+	public MemberBioDTO getPerInfoSelect(TeamMemberInfoDTO teamMemberInfoDTO) throws Exception{
+		return teamInfoDAO.getPerInfoSelect(teamMemberInfoDTO);
 	}
-	//
+	//4.선수 정보 삭제하기(리스트 페이지에서)
+	public int setTeamInfoDelete(TeamMemberInfoDTO teamMemberInfoDTO) throws Exception{
+		return teamInfoDAO.setTeamInfoDelete(teamMemberInfoDTO);
+	}
+	//5. 선수 정보 갱신하기
+	//6. 
 }

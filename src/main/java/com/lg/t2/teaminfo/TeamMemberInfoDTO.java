@@ -24,6 +24,7 @@ public class TeamMemberInfoDTO {
 	private int joinyear;
 	private int grNum;
 	private int psNum;
+	
 //	//JOIN 연산 뒤 따라 붙는 칼럼들
 	private String tgName;
 	private String tpName;

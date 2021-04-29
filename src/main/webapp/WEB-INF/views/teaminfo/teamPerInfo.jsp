@@ -15,18 +15,20 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	
+	<div>
+		<p><a href= "${pageContext.request.contextPath}/teaminfo/teamList"> &lt; 선수단 목록 </a>
+	</div>
 	<div class="player_info">
 		<div class="player_private">
-		<ul>
-			<p id ="player_backNum">${memberBio.backNum}</p>
-			<li>${memberBio.posiName}</li>
-			<li>${memberBio.usehand}</li>
-			<li>${memberBio.tKName}</li>
-			<li>${memberBio.birth}</li>
-			<li>${memberBio.height} ＊ ${memberBio.weigth}</li>
-			<li>${memberBio.edu}</li>
-			<li>${memberBio.edu}년 입단</li>
+		<ul clss="player_info">
+			<p id ="player_backnum">${biodto.backNum}</p>
+			<li >${biodto.tpName}</li>
+			<li>${biodto.usehand}</li>
+			<li>${biodto.tKName}</li>
+			<li>${biodto.birth}</li>
+			<li>${biodto.height} ＊ ${biodto.weight}</li>
+			<li>${biodto.edu}</li>
+			<li>${biodto.joinyear}년 입단</li>
 		</ul>
 			<ul>	
 			</ul>
@@ -37,7 +39,7 @@
 		<div class="player_record_thisyear">
 		</div>
 		
-		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 -->
+		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 radio 선택하기-->
 		<div class="record_desk">
 			<div class="player_record">
 				<div>
@@ -59,5 +61,7 @@
 			</div>
 		</div>
 	</div>
+	
+	<c:import url="../teaminfo/recordDesk.jsp"></c:import>
 </body>
 </html>

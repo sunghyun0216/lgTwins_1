@@ -14,22 +14,34 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h2>teamInfo insert Page</h2>
+	<!-- 삽입 혹은 삭제 수행을 한다 -->
+	<h2>team Join Page</h2>
 	
 	<!-- 선수 한글 이름, 영문 이름 ,등번호, 팀 선택, 포지션 선택, 사용손 -->
 	<!-- 선수의 생년월일, 키 몸무게 초 중 고 대 학력 입력-->
-		<h1>Team Join Page</h1>
+		
 		<form action="memberJoin" method="post">
-		이름(한글) <input type="text" name="id"><br>
+		이름(한)<input type="text" name="id"><br>
+		이름(영)<input type="text" name="pw"><br>
 		
-		영어 <input type="text" name="pw"><br>
+		등번호 <input type="text" name="name"><br> <!-- 드롭다운 선택,  -->
+		소속<input type="text" name="email"><br> <!-- 드룹다운 선택 -->
+		포지션<input type="text" name="phone"><br><!-- 드롭다운 선택 -->
+		사용손<input type="text" name="phone"><br> <!-- 드롭다운 선택 -->
 		
-		Name <input type="text" name="name"><br>
-		Email <input type="text" name="email"><br>
-		Phone <input type="text" name="phone"><br>
+		키 <input type="text" name="id"><br>
+		몸무게 <input type="text" name="id"><br>
 		
-		<input type = "file" id="avartar"></input>
-		<button>Join</button>
+		학력<br>
+		초<input type="text" name="id"><br>
+		중<input type="text" name="id"><br>
+		고<input type="text" name="id"><br>
+		대<input type="text" name="id"><br> 
+		
+		
+		<!-- 1. 자동으로 키 생성, 가입 년도는 알아서 올해로 입력시킨다. -->
+		<button>팀원 등록</button>
 	</form>
+	<!-- 유효성 검사하는 javaScript 실행 할 것 -->
 </body>
 </html>
