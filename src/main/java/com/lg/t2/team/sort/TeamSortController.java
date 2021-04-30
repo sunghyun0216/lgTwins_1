@@ -15,6 +15,7 @@ public class TeamSortController {
 	private TeamSortService teamSortService;
 	
 	//position별 검색 URL 만들기용+모든 선수 출력 
+	
 	@RequestMapping("teaminfo/AllplayerList")
 	public ModelAndView getALLPlayerList () throws Exception{
 		
