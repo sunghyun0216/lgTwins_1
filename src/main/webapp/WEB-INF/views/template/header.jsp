@@ -30,13 +30,13 @@
 				<div class="dropdown-menu">
 					<div class="row">
 						<div class="col">
-						 	<a class="dropdown-item " href="#">선수단</a>
+						 	<a class="dropdown-item " href="${pageContext.request.contextPath}/teaminfo/AllplayerList">선수단</a> 
 						</div>
 						<div class="col">
-							<a class="dropdown-item" href="#">투수</a> 
-							<a class="dropdown-item" href="#">포수</a> 
-							<a class="dropdown-item" href="#">내야수</a> 
-							<a class="dropdown-item" href="#">외야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'12'}">포수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'13'}">내야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'14'}">외야수</a> 
 						</div>
 					</div>
 					
