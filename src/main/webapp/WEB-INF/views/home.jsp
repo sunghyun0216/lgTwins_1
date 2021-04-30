@@ -13,7 +13,7 @@
 
 <title>Home</title>
 
-</style>
+
 </head>
 <body>
 

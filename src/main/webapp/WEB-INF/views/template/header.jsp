@@ -48,15 +48,15 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> 경기 기록 </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">gamebox</a> 
-					<a class="dropdown-item" href="#">경기일정</a> 
-					<a class="dropdown-item" href="#">순위</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameBoxList">gamebox</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameCalendar">경기일정</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/match/matchList">꾸아아가</a> 
 				</div>
 			</li>
 			
-			<!-- Brand -->
-			<a class="navbar-brand" href="${pageContext.request.contextPath}/">Logo</a>
-			
+			<!-- Brand, logo -->
+			<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="https://www.lgtwins.com/images/twins_logoB.png" alt="My Image" width="150" height="100"></a>
+																			
 			<!-- Dropdown -->
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
