@@ -70,7 +70,6 @@
 			<table class="table">
 		<thead class="thead-dark">  
 			<tr>
-				<th>순서</th>
 				<th>팀명</th>
 				<th>스코어</th>
 				<th>장소</th>
@@ -84,7 +83,6 @@
 		<tbody>	
 		<c:forEach items="${list}" var="dto">
 			<tr>
-				<td>${dto.orderNum}</td>
 				<td>${dto.team}</td>
 				<td>${dto.score}</td>
 				<td>${dto.place}</td>
