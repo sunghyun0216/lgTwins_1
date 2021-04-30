@@ -45,4 +45,6 @@ public class TeamSortService {
 	public int setDeletePlayer (TeamMemberDTO teamMemberDTO)throws Exception{
 		return teamSortDAO. setDeletePlayer(teamMemberDTO);
 	}
+	
+	//
 }
