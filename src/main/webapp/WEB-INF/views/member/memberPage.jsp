@@ -12,7 +12,7 @@
 	<h3>이름: ${member.name}</h3>
 	<h3>핸드폰: ${member.phone}</h3>
 	<h3>이메일: ${member.email}</h3>
-	
+	<h3><img alt="" src="../resources/upload/member/${member.memberFileDTO.fileName}"></h3>
 
 	<a href="./memberUpdate">수정</a>
 	<a href="./memberDelete">탈퇴</a>
