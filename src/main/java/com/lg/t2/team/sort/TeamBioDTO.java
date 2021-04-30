@@ -1,17 +1,8 @@
-package com.lg.t2.teaminfo;
+package com.lg.t2.team.sort;
 
-import java.util.Date;
+import java.sql.Date;
 
-public class MemberBioDTO extends TeamMemberInfoDTO{
-	
-	//  tbNum NUMBER, --팀원 식별 외래키
-//    birth DATE NOT NULL , 
-//    height NUMBER NOT NULL,
-//    weight NUMBER NOT NULL, 
-//    edu VARCHAR2(200) null, 
-//
-//    CONSTRAINT BioInfo_PK PRIMARY KEY (tbNum),
-//    CONSTRAINT tpNum_FK FOREIGN KEY(tbNum) REFERENCES twinsMemberInfo(tNum) On DELETE CASCADE
+public class TeamBioDTO extends TeamMemberDTO {
 	
 	private int tbNum;
 	private Date birth;
@@ -25,7 +16,6 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 	public void setTbNum(int tbNum) {
 		this.tbNum = tbNum;
 	}
-	
 	public Date getBirth() {
 		return birth;
 	}
@@ -50,7 +40,6 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 	public void setEdu(String edu) {
 		this.edu = edu;
 	}
-	
 	@Override
 	public int gettNum() {
 		// TODO Auto-generated method stub
@@ -102,6 +91,16 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 		super.setUsehand(usehand);
 	}
 	@Override
+	public int getJoinyear() {
+		// TODO Auto-generated method stub
+		return super.getJoinyear();
+	}
+	@Override
+	public void setJoinyear(int joinyear) {
+		// TODO Auto-generated method stub
+		super.setJoinyear(joinyear);
+	}
+	@Override
 	public int getGrNum() {
 		// TODO Auto-generated method stub
 		return super.getGrNum();
@@ -120,6 +119,16 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 	public void setPsNum(int psNum) {
 		// TODO Auto-generated method stub
 		super.setPsNum(psNum);
+	}
+	@Override
+	public int getLikeNum() {
+		// TODO Auto-generated method stub
+		return super.getLikeNum();
+	}
+	@Override
+	public void setLikeNum(int likeNum) {
+		// TODO Auto-generated method stub
+		super.setLikeNum(likeNum);
 	}
 	@Override
 	public String getTgName() {
@@ -141,5 +150,32 @@ public class MemberBioDTO extends TeamMemberInfoDTO{
 		// TODO Auto-generated method stub
 		super.setTpName(tpName);
 	}
+	@Override
+	public int hashCode() {
+		// TODO Auto-generated method stub
+		return super.hashCode();
+	}
+	@Override
+	public boolean equals(Object obj) {
+		// TODO Auto-generated method stub
+		return super.equals(obj);
+	}
+	@Override
+	protected Object clone() throws CloneNotSupportedException {
+		// TODO Auto-generated method stub
+		return super.clone();
+	}
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return super.toString();
+	}
+	@Override
+	protected void finalize() throws Throwable {
+		// TODO Auto-generated method stub
+		super.finalize();
+	}
+	
+	
 	
 }

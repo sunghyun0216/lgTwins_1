@@ -1,20 +1,6 @@
-package com.lg.t2.teaminfo;
+package com.lg.t2.team.sort;
 
-public class TeamMemberInfoDTO {
-	
-	// tNum NUMBER, --primary key번호 (등록시 자동생성)
-//    backNum NUMBER, --등 번호 --검사 필요
-//    tKName VARCHAR2(20) NOT NULL, -- 한글이름
-//    tEName VARCHAR2(30) NOT NULL,
-//    useHand VARCHAR2(12) NOT NULL, -- 사용 손 
-//    grNum NUMBER,-- 소속 그룹 넘버
-//    psNum NUMBER, -- 포지션 구분 넘버
-//    
-//    CONSTRAINT TWMember_PK PRIMARY KEY (tNum),
-//    CONSTRAINT grNum_FK FOREIGN KEY(grNum) REFERENCES teamGroup(tgNum),
-//    CONSTRAINT psNum_FK FOREIGN KEY(psNum) REFERENCES teamPostion(tpNum)
-	
-	//커리어, 포지션 기본으로 가져야한다.
+public class TeamMemberDTO {
 	
 	private int tNum;
 	private int backNum;
@@ -24,8 +10,8 @@ public class TeamMemberInfoDTO {
 	private int joinyear;
 	private int grNum;
 	private int psNum;
+	private int likeNum; // 좋아요 갯수 
 	
-//	//JOIN 연산 뒤 따라 붙는 칼럼들
 	private String tgName;
 	private String tpName;
 	
@@ -60,7 +46,6 @@ public class TeamMemberInfoDTO {
 	public void setUsehand(String usehand) {
 		this.usehand = usehand;
 	}
-	
 	public int getJoinyear() {
 		return joinyear;
 	}
@@ -79,6 +64,12 @@ public class TeamMemberInfoDTO {
 	public void setPsNum(int psNum) {
 		this.psNum = psNum;
 	}
+	public int getLikeNum() {
+		return likeNum;
+	}
+	public void setLikeNum(int likeNum) {
+		this.likeNum = likeNum;
+	}
 	public String getTgName() {
 		return tgName;
 	}
@@ -91,5 +82,6 @@ public class TeamMemberInfoDTO {
 	public void setTpName(String tpName) {
 		this.tpName = tpName;
 	}
+	
 	
 }

@@ -15,9 +15,9 @@ import com.lg.t2.MyAbstractTest;
 
 public class TeamInfoTestDAO extends MyAbstractTest {
 
-	@Autowired
-	private TeamInfoDAO teamInfoDAO;
-	
+//	@Autowired
+//	private TeamInfoDAO teamInfoDAO;
+//	
 //	@Test
 //	public void getRosterInfoSelect() throws Exception {
 //		List<TeamMemberInfoDTO> ar = teamInfoDAO.getRosterInfoSelect();

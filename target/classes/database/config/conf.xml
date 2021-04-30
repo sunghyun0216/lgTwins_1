@@ -4,17 +4,13 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
   
 <configuration>
+	
 	<typeAliases>
-	<!-- DTO 등록  -->
-	<typeAlias type="com.lg.t2.teaminfo.TeamMemberInfoDTO" alias="TeamMemberInfoDTO"/>
-	<typeAlias type="com.lg.t2.teaminfo.MemberBioDTO" alias="MemberBioDTO"/> 
-	
-	<typeAlias type="com.lg.t2.teamsort.TeamGroupDTO" alias="TeamGroupDTO"/>
-	<typeAlias type="com.lg.t2.teamsort.TeamPositionDTO" alias="TeamPositionDTO"/>
-	
-	<typeAlias type="com.lg.t2.record.TeamCareerDTO" alias="TeamCareerDTO"/>
-	<typeAlias type="com.lg.t2.record.TeamPayDTO" alias="TeamPayDTO"/>
-	<typeAlias type="com.lg.t2.record.TeamPhotoDTO" alias="TeamPhotoDTO"/>
+		
+		<typeAlias type="com.lg.t2.team.sort.TeamSortDTO" alias="TeamSortDTO"/>
+		<typeAlias type="com.lg.t2.team.sort.TeamMemberDTO" alias="TeamMemberDTO"/>
+		<typeAlias type="com.lg.t2.team.sort.TeamBioDTO" alias="TeamBioDTO"/>
+		
 	</typeAliases>
 
 </configuration>  
