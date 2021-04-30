@@ -64,7 +64,7 @@ var idx = 0
 		price=12000;
 	}
 	else if(value>400 && value<403){
-		price=8000;
+		price=101;
 	}
 	console.log(price);
 	
@@ -95,7 +95,7 @@ $('#check').on('click', function(){
 	var playDate=new Date();
 /*	var playDate=document.getElementById("playDate").value*/
 	/*날짜 형식에 따라 저장안될떄가 있음*/
-	console.log(teamName);
+	console.log(teamName);x
 	console.log(teamLogo);
 	console.log(playDate);
         var form = {
@@ -141,6 +141,32 @@ $("#btn").click(function(){
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
 	        msg += '결제 금액 : ' + rsp.paid_amount;
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
+			var teamName=document.getElementById("teamName").value
+		var teamLogo=document.getElementById("teamLogo").value
+		var playDate=new Date();
+		/*	var playDate=document.getElementById("playDate").value*/
+		/*날짜 형식에 따라 저장안될떄가 있음*/
+		console.log(teamName);
+		console.log(teamLogo);
+		console.log(playDate);
+	        var form = {
+	                teamName: teamName,
+	                teamLogo: teamLogo,
+					playDate: playDate,
+					sitNum: valResult,
+					price: price
+	        }
+	        $.ajax({
+	            url: "writeTicket",
+	            type: "POST",
+	            data: form,
+	            success: function(data){
+	                $('#resultDTO').text(data);
+	            },
+	            error: function(){
+	                alert("simpleWithObject err");
+	            }
+	        });
 	    } else {
 	        var msg = '결제에 실패하였습니다.';
 	        msg += '에러내용 : ' + rsp.error_msg;
