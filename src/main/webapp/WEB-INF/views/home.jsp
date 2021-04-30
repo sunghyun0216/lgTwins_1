@@ -15,6 +15,7 @@
 
 </head>
 <body>
+
 	<c:import url="./template/header.jsp"></c:import>
 	<div></div>
 </body>

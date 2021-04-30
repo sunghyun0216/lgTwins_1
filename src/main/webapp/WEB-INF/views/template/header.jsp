@@ -10,6 +10,7 @@
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">Join</a></li>
 			</c:if>
 			
+			
 			<c:if test="${not empty member}">
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberPage">Page</a></li>
 			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></li>
@@ -69,10 +70,11 @@
 			<!-- Dropdown -->
 			<li class="nav-item dropdown"><a
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
-				data-toggle="dropdown"> 고객문의 </a>
+				data-toggle="dropdown"> Twins </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="#">공지사항</a> 
-					<a class="dropdown-item" href="#">qna</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항/이벤트</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">twins news</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/story/storyList">twins story</a>
 				</div>
 			</li>
 		</ul>
