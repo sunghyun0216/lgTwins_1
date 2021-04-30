@@ -47,8 +47,8 @@ public class NoticeService implements BoardService {
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO, MultipartFile[] files) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		
+		return noticeDAO.setInsert(boardDTO);
 	}
 
 	@Override

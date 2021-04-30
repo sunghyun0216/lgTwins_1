@@ -7,13 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>Member Page</h1>
-	<h3>${member.id}</h3>
-	<h3>${member.name}</h3>
-	<h3>${member.phone}</h3>
-	<h3>${member.email}</h3>
+	<h1>회원정보</h1>
+	<h3>아이디: ${member.id}</h3>
+	<h3>이름: ${member.name}</h3>
+	<h3>핸드폰: ${member.phone}</h3>
+	<h3>이메일: ${member.email}</h3>
 	
-	
+
 	<a href="./memberUpdate">수정</a>
 	<a href="./memberDelete">탈퇴</a>
 	

@@ -34,7 +34,7 @@ public class NoticeDAO implements BoardDAO{
 		return sqlSession.selectOne(NAMESPACE+"getSelect", boardDTO);
 	}
 
-	@Override
+	@Override // Insert
 	public int setInsert(BoardDTO boardDTO) throws Exception {
 		return sqlSession.insert(NAMESPACE+"setInsert", boardDTO);
 	}
@@ -48,5 +48,13 @@ public class NoticeDAO implements BoardDAO{
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		return sqlSession.delete(NAMESPACE+"setDelete", boardDTO);
 	}
+	
+	// GetNum
+	public long getNum()throws Exception{
+		return sqlSession.selectOne(NAMESPACE+"getNum");
+	}
+	
+	
+	
 	
 }

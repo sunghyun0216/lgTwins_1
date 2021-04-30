@@ -18,5 +18,6 @@ public interface BoardService {
 	public int setUpdate(BoardDTO boardDTO,MultipartFile [] files)throws Exception;
 	
 	public int setDelete(BoardDTO boardDTO)throws Exception;
+
 	
 }

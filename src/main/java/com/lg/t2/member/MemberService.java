@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.lg.t2.member.MemberFileDTO;
 import com.lg.t2.util.FileManager;
 
 @Service
@@ -28,8 +29,8 @@ public class MemberService {
 	
 	public MemberDTO memberLogin(MemberDTO memberDTO)throws Exception{
 		memberDTO = memberDAO.memberLogin(memberDTO);
-		MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
-		memberDTO.setMemberFileDTO(memberFileDTO);
+		//MemberFileDTO memberFileDTO = memberDAO.memberLoginFile(memberDTO);
+		//memberDTO.setMemberFileDTO(memberFileDTO);
 	return memberDTO;
 }
 	

@@ -13,6 +13,7 @@
 		PW <input type="password" name="pw" value="${member.pw}"><br>
 		Name <input type="text" name="name" value="${member.name}"><br>
 		Phone <input type="text" name="phone" value="${member.phone}"><br>
+		Email <input type="text" name="email" value="${member.email}"><br>
 		<button>Update</button>
 	</form>
 </body>

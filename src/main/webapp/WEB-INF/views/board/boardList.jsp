@@ -12,13 +12,12 @@
 	<c:import url="../template/header.jsp"></c:import>
 	<div class="container">	
 
-		<h2>공지사항/이벤트</h2>
+		<h2>Twins ${board}</h2>
 
 		<table class="table">
 			<thead class="thead-dark">
 				<tr>
 					<th>TITLE</th>
-					<th>CONTENTS</th>
 					<th>DATE</th>
 				</tr>
 			</thead>
@@ -30,7 +29,6 @@
 									<c:forEach begin="1" end="${dto.depth}">--</c:forEach>
 								</c:catch> ${dto.title}
 						</a></td>
-						<td>${dto.contents}</td>
 						<td>${dto.regDate}</td>
 
 					</tr>
@@ -41,21 +39,21 @@
 	</div>
 
 	<div class="container">
-		<ul class="pagination">
-
-			<c:if test="${pager.pre}">	
-		    <li class="page-item"><a class="page-link p" href="#" title="${pager.startNum-1}">Previous</a></li>
-		   </c:if>
-	   
-	   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">	
-	   
-	    <li class="page-item"><a class="page-link p" href="#" title="${i}">${i}</a></li>
-	   </c:forEach>
-	   
-	    <c:if test="${pager.next}">
-	    <li class="page-item"><a class="page-link p" href="#" title="${pager.lastNum+1}">Next</a></li>
-	    </c:if>
-		</ul>
+		 <ul class="pagination">
+  
+  <c:if test="${pager.pre}">	
+    <li class="page-item"><a class="page-link" href="./${board}List?curPage=${pager.startNum-1}&kind=${pager.kind}&search=${pager.search}">Previous</a></li>
+   </c:if>
+   
+   <c:forEach begin="${pager.startNum}" end="${pager.lastNum}" var="i">
+   
+    <li class="page-item"><a class="page-link" href="./${board}List?curPage=${i}&kind=${pager.kind}&search=${pager.search}">${i}</a></li>
+   </c:forEach>
+   
+    <c:if test="${pager.next}">
+    <li class="page-item"><a class="page-link" href="./${board}List?curPage=${pager.lastNum+1}&kind=${pager.kind}&search=${pager.search}">Next</a></li>
+    </c:if>
+  </ul>
 
 		<div class="input-group mt-3 mb-3">
 			<form id="frm" action="./${board}List" class="form-inline">
@@ -73,28 +71,7 @@
 				</div>
 			</form>
 		</div>
-
-	<script type="text/javascript">
-	let kind= '${pager.kind}';//Title, Writer, Contents
-	$(".sel").each(function() {
-		let t = $(this).text();//Title, Writer, Contents
-		if(t == kind){
-			$(this).prop("selected", true);
-		}
-	});
-	
-	$(".p").click(function () {
-		let curPage = $(this).attr("title");
-		$("#curPage").val(curPage);
-		let search= '${pager.search}';
-		$("#frm").submit();
 		
-
-		
-	});
-	
-
-</script>
 </div>
 </body>
 </html>
