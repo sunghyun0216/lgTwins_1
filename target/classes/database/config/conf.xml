@@ -5,8 +5,17 @@
   
 <configuration>
 	<typeAliases>
+
+	   <typeAlias type="com.lg.t2.member.MemberDTO" alias="MemberDTO"/>
+		<typeAlias type="com.lg.t2.member.MemberFileDTO" alias="MemberFileDTO"/>
+		<typeAlias type="com.lg.t2.board.BoardFileDTO" alias="BoardFileDTO"/>
+		<typeAlias type="com.lg.t2.board.BoardDTO" alias="BoardDTO"/>
+		<typeAlias type="com.lg.t2.notice.NoticeDTO" alias="NoticeDTO"/>
+		<typeAlias type="com.lg.t2.news.NewsDTO" alias="NewsDTO"/>
+		<typeAlias type="com.lg.t2.util.Pager" alias="Pager"/>
+		<typeAlias type="java.lang.Long" alias="Long"/>
 		<typeAlias type="com.lg.t2.ticket.TicketDTO" alias="TicketDTO"/> 
-		
+
 	</typeAliases>
 
 </configuration>  
