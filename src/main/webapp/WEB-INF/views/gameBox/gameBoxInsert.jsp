@@ -40,8 +40,8 @@
 		<form id="frm" action="./gameBoxInsert" method="post">
 			<div class="form-group">
 				<label for="team">팀명 :</label> 
-					<select class="form-control myCheck" id="text"
-					name="text" size="1">
+					<select class="form-control myCheck" id="team"
+					name="team" size="1">
 					<option value="엘지" selected>엘지</option>
 					<option value="두산">두산</option>
 					<option value="롯데">롯데</option>

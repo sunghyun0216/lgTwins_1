@@ -163,7 +163,7 @@ public class GameBoxController {
 		model.addAttribute("msg", message);
 		model.addAttribute("path", "./gameBoxInsert2");
 		return "gameBox/gameBoxInsert2";	
-	}
+	}   
 
 	
 }

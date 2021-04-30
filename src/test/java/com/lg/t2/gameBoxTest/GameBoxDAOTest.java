@@ -36,10 +36,10 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		assertNotNull(gameBoxDTO);
 	}
 
-	//@Test
+	@Test
 	public void setInsertTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
-		gameBoxDTO.setOrderNum(2000);
+		gameBoxDTO.setOrderNum(2001);
 		gameBoxDTO.setTeam("sk");
 		gameBoxDTO.setScore(0);
 		gameBoxDTO.setPlace("문학");
@@ -61,7 +61,7 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		assertEquals(1, result);
 	}
 
-	@Test
+	//@Test
 	public void setDeleteTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(33);

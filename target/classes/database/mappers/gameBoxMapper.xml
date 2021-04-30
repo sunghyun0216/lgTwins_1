@@ -10,12 +10,14 @@
 <!-- 		where playtime = (select playtime from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR}) -->
 <!-- 		and place = (select place from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR}) -->
 <!-- 		and playdate = #{playDate, jdbcType=VARCHAR} -->
+
 			select a.ordernum, a.team, a.score, a.place, a.playdate, a.playtime, a.playing, a.wwl, 
 			b.score1, b.score2, b.score3, b.score4, b.score5, b.score6, b.score7, b.score8, b.score9, b.runs, b.hits, b.mistake, b.balls
 			from gamebox a join match b on (a.ordernum = b.ordernum)
 			where playtime = (select playtime from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR})
 			and place = (select place from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR})
 			and playdate = #{playDate, jdbcType=VARCHAR}
+			
 	</select>
 
 	<select id="getSelect" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
@@ -23,7 +25,8 @@
 	</select>
 	
 	<insert id="setInsert" parameterType="com.lg.t2.gameBox.GameBoxDTO">
-		insert into gameBox values(gameBox_SEQ.nextval, #{team}, #{score}, #{place}, #{playDate, jdbcType=VARCHAR} , #{playTime, jdbcType=VARCHAR}, #{playing}, #{wwl}, #{logo, jdbcType=VARCHAR})
+<!-- 		insert into gameBox values(gameBox_SEQ.nextval, #{team, jdbcType=VARCHAR}, #{score}, #{place, jdbcType=VARCHAR}, #{playDate, jdbcType=VARCHAR} , #{playTime, jdbcType=VARCHAR}, #{playing, jdbcType=VARCHAR}, #{wwl, jdbcType=VARCHAR}, #{logo, jdbcType=VARCHAR}) -->
+			insert into gameBox values(gameBox_SEQ.nextval, #{team, jdbcType=VARCHAR}, #{score}, #{place}, #{playDate} , #{playTime}, #{playing}, #{wwl}, #{logo, jdbcType=VARCHAR})
 	</insert>
 	
 	<update id="setUpdate" parameterType="com.lg.t2.gameBox.GameBoxDTO">
