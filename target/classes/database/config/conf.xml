@@ -6,6 +6,7 @@
 <configuration>
 	<typeAliases>
 
+
 	   <typeAlias type="com.lg.t2.member.MemberDTO" alias="MemberDTO"/>
 		<typeAlias type="com.lg.t2.member.MemberFileDTO" alias="MemberFileDTO"/>
 		<typeAlias type="com.lg.t2.board.BoardFileDTO" alias="BoardFileDTO"/>
