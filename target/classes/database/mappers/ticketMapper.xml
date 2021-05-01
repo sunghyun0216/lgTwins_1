@@ -4,15 +4,15 @@
     "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.lg.t2.ticket.TicketDAO">
-	<select id="getList"  resultType="com.lg.t2.ticket.TicketDTO">
-		select * from lgtwins order by playdate asc
+	<select id="getList"  parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
+		SELECT orderNum,team,playDate,playTime,logo from gamebox
 	</select>
 	
 	<select id="getSelect" parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
-		select * from lgtwins where num=#{num}
+		select orderNum,team,playDate,playTime,logo from gamebox where orderNum=#{orderNum}
 	</select>
 	
 	<insert id="setWrite" parameterType="com.lg.t2.ticket.TicketDTO">
-		insert into ticket values(ticket_SEQ.NEXTVAL,#{teamName},#{teamLogo},#{playDate},#{sitNum},#{price})
+		insert into ticket values(ticket_SEQ.NEXTVAL,#{team},#{playDate},#{playTime},#{logo},#{sitNum},#{price},#{id})
 	</insert>
 </mapper>  

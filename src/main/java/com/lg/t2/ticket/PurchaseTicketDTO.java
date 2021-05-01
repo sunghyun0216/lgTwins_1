@@ -3,29 +3,37 @@ package com.lg.t2.ticket;
 import java.util.Date;
 
 public class PurchaseTicketDTO {
-	private String teamName;
-	private Date playDate;
-	private String teamLogo;
+	private String team;
+	private String playDate;
+	private String playTime;
+	private String logo;
 	private String sitNum;
 	private long price;
-	public String getTeamName() {
-		return teamName;
-	}
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
+	private String id;
 	
-	public Date getPlayDate() {
+	public String getTeam() {
+		return team;
+	}
+	public void setTeam(String team) {
+		this.team = team;
+	}
+	public String getPlayDate() {
 		return playDate;
 	}
-	public void setPlayDate(Date playDate) {
+	public void setPlayDate(String playDate) {
 		this.playDate = playDate;
 	}
-	public String getTeamLogo() {
-		return teamLogo;
+	public String getPlayTime() {
+		return playTime;
 	}
-	public void setTeamLogo(String teamLogo) {
-		this.teamLogo = teamLogo;
+	public void setPlayTime(String playTime) {
+		this.playTime = playTime;
+	}
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
 	}
 	public String getSitNum() {
 		return sitNum;
@@ -39,5 +47,12 @@ public class PurchaseTicketDTO {
 	public void setPrice(long price) {
 		this.price = price;
 	}
+	public String getId() {
+		return id;
+	}
+	public void setId(String id) {
+		this.id = id;
+	}
+	
 	
 }

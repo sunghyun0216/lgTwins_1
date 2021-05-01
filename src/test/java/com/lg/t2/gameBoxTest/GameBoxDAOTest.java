@@ -16,13 +16,13 @@ public class GameBoxDAOTest extends MyAbstractTest{
 	@Autowired
 	private GameBoxDAO gameBoxDAO;
 
-//	@Test
-//	public void getListTest()throws Exception {
-//		List<GameBoxDTO> ar = gameBoxDAO.getList();
-//		assertNotEquals(0, ar.size());
-//	}
-
 	@Test
+	public void getListTest(GameBoxDTO gameBoxDTO)throws Exception {
+		List<GameBoxDTO> ar = gameBoxDAO.getList(gameBoxDTO);
+		assertNotEquals(0, ar.size());
+	}
+
+	//@Test
 	public void getSelectTest()throws Exception {
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(2);
@@ -36,7 +36,7 @@ public class GameBoxDAOTest extends MyAbstractTest{
 		assertNotNull(gameBoxDTO);
 	}
 
-	@Test
+	//@Test
 	public void setInsertTest()throws Exception{
 		GameBoxDTO gameBoxDTO = new GameBoxDTO();
 		gameBoxDTO.setOrderNum(2001);

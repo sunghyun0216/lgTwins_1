@@ -90,20 +90,24 @@ var idx = 0
  
 
 $('#check').on('click', function(){
-	var teamName=document.getElementById("teamName").value
-	var teamLogo=document.getElementById("teamLogo").value
-	var playDate=new Date();
+	var teamName=document.getElementById("team").value
+	var teamLogo=document.getElementById("logo").value
+	var playDate=document.getElementById("playDate").value
+	var playTime=document.getElementById("playTime").value
+	var id = document.getElementById("id").value
 /*	var playDate=document.getElementById("playDate").value*/
 	/*날짜 형식에 따라 저장안될떄가 있음*/
-	console.log(teamName);x
+	console.log(teamName);
 	console.log(teamLogo);
 	console.log(playDate);
         var form = {
-                teamName: teamName,
-                teamLogo: teamLogo,
+                team: teamName,
 				playDate: playDate,
+				playTime: playTime,
+				logo: teamLogo,
 				sitNum: valResult,
-				price: price
+				price: price,
+				id: id
         }
         $.ajax({
             url: "writeTicket",
@@ -141,9 +145,11 @@ $("#btn").click(function(){
 	        msg += '상점 거래ID : ' + rsp.merchant_uid;
 	        msg += '결제 금액 : ' + rsp.paid_amount;
 	        msg += '카드 승인번호 : ' + rsp.apply_num;
-			var teamName=document.getElementById("teamName").value
-		var teamLogo=document.getElementById("teamLogo").value
-		var playDate=new Date();
+			var teamName=document.getElementById("team").value
+			var teamLogo=document.getElementById("logo").value
+			var playDate=document.getElementById("playDate").value
+			var playTime=document.getElementById("playTime").value
+			var id = document.getElementById("id").value
 		/*	var playDate=document.getElementById("playDate").value*/
 		/*날짜 형식에 따라 저장안될떄가 있음*/
 		console.log(teamName);
@@ -151,10 +157,12 @@ $("#btn").click(function(){
 		console.log(playDate);
 	        var form = {
 	                teamName: teamName,
-	                teamLogo: teamLogo,
 					playDate: playDate,
+					playTime: playTime,
+					teamLogo: teamLogo,
 					sitNum: valResult,
-					price: price
+					price: price,
+					id: id
 	        }
 	        $.ajax({
 	            url: "writeTicket",

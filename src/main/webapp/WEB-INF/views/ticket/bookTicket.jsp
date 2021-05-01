@@ -25,18 +25,16 @@
 			<tbody>
 				<c:forEach items="${list}" var="dto">
 					<tr>
-						<td><fmt:formatDate value="${dto.playDate}"
-								pattern="yyyy-MM-dd" var="playDate" /> ${playDate}</td>
-
-						<td><fmt:formatDate value="${dto.playDate}" pattern="HH:mm" />
+						<td>${dto.playDate}</td>
+						<td>${dto.playTime}
 						</td>
 
 						<td>잠실</td>
-						<td><img width=50px height=50px src=${dto.teamLogo}></td>
-						<td>${dto.teamName}</td>
+						<td><img width=50px height=50px src=${dto.logo}></td>
+						<td>${dto.team}</td>
 <%-- 						<c:if test="${today > playDate }">
  --%>							<td>
-								<button onclick="window.open('./purchaseTicket?num=${dto.num}','window_name','width=1000,height=800,location=no,status=no,scrollbars=yes');">결제하기</button>
+								<button onclick="window.open('./purchaseTicket?orderNum=${dto.orderNum}','window_name','width=1000,height=800,location=no,status=no,scrollbars=yes');">결제하기</button>
 							</td>
 <%-- 						</c:if>
  --%>

@@ -3,38 +3,44 @@ package com.lg.t2.ticket;
 import java.util.Date;
 
 public class TicketDTO {
-	private long num;
-	private String teamName;
-	private	Date playDate;
-	private String teamLogo;
+	private long orderNum;
+	private String team;
+	private	String playDate;
+	private String playTime;
+	private String logo;
 	
+
+	public long getOrderNum() {
+		return orderNum;
+	}
+	public void setOrderNum(long orderNum) {
+		this.orderNum = orderNum;
+	}
 	
-	public long getNum() {
-		return num;
+	public String getTeam() {
+		return team;
 	}
-	public void setNum(long num) {
-		this.num = num;
+	public void setTeam(String team) {
+		this.team = team;
 	}
-	
-	public String getTeamName() {
-		return teamName;
-	}
-	public void setTeamName(String teamName) {
-		this.teamName = teamName;
-	}
-	public Date getPlayDate() {
+	public String getPlayDate() {
 		return playDate;
 	}
-	public void setPlayDate(Date playDate) {
+	public void setPlayDate(String playDate) {
 		this.playDate = playDate;
 	}
-	public String getTeamLogo() {
-		return teamLogo;
+	public String getPlayTime() {
+		return playTime;
 	}
-	public void setTeamLogo(String teamLogo) {
-		this.teamLogo = teamLogo;
+	public void setPlayTime(String playTime) {
+		this.playTime = playTime;
 	}
-
+	public String getLogo() {
+		return logo;
+	}
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
 	
 	
 }

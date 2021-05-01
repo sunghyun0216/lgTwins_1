@@ -13,8 +13,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 
-
-
 @Controller
 public class TicketController {
 	@Autowired
@@ -22,7 +20,7 @@ public class TicketController {
 	
 	@RequestMapping("/ticket/bookTicket")
 	public void getList(TicketDTO ticketDTO,Model model)throws Exception{
-		List<TicketDTO> ar = ticketService.getList();
+		List<TicketDTO> ar = ticketService.getList(ticketDTO);
 		model.addAttribute("list", ar);
 	}
 	

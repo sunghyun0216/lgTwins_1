@@ -10,8 +10,8 @@ public class TicketService {
 	@Autowired
 	private TicketDAO ticketDAO;
 	
-	public List<TicketDTO> getList()throws Exception{
-		return ticketDAO.getList();
+	public List<TicketDTO> getList(TicketDTO ticketDTO)throws Exception{
+		return ticketDAO.getList(ticketDTO);
 	}
 	
 	public TicketDTO getSelect(TicketDTO ticketDTO)throws Exception{

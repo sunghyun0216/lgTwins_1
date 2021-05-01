@@ -21,7 +21,6 @@
 		<typeAlias type="com.lg.t2.team.sort.TeamMemberDTO" alias="TeamMemberDTO"/>
 		<typeAlias type="com.lg.t2.team.sort.TeamBioDTO" alias="TeamBioDTO"/>
 
-
 	</typeAliases>
 		
 </configuration>

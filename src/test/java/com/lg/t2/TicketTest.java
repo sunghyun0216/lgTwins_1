@@ -21,30 +21,30 @@ public class TicketTest extends MyAbstractTest{
 	@Autowired
 	private TicketDAO ticketDAO;
 	
-//	@Test
-	public void getListTest()throws Exception{
-		List<TicketDTO> ar = ticketDAO.getList();
+	//@Test
+	public void getListTest(TicketDTO ticketDTO)throws Exception{
+		List<TicketDTO> ar = ticketDAO.getList(ticketDTO);
 		assertNotEquals(0, ar.size());
 	}
 	
-	//@Test
+	@Test
 	public void getSelectTest()throws Exception{
 		TicketDTO ticketDTO = new TicketDTO();
 		TicketDTO ar = ticketDAO.getSelect(ticketDTO);
 		assertNotEquals(0, ar);
 	}
 	
-	@Test
-	public void setWriteTest()throws Exception{
-		PurchaseTicketDTO purchaseTicketDTO = new PurchaseTicketDTO();
-		purchaseTicketDTO.setTeamName("kt");
-		purchaseTicketDTO.setTeamLogo("kt");
-		purchaseTicketDTO.setPlayDate(now);
-		purchaseTicketDTO.setSitNum("4022");
-		purchaseTicketDTO.setPrice(8000);
-		int result = ticketDAO.setWrite(purchaseTicketDTO);
-		assertNotEquals(0, result);
-	}
+	//@Test
+//	public void setWriteTest()throws Exception{
+//		PurchaseTicketDTO purchaseTicketDTO = new PurchaseTicketDTO();
+//		purchaseTicketDTO.setTeamName("kt");
+//		purchaseTicketDTO.setTeamLogo("kt");
+//		purchaseTicketDTO.setPlayDate(now);
+//		purchaseTicketDTO.setSitNum("4022");
+//		purchaseTicketDTO.setPrice(8000);
+//		int result = ticketDAO.setWrite(purchaseTicketDTO);
+//		assertNotEquals(0, result);
+//	}
 	
 	
 	
