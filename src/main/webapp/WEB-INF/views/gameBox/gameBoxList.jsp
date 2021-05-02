@@ -70,6 +70,7 @@
 			<table class="table">
 		<thead class="thead-dark">  
 			<tr>
+				<th>zz</th>
 				<th>팀명</th>
 				<th>스코어</th>
 				<th>장소</th>
@@ -83,6 +84,7 @@
 		<tbody>	
 		<c:forEach items="${list}" var="dto">
 			<tr>
+				<td><img width=50px height=50px src= ${dto.logo}></td>
 				<td>${dto.team}</td>
 				<td>${dto.score}</td>
 				<td>${dto.place}</td>
