@@ -19,7 +19,6 @@
 		</ul>
 	</nav>
 	
-	
 	<nav class="navbar navbar-expand-sm bg-white navbar-white nav justify-content-center bg-light">
 		<!-- Links -->
 		<ul class="navbar-nav">

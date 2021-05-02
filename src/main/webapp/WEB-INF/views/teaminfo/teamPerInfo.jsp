@@ -20,7 +20,7 @@
 	</div>
 	<div class="player_info">
 		<div class="player_private">
-		<ul clss="player_info">
+		<ul clsss="player_info">
 			<p id ="player_backnum">${biodto.backNum}</p>
 			<li >${biodto.tpName}</li>
 			<li>${biodto.usehand}</li>

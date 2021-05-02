@@ -1,40 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-	<!-- 여기서 부터는 선수 개별 기록  -->
-	<form class="record_desk" action="">
-		<!-- 목록 선택  -->
-		<div class="desk_header">
-			<a class="on" href ="" data-tab="0">상세기록</a>
-			<a href ="" data-tab="1">포토</a>
-			<a href ="" data-tab="2">경력</a>
-			<a href ="" data-tab="3"> 연봉</a>
-		</div>
-		
-		<div class="right_header">
-			<div class="recommend">
-				<span class="heart" onclick="" id="recomendHeart">
-					<i class="count" id="recommendCnt"></i>
-				</span>
-			</div>
-			<div class="sns_link">
-				<span class="facebook"></span>
-				<span class="kakao"></span>
-				<span class="band"></span>
-			</div>
-		</div>
-		
-		<div class="tab_content" data-tab ="0" style="display: none"></div>
-		<div class="tab_content" data-tab ="1" style="display: block">
-		</div>
-		
-		<div class="tab_content" data-tab ="2" style="display: none">
-			<div class="career_container"></div>
-		</div>
-		<div class="tab_content" data-tab ="3" style="display: none">
-			<div class="pay_container"></div>
-		</div>
-	</form>
-	
-	<div>
+	<!-- 여기서 부터는 선수 개별 기록, ajax 통신을 이용하여 그때 그때 불러오기  -->
+	<!-- 라디오 선택 (기록, 포토,이력 연봉) -->
+	<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+ 	<input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+  	<label class="btn btn-outline-primary" for="btnradio1">포토</label>
+
+  	<input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+ 	 <label class="btn btn-outline-primary" for="btnradio2">이력</label>
+
+  	<input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+  	<label class="btn btn-outline-primary" for="btnradio3">연봉</label>
 	</div>
+	<div class="contents_Selected">
+	
+	</div>
+	
