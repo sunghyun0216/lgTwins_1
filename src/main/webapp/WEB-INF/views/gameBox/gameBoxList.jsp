@@ -65,48 +65,63 @@
 
 </form> 
 
-	<div class="lower">
-	
-			<table class="table">
-		<thead class="thead-dark">  
-			<tr>
-				<th>zz</th>
-				<th>팀명</th>
-				<th>스코어</th>
-				<th>장소</th>
-				<th>경기시간</th>
-				<th>경기여부</th>
-				<th>승패</th>
+
+<!-- 	<div class="lower">	 -->
+
+<!-- 		<table class="table"> -->
+<!-- 		<thead class="thead-dark">   -->
+<!-- 			<tr> -->
+<!-- 				<th>zz</th> -->
+<!-- 				<th>팀명</th> -->
+<!-- 				<th>스코어</th> -->
+<!-- 				<th>장소</th> -->
+<!-- 				<th>경기시간</th> -->
+<!-- 				<th>경기여부</th> -->
+<!-- 				<th>승패</th> -->
 				
-			</tr>
-		</thead>
+<!-- 			</tr> -->
+<!-- 		</thead> -->
 		
-		<tbody>	
+<!-- 		<tbody>	 -->
+<%-- 		<c:forEach items="${list}" var="dto"> --%>
+<!-- 			<tr> -->
+<!-- 				<td><img width=50px height=50px src= ${dto.logo}></td> -->
+<%-- 				<td>${dto.team}</td> --%>
+<%-- 				<td>${dto.score}</td> --%>
+<%-- 				<td>${dto.place}</td> --%>
+<%-- 				<td>${dto.playTime}</td> --%>
+<%-- 				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td> --%>
+<%-- 				<td>${dto.wwl}</td> --%>
+<!-- 			</tr> -->
+<%-- 		</c:forEach> --%>
+
+<!-- 		</tbody> -->
+	
+<!-- 	</table> -->
+<!-- 	</div> -->
+	
+	<div style="border: 1px solid blue; float: left; width: 33%;">
 		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td><img width=50px height=50px src= ${dto.logo}></td>
-				<td>${dto.team}</td>
-				<td>${dto.score}</td>
-				<td>${dto.place}</td>
-				<td>${dto.playTime}</td>
-				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
-				<td>${dto.wwl}</td>
-			</tr>
+		<c:if test="${dto.team eq '엘지'}">
+		<center><h2><img width=50px height=50px src= ${dto.logo}> <a href="./gameBoxUpdate?orderNum=${dto.orderNum}"> ${dto.team}</a> 
+		<c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">${dto.score} </c:if></h2></center>
+		<center><c:if test="${dto.playing eq '경기종료'}">${dto.wwl}</c:if></center>
+		</c:if>
 		</c:forEach>
-
-		</tbody>
-	
-	</table>
 	</div>
-
-</div>
 	
-<c:forEach items="${list}" var="dto">
+	<div style="border: 1px solid blue; float: left; width: 33%;">
+	
+		<c:forEach items="${list}" var="dto">
 	<c:if test="${dto.playing eq '경기종료' or dto.playing eq '경기중'}">
 	
+	<center>
 	<table>
-			<thead>  
+		
+			<thead >  
+			<c:if test="${dto.team eq '엘지' and dto.playing eq '경기중' or dto.playing eq '경기종료'}">
 				<tr>
+					<th></th>
 					<th>1</th>
 					<th>2</th>
 					<th>3</th>
@@ -121,11 +136,14 @@
 					<th>E</th>
 					<th>B</th>
 				</tr>
+			</c:if>	
 			</thead>
 			
 			<tbody>	
 				
 				<tr>
+					<c:if test="${dto.playing eq '엘지'}"></c:if>
+					<td>${dto.team }</td>
 					<td>${dto.score1}</td>
 					<td>${dto.score2}</td>
 					<td>${dto.score3}</td>
@@ -140,15 +158,32 @@
 					<td>${dto.mistake}</td>
 					<td>${dto.balls}</td>
 				</tr> 
-				
+			
 			</tbody>
 	</table>
+	</center>	
+	</c:if>
+	<c:if test="${dto.playing eq '경기전'}">
+	<c:if test="${dto.team eq '엘지'}">
+	<center><h1>VS</h1></center> 
+	<center>${dto.place}  ${dto.playTime}  ${dto.playing}  </center>
+	</c:if>
 	</c:if>
 </c:forEach>
+	</div> 
+	
+	<div style="border: 1px solid blue; float: left; width: 33%;">
+		<c:forEach items="${list}" var="dto">
+		<c:if test="${dto.team ne '엘지'}">
+		<center><h2><c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">${dto.score} </c:if><a href="./gameBoxUpdate?orderNum=${dto.orderNum}"> ${dto.team}</a> <img width=50px height=50px src= ${dto.logo}> </h2></center>
+		<center><c:if test="${dto.playing eq '경기종료'}">${dto.wwl}</c:if></center>
+		</c:if>
+		</c:forEach>
 
-<script type="text/javascript" src="../resources/js/calendar.js"></script>   
+	</div>
+	
 
+<script type="text/javascript" src="../resources/js/calendar.js"></script>
 <a href="./gameBoxInsert" class="btn btn-info" role="button">경기일정 등록</a>
-
 </body>
 </html>

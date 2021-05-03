@@ -11,7 +11,7 @@
 <!-- 		and place = (select place from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR}) -->
 <!-- 		and playdate = #{playDate, jdbcType=VARCHAR} -->
 
-			select a.ordernum, a.team, a.score, a.place, a.playdate, a.playtime, a.playing, a.wwl, 
+			select a.ordernum, a.team, a.score, a.place, a.playdate, a.playtime, a.playing, a.wwl, a.logo,
 			b.score1, b.score2, b.score3, b.score4, b.score5, b.score6, b.score7, b.score8, b.score9, b.runs, b.hits, b.mistake, b.balls
 			from gamebox a join match b on (a.ordernum = b.ordernum)
 			where playtime = (select playtime from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR})

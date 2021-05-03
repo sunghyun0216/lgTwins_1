@@ -101,6 +101,7 @@ public class GameBoxController {
 		
 		System.out.println("!!!!!!!!!!!!!!!!!!");
 		System.out.println(gameBoxDTO.getPlayDate());
+		System.out.println(gameBoxDTO.getLogo());
 		
 		String date = gameBoxDTO.getPlayDate();
 		if(gameBoxDTO.getPlayDate() == null) {
