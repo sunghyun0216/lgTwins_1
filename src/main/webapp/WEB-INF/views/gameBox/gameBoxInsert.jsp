@@ -56,10 +56,10 @@
 				<h5 id="teamResult"></h5>
 			</div>
 
-			<div class="form-group">
-				<label for="score">스코어 :</label> <input type="number" class="form-control myCheck" id="score" name="score">
-				<h5 id="scoreResult"></h5>
-			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="score">스코어 :</label> <input type="number" class="form-control myCheck" id="score" name="score"> -->
+<!-- 				<h5 id="scoreResult"></h5> -->
+<!-- 			</div> -->
 
 			<div class="form-group">
 				<label for="place">장소 :</label> 
