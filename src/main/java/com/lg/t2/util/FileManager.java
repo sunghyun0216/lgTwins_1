@@ -45,7 +45,8 @@ public class FileManager {
 		 */		
 		
 		//b. API
-			
+		fileName = UUID.randomUUID().toString()+"_"+multipartFile.getOriginalFilename();
+		
 		//3. HDD에 저장
 		file = new File(file, fileName);
 		
