@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lg.t2.team.member.TeamMemberDAO">
+
+	<!-- 모든 선수 리스트 조회  -->
+	<select id="getALLPlayerList" resultType="com.lg.t2.team.member.TeamMemberDTO">
+		SELECT T.*, P.tpname,G.tgname 
+		FROM twinsMemberInfo T, teamPosition P, teamGroup G 
+		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( G.tgNum = 4)
+	</select>
+	
+	<!--포지션 별 선수 리스트-->
+	<select id="getPlrPosiList" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.member.TeamMemberDTO">
+		SELECT T.*, P.tpname,G.tgname 
+		FROM twinsMemberInfo T, teamPosition P, teamGroup G 
+		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( p.tpNum = #{tpNum})
+	</select>	
+	
+	<!--선수  개인별 정보 불러오기(새로운 페이지)-->
+	<select id= "getPlayerInfo" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.member.TeamBioDTO">
+		SELECT M.*, B.*, TP.tpname FROM twinsMemberInfo M, memberBio B, teamPosition TP 
+		WHERE M.tNum = B.tbNum AND tp.tpnum = M.tpnum AND( M.tNum = #{tNum})
+	</select> 
+	
+	<!-- 선수 추가  -->
+	<insert id="setAddPlayer" parameterType="com.lg.t2.team.member.TeamBioDTO">
+		INSERT INTO twinsMemberInfo 
+		VALUES (TINFO_SEQ.nextval,,'#{tKName}','#{tEName}',' #{usehand}',#{joinyear},#{tgNum},#{tpNum},0)
+	</insert>
+	
+	<insert id="setAddPlayerBio" parameterType="com.lg.t2.team.member.TeamBioDTO">
+		INSERT INTO memberBio 
+		VALUES (BIOIFO_SEQ.nextval,'#{birth}',#{height},#{weight},#{edu})
+	</insert>
+	
+	<!-- 선수 정보 갱신 -->
+	<update id="setUpdatePlr" parameterType="com.lg.t2.team.member.TeamBioDTO">
+		UPDATE twinsMemberInfo 
+		SET backNum = #{backNum}, tKName ='#{tKName}', tEName ='#{tEName}', 
+		useHand ='#{useHand}', joinyear = #{joinyear},
+		tgNum =#{tgNum}, tpNum = #{tpNum}
+    	WHERE tNum= #tNum}
+	</update>
+	<update id="setUpdatePlrBio" parameterType="com.lg.t2.team.member.TeamBioDTO">
+		UPDATE memberBio SET 
+		birth='#{birth}', height = #{height} , weight = #{weight}, edu='#{edu}' 
+		WHERE tbNum = #{tbNum}
+	</update>
+	<!-- 선수 삭제  -->
+	<delete id="setDeletePlayer" parameterType="com.lg.t2.team.member.TeamMemberDTO">
+		DELETE twinsMemberInfo WHERE tNum = #{tNum}
+	</delete>
+</mapper>  

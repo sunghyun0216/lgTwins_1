@@ -20,9 +20,8 @@
 		<typeAlias type="com.lg.t2.gameBox.GameBoxDTO" alias="GameBoxDTO"/> 
 		<typeAlias type="com.lg.t2.match.MatchDTO" alias="MatchDTO"/> 
 		
-<!-- 		<typeAlias type="com.lg.t2.team.sort.TeamSortDTO" alias="TeamSortDTO"/> -->
-<!-- 		<typeAlias type="com.lg.t2.team.sort.TeamMemberDTO" alias="TeamMemberDTO"/> -->
-<!-- 		<typeAlias type="com.lg.t2.team.sort.TeamBioDTO" alias="TeamBioDTO"/> -->
+		<typeAlias type="com.lg.t2.team.member.TeamMemberDTO" alias="TeamMemberDTO"/>
+		<typeAlias type="com.lg.t2.team.member.TeamBioDTO" alias="TeamBioDTO"/>
 
 	</typeAliases>
 		

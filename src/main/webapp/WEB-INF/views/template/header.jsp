@@ -32,10 +32,10 @@
 						 	<a class="dropdown-item " href="${pageContext.request.contextPath}/teaminfo/AllplayerList">선수단</a> 
 						</div>
 						<div class="col">
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'12'}">포수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'13'}">내야수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'14'}">외야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">포수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">내야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">외야수</a> 
 						</div>
 					</div>
 					
@@ -78,3 +78,6 @@
 			</li>
 		</ul>
 	</nav>
+
+	<!-- 임시라구요 -->
+	<a class="btn btn-primary" href="${pageContext.request.contextPath}/teaminfo/showform" role="button">팀원 입력폼</a>
