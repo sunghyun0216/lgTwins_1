@@ -119,7 +119,9 @@ $('#check').on('click', function(){
             error: function(){
                 alert("simpleWithObject err");
             }
+			
         });
+		window.close();
     });
 
 
@@ -180,5 +182,6 @@ $("#btn").click(function(){
 	        msg += '에러내용 : ' + rsp.error_msg;
 	    }
 	    alert(msg);
+		window.close();
 	});
 });

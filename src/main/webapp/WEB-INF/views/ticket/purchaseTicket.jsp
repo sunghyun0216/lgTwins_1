@@ -29,19 +29,24 @@
   <div class="tab_cont">
   	<!-- 티켓정보 확인창 -->
     <div class="on">
-    <input type="text" id="team" value="${dto.team}">
-    <input type="text" id="logo" value="${dto.logo}">
-    <input type="text" id="playDate" value="${dto.playDate}">
-    <input type="text" id="playTime" value="${dto.playTime}">
-    <input type="text" id="id" value="${member.id}">
-    
+	    <input type="text" id="team" value="${dto.team}">
+	    <input type="text" id="logo" value="${dto.logo}">
+	    <input type="text" id="playDate" value="${dto.playDate}">
+	    <input type="text" id="playTime" value="${dto.playTime}">
+	    <input type="text" id="id" value="${member.id}">
     </div>
     
     <!-- 좌석 선택창 -->
     <div>
     <!--탭 메뉴 jquery에서 버튼이벤트 안에 if문추가해서 변수방지 구현  -->
-    	
-		<select size=6 name="class_block" onchange="handleOnChange(this)">
+
+    	<span style="display:inline-block; width:450px; height:500px; vertical-align:top;">
+	    <img width=600px height=490px src="../resources/images/bookTicket.png">
+	    </span>
+	    
+		<span style="display:inline-block; width:450px; height:500px; text-align: right;">
+	    <span style="display:inline-block; width:400px; height:150px;">
+		<select style="width:200px;height:200px;" size=6 name="class_block" onchange="handleOnChange(this)">
 			<optgroup label="블루">
 			    <option value="101">101블록</option>
 			    <option value="102">102블록</option>
@@ -59,17 +64,22 @@
 			    <option value="402">402블록</option>
 			  </optgroup>
 		</select>
+		</span>
 		<!-- 이프문이용해서  -->
-		<select name="sitNum" onchange="handleOnChange2(this)">
-			<option value="1">1</option>
-			<option value="2">2</option>
-			<option value="3">3</option>
-			<option value="4">4<option>
+		<span style="display:inline-block; width:400x; height:50px;">
+		<select style="width:200px;height:30px;" name="sitNum" onchange="handleOnChange2(this)">
+			<option value="1">좌석 1</option>
+			<option value="2">좌석 2</option>
+			<option value="3">좌석 3</option>
+			<option value="4">좌석 4<option>
 		</select>
-		
+		</span>
+		<span style="display:inline-block; width:400px; height:50px;">
 		<h3 id='result'></h3>
 		<h3 id='result2'></h3>
-		
+		</span>
+		</span>
+
 	</div>
 	
 	<!-- 결제 창 -->
@@ -90,7 +100,7 @@
 	  <button id="next">다음</button>
 	  <button id="check">check</button>
   </div>
-</div>
+</span>
 
 
 

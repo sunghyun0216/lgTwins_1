@@ -7,6 +7,7 @@
 	<select id="getList"  parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
 		SELECT orderNum,team,playDate,playTime,logo from gamebox
 		where  ROWNUM <![CDATA[ <= ]]> 5 and playDate <![CDATA[ > ]]> sysdate
+		order by ordernum desc
 	</select>
 	
 	<select id="getSelect" parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
