@@ -15,28 +15,11 @@
 	</delete>
 	
 	<insert id="setFileInsert" parameterType="BoardFileDTO">
-		insert into newsFiles values(file_seq.nextval, #{num}, #{fileName}, #{origineName})
+		insert into newsFiles values(newsfile_seq.nextval, #{num}, #{fileName}, #{origineName})
 	</insert>
 	
-	<select id="getSelect" parameterType="BoardDTO" resultMap="selectResult">
-		select N.*, NF.*
-		from news N left join newsFiles NF
-		on N.num = NF.num
-		where N.num=#{num}
-	</select>
-		
-	<resultMap type="NewsDTO" id="selectResult">
-		<id property="num" column="num"/>
-		<result property="title" column="title"/>
-		<result property="contents" column="contents"/>
-		<result property="regDate" column="regDate"/>
-		<collection property="boardFiles" javaType="java.util.List" ofType="BoardFileDTO">
-			<id property="fileNum" column="fileNum"/>
-			<result property="fileName" column="fileName"/>
-			<result property="origineName" column="origineName"/>
-		</collection>
-		
-	</resultMap>
+	
+
 	
 <select id="getList" resultType="NewsDTO" parameterType="Pager">
 	select * from
@@ -81,10 +64,24 @@
 	</select>
 
 	<select id="getNum" resultType="java.lang.Long">
-		select file_seq.nextval from dual
+		select news_seq.nextval from dual
 	</select>
-
 	
+	<select id="getSelect" parameterType="BoardDTO" resultType="NewsDTO">
+		select * from news where num=#{num}
+	</select>
+	
+	<insert id="setInsert" parameterType="BoardDTO">
+		insert into news values(#{num},#{title}, #{contents}, sysdate)
+	</insert>
+	
+	<delete id="setDelete" parameterType="BoardDTO">
+		delete news where num=#{num}
+	</delete>
+	
+	<update id="setUpdate" parameterType="BoardDTO">
+		update news set title=#{title}, contents=#{contents} where num=#{num}
+	</update>
 
  
 </mapper>  

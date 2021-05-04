@@ -21,7 +21,7 @@
 	<c:if test="${member.id eq 'admin'}">
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="#" id="del" class="btn btn-info">Delete</a>
-	\</c:if>
+	</c:if>
 	</c:catch>
 
 	

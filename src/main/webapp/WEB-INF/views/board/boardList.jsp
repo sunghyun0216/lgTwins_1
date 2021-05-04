@@ -23,6 +23,7 @@
 			</thead>
 
 			<tbody>
+			
 			<c:forEach items="${list}" var="dto">
 					<tr>
 						<td><a href="./${board}Select?num=${dto.num}"> <c:catch>
@@ -37,6 +38,20 @@
 
 		</table>
 	</div>
+	
+
+	<c:catch>
+	<c:if test="${member.id eq 'admin'}">
+	<a href="./${board}Insert" class="btn  btn-primary" role="button">공지사항 작성</a>
+	</c:if>
+	</c:catch>
+	
+	
+	<c:catch>
+	<c:if test="${member.id eq 'lg1'}">
+	<a href="./${board}Insert" class="btn  btn-primary" role="button">뉴스 작성</a>
+	</c:if>
+	</c:catch>
 
 	<div class="container">
 		 <ul class="pagination">

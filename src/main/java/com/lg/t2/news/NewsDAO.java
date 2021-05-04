@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 import com.lg.t2.board.BoardDAO;
 import com.lg.t2.board.BoardDTO;
+import com.lg.t2.board.BoardFileDTO;
 import com.lg.t2.util.Pager;
 
 @Repository
@@ -18,6 +19,19 @@ public class NewsDAO implements BoardDAO {
 	
 	private final String NAMESAPCE="com.lg.t2.board.news.NewsDAO.";
 
+	public BoardFileDTO getFileSelect(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.selectOne(NAMESAPCE+"getFileSelect", boardFileDTO);
+	}
+	
+	public int setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+			return sqlSession.delete(NAMESAPCE+"setFileDelete", boardFileDTO);
+	}
+	
+	public int setFileInsert(BoardFileDTO boardFileDTO)throws Exception{
+		return sqlSession.insert(NAMESAPCE+"setFileInsert", boardFileDTO);
+	}
+	
+	
 	@Override // List
 	public List<BoardDTO> getList(Pager pager) throws Exception {
 		return sqlSession.selectList(NAMESAPCE+"getList", pager);
@@ -35,20 +49,21 @@ public class NewsDAO implements BoardDAO {
 
 	@Override
 	public int setInsert(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.insert(NAMESAPCE+"setInsert", boardDTO);
 	}
 
 	@Override
 	public int setUpdate(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESAPCE+"setUpdate", boardDTO);
 	}
 
 	@Override
 	public int setDelete(BoardDTO boardDTO) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESAPCE+"setDelete", boardDTO);
+	}
+	
+	public long getNum()throws Exception{
+		return sqlSession.selectOne(NAMESAPCE+"getNum");
 	}
 	
 }
