@@ -22,12 +22,6 @@ public class CarNPayController {
 		
 		return "home";
 	}
-	//요청한 tNum 가져오기 
-	public void reqDetail()throws Exception{
-		System.out.println("요청성공!");
-		//playList set Name;
-		
-	}
 	
 	// 요청 데이터 가져오기  
 	@PostMapping ("teaminfo/infoDetail/**")

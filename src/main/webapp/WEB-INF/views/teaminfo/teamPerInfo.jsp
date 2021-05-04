@@ -14,10 +14,10 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
-<script>
+<script >
 	$(function() {
 		$("#photo_list").on("click", function() {
-			$.ajax("/t2/teaminfo/AllplayerList")
+			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
 			.done(function() {
 				alert("요청 성공");
 			})
@@ -29,7 +29,7 @@
 			});
 		});
 	});
-</script>
+</script >
 
 </head>
 <body>
