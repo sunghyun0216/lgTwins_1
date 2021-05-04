@@ -22,7 +22,10 @@
 		
 		<typeAlias type="com.lg.t2.team.member.TeamMemberDTO" alias="TeamMemberDTO"/>
 		<typeAlias type="com.lg.t2.team.member.TeamBioDTO" alias="TeamBioDTO"/>
-
+		
+		<typeAlias type="com.lg.t2.team.carnpay.TeamCareerDTO" alias="TeamCareerDTO"/>
+		<typeAlias type="com.lg.t2.team.carnpay.PlayerPayDTO" alias="PlayerPayDTO"/>
+		
 	</typeAliases>
 		
 </configuration>

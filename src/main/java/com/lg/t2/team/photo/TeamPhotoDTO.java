@@ -4,7 +4,7 @@ import java.sql.Time;
 
 public class TeamPhotoDTO {
 	
-	private int plrNum;
+	private int plrNum; // 누구의 사진인가?
 	private String fNamese;
 	private Time fUploadD;
 	private String fURL;

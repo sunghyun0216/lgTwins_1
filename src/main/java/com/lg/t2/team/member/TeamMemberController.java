@@ -57,7 +57,7 @@ public class TeamMemberController {
 		return mv; 
 	}
 	
-	@PostMapping("teaminfo/infoManager/") // post 방식으로 할 것
+	@PostMapping("teaminfo/addTeamMember") // post 방식으로 할 것
 	public int setAddPlayer(TeamBioDTO teamBioDTO) throws Exception{
 		
 		int result = teamMemberService.setAddPlayer(teamBioDTO);

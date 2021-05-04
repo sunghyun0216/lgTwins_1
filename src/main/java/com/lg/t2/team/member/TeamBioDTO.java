@@ -10,9 +10,6 @@ public class TeamBioDTO extends TeamMemberDTO{
 	private int weight;
 	private String edu;
 	
-	
-	
-	
 	public int getTbNum() {
 		return tbNum;
 	}

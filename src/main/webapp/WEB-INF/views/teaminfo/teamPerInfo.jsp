@@ -43,38 +43,15 @@
 				</div>
     		</div>
     		<div class="col">
-      			<div class="card-body">
-      				<h4>이곳에 선수경기 기록이 <br>들어갔다고 가정</h4>
+    		<div class="card" style="width: 18rem;">
+    			<div class="card-body">
+      				<h5>이곳에 선수경기 성적이 <br> 들어갔다고 가정</h5 >
   				</div>
+    		</div>	
     		</div>
   		</div>
-	</div>
-	<br>
-	<br>
-	<div class="detail_header border-bottom">
-		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 radio 선택하기-->
-		<div class="container">
-  			<div class="row">
-    			<div class="col-sm-8">
-    				<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">포토</a>
-					<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">이력</a>
-					<a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">연봉</a>	
-    			</div>
-    			<div class="col-sm-4">
-    				<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">팬  ${playerInfo.likeNum} </a>
-    				<a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">카카오스토리 공유</a>
-    			</div>
-  			</div>
-  		</div>
-	</div><!-- end header -->
-	<div class="row">
-	
-		<div class="card" style="width: 18rem;">
-  			<div class="card-body">
-   			 <h5 class="card-title">년도 넣기</h5>
-  			 <p class="card-text">여기에 내용</p>
-  			</div>
-	</div>
-	</div>
+	</div> <!-- 선수 정보 끝 -->
+	<br><br>
+	<c:import url="./infoDetail.jsp"></c:import>
 </body>
 </html>

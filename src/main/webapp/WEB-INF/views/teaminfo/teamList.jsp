@@ -34,7 +34,7 @@
 		
 	</div>
 	
-	<div class="team_player_list row ">
+	<div class="team_player_list row">
 		<c:forEach items="${playerdto}" var="playerdto">
 			<div><!-- 여기에 관리자 로그인시에만, 삭제 수정 버튼 생성하기 --></div>
 			<div class="card " style="width: 18rem;">

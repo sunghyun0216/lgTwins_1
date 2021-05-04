@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lg.t2.team.carnpay.CarNPayDAO">
+
+	<!-- 이력 조회 (선수별)-->
+	<select id="getCarList" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.carnpay.TeamCareerDTO">
+		Select * from pCareer where plrNum= #{tNum}
+	</select>
+	<!-- 이력 삽입 -->
+	<insert id="addCareer" parameterType="com.lg.t2.team.carnpay.TeamCareerDTO" >
+		Insert into pCareer values (#{plrNum},#{sYear},'#{cContent}')
+	</insert>
+	<!-- 이력 삭제 -->
+	<delete id="deleteCareer" parameterType="com.lg.t2.team.carnpay.TeamCareerDTO">
+		DELETE pCareer WHERE (plrNum= #{plrNum} AND sYear=#{sYear})
+	</delete>
+	
+	<!-- 연봉 조회(선수별) -->
+	<select id="getPayList" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.carnpay.PlayerPayDTO">
+		Select * from pSalary where plrNum= #{tNum}
+	</select>
+	<!-- 연봉 삽입 -->
+	<insert id="addPay" parameterType="com.lg.t2.team.carnpay.PlayerPayDTO" >
+		Insert into pSalary values (#{plrNum},#{sYear},#{salary})
+	</insert>
+	<!-- 연봉 삭제 -->
+	<delete id="deletePay" parameterType="com.lg.t2.team.carnpay.PlayerPayDTO">
+		Delete pSalary where (plrNum= #{plrNum} AND #{sYear})
+	</delete>
+</mapper>  
