@@ -2,9 +2,4 @@
  * 
  */
  
-$("#check").onclick(function(){
-		valResult = value1 + value2;
-		console.log(tNum);
-		
-	}
-);
+/*해당 경우는 일반 자바 스크립트 사용한다.*/

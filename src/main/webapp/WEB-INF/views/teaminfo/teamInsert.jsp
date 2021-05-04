@@ -102,6 +102,5 @@
     		<button type="submit" class="btn btn-primary">추가하기</button>
   		</div>
 	</form>
-
 </body>
 </html>

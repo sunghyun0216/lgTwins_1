@@ -9,8 +9,27 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
-
 <title>TeamInfo Page</title>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+	$(function() {
+		$("#photo_list").on("click", function() {
+			$.ajax("/t2/teaminfo/AllplayerList")
+			.done(function() {
+				alert("요청 성공");
+			})
+			.fail(function() {
+				alert("요청 실패");
+			})
+			.always(function() {
+				alert("요청 완료");
+			});
+		});
+	});
+</script>
 
 </head>
 <body>
@@ -52,6 +71,26 @@
   		</div>
 	</div> <!-- 선수 정보 끝 -->
 	<br><br>
-	<c:import url="./infoDetail.jsp"></c:import>
+	<div class="detail_header border-bottom">
+		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 radio 선택하기-->
+		<h2>${playerInfo.tNum}</h2>
+		<div class="container">
+  			<div class="row">
+    			<div class="col-sm-8">
+    				<a id="photo_list" class="btn btn-primary btn-lg active"  role="button" aria-pressed="true">포토</a>
+					<a id="career_list" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">이력</a>
+					<a id="pay_list" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">연봉</a>	
+    			</div>
+    			<div class="col-sm-4">
+    				<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">팬  ${playerInfo.likeNum} </a>
+    				<a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">카카오스토리 공유</a>
+    			</div>
+  			</div>
+  		</div>
+	</div><!-- end header -->
+	
+	<div class="col" id="info_detail" >	
+		<h2>Ajax로 요청하는 정보만  가져올것</h2>
+	</div>
 </body>
 </html>
