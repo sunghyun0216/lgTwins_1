@@ -5,6 +5,16 @@
 
 <mapper namespace="com.lg.t2.gameBox.GameBoxDAO">
 
+	<select id="getList2" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
+		select * from gamebox
+        where playdate like '202105%'
+        AND playtime IN (select playtime from gamebox where team = '엘지' and playdate LIKE '202105%')
+		and place IN (select place from gamebox where team = '엘지' and playdate LIKE '202105%')
+        and ORDERNUM IN (select ordernum+1 from gamebox where team='엘지' AND playdate LIKE '202105%')
+        OR ORDERNUM IN (select ordernum from gamebox where team='엘지' AND playdate LIKE '202105%')
+        ORDER BY ORDERNUM
+	</select>
+	
 	<select id="getList" parameterType="com.lg.t2.gameBox.GameBoxDTO" resultType="com.lg.t2.gameBox.GameBoxDTO">
 <!-- 		select * from gamebox -->
 <!-- 		where playtime = (select playtime from gamebox where team = '엘지' and playdate = #{playDate, jdbcType=VARCHAR}) -->

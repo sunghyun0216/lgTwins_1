@@ -83,8 +83,8 @@ public class GameBoxController {
 		
 		gameBoxDTO.setPlayDate(format_Date);
 		
-		List<GameBoxDTO> ar = gameBoxService.getList(gameBoxDTO);
-
+		List<GameBoxDTO> ar = gameBoxService.getList2(gameBoxDTO);
+		System.out.println("리스트로가자");
 		System.out.println(ar);
 		System.out.println(ar.get(0));
 		model.addAttribute("list", ar);

@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Calendar"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% 
 String yy =request.getParameter("year"); //2021
 String mm =request.getParameter("month"); //12
@@ -104,7 +105,7 @@ caption {
 </style>
 
 	<form name="frm" method="post" action="gameCalendar">
-
+		
 		<caption>
 			<div class="t_div1">
 				<button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
@@ -118,7 +119,7 @@ caption {
 				<button type="button" onclick="location='gameCalendar?year=<%=n_y%>&month=<%=n_m%>'">다음</button>
 			</div>
 		</caption>
-
+	
 	</form>
 	<table>
 
@@ -152,10 +153,23 @@ caption {
          } else if(count == 1){
         	 color="red";
          }
+         
       %>
-			<td style="color:<%=color%>"><%=d %> <c:forEach items="${list}" var="dto">
-	         	${dto.team}
-	         </c:forEach></td>
+			<td style="color:<%=color%>">
+			<%= d %> 
+			<% pageContext.setAttribute("d",d); %>
+
+			<c:forEach items="${list}" var="dto">
+				<c:set var="TextValue" value="${dto.playDate}" />
+	         	<c:set var="ksh" value="${fn:substring(TextValue,6,8) }"/>
+	         	
+				<c:set var="d" value="${d}" />
+	         	<c:if test="${ksh eq d}">
+	         		${dto.team}
+	         	</c:if>
+	         	
+	        </c:forEach>
+	        </td>
 			<%   
       	//개행을 위한 설정
          if(count==7){
@@ -176,8 +190,41 @@ caption {
 	</table>
 	<br>
 
-	<button type="button" class="btn btn-info" onclick="fn_planeWrite">일정등록</button>
-	<button type="button" class="btn btn-danger">일정삭제</button>
+	<div class="lower">	
+
+		<table class="table">
+		<thead class="thead-dark">  
+			<tr>
+				<th>zz</th>
+				<th>팀명</th>
+				<th>스코어</th>
+				<th>장소</th>
+				<th>경기시간</th>
+				<th>경기여부</th>
+				<th>승패</th>
+				
+			</tr>
+		</thead>
+		
+		<tbody>	
+		<c:forEach items="${list}" var="dto">
+			<tr>
+				<td><img width=50px height=50px src= ${dto.logo}></td>
+				<td>${dto.team}</td>
+				<td>${dto.score}</td>
+				<td>${dto.place}</td>
+				<td>${dto.playTime}</td>
+				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
+				<td>${dto.wwl}</td>
+			</tr>
+		</c:forEach>
+
+		</tbody>
+	
+	</table>
+	</div>
+
+
 </body>
 </html>
 
