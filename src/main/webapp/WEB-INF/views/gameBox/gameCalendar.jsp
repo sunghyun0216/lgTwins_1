@@ -105,14 +105,14 @@ caption {
 </style>
 
 	<form name="frm" method="post" action="gameCalendar">
-		
+<center>	
 		<caption>
 			<div class="t_div1">
 				<button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
 			</div class>
 
 			<div class="t_div2">
-				<%=y %>년 <%=m+1 %>월
+				 <%=y %>년 <%=m+1 %>월
 			</div class="t_div3">
 
 			<div style="">
@@ -165,35 +165,63 @@ caption {
 				<c:set var="d" value="${d}" />
 				
 				<c:if test="${ksh eq d}">
-				<c:if test="${dto.team ne '엘지'}">
-				<c:if test="${dto.playing eq '경기전'}">
-					${dto.place} ${dto.playTime} ${dto.playing}
-				</c:if>
-				</c:if>
-				</c:if>
 				
-	         	<c:if test="${ksh eq d}">
-	         	<c:if test="${dto.playing eq '경기중'}">
-	         		  ${dto.score}
-	         	</c:if> 
-	         	</c:if>
+					<c:if test="${dto.playing eq '경기전'}"> 
+						<c:if test="${dto.team ne '엘지'}"> 
+							<img width=50px height=50px src= ${dto.logo}> &nbsp; &nbsp; ${dto.place} ${dto.playTime} &nbsp; ${dto.playing} 
+						</c:if>
+					</c:if>
+					
+					<c:if test="${dto.playing eq '경기중'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<img width=50px height=50px src= ${dto.logo}> &nbsp; &nbsp; ${dto.score}
+						</c:if>
+					</c:if>
+					
+					<c:if test="${dto.playing eq '경기종료'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<img width=50px height=50px src= ${dto.logo}> &nbsp; &nbsp; &nbsp;
+						</c:if>
+						
+<%-- 						<c:if test="${dto.team eq '엘지'}"> --%>
+<%-- 						 	${dto.score} ${dto.wwl}  --%>
+<%-- 						</c:if> --%>
+						
+						
+					</c:if>
+					
+					<c:if test="${dto.playing eq '경기취소'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<img width=50px height=50px src= ${dto.logo}> &nbsp; &nbsp; ${dto.playing}
+						</c:if>
+					</c:if>
+	
+				</c:if>
+			
+<%-- 				<c:if test="${dto.team ne '엘지'}"> --%>
+<%-- 				</c:if> --%>
+<%-- 	         	<c:if test="${ksh eq d}"> --%>
+<%-- 	         	<c:if test="${dto.playing eq '경기중'}"> --%>
+<%-- 	         		  ${dto.score} --%>
+<%-- 	         	</c:if>  --%>
+<%-- 	         	</c:if> --%>
 	         
-	         	<c:if test="${ksh eq d}">
-				<c:if test="${dto.team ne '엘지'}">
-				<c:if test="${dto.playing eq '경기취소'}">
-					${dto.playing}
-				</c:if>
-				</c:if>
-				</c:if>
+<%-- 	         	<c:if test="${ksh eq d}"> --%>
+<%-- 				<c:if test="${dto.team ne '엘지'}"> --%>
+<%-- 				<c:if test="${dto.playing eq '경기취소'}"> --%>
+<%-- 					${dto.playing} --%>
+<%-- 				</c:if> --%>
+<%-- 				</c:if> --%>
+<%-- 				</c:if> --%>
 				
-				<c:if test="${ksh eq d}">
-	         	<c:if test="${dto.playing eq '경기종료'}">
-	         		  ${dto.score}
-	         	</c:if> 
-	         	<c:if test="${dto.team eq '엘지'}">
-	         		${dto.wwl}
-	         	</c:if>
-	         	</c:if>
+<%-- 				<c:if test="${ksh eq d}"> --%>
+<%-- 	         	<c:if test="${dto.playing eq '경기종료'}"> --%>
+<%-- 	         		  ${dto.score} --%>
+<%-- 	         	</c:if>  --%>
+<%-- 	         	<c:if test="${dto.team eq '엘지'}"> --%>
+<%-- 	         		${dto.wwl} --%>
+<%-- 	         	</c:if> --%>
+<%-- 	         	</c:if> --%>
 	         	
 	        </c:forEach>
 	        </td>
@@ -213,45 +241,12 @@ caption {
       
       %>
 		</tr>
-
-	</table>
-	<br>
-
-	<div class="lower">	
-
-		<table class="table">
-		<thead class="thead-dark">  
-			<tr>
-				<th>zz</th>
-				<th>팀명</th>
-				<th>스코어</th>
-				<th>장소</th>
-				<th>경기시간</th>
-				<th>경기여부</th>
-				<th>승패</th>
-				
-			</tr>
-		</thead>
 		
-		<tbody>	
-		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td><img width=50px height=50px src= ${dto.logo}></td>
-				<td>${dto.team}</td>
-				<td>${dto.score}</td>
-				<td>${dto.place}</td>
-				<td>${dto.playTime}</td>
-				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
-				<td>${dto.wwl}</td>
-			</tr>
-		</c:forEach>
+		
+</table>
 
-		</tbody>
-	
-	</table>
-	</div>
-
-
+</center>
 </body>
 </html>
 
+	

@@ -173,8 +173,10 @@
 	</center>
 	
 	</c:if>
+	<c:if test="${dto.playing eq '경기종료'}">
 	<c:if test="${dto.team eq '엘지'}">
 	<center><h5 class="card border-dark mb-3" style="max-width: 18rem;">${dto.place} &nbsp;  ${dto.playTime} &nbsp; ${dto.playing} </h5></center>
+	</c:if>
 	</c:if>
 	
 	<c:if test="${dto.playing eq '경기전'}">
