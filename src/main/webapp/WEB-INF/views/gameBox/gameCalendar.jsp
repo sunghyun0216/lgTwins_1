@@ -162,10 +162,37 @@ caption {
 			<c:forEach items="${list}" var="dto">
 				<c:set var="TextValue" value="${dto.playDate}" />
 	         	<c:set var="ksh" value="${fn:substring(TextValue,6,8) }"/>
-	         	
 				<c:set var="d" value="${d}" />
+				
+				<c:if test="${ksh eq d}">
+				<c:if test="${dto.team ne '엘지'}">
+				<c:if test="${dto.playing eq '경기전'}">
+					${dto.place} ${dto.playTime} ${dto.playing}
+				</c:if>
+				</c:if>
+				</c:if>
+				
 	         	<c:if test="${ksh eq d}">
-	         		${dto.team}
+	         	<c:if test="${dto.playing eq '경기중'}">
+	         		  ${dto.score}
+	         	</c:if> 
+	         	</c:if>
+	         
+	         	<c:if test="${ksh eq d}">
+				<c:if test="${dto.team ne '엘지'}">
+				<c:if test="${dto.playing eq '경기취소'}">
+					${dto.playing}
+				</c:if>
+				</c:if>
+				</c:if>
+				
+				<c:if test="${ksh eq d}">
+	         	<c:if test="${dto.playing eq '경기종료'}">
+	         		  ${dto.score}
+	         	</c:if> 
+	         	<c:if test="${dto.team eq '엘지'}">
+	         		${dto.wwl}
+	         	</c:if>
 	         	</c:if>
 	         	
 	        </c:forEach>

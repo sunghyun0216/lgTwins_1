@@ -118,7 +118,6 @@
 	
 	<div class="card border-dark mb-3" style="border: 0px solid white; float: left; width: 33%;">
 	<br>
-	<br>
 	
 		<c:forEach items="${list}" var="dto">
 	<c:if test="${dto.playing eq '경기종료' or dto.playing eq '경기중'}">
@@ -126,7 +125,7 @@
 	<center class="card border-dark mb-3" style="max-width: 18rem;">
 	<table>
 			<thead>  
-			<c:if test="${dto.team eq '엘지' and dto.playing eq '경기중' or dto.playing eq '경기종료'}">
+			<c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">
 				<tr>
 					
 					<th></th>
@@ -169,15 +168,29 @@
 			
 			</tbody>
 	</table>
+	
 	</center>
-	</center>		
+	</center>
+	
 	</c:if>
+	<c:if test="${dto.team eq '엘지'}">
+	<center><h5 class="card border-dark mb-3" style="max-width: 18rem;">${dto.place} &nbsp;  ${dto.playTime} &nbsp; ${dto.playing} </h5></center>
+	</c:if>
+	
 	<c:if test="${dto.playing eq '경기전'}">
 	<c:if test="${dto.team eq '엘지'}">
 	<center><h1 class="card border-success mb-3" style="max-width: 18rem;">VS</h1></center>  
 	<center><h5 class="card border-dark mb-3" style="max-width: 18rem;">${dto.place} &nbsp;  ${dto.playTime} &nbsp; ${dto.playing} </h5></center>
 	</c:if>
 	</c:if>
+	
+	<c:if test="${dto.playing eq '경기취소'}">
+	<c:if test="${dto.team eq '엘지'}">
+		<br>
+		<center><h3 class="card border-success mb-3" style="max-width: 18rem;">경기취소</h3></center>  
+	</c:if>
+	</c:if>
+	
 		</c:forEach>
 	</div> 
 	
