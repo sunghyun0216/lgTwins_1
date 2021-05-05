@@ -7,7 +7,7 @@
 
 	<!-- 이력 조회 (선수별)-->
 	<select id="getCarList" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.carnpay.TeamCareerDTO">
-		Select * from pCareer where plrNum= #{tNum}
+		Select * from pCareer where plrNum= #{tNum} ORDER BY sYear DESC
 	</select>
 	<!-- 이력 삽입 -->
 	<insert id="addCareer" parameterType="com.lg.t2.team.carnpay.TeamCareerDTO" >

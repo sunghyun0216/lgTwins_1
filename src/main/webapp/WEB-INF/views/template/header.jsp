@@ -33,9 +33,10 @@
 						</div>
 						<div class="col">
 							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">포수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">내야수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">외야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'12'}">포수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'13'}">내야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'14'}">외야수</a>
+<%-- 							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'15'}">육성선수</a>   --%>
 						</div>
 					</div>
 					

@@ -13,6 +13,7 @@ import com.lg.t2.team.member.TeamMemberService;
 
 @Controller
 public class CarNPayController {
+	
 	@Autowired
 	private CarNPayService carNPayService ;
 	
@@ -30,6 +31,7 @@ public class CarNPayController {
 		List<PlayerPayDTO> pp = carNPayService.getPayList(teamMemberDTO);
 		mv.addObject("payData",pp);
 		mv.setViewName("teaminfo/infoDetail");
+		
 		return mv;
 	}
 	

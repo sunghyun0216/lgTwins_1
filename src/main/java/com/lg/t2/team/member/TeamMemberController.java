@@ -10,13 +10,17 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 
+import com.lg.t2.team.carnpay.CarNPayService;
+import com.lg.t2.team.carnpay.PlayerPayDTO;
+import com.lg.t2.team.carnpay.TeamCareerDTO;
+
 @Controller
 public class TeamMemberController {
 	
 	@Autowired
 	private TeamMemberService teamMemberService;
-	
-	//position별 검색 URL 만들기용+모든 선수 출력 
+	@Autowired
+	private CarNPayService carNPayService;
 	
 	@RequestMapping("teaminfo/AllplayerList")
 	public ModelAndView getALLPlayerList () throws Exception{
@@ -47,13 +51,21 @@ public class TeamMemberController {
 	
 	@GetMapping("teaminfo/teamPerInfo") //  그냥 get으로 요청하기
 	public ModelAndView getPlayerInfo (TeamMemberDTO teamMemberDTO)throws Exception{ 
-		
 		ModelAndView mv = new ModelAndView();
-		TeamBioDTO tb = teamMemberService.getPlayerInfo(teamMemberDTO);
-		
 		mv.addObject("sortName", "선수단");
+		
+		//1. 선수 상세 정보 업로드 2. 선수의 이력 업로드 3. 선수 연봉 정보 업로드 
+		
+		TeamBioDTO tb = teamMemberService.getPlayerInfo(teamMemberDTO);
 		mv.addObject("playerInfo",tb);
-		mv.setViewName("teaminfo/teamPerInfo");
+		
+		List<TeamCareerDTO> tc = carNPayService.getCarList(teamMemberDTO);
+		mv.addObject("careerData",tc);
+		
+		List<PlayerPayDTO> pp = carNPayService.getPayList(teamMemberDTO);
+		mv.addObject("payData",pp); 
+		
+		mv.setViewName("teaminfo/teamPerInfo"); // 출력 JSP 파일 지정하기 
 		return mv; 
 	}
 	
@@ -80,7 +92,7 @@ public class TeamMemberController {
 		return result;
 	}
 	
-	@RequestMapping("teaminfo/showform")
+	@RequestMapping("teaminfo/showform") //form 전송하기 1. MemberBioDTO로 옮기기 2.프로필용 파일데이터 옮기기
 	public ModelAndView showInserPage () throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageName","insert");

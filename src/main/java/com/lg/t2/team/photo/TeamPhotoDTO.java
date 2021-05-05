@@ -5,7 +5,7 @@ import java.sql.Time;
 public class TeamPhotoDTO {
 	
 	private int plrNum; // 누구의 사진인가?
-	private String fNamese;
+	private String fNames;
 	private Time fUploadD;
 	private String fURL;
 	
@@ -15,11 +15,12 @@ public class TeamPhotoDTO {
 	public void setPlrNum(int plrNum) {
 		this.plrNum = plrNum;
 	}
-	public String getfNamese() {
-		return fNamese;
+	
+	public String getfNames() {
+		return fNames;
 	}
-	public void setfNamese(String fNamese) {
-		this.fNamese = fNamese;
+	public void setfNames(String fNames) {
+		this.fNames = fNames;
 	}
 	public Time getfUploadD() {
 		return fUploadD;

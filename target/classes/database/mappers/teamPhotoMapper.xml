@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lg.t2.team.photo.TeamPhotoDAO">
+
+	<!-- 사진 리스트  조회-->
+	<select id="getTeamMemberPhotoList" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		SELECT * FROM playerPhotos WHERE plrNum = #{tNum} ORDER BY fUploadD DESC
+	</select>
+	<!-- 프로필 조회 tnum 과 파일이름으로 조회한다.-->
+	<select id="getMemberPhoto" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		SELECT * FROM playerPhotos WHERE plrNum = #{tNum} AND fNames LIKE 'profile%' 
+	</select>
+	<!-- 사진 삽입 프로필과 일반 사진 모두 해당된다-->
+	<insert id="setPhotoInsert" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		INSERT INTO playerPhotos VALUES (#{plrNum}, '#{fNames}',sysdate,'#{fURL}')
+	</insert>
+	
+	<!-- 사진 삭제 파일 이름, plrNum 으로 조회해서 삭제한다. -->
+	<delete id="teamPhotoDelete" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		DELETE playerPhotos WHERE plrNum = #{plrNum} AND fNames = '#{fNames}'
+	</delete>
+</mapper>  
