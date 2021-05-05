@@ -112,23 +112,31 @@ caption {
 
 </style>
 
-	<form name="frm" method="post" action="gameCalendar">
+	<form name="frm" method="get" action="./gameCalendar">
 <center>	
 		<caption>
 			<div class="t_div1">
-				<button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
+				<button type="button"  onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
 			</div class>
 
 			<div class="t_div2" >
 				 <%=y %>년 <%=m+1 %>월
+<!-- 				 <input type="text" id="datepicker2" class="go-today" style="width: 160px; text-align: center;"> -->
 			</div class="t_div3">
 
-			<div style="">
+			<div style="" class="t_div4">
 				<button type="button" onclick="location='gameCalendar?year=<%=n_y%>&month=<%=n_m%>'">다음</button>
+				
 			</div>
+
+<!-- 			<input type="submit" class="btn btn-primary" id="kiki" style="width: 70px; text-align: center;" value="이동"> -->
+			<input type="hidden" id="playDate" name="playDate">
+			<input type="hidden" id="dateDate" name="dateDate" value="${date}">
+			
 		</caption>
 	
-	</form>
+</form>
+
 	<table>
 
 		<tr  height=50px>
@@ -186,7 +194,7 @@ caption {
 					<c:if test="${dto.playing eq '경기중'}"> 
 						<c:if test="${dto.team ne '엘지'}">
 							<img width=60px height=60px src= ${dto.logo}> <br>
-							 ${dto.score}
+							 ${dto.playing}
 						</c:if>
 					</c:if>
 					
@@ -239,6 +247,8 @@ caption {
 </table>
 
 </center>
+
+<script type="text/javascript" src="../resources/js/calendar2.js"></script>
 </body>
 </html>
 

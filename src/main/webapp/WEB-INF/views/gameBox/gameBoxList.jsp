@@ -56,7 +56,6 @@
 		<input type="text" id="datepicker2" class="go-today" style="width: 160px; text-align: center;">
 		<input type="submit" class="btn btn-primary" id="kiki" style="width: 70px; text-align: center;" value="이동">
 		<input type="hidden" id="playDate" name="playDate">
-		
 		<input type="hidden" id="dateDate" name="dateDate" value="${date}">
 		
 <!-- 		<button class="btn btn-primary" id="kiki">이동</button> -->
@@ -64,41 +63,6 @@
 </div>
 
 </form> 
-
-
-<!-- 	<div class="lower">	 -->
-
-<!-- 		<table class="table"> -->
-<!-- 		<thead class="thead-dark">   -->
-<!-- 			<tr> -->
-<!-- 				<th>zz</th> -->
-<!-- 				<th>팀명</th> -->
-<!-- 				<th>스코어</th> -->
-<!-- 				<th>장소</th> -->
-<!-- 				<th>경기시간</th> -->
-<!-- 				<th>경기여부</th> -->
-<!-- 				<th>승패</th> -->
-				
-<!-- 			</tr> -->
-<!-- 		</thead> -->
-		
-<!-- 		<tbody>	 -->
-<%-- 		<c:forEach items="${list}" var="dto"> --%>
-<!-- 			<tr> -->
-<!-- 				<td><img width=50px height=50px src= ${dto.logo}></td> -->
-<%-- 				<td>${dto.team}</td> --%>
-<%-- 				<td>${dto.score}</td> --%>
-<%-- 				<td>${dto.place}</td> --%>
-<%-- 				<td>${dto.playTime}</td> --%>
-<%-- 				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td> --%>
-<%-- 				<td>${dto.wwl}</td> --%>
-<!-- 			</tr> -->
-<%-- 		</c:forEach> --%>
-
-<!-- 		</tbody> -->
-	
-<!-- 	</table> -->
-<!-- 	</div> -->
 	
 <div>	
 	<div class="card border-info mb-3" style="border: max-width: 18rem; float: left; width: 33%;">
