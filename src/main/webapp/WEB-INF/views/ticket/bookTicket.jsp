@@ -20,7 +20,12 @@ String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>bookTicket</title>
-
+<script type="text/javascript">
+	function block() {
+		alert("로그인시 이용 가능한 페이지입니다.");
+		location.href="../../t2/member/memberLogin";
+	}
+</script>
 </head>
 <body>
 
@@ -50,7 +55,7 @@ String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 								</c:if>
 									
 								<c:if test="${empty member}">
-									<button class="btn btn-secondary" id="block">결제하기</button>
+									<button class="btn btn-secondary" onclick='block()'>결제하기</button>
 								</c:if>
 							</td>
  						</c:if> 
@@ -63,6 +68,5 @@ String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 			</tbody>
 		</table>
 	</div>
-	<script type="text/javascript" src="../resources/jquery/blockPurchase.js"></script>	
 </body>
 </html>

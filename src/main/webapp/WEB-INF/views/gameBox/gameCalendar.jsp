@@ -194,7 +194,8 @@ caption {
 					<c:if test="${dto.playing eq '경기중'}"> 
 						<c:if test="${dto.team ne '엘지'}">
 							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
-							 ${dto.playing}
+							${dto.place} ${dto.playTime} <br> 
+							 ${dto.playing} 
 						</c:if>
 					</c:if>
 					

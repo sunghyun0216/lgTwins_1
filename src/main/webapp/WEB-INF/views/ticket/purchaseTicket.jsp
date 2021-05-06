@@ -22,9 +22,9 @@
 <body>
 <div class="container">
 	<ul  class="tab_title">
-    	<li class="on">tab1</li>
-    	<li>tab2</li>
-    	<li>tab3</li>
+    	<li class="on">날짜/조회</li>
+    	<li>등급/좌석 선택</li>
+    	<li>결제</li>
 	</ul>
 	<div style="display:inline-block; width:900px; " class="tab_cont">
   	<!-- 티켓정보 확인창 -->
@@ -121,7 +121,5 @@
 </div>
 
 <script type="text/javascript" src="../resources/jquery/iamport.js"></script>
-<!-- <script type="text/javascript" src="../resources/jquery/tabMenu.js"></script> -->
-<!-- <script type="text/javascript" src="../resources/jquery/comboBox.js"></script> -->
 </body>
 </html>
