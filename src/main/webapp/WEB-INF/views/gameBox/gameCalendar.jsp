@@ -185,7 +185,7 @@ caption {
 				
 					<c:if test="${dto.playing eq '경기전'}"> 
 						<c:if test="${dto.team ne '엘지'}"> 
-							<img width=60px height=60px src= ${dto.logo}> <br>
+							 <a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br> 
 							 ${dto.place} ${dto.playTime} <br> 
 							 ${dto.playing} 
 						</c:if>
@@ -193,14 +193,14 @@ caption {
 					
 					<c:if test="${dto.playing eq '경기중'}"> 
 						<c:if test="${dto.team ne '엘지'}">
-							<img width=60px height=60px src= ${dto.logo}> <br>
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
 							 ${dto.playing}
 						</c:if>
 					</c:if>
 					
 					<c:if test="${dto.playing eq '경기종료'}"> 
 						<c:if test="${dto.team ne '엘지'}">
-							<img width=60px height=60px src= ${dto.logo}> <br>
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
 							${dto.playing}
 							<c:if test="${dto.wwl eq '승'}">	
 								(패)
@@ -216,7 +216,7 @@ caption {
 					
 					<c:if test="${dto.playing eq '경기취소'}"> 
 						<c:if test="${dto.team ne '엘지'}">
-							<img width=60px height=60px src= ${dto.logo}> <br>
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
 							 ${dto.playing}
 						</c:if>
 					</c:if>
