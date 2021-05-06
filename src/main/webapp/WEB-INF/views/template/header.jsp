@@ -79,6 +79,3 @@
 			</li>
 		</ul>
 	</nav>
-
-	<!-- 임시라구요 -->
-	<a class="btn btn-primary" href="${pageContext.request.contextPath}/teaminfo/showform" role="button">팀원 입력폼</a>

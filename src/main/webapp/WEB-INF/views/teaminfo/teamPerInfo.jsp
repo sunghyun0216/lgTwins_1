@@ -130,5 +130,6 @@
 		</div>
 		</div>
 	</div><!-- end info Detail -->
+	<script type="text/javascript" src="../resources/js/playerInfo.js"></script>
 </body>
 </html>

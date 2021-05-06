@@ -10,152 +10,211 @@
 
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Title</title>
-</head>
-<body>
-	<c:import url="../template/header.jsp"></c:import>
-	<!-- 삽입이나 갱신을 한다 -->
-	<h2>team ${pageName}Page</h2>
-	<form action=" ./teaminfo/memberInsert" method="post" enctype="multipart/form-data">
-  		<div class="col-lg-12">
-  			<div class="form-row">
-    		<div class="col">
-    			<label class="my-1 mr-2 " for="NameK">이름(한)</label>
-      			<input type="text" class="form-control mx-sm-3" name="tKName" id="NameK" placeholder="한글 이름" >
-    		</div>
-    		<div class="col">
-    			<label class="my-1 mr-2 " for="NameE">이름(영)</label>
-      			<input type="text" class="form-control mx-sm-3" id="tEName" placeholder="영문 이름">
-    		</div>
-    		<div class="input-group member_profile">
-    			<div><img src="" ></div>
-		 		<input type="file" class="form-control" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
-			</div>
-  			</div>
-  		
-  		<!-- 생년 월일 -->
-  		<div class= "form-row">
-  			<label class="my-1 mr-2 " for="birth">생년월일</label>
-  			<input type="date" id="birth" name = "birth" value="<fmt:formatDate pattern = "yyyy-mm-dd"/>">
-  		</div>
-  		
-  		<!-- 키 몸무게  -->
-  		<div class="form-row">
-    		<div class="col">
-    			<label class="my-1 mr-2 " for="height">키</label>
-      			<input type="text" class="form-control mx-sm-3" name="height" id="height" placeholder="height">
-    		</div>
-    		<div class="col">
-    			<label class="my-1 mr-2 " for="weight">몸무게</label>
-      			<input type="text" class="form-control mx-sm-3" name="weight" id="weight" placeholder="weight">
-    		</div>
-  		</div>
-  		
-  		<!-- 학력 입력 (초 중 고 )  -->
-  		 <div class="col">
-    			<label class="my-1 mr-2 " for="weight">학력 입력</label>
-      			<input type="text" class="form-control mx-sm-3" name="weight" id="weight" placeholder="초-중-고-대 로 입력">
-    		</div>
-    		
-  		<div class="form-col">
-  		<!--분류 체크  -->
-  		<h4>그룹 선택 </h4>
-  		<div class="btn-group col" role="group" aria-label="Basic radio toggle button group">
-  			
-  			<input type="radio" class="btn-check" name="btnradio" name="" value="2" id="btnradio1" autocomplete="off" checked>
-  			<label class="btn btn-outline-primary" for="btnradio1">선수</label>
 
-<!--  			<input type="radio" class="btn-check" name="btnradio" name="height" value="1" id="btnradio2" autocomplete="off"> -->
-<!--   			<label class="btn btn-outline-primary" for="btnradio2">코치</label> -->
-		
-<!-- 			<!--소속 그룹체크  --> 
-<!--   			<select class="custom-select my-1 mr-sm-2" name="tgNum" id="TeamGroup" > -->
-<!--   			<option selected>그룹 선택</option> -->
-<!--     		<option value="1">1군</option> -->
-<!--     		<option value="2">퓨쳐스</option> -->
-<!--     		<option value="3">컨디셔닝</option> -->
-<!--     		<option value="4">선수단</option> 선수시 자동 체크 -->
-<!--   			</select> -->
-<!--     		 코치인 경우 -->
-<!--     		 <select class="custom-select my-1 mr-sm-2" name="tpNum" id="PositionC"> -->
-<!--   			<option selected >포지션 선택(선수)</option> -->
-<!--     		<option value="1">감독</option> -->
-<!--     		<option value="2">수석코치</option> -->
-<!--     		<option value="3">투수코치</option> -->
-<!--     		<option value="4">타격코치</option> -->
-<!--     		<option value="5">수비코치</option> -->
-<!--     		<option value="6">작전코치</option> -->
-<!--     		<option value="7">주루코치</option> -->
-<!--     		<option value="8">배터리코치</option> -->
-<!--     		<option value="9">재활코치</option> -->
-<!--     		<option value="10">컨디셔닝코치</option> -->
-<!--   			</select> -->
-			
-    		 <!-- 선수인경우 -->
-    		 <select class="custom-select my-1 mr-sm-2" name="tpNum" id="PositionP">
-  			<option selected >포지션 선택(선수)</option>
-    		<option value="11">투수</option>
-    		<option value="12">포수</option>
-    		<option value="13">내야수</option>
-    		<option value="14">외야수</option>
-    		<option value="15">육성선수</option>
-  			</select>
-  			
-  			<!-- 사용 손 선택  -->
-		<div class="col">
-			<div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-				<input type="radio" class="btn-check" name="usehand" id = "hand1" value="좌투좌타" autocomplete="off" >
-  				<label class="btn btn-outline-primary" for="hand1">좌투좌타 </label>
-				<input type="radio" class="btn-check" name="usehand" id = "hand2" value="좌투우타" autocomplete="off" >
-  				<label class="btn btn-outline-primary" for="hand2">좌투우타 </label>
-				<input type="radio" class="btn-check" name="usehand" id = "hand3" value="우투좌타" autocomplete="off" >
-  				<label class="btn btn-outline-primary" for="hand3">우투좌타 </label>
-				<input type="radio" class="btn-check" name="usehand" id = "hand4" value="우투우타" autocomplete="off" >
-  				<label class="btn btn-outline-primary" for="hand4">우투우타 </label>
-			</div>
-		</div>
-		
-    	</div>	
-		
-		</div>
-		<!-- 프로필 사진 추가하기 사진 추가 시 배너 보이기 -->
-		
-		<!--  제출 버튼 1.유효성 검사하기 2. 통과하면 버튼이 활성화 된다.-->
-		<div class="col-12">
-    		<button type="submit" id="submitbtn" class="btn btn-primary" >추가하기</button>
-  		</div>
-  		</div>
-	</form>
-	
-<!-- 	<!-- 임시 업로드 용--> 
-<!-- 	<h2>tempFillUpload</h2> -->
-<%-- 	<form action="${pageContext.request.contextPath}/uploadFormAction" method="post" enctype="multipart/form-data" > --%>
-<!-- 	<input type = 'file' name="uploadFile" multiple> -->
-<!-- 	<button> submit</button> -->
-<!-- 	</form> -->
-<!-- 유효성 검사 처리 -->
-<script>
-	
-	//addCheckarray 전역 변수 생성, 모두 false
-	//1. 모든 배열 값에서 논리 AND 연산하기 //1이 나오면 버튼 활성화
-	//2. 입력시 유효값 관련 이벤트 실행, 유효하면 value 저장하고 false를 true로 저장하기 
-	//name으로 전체 유효 체크 1. 함수실행하기
-	//전체 체크 함수 실행
-	//전체 체크 함수 
-	
-	var arrLit = [1, true, "JavaScript"]; 
-		
-	function checkAll(x, y) {
-		var result ;
-		for(){ //자기자신을 체크한다
-			
-		}
-		if(){
-			/
-		}
-		else {
-			//아무 일도 안일어나요
-		}
-	}
-</script>
-</body>
+</head>
+ <body class="bg-light">
+    <c:import url="../template/header.jsp"></c:import>
+    
+<div class="container">
+  <main> 
+  <div class="py-5 text-center">
+      <img class="d-block mx-auto mb-4" alt="" width="72" height="57">
+      <h2>Team Member Join Form</h2>
+      <p class="lead">팀원 정보를 추가하기 위한 페이지 </p>
+    </div>
+    
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+        <h4 class="d-flex justify-content-between align-items-center mb-3">
+          <span class="text-primary">프로필 사진</span>
+        </h4>
+        <ul class="list-group mb-3">
+          <li class="list-group-item d-flex justify-content-between lh-sm">
+            <div>
+              <div class="pro_profileArea" id="profileArea"></div>
+              <img class="" src = "...">
+            </div>
+          </li>
+        </ul>
+        
+       <!-- 자바스크립트 액션 걸기 -->
+        <form class="card p-2">
+          <div class="input-group">
+          
+            <input type="file" class="form-control" placeholder="imgSelect" action="">
+          </div>
+        </form>
+      </div> <!-- end profile -->
+      
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Insert Team Member Info</h4>
+        
+        <form class="needs-validation" action="./teamInsert" method="post" enctype="multipart/form-data">
+          <div class="row g-3">
+          
+            <div class="col-sm-6">
+              <label for="firstName" class="form-label">한글 이름</label>
+              <input type="text" name ="tKName" class="form-control" id="firstName" placeholder="" value="" required>
+              
+            </div>
+
+            <div class="col-sm-6">
+              <label for="lastName" class="form-label">영문 이름</label>
+              <input type="text" name ="tEName"  class="form-control" id="lastName" placeholder="" value="">
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+            <!-- 생년 월일 입력 -->
+             <div class="col-sm-6">
+              <label for="lastName" class="form-label">생년월일</label>
+              <input type="date" name ="birth" class="form-control" id="lastName" placeholder="" value="">
+              <div class="invalid-feedback">
+                Valid last name is required.
+              </div>
+            </div>
+            
+            <div class="col-sm-3">
+              <label for="address" class="form-label">키</label>
+              <input type="text" name ="height" class="form-control" id="address" placeholder="ex) 180cm -> 180" required>
+              <div class="invalid-feedback">
+                키를 입력해 주세요
+              </div>
+            </div>
+
+            <div class="col-sm-3">
+              <label for="address2" class="form-label">몸무게 </label>
+              <input type="text" name ="weight" class="form-control" id="address2" placeholder="ex)80kg-> 80">
+            </div>
+          </div> <!-- bio 정보 끝 -->
+
+          <hr class="my-4">
+          
+           <div class="my-3">
+            <div class="form-check">
+              <input id="coach" name="sort" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="credit">코치</label>
+            </div>
+            
+            <div class="form-check">
+              <input id="player" name="sort" type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="debit">선수</label>
+            </div>
+          </div>
+          
+          <div class="col-md-5">
+              <label for="country" class="form-label">소속</label>
+              <select class="form-select" id="teamgroup" required>
+                <optgroup label="팀 그룹 선택">
+                <option value="1">1군</option>
+                <option value="2">퓨처스</option>
+                <option value="3">컨디셔닝</option>
+                <option value="4">선수단</option>
+                </optgroup>
+              </select>
+              
+              <div class="invalid-feedback">
+                소슥을 선택해 주세요
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <label for="state" class="form-label">포지션(코치)</label>
+              <select class="form-select" id="CPosition" required >
+                <optgroup label="코치 포지션 선택">
+                <option value="1">감독</option>
+                <option value="2">수석코치</option>
+                <option value="3">타격코치</option>
+                <option value="4">주루코치</option>
+                <option value="5">수석코치</option>
+                <option value="6">수석코치</option>
+                <option value="7">수석코치</option>
+                <option value="8">수석코치</option>
+                <option value="9">수석코치</option>
+                <option value="10">컨디셔닝 코치</option>
+                </optgroup>
+              </select>
+              <div class="invalid-feedback">
+                코치 포지션을 입력해 주세요
+              </div>
+              
+            </div>
+            
+            <div class="col-md-4">
+              <label for="state" class="form-label">포지션(선수)</label>
+              <select class="form-select"  id="PPosition" required >
+                <optgroup label="선수 포지션 선택">
+                <option value="11">투수</option>
+                <option value="12">포수</option>
+                <option value="13">내야수</option>
+                <option value="14">외야수</option>
+                <option value="15">육성선수</option>
+                </optgroup>
+              </select>
+              <div class="invalid-feedback">
+               선수 포지션을 입력해 주세요
+              </div>
+            </div>
+            
+            <label class="form-check-label" for="h1">그룹 번호</label>
+            <input type="text" id = "h1"name="tgNum" disabled>
+            <label class="form-check-label" for="h2">포지션 번호</label>
+            <input type="text" id = "h2" name="tpNum" disabled>
+            
+            
+            <h4 class="mb-3">사용손 선택</h4>
+            <h5 class="mb-3">선수일 때만 활성화</h5>
+
+          <div class="my-3 inputusehand">
+            <div class="form-check btn-group">
+              <input id="uh1" name="useHand1" value="좌투" type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="uh1">좌투</label>
+            </div>
+            
+            <div class="form-check">
+              <input id="uh2" name="useHand1" value="우투"  type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="uh2">우투</label>
+            </div>
+            
+            <div class="form-check">
+              <input id="uh3" name="useHand2" value="좌타"  type="radio" class="form-check-input" checked required>
+              <label class="form-check-label" for="uh3">좌타</label>
+            </div>
+            <div class="form-check">
+              <input id="uh4" name="useHand2" value="우타"  type="radio" class="form-check-input" required>
+              <label class="form-check-label" for="uh4">우타</label>
+            </div>
+            <!--  -->
+            <input type="text" name="usehand" disabled>
+          </div>
+          
+          <hr class="my-4">
+
+          <div class="row gy-3">
+            <div class="col-md-6">
+              <label for="cc-name" class="form-label"> 학력입력</label>
+              <input type="text" name ="edu" class="form-control" id="cc-name" placeholder="초-중-고-대" >
+            </div>
+           </div> 
+             <hr class="my-4">
+          <input type="submit" id="btn" value="JOIN" class="btn btn-primary">
+        </form>
+      </div><!-- end form -->
+    </div>
+  </main>
+
+  <footer class="my-5 pt-5 text-muted text-center text-small">
+    <p class="mb-1">&copy; 2017–2021 LG TWINS</p>
+    <ul class="list-inline">
+      <li class="list-inline-item"><a href="#">Privacy</a></li>
+      <li class="list-inline-item"><a href="#">Terms</a></li>
+      <li class="list-inline-item"><a href="#">Support</a></li>
+    </ul>
+  </footer>
+</div>
+
+    <!-- 유효성 검사하기 -->
+   <script type="text/javascript" src="../resources/js/teamMemberCheck.js"></script>
+  </body>
+   
 </html>

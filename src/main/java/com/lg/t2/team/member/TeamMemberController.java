@@ -11,6 +11,8 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lg.t2.team.carnpay.CarNPayService;
@@ -39,6 +41,7 @@ public class TeamMemberController {
 		//선수단 가져오기  tnum 순으로 가져오기
 		List<TeamMemberDTO> td = teamMemberService.getALLPlayerList();
 		List<TeamPhotoDTO> fp = teamPhotoService.getTeamListprofile();
+		
 		//검색하기
 //		TeamPhotoDTO ptd = new TeamPhotoDTO();		
 //		//teamDTO에 값에 접근하고 
@@ -99,7 +102,40 @@ public class TeamMemberController {
 		mv.setViewName("teaminfo/teamPerInfo"); // 출력 JSP 파일 지정하기 
 		return mv; 
 	}
-
+	//GET방식의 요청
+	@RequestMapping(value = "teaminfo/teamInsert" , method = RequestMethod.GET) //form 전송하기
+	public ModelAndView showInserPage () throws Exception{
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("teaminfo/teamInsert");
+		
+		return mv;
+	}
+	
+	//post방식의 요청
+	@RequestMapping(value= "/teamInsert" ,  method = RequestMethod.POST)// post 방식으로 할 것
+	public String setAddPlayer(TeamBioDTO teamBioDTO, HttpSession session, Model model) throws Exception{
+		
+		//팀원 입력 
+		int result = teamMemberService.setAddPlayer(teamBioDTO,session);
+////		System.out.println(teamFile.getName());//파라미터명
+////		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
+////		System.out.println(teamFile.getSize());//파일의 크기(byte)
+////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
+//		
+		String message = "팀원 입력 실패";
+		String path="redirect:/teaminfo/teamInsert";
+		
+		if(result>0) {
+			message ="팀원 입력 성공";
+			path="redirect:/teaminfo/teamList";
+			System.out.println("팀원 입력 성공");
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return path;
+	}
+	
 	@PostMapping("teaminfo/infoManager/UpdatePlayer") // post 방식으로 할 것 어드민 넘기기
 	public int setUpdatePlr(TeamBioDTO teamBioDTO) throws Exception{
 		
@@ -108,67 +144,11 @@ public class TeamMemberController {
 		return result;
 	}
 	
-	@PostMapping("teaminfo/infoManager/DeletePlayer") // post방식 어드민 넘기기
+	@PostMapping("teaminfo/DeletePlayer") // post방식 어드민 넘기기
 	public int setDeletePlayer(TeamMemberDTO teamMemberDTO) throws Exception{
 		
 		int result = teamMemberService.setDeletePlayer(teamMemberDTO);
 		return result;
-	}
-	
-	@RequestMapping("teaminfo/showform") //form 전송하기
-	public ModelAndView showInserPage () throws Exception{
-		ModelAndView mv = new ModelAndView();
-		mv.addObject("pageName","insert");
-		mv.setViewName("teaminfo/teamInsert");
-		
-		return mv;
-	}
-	
-//	
-//	@RequestMapping(value="teaminfo/memberInsert", method = RequestMethod.POST)// post 방식으로 할 것
-//	public int setAddPlayer(TeamBioDTO teamBioDTO, MultipartFile teamFile, HttpSession session, Model model) throws Exception{
-//		
-//		int result = teamMemberService.setAddPlayer(teamBioDTO, teamFile, session);
-//////		System.out.println(teamFile.getName());//파라미터명
-//////		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
-//////		System.out.println(teamFile.getSize());//파일의 크기(byte)
-//////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
-////		
-//		String message = "팀원 입력 실패";
-//		String path="./teamInsert";
-//		
-//		if(result>0) {
-//			message ="팀원 입력 성공";
-//			path="../";
-//		}
-//		
-//		model.addAttribute("msg", message);
-//		model.addAttribute("path", path);
-//		return result;
-//	}
-	
-	@PostMapping("teaminfo/memberInsert")// post 방식으로 할 것
-	public String setAddPlayer(TeamBioDTO teamBioDTO, HttpSession session, Model model) throws Exception{
-		
-		
-		//팀원 입력 
-		int result = teamMemberService.setAddPlayer(teamBioDTO,session);
-//		System.out.println(teamFile.getName());//파라미터명
-//		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
-//		System.out.println(teamFile.getSize());//파일의 크기(byte)
-//		System.out.println(teamFile.isEmpty());//파일의 존재 유무
-		
-		String message = "팀원 입력 실패";
-		String path="./teamInsert";
-		
-		if(result>0) {
-			message ="팀원 입력 성공";
-			path="redirect:/teaminfo/teamList";
-		}
-		
-		model.addAttribute("msg", message);
-		model.addAttribute("path", path);
-		return path;
 	}
 	
 	@PostMapping()

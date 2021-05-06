@@ -21,6 +21,7 @@ public class TeamMemberService {
 	}
 	//포지션 별 선수 출력하기 
 	public List<TeamMemberDTO> getPlrPosiList(TeamMemberDTO teamMemberDTO) throws Exception{
+		
 		return teamMemberDAO.getPlrPosiList(teamMemberDTO);
 	}
 	
@@ -30,7 +31,8 @@ public class TeamMemberService {
 	}
 	//선수 개인 입력하기
 	public int setAddPlayer (TeamBioDTO teamBioDTO, HttpSession session)throws Exception{
-//		String fileName = fileManager.save("teammember", session);
+
+		//		String fileName = fileManager.save("teammember", session);
 //		//선수 정보 추가
 //		
 //		TeamPhotoDTO teamPhotoDTO = new TeamPhotoDTO();
