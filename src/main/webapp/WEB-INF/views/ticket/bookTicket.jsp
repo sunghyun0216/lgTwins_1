@@ -51,11 +51,11 @@ String nowDate = now.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
 						<c:if test="${ i2 >= i1 }"> 			
 							<td>
  								<c:if test="${not empty member}">
-									<button class="btn btn-secondary" onclick="window.open('./purchaseTicket?playDate=${dto.playDate}','window_name','width=1000,height=670,location=no,status=no,scrollbars=yes');">결제하기</button>
+									<button class="btn btn-secondary" onclick="window.open('./purchaseTicket?playDate=${dto.playDate}','window_name','width=1000,height=670,location=no,status=no,scrollbars=yes');">예매하기_</button>
 								</c:if>
 									
 								<c:if test="${empty member}">
-									<button class="btn btn-secondary" onclick='block()'>결제하기1</button>
+									<button class="btn btn-secondary" onclick='block()'>예매하기</button>
 								</c:if>
 							</td>
  						</c:if> 

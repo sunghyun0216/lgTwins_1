@@ -22,9 +22,9 @@
 <body>
 <div class="container">
 	<ul  class="tab_title">
-    	<li class="on">tab1</li>
-    	<li>tab2</li>
-    	<li>tab3</li>
+    	<li class="on">날짜/회차</li>
+    	<li>등급/좌석 선택</li>
+    	<li>결제</li>
 	</ul>
 	<div style="display:inline-block; width:900px; " class="tab_cont">
   	<!-- 티켓정보 확인창 -->
@@ -87,6 +87,7 @@
 						<option value="4">좌석 4<option>
 					</select>
 				</span>
+				<button id="check" class="btn btn-danger">중복확인</button>
 			</span>
 		</div>
 	
@@ -109,19 +110,16 @@
 		    	<p>${dto.playDate} ${dto.playTime} </p>
 		    	예매정보<p id='valResult'></p>
 				가격:<p id='price'></p>
-				<input type="button" id="btn" class="btn btn-primary" value="결제하기">
+				<input type="button" id="btn" class="btn btn-danger" value="결제하기">
 			</span>
 	    </div>
 	</div>
 	<div style=" text-align: right; padding-right:20px;">
 		<button id="prev" class="btn btn-outline-danger">이전</button>
 		<button id="next" class="btn btn-outline-danger">다음</button>
-		<button id="check">check</button>
 	</div>
 </div>
 
 <script type="text/javascript" src="../resources/jquery/iamport.js"></script>
-<!-- <script type="text/javascript" src="../resources/jquery/tabMenu.js"></script> -->
-<!-- <script type="text/javascript" src="../resources/jquery/comboBox.js"></script> -->
 </body>
 </html>
