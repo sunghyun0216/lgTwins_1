@@ -1,30 +1,29 @@
 @charset "UTF-8";
 
 .container {
-  width: 100px;
-  margin: 20px auto;
+  width: 1000px;
+  margin: 50px auto;
 }
 
 .tab_title li {
   list-style: none;
   float: left;
-  width: 100px;
+  width: 33%;
   padding: 10px 15px;
-  cursor: pointer;
   text-align: center;
   border: 1px solid #bebebe;
 }
 
 .tab_title li.on {
-  background-color: #ffb715;
+  background-color:#ff0080;
   font-weight: bold;
 }
 
 .tab_cont {
   clear: both;
-  border: 1px solid #dedede;
+  border: 1px solid #ffffff;
   height: 500px;
-  background-color: #cecece;
+  background-color: #ffffff;
 }
 
 .tab_cont div {

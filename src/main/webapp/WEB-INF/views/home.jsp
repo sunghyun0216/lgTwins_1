@@ -15,10 +15,10 @@
 <style>
     *{margin:0;padding:0;}
     ul,li{list-style:none;}
-    .slide{height:300px;overflow:hidden;}
+    .slide{height:500px;overflow:hidden;}
     .slide ul{width:calc(100% * 4);display:flex;animation:slide 16s infinite;} /* slide를 8초동안 진행하며 무한반복 함 */
-    .slide li{width:calc(100% / 4);height:300px;}
-    .slide li:nth-child(1){background:#ffa;}
+    .slide li{width:calc(100% / 4);height:500px;}
+    .slide li:nth-child(1){background:#bebebe;}
     .slide li:nth-child(2){background:#faa;}
     .slide li:nth-child(3){background:#afa;}
     .slide li:nth-child(4){background:#aaf;}
@@ -40,7 +40,7 @@
 	<c:import url="./template/header.jsp"></c:import>
 	<div class="slide">
 	    <ul>
-	      <li><img src="C:\hancheol\workspace\lgTwins_1\src\main\webapp\resources\images/bookTicket.png"></li>
+	      <li style="display:inline-block; text-align:center;"><img src="./resources/images/bookTicket.png"></li>
 	      <li>22222</li>
 	      <li></li>
 	      <li></li>

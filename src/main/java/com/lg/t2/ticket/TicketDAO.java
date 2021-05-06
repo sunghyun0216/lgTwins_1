@@ -25,4 +25,13 @@ public class TicketDAO {
 		int result = sqlSession.insert(NAMESPACE+"setWrite",purchaseTicketDTO);
 		return result;
 	}
+	
+	public List<PurchaseTicketDTO> getCheck(PurchaseTicketDTO purchaseTicketDTO) throws Exception {
+		return sqlSession.selectList(NAMESPACE+"getCheck",purchaseTicketDTO);
+	}
+	
+	public List<PurchaseTicketDTO> getSitNum(PurchaseTicketDTO purchaseTicketDTO)throws Exception{
+		return sqlSession.selectList(NAMESPACE+"getSitNum",purchaseTicketDTO);
+	}
+	
 }

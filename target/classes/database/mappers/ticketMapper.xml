@@ -6,15 +6,25 @@
 <mapper namespace="com.lg.t2.ticket.TicketDAO">
 	<select id="getList"  parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
 		SELECT orderNum,team,playDate,playTime,logo from gamebox
-		where  ROWNUM <![CDATA[ <= ]]> 5 and playDate <![CDATA[ > ]]> sysdate
-		order by ordernum desc
+		where  ROWNUM <![CDATA[ <= ]]> 5 and playDate <![CDATA[ >= ]]> sysdate -1 and team !='엘지'
+		order by ordernum asc
 	</select>
 	
 	<select id="getSelect" parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
-		select orderNum,team,playDate,playTime,logo from gamebox where orderNum=#{orderNum}
+		select orderNum,team,playDate,playTime,logo 
+		from gamebox where playDate=#{playDate} and gamebox.team != '엘지'
 	</select>
 	
-	<insert id="setWrite" parameterType="com.lg.t2.ticket.TicketDTO">
+	<insert id="setWrite" parameterType="com.lg.t2.ticket.PurchaseTicketDTO">
 		insert into ticket values(ticket_SEQ.NEXTVAL,#{team},#{playDate},#{playTime},#{logo},#{sitNum},#{price},#{id})
 	</insert>
+	
+	<select id="getCheck" parameterType="com.lg.t2.ticket.PurchaseTicketDTO" resultType="com.lg.t2.ticket.PurchaseTicketDTO">
+		select * from ticket where playDate=#{playDate}
+	</select>
+	
+	<select id="getSitNum" parameterType="com.lg.t2.ticket.PurchaseTicketDTO" resultType="com.lg.t2.ticket.PurchaseTicketDTO">
+		select sitNum from ticket where id=#{id}
+	</select>
+	
 </mapper>  

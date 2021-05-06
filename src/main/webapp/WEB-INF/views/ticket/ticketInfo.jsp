@@ -28,42 +28,41 @@
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
-	<h1>ticketInfo</h1>
+	<div class="container">
+	<h5>티켓 > 티켓안내</h5>
 
 	<table style="width:100%">
-  	<tr>
-	    <th rowspan="2">좌석등급</th>
-	    <th colspan="2">일반가격</th>
-	  </tr>
-	  <tr>
-
-	    <td>주중</td>
-	    <td>주말</td>
-	  </tr>
-	  <tr>
-	    <td>프리미엄</td>
-	    <td colspan="2">70000</td>
-	    
-	  </tr>
-	  <tr>
-	    <td>블루</td>
-	    <td>18000</td>
-	    <td>20000</td>
-	  </tr>
-	  <tr>
-	    <td>레드</td>
-	    <td>15000</td>
-	    <td>17000</td>
-	  </tr>
-	  <tr>
-	    <td>그린</td>
-	    <td>8000</td>
-	    <td>9000</td>
-	  </tr>
-</table>
-
-
-
+	  	<tr>
+		    <th rowspan="2">좌석등급</th>
+		    <th colspan="2">일반가격</th>
+		  </tr>
+		  <tr>
+	
+		    <td>주중</td>
+		    <td>주말</td>
+		  </tr>
+		  <tr>
+		    <td>프리미엄</td>
+		    <td colspan="2">70000</td>
+		    
+		  </tr>
+		  <tr>
+		    <td>블루</td>
+		    <td>18000</td>
+		    <td>20000</td>
+		  </tr>
+		  <tr>
+		    <td>레드</td>
+		    <td>15000</td>
+		    <td>17000</td>
+		  </tr>
+		  <tr>
+		    <td>그린</td>
+		    <td>8000</td>
+		    <td>9000</td>
+		  </tr>
+	</table>
+	</div>
 
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.lg.t2.ticket;
 
+import java.lang.ProcessBuilder.Redirect;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -32,15 +33,29 @@ public class TicketController {
 		return mv;
 	}
 	
+	@RequestMapping("/ticket/checkTicket")
+	public ModelAndView getCheck(PurchaseTicketDTO purchaseTicketDTO,ModelAndView mv)throws Exception{
+		List<PurchaseTicketDTO> ar2 = ticketService.getCheck(purchaseTicketDTO);
+		mv.addObject("list2", ar2);
+		return mv;
+	}
+	
 	@PostMapping("/ticket/writeTicket")
 	@ResponseBody
 	public void setWrite(PurchaseTicketDTO purchaseTicketDTO)throws Exception{
 		int result = ticketService.setWrite(purchaseTicketDTO);
 	}
-
 	
 	@RequestMapping("/ticket/ticketInfo")
 	public void List()throws Exception{
 		
+	}
+	
+	@RequestMapping("/ticket/ticket")
+	public ModelAndView getSitNum(PurchaseTicketDTO purchaseTicketDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		List<PurchaseTicketDTO> ar= ticketService.getSitNum(purchaseTicketDTO);
+		mv.addObject("ticket",ar);
+		return mv;
 	}
 }

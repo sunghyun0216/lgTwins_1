@@ -9,7 +9,6 @@ public class TicketDTO {
 	private String playTime;
 	private String logo;
 	
-
 	public long getOrderNum() {
 		return orderNum;
 	}

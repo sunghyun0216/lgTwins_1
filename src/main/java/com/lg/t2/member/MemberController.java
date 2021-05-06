@@ -1,5 +1,6 @@
 package com.lg.t2.member;
 
+import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpSession;
@@ -11,8 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.lg.t2.member.MemberDTO;
+import com.lg.t2.ticket.PurchaseTicketDTO;
+import com.lg.t2.ticket.TicketDTO;
 
 @Controller
 @RequestMapping("/member/**")
@@ -114,9 +118,7 @@ public class MemberController {
 		return "redirect:../";
 	}
 	
-	
-	
-	
+
 	
 	
 	
