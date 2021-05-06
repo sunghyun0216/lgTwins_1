@@ -21,67 +21,67 @@
 	
 		<div class="form-group">
 			<label for="score1"> 1회 :</label> 
-			<input type="number" id="score1" name="score1" VALUE=0>
+			<input type="text" id="score1" name="score1" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score2"> 2회 :</label> 
-			<input type="number" id="score2" name="score2" VALUE=0>
+			<input type="text" id="score2" name="score2" VALUE=0>
 		</div>
 	
 		<div class="form-group">
 			<label for="score3"> 3회 :</label> 
-			<input type="number" id="score3" name="score3" VALUE=0>
+			<input type="text" id="score3" name="score3" VALUE=0>
 		</div>
 	
 		<div class="form-group">
 			<label for="score4"> 4회 :</label> 
-			<input type="number" id="score4" name="score4" VALUE=0>
+			<input type="text" id="score4" name="score4" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score5"> 5회 :</label> 
-			<input type="number" id="score5" name="score5" VALUE=0>
+			<input type="text" id="score5" name="score5" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score6"> 6회 :</label> 
-			<input type="number" id="score6" name="score6" VALUE=0>
+			<input type="text" id="score6" name="score6" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score7"> 7회 :</label> 
-			<input type="number" id="score7" name="score7" VALUE=0>
+			<input type="text" id="score7" name="score7" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score8"> 8회 :</label> 
-			<input type="number" id="score8" name="score8" VALUE=0>
+			<input type="text" id="score8" name="score8" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="score9"> 9회 :</label> 
-			<input type="number" id="score9" name="score9" VALUE=0>
+			<input type="text" id="score9" name="score9" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="runs"> RUNS :</label> 
-			<input type="number" id="runs" name="runs" VALUE=0>
+			<input type="text" id="runs" name="runs" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="hits"> HITS :</label> 
-			<input type="number" id="hits" name="hits" VALUE=0> 
+			<input type="text" id="hits" name="hits" VALUE=0> 
 		</div>
 		
 		<div class="form-group">
 			<label for="mistake"> ERRORS :</label> 
-			<input type="number" id="mistake" name="mistake" VALUE=0>
+			<input type="text" id="mistake" name="mistake" VALUE=0>
 		</div>
 		
 		<div class="form-group">
 			<label for="balls"> BALLS :</label> 
-			<input type="number" id="balls" name="balls" VALUE=0>
+			<input type="text" id="balls" name="balls" VALUE=0>
 		</div>
 		<input type="submit" id="btnUpdate3" value="세부 기록 수정" class="btn btn-primary" >	
 		</div>
