@@ -13,13 +13,21 @@ public class TeamPhotoService {
 	@Autowired
 	private TeamPhotoDAO teamPhotoDAO;
 	
-	
-	//조회<리스트>
+	//조회 리스트 선수 전체
+	public List<TeamPhotoDTO> getTeamListprofile () throws Exception{
+		return teamPhotoDAO.getTeamListprofile();
+	}
+	//조회 리스트 포지션 별 전체
+		public List<TeamPhotoDTO> getPosiListprofile (TeamMemberDTO teamMemberDTO) throws Exception{
+			return teamPhotoDAO.getPosiListprofile(teamMemberDTO);
+	}
+		
+	//조회<리스트>(개인 상세 페이지에서 나오는 것)
 	public List<TeamPhotoDTO> getTeamMemberPhotoList (TeamMemberDTO teamMemberDTO) throws Exception{
 		
 		return teamPhotoDAO.getTeamMemberPhotoList(teamMemberDTO);
 	}
-	//조회<개인>
+	//조회<개인> : 프로필
 	public TeamPhotoDTO getMemberPhoto (TeamMemberDTO teamMemberDTO) throws Exception{
 		return teamPhotoDAO.getMemberPhoto(teamMemberDTO);
 	}

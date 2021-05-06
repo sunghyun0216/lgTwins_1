@@ -5,7 +5,17 @@
 
 <mapper namespace="com.lg.t2.team.photo.TeamPhotoDAO">
 
-	<!-- 사진 리스트  조회-->
+	<!-- 팀원 전체 리스트  조회-->
+	<select id="getTeamListprofile" resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select * from playerProfile where(kind = 1) order by tNum ASC
+	</select>
+	
+	<!-- 포지션 리스트 조회하기 -->
+	<select id="getPosiListprofile" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select a.* From playerProfile a left join twinsMemberInfo b On a.tNum = b.tnum where (b.tpNum = #{tNum} AND a.kind = 1) order by a.tNum ASC
+	</select>
+	
 	<select id="getTeamMemberPhotoList" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
 		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
 		select * from playerProfile where (tnum = #{tNum})

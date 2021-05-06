@@ -15,6 +15,17 @@ public class TeamPhotoDAO {
 	private SqlSession sqlSession;
 	private final String NAMESPACE="com.lg.t2.team.photo.TeamPhotoDAO.";
 	
+	//<팀원 전체 리스트>
+	public List<TeamPhotoDTO> getTeamListprofile ()throws Exception{
+		
+		return sqlSession.selectList(NAMESPACE+"getTeamListprofile");
+	}
+	
+	//팀원 포지션 리스트 
+	public List<TeamPhotoDTO> getPosiListprofile (TeamMemberDTO teamMemberDTO)throws Exception{
+		
+		return sqlSession.selectList(NAMESPACE+"getPosiListprofile",teamMemberDTO);
+	}
 	//사진 조회<리스트>
 	public List<TeamPhotoDTO> getTeamMemberPhotoList (TeamMemberDTO teamMemberDTO)throws Exception{
 		

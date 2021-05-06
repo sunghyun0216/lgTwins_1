@@ -100,6 +100,7 @@
 					<h5> ${photoList.tNum}</h5>
 					<h5> ${photoList.dexNum}</h5>
 					<h5> ${photoList.fURL}</h5>
+					
 					</div>
 			</div>
 		</c:forEach>

@@ -1,6 +1,6 @@
 package com.lg.t2.team.member;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -11,8 +11,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lg.t2.team.carnpay.CarNPayService;
@@ -38,11 +36,21 @@ public class TeamMemberController {
 		
 		ModelAndView mv = new ModelAndView();
 		
-		//선수단 가져오기 
+		//선수단 가져오기  tnum 순으로 가져오기
 		List<TeamMemberDTO> td = teamMemberService.getALLPlayerList();
-		
+		List<TeamPhotoDTO> fp = teamPhotoService.getTeamListprofile();
+		//검색하기
+//		TeamPhotoDTO ptd = new TeamPhotoDTO();		
+//		//teamDTO에 값에 접근하고 
+//		
+//		for(int i=0; i< td.size();i++) {
+//			//TeamMemberDTO tdo = td.get(i);
+//			td.get(i).setPlayerPhoto(teamPhotoService.getMemberPhoto(td.get(i)));
+//			System.out.println(td.get(i).getPlayerPhoto().getfURL());
+//		}
 		mv.addObject("sortName", "선수단");
 		mv.addObject("playerdto", td);
+		mv.addObject("playerprofile", fp);
 		mv.setViewName("teaminfo/teamList"); //JSP파일 경로 설정하기
 		
 		return mv;
@@ -55,8 +63,10 @@ public class TeamMemberController {
 		//선수단 포지션 별로 가져오기 
 		List<TeamMemberDTO> td = teamMemberService.getPlrPosiList(teamMemberDTO);
 		mv.addObject("sortName", "선수단");
-		
 		mv.addObject("playerdto", td);
+		
+		List<TeamPhotoDTO> fp = teamPhotoService.getPosiListprofile(teamMemberDTO);
+		mv.addObject("playerprofile", fp);
 		
 		mv.setViewName("teaminfo/teamList"); //JSP파일 경로 설정하기
 		

@@ -7,16 +7,16 @@
 
 	<!-- 모든 선수 리스트 조회  -->
 	<select id="getALLPlayerList" resultType="com.lg.t2.team.member.TeamMemberDTO">
-		SELECT T.*, P.tpname,G.tgname 
-		FROM twinsMemberInfo T, teamPosition P, teamGroup G 
-		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( G.tgNum = 4)
+		SELECT T.*, P.tpname,G.tgname, 
+		FROM twinsMemberInfo T, teamPosition P, teamGroup G, 
+		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( G.tgNum = 4) order by T.tNum ASC
 	</select>
 	
 	<!--포지션 별 선수 리스트-->
 	<select id="getPlrPosiList" parameterType="com.lg.t2.team.member.TeamMemberDTO" resultType="com.lg.t2.team.member.TeamMemberDTO">
 		SELECT T.*, P.tpname,G.tgname 
 		FROM twinsMemberInfo T, teamPosition P, teamGroup G 
-		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( p.tpNum = #{tpNum})
+		WHERE T.tpnum = P.tpNum AND T.tgNum = G.tgnum AND ( p.tpNum = #{tpNum}) 
 	</select>	
 	
 	<!--선수  개인별 정보 불러오기(새로운 페이지)-->
