@@ -46,23 +46,7 @@ pw.addEventListener("blur", function(){
 	
 });
 
-// ID Check *********************************
-id.addEventListener("blur", function(){
-	let message = "6글자 미만입니다";
-	let c = "r1"
-	if(id.value.length>5){
-		message = "6글자 이상 입니다";
-		c = "r2";
-		idCheckResult=true;
-	}else{
-		idCheckResult=false;
-	}
-	
-	let idResult = document.getElementById("idResult");
-	idResult.innerHTML=message;
-	idResult.setAttribute("class", c);
-	
-});
+
 // ***************************************************
 
 btn.addEventListener("click", function(){
@@ -83,6 +67,23 @@ btn.addEventListener("click", function(){
 	}
 });
 
+// ID Check *********************************
+id.addEventListener("blur", function(){
+	let message = "6글자 미만입니다";
+	let c = "r1"
+	if(id.value.length>5){
+		message = "6글자 이상 입니다";
+		c = "r2";
+		idCheckResult=true;
+	}else{
+		idCheckResult=false;
+	}
+	
+	let idResult = document.getElementById("idResult");
+	idResult.innerHTML=message;
+	idResult.setAttribute("class", c);
+	
+});
 
 // Id 중복 확인
 $("#id").blur(function(){

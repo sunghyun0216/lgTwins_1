@@ -15,6 +15,7 @@
 	<h3><img alt="" src="../resources/uploadmember/${member.memberFileDTO.fileName}"></h3>
 	<button class="btn btn-secondary" onclick="window.open('../ticket/ticket?id=${member.id}','window_name','width=1000,height=300,location=no,status=no,scrollbars=yes');">티켓조회</button>
 
+
 	<a href="./memberUpdate">수정</a>
 	<a href="./memberDelete">탈퇴</a>
 	
