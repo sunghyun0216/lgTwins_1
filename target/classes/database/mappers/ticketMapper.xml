@@ -6,13 +6,13 @@
 <mapper namespace="com.lg.t2.ticket.TicketDAO">
 	<select id="getList"  parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
 		SELECT orderNum,team,playDate,playTime,logo from gamebox
-		where  ROWNUM <![CDATA[ <= ]]> 5 and playDate <![CDATA[ >= ]]> sysdate -1 and team !='엘지'
+		where  ROWNUM <![CDATA[ <= ]]> 5 and playDate <![CDATA[ >= ]]> sysdate -1 and team !='엘지' and place ='잠실'
 		order by ordernum asc
 	</select>
 	
 	<select id="getSelect" parameterType="com.lg.t2.ticket.TicketDTO" resultType="com.lg.t2.ticket.TicketDTO">
 		select orderNum,team,playDate,playTime,logo 
-		from gamebox where playDate=#{playDate} and gamebox.team != '엘지'
+		from gamebox where playDate=#{playDate} and gamebox.team != '엘지' and place ='잠실'
 	</select>
 	
 	<insert id="setWrite" parameterType="com.lg.t2.ticket.PurchaseTicketDTO">
