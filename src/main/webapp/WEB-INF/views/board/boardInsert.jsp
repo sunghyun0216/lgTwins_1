@@ -22,6 +22,8 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 
+
+
 	<div class="container">
 		<h2>${board}form</h2>
 		<form id="frm" action="./${board}Insert" method="post" enctype="multipart/form-data">
@@ -66,7 +68,7 @@
 	</div>
 
 
-<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
+	<script type="text/javascript" src="../resources/jquery/boardInsert.js"></script>
 	<script type="text/javascript" src="../resources/jquery/fileAdd.js"></script>
 	<script type="text/javascript" src="../resources/jquery/summerFile.js"></script>
 	

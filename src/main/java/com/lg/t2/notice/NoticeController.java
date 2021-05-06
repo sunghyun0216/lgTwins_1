@@ -9,9 +9,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lg.t2.board.BoardDTO;
+import com.lg.t2.board.BoardFileDTO;
 import com.lg.t2.util.Pager;
 
 @Controller
@@ -20,6 +22,49 @@ public class NoticeController {
 
 	@Autowired
 	private NoticeService noticeService;
+	
+
+	@PostMapping("summerFileDelete")
+	public ModelAndView setSummerFileDelete(String fileName)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		boolean result = noticeService.setSummerFileDelete(fileName);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	@PostMapping("summerFileUpload")
+	public ModelAndView setSummerFileUpload(MultipartFile file)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		System.out.println("Summer File Upload");
+		System.out.println(file.getOriginalFilename());
+		String fileName = noticeService.setSummerFileUpload(file);
+		fileName = "../resources/uploadnotice/"+fileName;
+		mv.addObject("result", fileName)	;
+		mv.setViewName("common/ajaxResult");
+		
+		return mv;
+	}
+	
+	@GetMapping("fileDelete")
+	public ModelAndView setFileDelete(BoardFileDTO boardFileDTO)throws Exception{
+		ModelAndView mv = new ModelAndView();
+		int result = noticeService.setFileDelete(boardFileDTO);
+		mv.addObject("result", result);
+		mv.setViewName("common/ajaxResult");
+		return mv;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping("noticeSelect") // Select
 	public ModelAndView getSelect(BoardDTO boardDTO)throws Exception{
@@ -48,9 +93,9 @@ public class NoticeController {
 	}
 	
 	@PostMapping
-	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv) throws Exception{
+	public ModelAndView setUpdate(BoardDTO boardDTO, ModelAndView mv,MultipartFile [] files) throws Exception{
 		
-		int result = noticeService.setUpdate(boardDTO, null);
+		int result = noticeService.setUpdate(boardDTO, files);
 		
 		if(result>0) {
 			//성공하면 리스트로 이동
@@ -87,8 +132,9 @@ public class NoticeController {
 	}
 	
 	@RequestMapping(value = "noticeInsert", method = RequestMethod.POST)
-	public String setInsert(BoardDTO boardDTO, Model model)throws Exception{
-		int result = noticeService.setInsert(boardDTO, null);
+	public String setInsert(BoardDTO boardDTO, Model model, MultipartFile [] files)throws Exception{
+		
+		int result = noticeService.setInsert(boardDTO, files );
 		
 		String message="등록 실패";
 		

@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BoardDTO {
 
-	private long num;
+	private long num; //primary key
 	private String title;
 	private String contents;
 	private Date regDate;

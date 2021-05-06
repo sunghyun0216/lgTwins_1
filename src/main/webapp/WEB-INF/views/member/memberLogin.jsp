@@ -9,36 +9,43 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
 
-
+<a class="navbar-brand" href="${pageContext.request.contextPath}/">Logo</a>
 </head>
 <body>
-
-	<c:import url="../template/header.jsp"></c:import>
-
 	<div class="container">
+	<div class="row">
+    	<div class="container" id="formContainer">
+
+          <form action="./memberLogin" method="post">
 		<h2>LG TWINS</h2>
 		<h2>로그인</h2>
-	
-		<form action="./memberLogin" method="post">
-			<div class="form-group">
-				<label for="id">ID</label> 
-				<input type="text" class="form-control" id="id" name="id"
-					aria-describedby="idlHelp"> 
-					<small id="idlHelp" class="form-text text-muted">
-					We'll never share your email with anyone else.
-					</small>
-			</div>
-			<div class="form-group">
-				<label for="pw">Password</label> <input
-					type="password" class="form-control" id="pw" name="pw">
-			</div>
-
-			
-			<a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">회원가입</a><td>
-			
-			<button type="submit" class="btn btn-primary">로그인</button>
-		</form>
+            <a href="#" id="flipToRecover" class="flipLink">
+              <div id="triangle-topright"></div> 
+            </a>
+            <input type="text" class="form-control" id="id" name="id"
+					aria-describedby="idlHelp" placeholder="ID" required autofocus>
+            <input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호" required>
+            
+            
+            <button class="btn btn-lg btn-danger btn-block" type="submit">로그인</button>
+          </form>
+    
+    
+    
+    
+    	<br>
+    	    	<br>
+    	    	    	<br>
+    	    	    	    	<br>
+    	<a href="./memberJoin" class="btn btn-danger">회원가입</a>
+    	
+    
+    
+        </div> 
 	</div>
+</div>
+	
+	
 
 </body>
 </html>

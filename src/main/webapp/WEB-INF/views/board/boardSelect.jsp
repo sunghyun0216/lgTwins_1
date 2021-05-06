@@ -12,32 +12,30 @@
 <c:import url="../template/header.jsp"></c:import>
 
 <div class="container">
+	
+	<box>공지사항</box>
+
 	<h1>${dto.title}</h1>
 	<h5>${dto.regDate}</h5>
 
-	<h3>Contents : ${dto.contents}</h3>
+	<h3>${dto.contents}</h3>
 	
 	<c:catch>
 	<c:if test="${member.id eq 'admin'}">
 	<a href="./${board}Update?num=${dto.num}" class="btn btn-danger">Update</a>
 	<a href="#" id="del" class="btn btn-info">Delete</a>
-	\</c:if>
+	</c:if>
 	</c:catch>
 
-	
-	
-	
-	<c:if test="${board ne 'notice'}">
-	<a href="./${board}Reply?num=${dto.num}" class="btn btn-primary">Reply</a>
-	</c:if>
 	
 	<form action="./${board}Delete" id="frm" method="get">
 		<input type="hidden" name="num" value="${dto.num}">
 	</form>
+
 	
 	
 </div>
-
+<script type="text/javascript" src="../resources/jquery/comments.js"></script>
 <script type="text/javascript">
 		const del = document.getElementById("del");
 		const frm = document.getElementById("frm");

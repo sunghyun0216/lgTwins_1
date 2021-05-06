@@ -4,6 +4,10 @@ public class BoardFileDTO {
 
 	private long fileNum;
 	private long num;
+	private String fileName;
+	private String origineName;
+	
+	
 	public long getFileNum() {
 		return fileNum;
 	}
@@ -16,8 +20,7 @@ public class BoardFileDTO {
 	public void setNum(long num) {
 		this.num = num;
 	}
-	private String fileName;
-	private String origineName;
+
 	public String getFileName() {
 		return fileName;
 	}
