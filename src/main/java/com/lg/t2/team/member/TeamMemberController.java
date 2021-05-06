@@ -1,5 +1,6 @@
 package com.lg.t2.team.member;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpSession;
@@ -17,14 +18,20 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lg.t2.team.carnpay.CarNPayService;
 import com.lg.t2.team.carnpay.PlayerPayDTO;
 import com.lg.t2.team.carnpay.TeamCareerDTO;
+import com.lg.t2.team.photo.TeamPhotoDTO;
+import com.lg.t2.team.photo.TeamPhotoService;
 
 @Controller
 public class TeamMemberController {
 	
 	@Autowired
 	private TeamMemberService teamMemberService;
+	
 	@Autowired
 	private CarNPayService carNPayService;
+	
+	@Autowired
+	private TeamPhotoService teamPhotoService;
 	
 	@RequestMapping("teaminfo/AllplayerList")
 	public ModelAndView getALLPlayerList () throws Exception{
@@ -33,7 +40,6 @@ public class TeamMemberController {
 		
 		//선수단 가져오기 
 		List<TeamMemberDTO> td = teamMemberService.getALLPlayerList();
-		//사진 경로 가져오기 
 		
 		mv.addObject("sortName", "선수단");
 		mv.addObject("playerdto", td);
@@ -68,12 +74,18 @@ public class TeamMemberController {
 		TeamBioDTO tb = teamMemberService.getPlayerInfo(teamMemberDTO);
 		mv.addObject("playerInfo",tb);
 		
+		TeamPhotoDTO tpd = teamPhotoService.getMemberPhoto(teamMemberDTO);
+		mv.addObject("playerprofile",tpd); 
+		
 		List<TeamCareerDTO> tc = carNPayService.getCarList(teamMemberDTO);
 		mv.addObject("playerCareerdto",tc);
 		
 		List<PlayerPayDTO> pp = carNPayService.getPayList(teamMemberDTO);
 		mv.addObject("playerPaydto",pp); 
 		
+		//사진 조회하기
+		List<TeamPhotoDTO> ppl = teamPhotoService.getTeamMemberPhotoList(teamMemberDTO);
+		mv.addObject("photoList",ppl);
 		mv.setViewName("teaminfo/teamPerInfo"); // 출력 JSP 파일 지정하기 
 		return mv; 
 	}
@@ -107,11 +119,11 @@ public class TeamMemberController {
 //	public int setAddPlayer(TeamBioDTO teamBioDTO, MultipartFile teamFile, HttpSession session, Model model) throws Exception{
 //		
 //		int result = teamMemberService.setAddPlayer(teamBioDTO, teamFile, session);
-////		System.out.println(teamFile.getName());//파라미터명
-////		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
-////		System.out.println(teamFile.getSize());//파일의 크기(byte)
-////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
-//		
+//////		System.out.println(teamFile.getName());//파라미터명
+//////		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
+//////		System.out.println(teamFile.getSize());//파일의 크기(byte)
+//////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
+////		
 //		String message = "팀원 입력 실패";
 //		String path="./teamInsert";
 //		

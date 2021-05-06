@@ -17,11 +17,15 @@ public class TeamPhotoDAO {
 	
 	//사진 조회<리스트>
 	public List<TeamPhotoDTO> getTeamMemberPhotoList (TeamMemberDTO teamMemberDTO)throws Exception{
+		
 		return sqlSession.selectList(NAMESPACE+"getTeamMemberPhotoList",teamMemberDTO);
 	}
 	//사진 조회 <단독 프로필 하나용>
 	public TeamPhotoDTO getMemberPhoto (TeamMemberDTO teamMemberDTO ) throws Exception{
 		return sqlSession.selectOne(NAMESPACE+"getMemberPhoto",teamMemberDTO);
+	}
+	public int setProfileInsert (TeamMemberDTO teamMemberDTO ) throws Exception{
+		return sqlSession.insert(NAMESPACE+"setProfileInsert",teamMemberDTO);
 	}
 	//사진 삽입
 	public int setPhotoInsert (TeamPhotoDTO teamPhotoDTO) {

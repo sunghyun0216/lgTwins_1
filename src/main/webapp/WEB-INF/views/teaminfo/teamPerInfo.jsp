@@ -58,6 +58,7 @@
     		</div>
     		<div class="col">
      			<div class="text-center">
+     			<h5>${playerprofile.tNum}</h5>
 					<img src="..." class="rounded" alt="..." size="">
 				</div>
     		</div>
@@ -91,6 +92,18 @@
   		</div>
 	</div><!-- end header -->
 	<div class="row" id="info_detail col">	
+	
+		<div id="player_photo_List" >
+			<c:forEach items="${photoList}" var="photoList">
+			<div class="card" style= "width: 8rem;">
+				<div class="card-body">
+					<h5> ${photoList.tNum}</h5>
+					<h5> ${photoList.dexNum}</h5>
+					<h5> ${photoList.fURL}</h5>
+					</div>
+			</div>
+		</c:forEach>
+		</div>
 		
 		<div id="player_career_info" >
 			<c:forEach items="${playerCareerdto}" var="playerCareerdto">

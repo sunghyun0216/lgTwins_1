@@ -1,41 +1,30 @@
 package com.lg.t2.team.photo;
 
-import java.sql.Time;
 
 public class TeamPhotoDTO {
 	
-	private int photosort; //사진 구분 1. 프로필 2.일반용(선수 모음)
-	private int plrNum; // 누구의 사진인가
-	private String fNames; //파일의 이름은
-	private Time fUploadD; //업로드 날짜
-	private String fURL; //서버 경로 : web-INF아래의 경로 저장
+	private long dexNum;
+	private int tNum;
+	private int kind;
+	private String fURL;
 	
-	
-	public int getPhotosort() {
-		return photosort;
+	public long getDexNum() {
+		return dexNum;
 	}
-	public void setPhotosort(int photosort) {
-		this.photosort = photosort;
+	public void setDexNum(long dexNum) {
+		this.dexNum = dexNum;
 	}
-	
-	public int getPlrNum() {
-		return plrNum;
+	public int gettNum() {
+		return tNum;
 	}
-	public void setPlrNum(int plrNum) {
-		this.plrNum = plrNum;
+	public void settNum(int tNum) {
+		this.tNum = tNum;
 	}
-	
-	public String getfNames() {
-		return fNames;
+	public int getKind() {
+		return kind;
 	}
-	public void setfNames(String fNames) {
-		this.fNames = fNames;
-	}
-	public Time getfUploadD() {
-		return fUploadD;
-	}
-	public void setfUploadD(Time fUploadD) {
-		this.fUploadD = fUploadD;
+	public void setKind(int kind) {
+		this.kind = kind;
 	}
 	public String getfURL() {
 		return fURL;
@@ -43,6 +32,5 @@ public class TeamPhotoDTO {
 	public void setfURL(String fURL) {
 		this.fURL = fURL;
 	}
-	
 	
 }

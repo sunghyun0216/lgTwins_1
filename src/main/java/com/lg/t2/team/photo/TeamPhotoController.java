@@ -35,5 +35,7 @@ public class TeamPhotoController {
 //		//2. 사진 제출 
 //		
 //	}//end uploadFormPost
+	
+	
 }
 

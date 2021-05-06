@@ -8,20 +8,24 @@
 	<!-- 사진 리스트  조회-->
 	<select id="getTeamMemberPhotoList" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
 		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
-		SELECT * FROM playerPhotos WHERE plrNum = #{tNum} ORDER BY fUploadD DESC
+		select * from playerProfile where (tnum = #{tNum})
 	</select>
 	<!-- 프로필 조회 tnum 과 파일이름으로 조회한다.-->
 	<select id="getMemberPhoto" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
 		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
-		SELECT * FROM playerPhotos WHERE plrNum = #{tNum} AND fNames LIKE 'profile%' 
+		select * from playerProfile where (tnum = #{tNum} AND kind = 1)
 	</select>
-	<!-- 사진 삽입 프로필과 일반 사진 모두 해당된다-->
+	<!-- 프로필 등록-->
+	<insert id="setProfileInsert" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		insert into playerProfile values(FileNum_SEQ.nextval,#{tNum},1,'#{fURL}')
+	</insert>
+	<!-- 선수 사진 등록 -->
 	<insert id="setPhotoInsert" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
-		INSERT INTO playerPhotos VALUES (#{plrNum}, '#{fNames}',sysdate,'#{fURL}')
+		insert into playerProfile values(FileNum_SEQ.nextval,#{tNum},2,'#{fURL}')
 	</insert>
 	
-	<!-- 사진 삭제 파일 이름, plrNum 으로 조회해서 삭제한다. -->
+	<!-- 프로필 삭제 파일 이름, tNum 으로 조회해서 삭제한다. -->
 	<delete id="teamPhotoDelete" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
-		DELETE playerPhotos WHERE plrNum = #{plrNum} AND fNames = '#{fNames}'
+		DELETE playerPhotos WHERE plrNum = #{plrNum} AND dexNum = #{dexNum}
 	</delete>
 </mapper>  
