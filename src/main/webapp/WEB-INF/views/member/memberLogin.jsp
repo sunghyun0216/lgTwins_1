@@ -30,6 +30,17 @@
             <button class="btn btn-lg btn-danger btn-block" type="submit">로그인</button>
           </form>
     
+    
+    
+    
+    	<br>
+    	    	<br>
+    	    	    	<br>
+    	    	    	    	<br>
+    	<a href="./memberJoin" class="btn btn-danger">회원가입</a>
+    	
+    
+    
         </div> 
 	</div>
 </div>
