@@ -39,7 +39,7 @@
 		<div class="form-group">
 			<label for="wwl">승패 : </label>
 			<select id="wwl" name="wwl" size="1" >
-				<option value="경기전" selected>-</option>
+				<option value="-" selected>-</option>
 				<option value="승">승</option>
 				<option value="패">패</option>
 				<option value="무">무</option>	

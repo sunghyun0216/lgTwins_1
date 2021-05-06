@@ -19,6 +19,10 @@ public class GameBoxService {
 	public List<GameBoxDTO> getList(GameBoxDTO gameBoxDTO)throws Exception{
 		return gameBoxDAO.getList(gameBoxDTO);
 	}
+	
+	public List<GameBoxDTO> getList2(GameBoxDTO gameBoxDTO)throws Exception{
+		return gameBoxDAO.getList2(gameBoxDTO);
+	}
 
 	public GameBoxDTO getSelect(GameBoxDTO gameBoxDTO) throws Exception{
 		return gameBoxDAO.getSelect(gameBoxDTO);

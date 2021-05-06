@@ -25,8 +25,6 @@ $("#btn").click(function(){
 	if(teamCheckResult&&scoreCheckResult&&placeCheckResult&&playCheckDateResult&&playChecktimeResult){
 		let frm = document.getElementById("frm");
 		$("#frm").submit();
-	}else {
-		alert("필수 요소를 입력하세요");
 	}
 	
 	

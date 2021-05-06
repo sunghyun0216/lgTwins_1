@@ -56,10 +56,10 @@
 				<h5 id="teamResult"></h5>
 			</div>
 
-			<div class="form-group">
-				<label for="score">스코어 :</label> <input type="number" class="form-control myCheck" id="score" name="score">
-				<h5 id="scoreResult"></h5>
-			</div>
+<!-- 			<div class="form-group"> -->
+<!-- 				<label for="score">스코어 :</label> <input type="number" class="form-control myCheck" id="score" name="score"> -->
+<!-- 				<h5 id="scoreResult"></h5> -->
+<!-- 			</div> -->
 
 			<div class="form-group">
 				<label for="place">장소 :</label> 
@@ -127,13 +127,31 @@
 
 			<div class="form-group">
 				<label for="wwl">승패 :</label> <select class="form-control myCheck" id="wwl" name="wwl" size="1">
-					<option value="경기전" selected>-</option>
+					<option value="-" selected>-</option>
 					<option value="승">승</option>
 					<option value="패">패</option>
 					<option value="무">무</option>
 				</select><br>
 				<h5 id="wwlResult"></h5>
 				<!-- 시작전 -->
+			</div>
+			
+			<div class="form-group">
+				<label for="logo">logo :</label> <select class="form-control myCheck" id="logo" name="logo" size="1">
+					<option value="https://kgo.googleusercontent.com/profile_vrt_raw_bytes_1587515374_10653.jpg" selected>엘지</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=DUB">두산</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=LTG">롯데</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=SGL">SSG</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=NCD">엔씨</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=HHE">한화</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=KTW">케이티</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=SSL">삼성</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=KWH">키움</option>
+					<option value="https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TOP&IN_DS.FILE_ID=KAT">기아</option>
+			
+				</select><br>
+				<h5 id="wwlResult"></h5>
+				
 			</div>
 
 			<input type="submit" id="btn" value="등록" class="btn btn-primary">

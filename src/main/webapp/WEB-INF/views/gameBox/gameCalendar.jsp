@@ -3,6 +3,7 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@page import="java.util.Calendar"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <% 
 String yy =request.getParameter("year"); //2021
 String mm =request.getParameter("month"); //12
@@ -59,17 +60,17 @@ if(n_m ==13){
 <style>
 
 .t_div1{
-	float:left;width: 20%;
+	float:left;width: 38%;
 }
 
 
 .t_div2{
-	float:left;width: 20%;
+	float:left;width: 24%;
 }
 
 
 .t_div3{
-	float:right;width: 10%;
+	float:right;width: 95%;
 	
 }
 
@@ -79,50 +80,66 @@ if(n_m ==13){
 	<c:import url="../template/header.jsp"></c:import>
 	<h4 class="table" class="thead-dark">경기기록 > 일정&결과</h4>
 	
-	<style>
+<style>
 body {
-   font-size: 13pt;
+   font-size: 15pt;
    color: #555555;
 }
 table{
    border-collapse: collapse;
 }
 
-th, td{
+th{
    border: 1px solid #cccccc;
-   width: 100px;
-   height: 50px;
+   width: 120px;
+   height: 60px;
+   background-color : #F2CBCF;
+   text-align: center;
+}
+
+td{
+   border: 1px solid #cccccc;
+   width: 120px;
+   height: 120px;
    text-align: center;
 }
 
 caption {
    margin-bottom: 10px;
-   font-size: 15px;   
+   font-size: 10px;   
 }
 
 
 </style>
 
-	<form name="frm" method="post" action="gameCalendar">
-
+	<form name="frm" method="get" action="./gameCalendar">
+<center>	
 		<caption>
 			<div class="t_div1">
-				<button type="button" onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
+				<button type="button"  onclick="location='gameCalendar?year=<%=b_y%>&month=<%=b_m%>'">이전</button>
 			</div class>
 
-			<div class="t_div2">
-				<%=y %>년 <%=m+1 %>월
+			<div class="t_div2" >
+				 <%=y %>년 <%=m+1 %>월
+<!-- 				 <input type="text" id="datepicker2" class="go-today" style="width: 160px; text-align: center;"> -->
 			</div class="t_div3">
 
-			<div style="">
+			<div style="" class="t_div4">
 				<button type="button" onclick="location='gameCalendar?year=<%=n_y%>&month=<%=n_m%>'">다음</button>
+				
 			</div>
-		</caption>
 
-	</form>
+<!-- 			<input type="submit" class="btn btn-primary" id="kiki" style="width: 70px; text-align: center;" value="이동"> -->
+			<input type="hidden" id="playDate" name="playDate">
+			<input type="hidden" id="dateDate" name="dateDate" value="${date}">
+			
+		</caption>
+	
+</form>
+
 	<table>
 
-		<tr>
+		<tr  height=50px>
 			<th>일</th>
 			<th>월</th>
 			<th>화</th>
@@ -131,6 +148,7 @@ caption {
 			<th>금</th>
 			<th>토</th>
 		</tr>
+		
 		<tr>
 
 			<%
@@ -152,10 +170,62 @@ caption {
          } else if(count == 1){
         	 color="red";
          }
+         
       %>
-			<td style="color:<%=color%>"><%=d %> <c:forEach items="${list}" var="dto">
-	         	${dto.team}
-	         </c:forEach></td>
+			<td style="color:<%=color%>" >
+			<%= d %> 
+			<% pageContext.setAttribute("d",d); %>
+
+			<c:forEach items="${list}" var="dto">
+				<c:set var="TextValue" value="${dto.playDate}" />
+	         	<c:set var="ksh" value="${fn:substring(TextValue,6,8) }"/>
+				<c:set var="d" value="${d}" />
+				
+				<c:if test="${ksh eq d}">
+				
+					<c:if test="${dto.playing eq '경기전'}"> 
+						<c:if test="${dto.team ne '엘지'}"> 
+							 <a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br> 
+							 ${dto.place} ${dto.playTime} <br> 
+							 ${dto.playing} 
+						</c:if>
+					</c:if>
+					
+					<c:if test="${dto.playing eq '경기중'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
+							 ${dto.playing}
+						</c:if>
+					</c:if>
+					
+					<c:if test="${dto.playing eq '경기종료'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
+							${dto.playing}
+							<c:if test="${dto.wwl eq '승'}">	
+								(패)
+							</c:if>
+							
+							<c:if test="${dto.wwl eq '패'}">	
+								(승)
+							</c:if>
+								
+						</c:if>	
+						
+					</c:if>	
+					
+					<c:if test="${dto.playing eq '경기취소'}"> 
+						<c:if test="${dto.team ne '엘지'}">
+							<a href="./gameBoxList?playDate=${dto.playDate}"><img width=60px height=60px src= ${dto.logo}></a><br>
+							 ${dto.playing}
+						</c:if>
+					</c:if>
+	
+				</c:if>
+	
+	         	
+	        </c:forEach>
+	        </td>
 			<%   
       	//개행을 위한 설정
          if(count==7){
@@ -172,12 +242,14 @@ caption {
       
       %>
 		</tr>
+		
+		
+</table>
 
-	</table>
-	<br>
+</center>
 
-	<button type="button" class="btn btn-info" onclick="fn_planeWrite">일정등록</button>
-	<button type="button" class="btn btn-danger">일정삭제</button>
+<script type="text/javascript" src="../resources/js/calendar2.js"></script>
 </body>
 </html>
 
+	

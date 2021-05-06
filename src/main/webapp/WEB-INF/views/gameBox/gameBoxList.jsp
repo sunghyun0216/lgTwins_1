@@ -56,7 +56,6 @@
 		<input type="text" id="datepicker2" class="go-today" style="width: 160px; text-align: center;">
 		<input type="submit" class="btn btn-primary" id="kiki" style="width: 70px; text-align: center;" value="이동">
 		<input type="hidden" id="playDate" name="playDate">
-		
 		<input type="hidden" id="dateDate" name="dateDate" value="${date}">
 		
 <!-- 		<button class="btn btn-primary" id="kiki">이동</button> -->
@@ -64,49 +63,40 @@
 </div>
 
 </form> 
-
-	<div class="lower">
 	
-			<table class="table">
-		<thead class="thead-dark">  
-			<tr>
-				<th>순서</th>
-				<th>팀명</th>
-				<th>스코어</th>
-				<th>장소</th>
-				<th>경기시간</th>
-				<th>경기여부</th>
-				<th>승패</th>
-				
-			</tr>
-		</thead>
-		
-		<tbody>	
+<div>	
+	<div class="card border-info mb-3" style="border: max-width: 18rem; float: left; width: 33%;">
+	<br>
+	<br>
 		<c:forEach items="${list}" var="dto">
-			<tr>
-				<td>${dto.orderNum}</td>
-				<td>${dto.team}</td>
-				<td>${dto.score}</td>
-				<td>${dto.place}</td>
-				<td>${dto.playTime}</td>
-				<td><a href="./gameBoxUpdate?orderNum=${dto.orderNum}">${dto.playing}</a></td>
-				<td>${dto.wwl}</td>
-			</tr>
+		<c:if test="${dto.team eq '엘지'}">
+		<center><h2><img width=50px height=50px src= ${dto.logo}> 
+		
+		<c:catch>
+		<c:if test="${member.id eq 'admin'}">
+		<a href="./gameBoxUpdate?orderNum=${dto.orderNum}"></c:if></c:catch> ${dto.team}</a> 
+		<c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">${dto.score} </c:if></h2></center>
+		<center><c:if test="${dto.playing eq '경기종료'}">${dto.wwl}</c:if></center>
+		</c:if>
 		</c:forEach>
-
-		</tbody>
+	<br>
+	<br>
 	
-	</table>
 	</div>
-
-</div>
 	
-<c:forEach items="${list}" var="dto">
+	<div class="card border-dark mb-3" style="border: 0px solid white; float: left; width: 33%;">
+	<br>
+	
+		<c:forEach items="${list}" var="dto">
 	<c:if test="${dto.playing eq '경기종료' or dto.playing eq '경기중'}">
-	
+	<center>
+	<center class="card border-dark mb-3" style="max-width: 18rem;">
 	<table>
 			<thead>  
+			<c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">
 				<tr>
+					
+					<th></th>
 					<th>1</th>
 					<th>2</th>
 					<th>3</th>
@@ -121,11 +111,14 @@
 					<th>E</th>
 					<th>B</th>
 				</tr>
-			</thead>
+			</c:if>	
+			</thead >
 			
-			<tbody>	
+			<tbody >	
 				
 				<tr>
+					<c:if test="${dto.playing eq '엘지'}"></c:if>
+					<td>${dto.team }</td>
 					<td>${dto.score1}</td>
 					<td>${dto.score2}</td>
 					<td>${dto.score3}</td>
@@ -140,15 +133,69 @@
 					<td>${dto.mistake}</td>
 					<td>${dto.balls}</td>
 				</tr> 
-				
+			
 			</tbody>
 	</table>
+	
+	</center>
+	</center>
+	
 	</c:if>
-</c:forEach>
+	<c:if test="${dto.playing eq '경기종료'}">
+	<c:if test="${dto.team eq '엘지'}">
+	<center><h5 class="card border-dark mb-3" style="max-width: 18rem;">${dto.place} &nbsp;  ${dto.playTime} &nbsp; ${dto.playing} </h5></center>
+	</c:if>
+	</c:if>
+	
+	<c:if test="${dto.playing eq '경기전'}">
+	<c:if test="${dto.team eq '엘지'}">
+	<center><h1 class="card border-success mb-3" style="max-width: 18rem;">VS</h1></center>  
+	<center><h5 class="card border-dark mb-3" style="max-width: 18rem;">${dto.place} &nbsp;  ${dto.playTime} &nbsp; ${dto.playing} </h5></center>
+	</c:if>
+	</c:if>
+	
+	<c:if test="${dto.playing eq '경기취소'}">
+	<c:if test="${dto.team eq '엘지'}">
+		<br>
+		<center><h3 class="card border-success mb-3" style="max-width: 18rem;">경기취소</h3></center>  
+	</c:if>
+	</c:if>
+	
+		</c:forEach>
+	</div> 
+	
+	<div class="card border-danger mb-3" style="border: max-width: 18rem; float: left; width: 33%;">
+	<br>
+	<br>
+		<c:forEach items="${list}" var="dto">
+		<c:if test="${dto.team ne '엘지'}">
+		<center><h2><c:if test="${dto.playing eq '경기중' or dto.playing eq '경기종료'}">${dto.score} </c:if>
+		<c:catch>
+		<c:if test="${member.id eq 'admin'}">
+			<a href="./gameBoxUpdate?orderNum=${dto.orderNum}"></c:if> </c:catch> ${dto.team}</a> 
+		
+		<img width=50px height=50px src= ${dto.logo}> </h2></center>
+		<center><c:if test="${dto.playing eq '경기종료'}">${dto.wwl}</c:if></center>
+		</c:if>
+		</c:forEach>
+	<br>
+	<br>
+	</div>
+</div>	
 
-<script type="text/javascript" src="../resources/js/calendar.js"></script>   
 
+
+<div>
+<c:catch>
+<c:if test="${member.id eq 'admin'}">
 <a href="./gameBoxInsert" class="btn btn-info" role="button">경기일정 등록</a>
+</c:if>
+</c:catch>
+</div>
+
+<script type="text/javascript" src="../resources/js/calendar.js"></script>
+
+
 
 </body>
 </html>
