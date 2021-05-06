@@ -1,8 +1,8 @@
-package com.lg.t2.team.sort;
+package com.lg.t2.team.member;
 
 import java.sql.Date;
 
-public class TeamBioDTO extends TeamMemberDTO {
+public class TeamBioDTO extends TeamMemberDTO{
 	
 	private int tbNum;
 	private Date birth;
@@ -101,34 +101,24 @@ public class TeamBioDTO extends TeamMemberDTO {
 		super.setJoinyear(joinyear);
 	}
 	@Override
-	public int getGrNum() {
+	public int getTgNum() {
 		// TODO Auto-generated method stub
-		return super.getGrNum();
+		return super.getTgNum();
 	}
 	@Override
-	public void setGrNum(int grNum) {
+	public void setTgNum(int tgNum) {
 		// TODO Auto-generated method stub
-		super.setGrNum(grNum);
+		super.setTgNum(tgNum);
 	}
 	@Override
-	public int getPsNum() {
+	public int getTpNum() {
 		// TODO Auto-generated method stub
-		return super.getPsNum();
+		return super.getTpNum();
 	}
 	@Override
-	public void setPsNum(int psNum) {
+	public void setTpNum(int tpNum) {
 		// TODO Auto-generated method stub
-		super.setPsNum(psNum);
-	}
-	@Override
-	public int getLikeNum() {
-		// TODO Auto-generated method stub
-		return super.getLikeNum();
-	}
-	@Override
-	public void setLikeNum(int likeNum) {
-		// TODO Auto-generated method stub
-		super.setLikeNum(likeNum);
+		super.setTpNum(tpNum);
 	}
 	@Override
 	public String getTgName() {
@@ -149,6 +139,16 @@ public class TeamBioDTO extends TeamMemberDTO {
 	public void setTpName(String tpName) {
 		// TODO Auto-generated method stub
 		super.setTpName(tpName);
+	}
+	@Override
+	public int getLikeNum() {
+		// TODO Auto-generated method stub
+		return super.getLikeNum();
+	}
+	@Override
+	public void setLikeNum(int likeNum) {
+		// TODO Auto-generated method stub
+		super.setLikeNum(likeNum);
 	}
 	@Override
 	public int hashCode() {
@@ -175,7 +175,6 @@ public class TeamBioDTO extends TeamMemberDTO {
 		// TODO Auto-generated method stub
 		super.finalize();
 	}
-	
 	
 	
 }

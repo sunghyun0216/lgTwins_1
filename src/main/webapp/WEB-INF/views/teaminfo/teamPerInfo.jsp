@@ -9,59 +9,126 @@
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
 <c:import url="../template/bootStrap.jsp"></c:import>
-
 <title>TeamInfo Page</title>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
+
+<script>
+// 	$(function() {
+// 		$("#photo_list").on("click", function() {
+// 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
+// 			.done(function() {
+// 				alert("요청 성공");
+// 			})
+// 			.fail(function() {
+// 				alert("요청 실패");
+// 			})
+// 			.always(function() {
+// 				alert("요청 완료");
+// 			});
+// 		});
+// 	});
+</script >
 
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
+	
 	<div>
-		<p><a href= "${pageContext.request.contextPath}/teaminfo/teamList"> &lt; 선수단 목록 </a>
-	</div>
-	<div class="player_info">
-		<div class="player_private">
-		<ul clss="player_info">
-			<p id ="player_backnum">${biodto.backNum}</p>
-			<li >${biodto.tpName}</li>
-			<li>${biodto.usehand}</li>
-			<li>${biodto.tKName}</li>
-			<li>${biodto.birth}</li>
-			<li>${biodto.height} ＊ ${biodto.weight}</li>
-			<li>${biodto.edu}</li>
-			<li>${biodto.joinyear}년 입단</li>
-		</ul>
-			<ul>	
-			</ul>
-		</div>
-		<div class="player_photo">
-			<img src="">
-		</div>
-		<div class="player_record_thisyear">
-		</div>
-		
-		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 radio 선택하기-->
-		<div class="record_desk">
-			<div class="player_record">
-				<div>
-					<h3>최근 경기기록</h3>
-					<!-- 상세보기 버튼 만들기 -->
-				</div>
-				<div>
-					<h3> 시즌별 경기기록</h3>
-				</div>
-			</div>
-			<div class="player_photoes">
-			<!-- 사진추가 버튼 생성하기 -->
-			</div>
-			<div class="player_career">
-			<!-- 이력추가 버튼 만들기 -->
-			</div>
-			<div class="player_salary">
-			<!-- 정보 추가 버튼 만들기 -->
-			</div>
-		</div>
+		<p><a href= "${pageContext.request.contextPath}/teaminfo/AllplayerList"> &lt; 선수단 목록 </a>
 	</div>
 	
-	<c:import url="../teaminfo/recordDesk.jsp"></c:import>
+	<div class="container">
+  		<div class="row">
+    		<div class="col">
+      			<div class="card" style="width: 18rem;">
+  			<div class="card-body">
+    		<span class="card-text">${playerInfo.backNum}</span>
+    		<span class="card-text">${playerInfo.tpName}</span>
+    		<span class="card-title">${playerInfo.usehand}</span>
+    		<h4> </h4>
+    		<h3 class="card-subtitle mb-2 text-muted">${playerInfo.tKName}</h3>
+    		
+    		<p class="card-text">${playerInfo.birth} ＊ ${playerInfo.height}cm * ${playerInfo.weight}kg</p>
+   		 	<p class="card-text">${playerInfo.edu}</p>
+   		 	<p class="card-text">${playerInfo.joinyear} 입단</p>
+  		</div>
+		</div>
+    		</div>
+    		<div class="col">
+     			<div class="text-center">
+     			<h5>${playerprofile.tNum}</h5>
+					<img src="..." class="rounded" alt="..." size="">
+				</div>
+    		</div>
+    		<div class="col">
+    		<div class="card" style="width: 18rem;">
+    			<div class="card-body">
+      				<h5>이곳에 선수경기 성적이 <br> 들어갔다고 가정</h5 >
+  				</div>
+    		</div>	
+    		</div>
+  		</div>
+	</div> <!-- 선수 정보 끝 -->
+	<br><br>
+	<div class="detail_header border-bottom">
+		<!-- 선수 상세기록과 사진,경력, 연봉을 볼 수 있는 부분 radio 선택하기-->
+		<h2>${playerInfo.tNum}</h2>
+		<div class="container">
+  			<div class="row">
+    			<div class="col-sm-8">
+    				<a id="photo_list" class="btn btn-primary btn-lg active"  role="button" aria-pressed="true">포토</a>
+					<a id="career_list" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">이력</a>
+					<a id="pay_list" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">연봉</a>	
+    			</div>
+    			<div class="col-sm-4">
+    				<!-- ajax요청? -->
+    				<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">팬  ${playerInfo.likeNum} </a>
+    				
+    				<a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">카카오스토리 공유</a>
+    			</div>
+  			</div>
+  		</div>
+	</div><!-- end header -->
+	<div class="row" id="info_detail col">	
+	
+		<div id="player_photo_List" >
+			<c:forEach items="${photoList}" var="photoList">
+			<div class="card" style= "width: 8rem;">
+				<div class="card-body">
+					<h5> ${photoList.tNum}</h5>
+					<h5> ${photoList.dexNum}</h5>
+					<h5> ${photoList.fURL}</h5>
+					
+					</div>
+			</div>
+		</c:forEach>
+		</div>
+		
+		<div id="player_career_info" >
+			<c:forEach items="${playerCareerdto}" var="playerCareerdto">
+			<div class="card" style= "width: 8rem;">
+				<div class="card-body">
+					<h5> ${playerCareerdto.sYear}</h5>
+					<p> ${playerCareerdto.cContent}</p>
+					</div>
+			</div>
+		</c:forEach>
+		</div>
+		
+		<div id="player_pay_info">
+			<div id="player_career_info">
+			<c:forEach items="${playerPaydto}" var="playerPaydto">
+			<div class="card " style="width: 8rem;">
+				<div class="card-body">
+					<h5> ${playerPaydto.sYear}</h5>
+					<p> ${playerPaydto.salary}</p>
+					</div>
+			</div>
+		</c:forEach>
+		</div>
+		</div>
+	</div><!-- end info Detail -->
 </body>
 </html>

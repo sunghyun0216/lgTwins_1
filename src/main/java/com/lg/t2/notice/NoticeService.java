@@ -113,8 +113,5 @@ public class NoticeService implements BoardService {
 	public int setDelete(BoardDTO boardDTO) throws Exception {
 		return noticeDAO.setDelete(boardDTO);
 	}
-
-	
-	
 	
 }

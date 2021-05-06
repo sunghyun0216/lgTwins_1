@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.lg.t2.team.photo.TeamPhotoDAO">
+
+	<!-- 팀원 전체 리스트  조회-->
+	<select id="getTeamListprofile" resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select * from playerProfile where(kind = 1) order by tNum ASC
+	</select>
+	
+	<!-- 포지션 리스트 조회하기 -->
+	<select id="getPosiListprofile" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select a.* From playerProfile a left join twinsMemberInfo b On a.tNum = b.tnum where (b.tpNum = #{tNum} AND a.kind = 1) order by a.tNum ASC
+	</select>
+	
+	<select id="getTeamMemberPhotoList" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select * from playerProfile where (tnum = #{tNum})
+	</select>
+	<!-- 프로필 조회 tnum 과 파일이름으로 조회한다.-->
+	<select id="getMemberPhoto" parameterType="com.lg.t2.team.member.TeamMemberDTO" 
+		resultType="com.lg.t2.team.photo.TeamPhotoDTO">
+		select * from playerProfile where (tnum = #{tNum} AND kind = 1)
+	</select>
+	<!-- 프로필 등록-->
+	<insert id="setProfileInsert" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		insert into playerProfile values(FileNum_SEQ.nextval,#{tNum},1,'#{fURL}')
+	</insert>
+	<!-- 선수 사진 등록 -->
+	<insert id="setPhotoInsert" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		insert into playerProfile values(FileNum_SEQ.nextval,#{tNum},2,'#{fURL}')
+	</insert>
+	
+	<!-- 프로필 삭제 파일 이름, tNum 으로 조회해서 삭제한다. -->
+	<delete id="teamPhotoDelete" parameterType="com.lg.t2.team.photo.TeamPhotoDTO">
+		DELETE playerPhotos WHERE plrNum = #{plrNum} AND dexNum = #{dexNum}
+	</delete>
+</mapper>  
