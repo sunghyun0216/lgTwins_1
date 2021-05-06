@@ -19,7 +19,6 @@
 		</ul>
 	</nav>
 	
-	
 	<nav class="navbar navbar-expand-sm bg-white navbar-white nav justify-content-center bg-light">
 		<!-- Links -->
 		<ul class="navbar-nav">
@@ -33,10 +32,11 @@
 						 	<a class="dropdown-item " href="${pageContext.request.contextPath}/teaminfo/AllplayerList">선수단</a> 
 						</div>
 						<div class="col">
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'12'}">포수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'13'}">내야수</a> 
-							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/teamList/posi.do?psNum=${'14'}">외야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'11'}">투수</a> <!--  클릭시 GET 요청을 한다.QUERY문을 쏜다. -->
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'12'}">포수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'13'}">내야수</a> 
+							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'14'}">외야수</a>
+<%-- 							<a class="dropdown-item" href="${pageContext.request.contextPath}/teaminfo/plrPerPosi/?tpNum=${'15'}">육성선수</a>   --%>
 						</div>
 					</div>
 					
@@ -50,7 +50,7 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameBoxList">gamebox</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameCalendar">경기일정</a> 
-			
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/match/matchList">꾸아아가</a> 
 				</div>
 			</li>
 			
@@ -74,6 +74,7 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항/이벤트</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">twins news</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/story/storyList">twins story</a>
 				</div>
 			</li>
 		</ul>
