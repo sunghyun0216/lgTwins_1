@@ -15,7 +15,7 @@ public class FileManager {
 	
 	public boolean delete(String name,String fileName ,HttpSession session)throws Exception {
 		//1. 경로 설정
-		String path = session.getServletContext().getRealPath("resources/upload/"+name);
+		String path = session.getServletContext().getRealPath("resources/upload"+name);
 		File file = new File(path, fileName);
 		boolean check = false;
 		if(file.exists()) {
@@ -26,7 +26,7 @@ public class FileManager {
 	
 	public String save(String name,MultipartFile multipartFile, HttpSession session)throws Exception{
 		//1. 결국 설정
-		String path = session.getServletContext().getRealPath("resources/upload"+name);
+		String path = session.getServletContext().getRealPath("resources/upload/"+name);
 		System.out.println(path);
 		
 		File file = new File(path);
@@ -52,7 +52,7 @@ public class FileManager {
 		//a. FileCopyUtils
 		//FileCopyUtils.copy(multipartFile.getBytes(), file);
 		
-		//b. MultipartFile
+		//b. MultipartFile 전송
 	     multipartFile.transferTo(file);
 	   
 		return fileName;
@@ -93,8 +93,6 @@ public class FileManager {
 			}
 	
 	return file;
-	
 	}
-	
 	
 }

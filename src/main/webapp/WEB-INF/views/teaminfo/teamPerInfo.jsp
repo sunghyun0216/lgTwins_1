@@ -15,20 +15,20 @@
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
 <script>
-	$(function() {
-		$("#photo_list").on("click", function() {
-			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
-			.done(function() {
-				alert("요청 성공");
-			})
-			.fail(function() {
-				alert("요청 실패");
-			})
-			.always(function() {
-				alert("요청 완료");
-			});
-		});
-	});
+// 	$(function() {
+// 		$("#photo_list").on("click", function() {
+// 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
+// 			.done(function() {
+// 				alert("요청 성공");
+// 			})
+// 			.fail(function() {
+// 				alert("요청 실패");
+// 			})
+// 			.always(function() {
+// 				alert("요청 완료");
+// 			});
+// 		});
+// 	});
 </script >
 
 </head>
@@ -82,15 +82,39 @@
 					<a id="pay_list" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">연봉</a>	
     			</div>
     			<div class="col-sm-4">
+    				<!-- ajax요청? -->
     				<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">팬  ${playerInfo.likeNum} </a>
+    				
     				<a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">카카오스토리 공유</a>
     			</div>
   			</div>
   		</div>
 	</div><!-- end header -->
-	
-	<div class="col" id="info_detail" >	
-		<h2>Ajax로 요청하는 정보만  가져올것</h2>
-	</div>
+	<div class="row" id="info_detail col">	
+		
+		<div id="player_career_info" >
+			<c:forEach items="${playerCareerdto}" var="playerCareerdto">
+			<div class="card" style= "width: 8rem;">
+				<div class="card-body">
+					<h5> ${playerCareerdto.sYear}</h5>
+					<p> ${playerCareerdto.cContent}</p>
+					</div>
+			</div>
+		</c:forEach>
+		</div>
+		
+		<div id="player_pay_info">
+			<div id="player_career_info">
+			<c:forEach items="${playerPaydto}" var="playerPaydto">
+			<div class="card " style="width: 8rem;">
+				<div class="card-body">
+					<h5> ${playerPaydto.sYear}</h5>
+					<p> ${playerPaydto.salary}</p>
+					</div>
+			</div>
+		</c:forEach>
+		</div>
+		</div>
+	</div><!-- end info Detail -->
 </body>
 </html>

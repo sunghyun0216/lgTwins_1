@@ -32,7 +32,7 @@
 	</nav>
 	<!-- 여기서는 nav 누르면 javaScript로 불러와요 -->
 	<div class="info_manage_desk">
-		<iframe src="https://www.youtube.com/embed/zpOULjyy-n8?rel=0" title="YouTube video" allowfullscreen></iframe>
+		<!-- 여기에 내용 넣기 -->
 	</div>
 </body>
 </html>

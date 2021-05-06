@@ -1,5 +1,7 @@
 package com.lg.t2.team.member;
 
+import com.lg.t2.team.photo.TeamPhotoDTO;
+
 public class TeamMemberDTO {
 	
 	private int tNum;
@@ -18,7 +20,9 @@ public class TeamMemberDTO {
 	private String tpName;
 	
 	private int likeNum; // 좋아요 갯수 
-
+	
+	private TeamPhotoDTO playerPhoto; //선수 프로필 사진 
+	
 	public int gettNum() {
 		return tNum;
 	}
@@ -106,6 +110,13 @@ public class TeamMemberDTO {
 	public void setLikeNum(int likeNum) {
 		this.likeNum = likeNum;
 	}
-	
+
+	public TeamPhotoDTO getPlayerPhoto() {
+		return playerPhoto;
+	}
+
+	public void setPlayerPhoto(TeamPhotoDTO playerPhoto) {
+		this.playerPhoto = playerPhoto;
+	}
 	
 }

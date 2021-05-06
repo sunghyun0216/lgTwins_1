@@ -1,16 +1,29 @@
 package com.lg.t2.team.member;
 
+import java.sql.Timestamp;
 import java.util.List;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.multipart.MultipartFile;
+
+import com.lg.t2.team.photo.TeamPhotoDAO;
+import com.lg.t2.team.photo.TeamPhotoDTO;
+import com.lg.t2.util.FileManager;
+
 
 @Service
 public class TeamMemberService {
 	
 	@Autowired
 	private TeamMemberDAO teamMemberDAO;
+	@Autowired
+	private TeamPhotoDAO teamPhotoDAO;
 	
+	@Autowired
+	private FileManager fileManager;
 	//모든 선수 출력하기 
 	public List<TeamMemberDTO> getALLPlayerList() throws Exception{
 		return teamMemberDAO.getALLPlayerList();
@@ -24,12 +37,23 @@ public class TeamMemberService {
 		return teamMemberDAO.getPlayerInfo(teamMemberDTO);
 	}
 	//선수 개인 입력하기
-	public int setAddPlayer (TeamBioDTO teamBioDTO)throws Exception{
-		return teamMemberDAO.setAddPlayer(teamBioDTO);
+	public int setAddPlayer (TeamBioDTO teamBioDTO, HttpSession session)throws Exception{
+//		String fileName = fileManager.save("teammember", session);
+//		//선수 정보 추가
+//		
+//		TeamPhotoDTO teamPhotoDTO = new TeamPhotoDTO();
+//		teamPhotoDTO.setPlrNum(teamBioDTO.gettNum());
+//		teamPhotoDTO.setfNames(avatar.getOriginalFilename());
+//		teamPhotoDTO.setfURL(fileName + avatar.getOriginalFilename()); // 파일이 저장된 절대 경로 + 파일 이름 작성하기 
+//		//시간은 알아서 sysdate로 저장이 된다.
+//		
+		int result = teamMemberDAO.setAddPlayer(teamBioDTO);
+		result = teamMemberDAO.setAddPlayerBio(teamBioDTO);
+		//선수 파일 처리
+//		result = teamPhotoDAO.setPhotoInsert(teamPhotoDTO);
+		return result;
 	}
-	public int setAddPlayerBio (TeamBioDTO teamBioDTO)throws Exception{
-		return teamMemberDAO.setAddPlayerBio(teamBioDTO);
-	}
+	
 	//선수 정보 갱신하기
 	public int setUpdatePlr (TeamBioDTO teamBioDTO)throws Exception{
 		return teamMemberDAO.setUpdatePlr(teamBioDTO);
@@ -41,4 +65,8 @@ public class TeamMemberService {
 	public int setDeletePlayer (TeamMemberDTO teamMemberDTO)throws Exception{
 		return teamMemberDAO. setDeletePlayer(teamMemberDTO);
 	}
+	
+	//파일정보 조회하
+	//파일정보 삽입하기
+	//파일 정보 삭제하기
 }

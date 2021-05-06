@@ -2,13 +2,17 @@ package com.lg.t2.team.member;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.View;
 
 import com.lg.t2.team.carnpay.CarNPayService;
 import com.lg.t2.team.carnpay.PlayerPayDTO;
@@ -29,6 +33,7 @@ public class TeamMemberController {
 		
 		//선수단 가져오기 
 		List<TeamMemberDTO> td = teamMemberService.getALLPlayerList();
+		//사진 경로 가져오기 
 		
 		mv.addObject("sortName", "선수단");
 		mv.addObject("playerdto", td);
@@ -39,18 +44,22 @@ public class TeamMemberController {
 	
 	@GetMapping("teaminfo/plrPerPosi") // 그냥 get 형식으로 전송하기
 	public ModelAndView getPlrPosiList (TeamMemberDTO teamMemberDTO) throws Exception{
+		
 		ModelAndView mv = new ModelAndView();
 		//선수단 포지션 별로 가져오기 
 		List<TeamMemberDTO> td = teamMemberService.getPlrPosiList(teamMemberDTO);
-		
 		mv.addObject("sortName", "선수단");
+		
 		mv.addObject("playerdto", td);
+		
 		mv.setViewName("teaminfo/teamList"); //JSP파일 경로 설정하기
+		
 		return mv;
 	}
 	
 	@GetMapping("teaminfo/teamPerInfo") //  그냥 get으로 요청하기
 	public ModelAndView getPlayerInfo (TeamMemberDTO teamMemberDTO)throws Exception{ 
+		
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("sortName", "선수단");
 		
@@ -60,24 +69,16 @@ public class TeamMemberController {
 		mv.addObject("playerInfo",tb);
 		
 		List<TeamCareerDTO> tc = carNPayService.getCarList(teamMemberDTO);
-		mv.addObject("careerData",tc);
+		mv.addObject("playerCareerdto",tc);
 		
 		List<PlayerPayDTO> pp = carNPayService.getPayList(teamMemberDTO);
-		mv.addObject("payData",pp); 
+		mv.addObject("playerPaydto",pp); 
 		
 		mv.setViewName("teaminfo/teamPerInfo"); // 출력 JSP 파일 지정하기 
 		return mv; 
 	}
-	
-	@PostMapping("teaminfo/addTeamMember") // post 방식으로 할 것
-	public int setAddPlayer(TeamBioDTO teamBioDTO) throws Exception{
-		
-		int result = teamMemberService.setAddPlayer(teamBioDTO);
-		result = teamMemberService.setAddPlayerBio(teamBioDTO);
-		return result;
-	}
-	
-	@PostMapping("teaminfo/infoManager/UpdatePlayer") // post 방식으로 할 것
+
+	@PostMapping("teaminfo/infoManager/UpdatePlayer") // post 방식으로 할 것 어드민 넘기기
 	public int setUpdatePlr(TeamBioDTO teamBioDTO) throws Exception{
 		
 		int result = teamMemberService.setUpdatePlr(teamBioDTO);
@@ -85,14 +86,14 @@ public class TeamMemberController {
 		return result;
 	}
 	
-	@PostMapping("teaminfo/infoManager/DeletePlayer") // post방식
+	@PostMapping("teaminfo/infoManager/DeletePlayer") // post방식 어드민 넘기기
 	public int setDeletePlayer(TeamMemberDTO teamMemberDTO) throws Exception{
 		
 		int result = teamMemberService.setDeletePlayer(teamMemberDTO);
 		return result;
 	}
 	
-	@RequestMapping("teaminfo/showform") //form 전송하기 1. MemberBioDTO로 옮기기 2.프로필용 파일데이터 옮기기
+	@RequestMapping("teaminfo/showform") //form 전송하기
 	public ModelAndView showInserPage () throws Exception{
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("pageName","insert");
@@ -100,5 +101,67 @@ public class TeamMemberController {
 		
 		return mv;
 	}
-	//값 넘기기
+	
+//	
+//	@RequestMapping(value="teaminfo/memberInsert", method = RequestMethod.POST)// post 방식으로 할 것
+//	public int setAddPlayer(TeamBioDTO teamBioDTO, MultipartFile teamFile, HttpSession session, Model model) throws Exception{
+//		
+//		int result = teamMemberService.setAddPlayer(teamBioDTO, teamFile, session);
+////		System.out.println(teamFile.getName());//파라미터명
+////		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
+////		System.out.println(teamFile.getSize());//파일의 크기(byte)
+////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
+//		
+//		String message = "팀원 입력 실패";
+//		String path="./teamInsert";
+//		
+//		if(result>0) {
+//			message ="팀원 입력 성공";
+//			path="../";
+//		}
+//		
+//		model.addAttribute("msg", message);
+//		model.addAttribute("path", path);
+//		return result;
+//	}
+	
+	@PostMapping("teaminfo/memberInsert")// post 방식으로 할 것
+	public String setAddPlayer(TeamBioDTO teamBioDTO, HttpSession session, Model model) throws Exception{
+		
+		
+		//팀원 입력 
+		int result = teamMemberService.setAddPlayer(teamBioDTO,session);
+//		System.out.println(teamFile.getName());//파라미터명
+//		System.out.println(teamFile.getOriginalFilename());//upload 할 때 파일명
+//		System.out.println(teamFile.getSize());//파일의 크기(byte)
+//		System.out.println(teamFile.isEmpty());//파일의 존재 유무
+		
+		String message = "팀원 입력 실패";
+		String path="./teamInsert";
+		
+		if(result>0) {
+			message ="팀원 입력 성공";
+			path="redirect:/teaminfo/teamList";
+		}
+		
+		model.addAttribute("msg", message);
+		model.addAttribute("path", path);
+		return path;
+	}
+	
+	@PostMapping()
+	public void deleteTeamMember(TeamMemberDTO teamMemberDTO) throws Exception {
+		
+		//팀원 삭제
+		int result = teamMemberService.setDeletePlayer(teamMemberDTO);
+		
+		String message = "팀원 삭제 실패";
+		String path="redirect:/teaminfo/teamList";
+		
+		if(result>0) {
+			message ="팀원 삭제 성공";
+			path="redirect:/teaminfo/AllplayerList"; //리스트 화면으로 돌아오기
+		}
+		
+	}
 }

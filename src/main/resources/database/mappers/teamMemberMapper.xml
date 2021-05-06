@@ -53,4 +53,22 @@
 	<delete id="setDeletePlayer" parameterType="com.lg.t2.team.member.TeamMemberDTO">
 		DELETE twinsMemberInfo WHERE tNum = #{tNum}
 	</delete>
+	
+<!-- 	<insert id="setFileInsert" parameterType="MemberFileDTO"> -->
+<!-- 		insert into memberFile values(FN_SEQ.nextval, #{id}, #{fileName}, #{origineName}) -->
+<!-- 	</insert> -->
+<!-- 	<resultMap type="MemberFileDTO" id="memberFileResult"> -->
+<!-- 		<id property="num" column="num"/> -->
+<!-- 		<result property="fileName" column="fileName"/> -->
+<!-- 		<result property="origineName" column="origineName"/> -->
+<!-- 	</resultMap> -->
+	
+<!-- 	<select id="memberLoginFile" resultType="MemberFileDTO" parameterType="MemberDTO" > -->
+<!-- 		select * from memberFile where id=#{id} -->
+<!-- 	</select> -->
+	
+<!-- 	<select id="getMemberFile" parameterType="MemberDTO" resultType="MemberFileDTO"> -->
+<!-- 		select fileName from memberFile where id=#{id} -->
+<!-- 	</select> -->
+
 </mapper>  

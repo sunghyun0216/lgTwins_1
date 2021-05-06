@@ -2,15 +2,16 @@ package com.lg.t2.team.carnpay;
 
 public class PlayerPayDTO {
 	
-	private int prlNum;
+	private int plrNum;
 	private int sYear;
 	private int salary;
 	
-	public int getPrlNum() {
-		return prlNum;
+	
+	public int getPlrNum() {
+		return plrNum;
 	}
-	public void setPrlNum(int prlNum) {
-		this.prlNum = prlNum;
+	public void setPlrNum(int plrNum) {
+		this.plrNum = plrNum;
 	}
 	public int getsYear() {
 		return sYear;
