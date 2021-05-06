@@ -74,7 +74,6 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항/이벤트</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">twins news</a> 
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/story/storyList">twins story</a>
 				</div>
 			</li>
 		</ul>
