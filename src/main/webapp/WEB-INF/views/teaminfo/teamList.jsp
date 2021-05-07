@@ -42,7 +42,7 @@
 			<div class="card " style="width: 18rem;">
 				<!-- 팀원 개인 조회  -->
 				<a  href="${pageContext.request.contextPath}/teaminfo/teamPerInfo/?tNum=${playerdto.tNum}">
-					<img src="..." class="card-img-top" alt="...">
+					<img width=100% heigth=100% src= ${playerdto.logo}> 
 					<div class="card-body">
 					<h4 class="card-title">${playerdto.backNum}</h4>
 					<h3>  ${playerdto.tKName}</h3>

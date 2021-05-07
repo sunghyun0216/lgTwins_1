@@ -1,32 +1,62 @@
-/**
- * 
- */
- alert('불러오기!');
-/*해당 경우는 일반 자바 스크립트 사용한다.*/
-/*변수 선언 */
-let coach = document.getElementById("coach");	// 요소 input를 선택함.
-let player = document.getElementById("player"); //요소 input을 선택함
-//그룹 선택
-let selectG = document.getElementById("teamgroup"); //그룹 선택
+function inputusehand(){
+	var h1 = $("select[name=useHand1] option:selected").text();
+  var h2 = $("select[name=useHand2] option:selected").text();
+  var str = h1 + h2 ;
+  $("#usehand").attr('value', str);
+  $("#usehand").attr('text', str);
+}
+function inputGroup(){
+	var str = $("#teamgroup option:selected").val();
+  $("#h1").attr('value', str);
+  $("#h1").attr('text', str);
+}
+function inputPositionP(){
+	var str = $("#PPosition option:selected").val();
+  $("#h2").attr('value', str);
+  $("#h2").attr('text', str);
+}
+function inputPositionC(){
+	var str = $("#CPosition option:selected").val();
+  $("#h2").attr('value', str);
+  $("#h2").attr('text', str);
+}
+function checkBoxCP(){
+  if($('input:radio[id=coach]').is(':checked')){
+        
+        $('#PPosition').attr('disabled', true);
+        $('#CPosition').attr('disabled', false);
+        
+        //선수단만  비활성화
+        //h2포지션 DB번호 넣기
+    }
+}
+function checkBoxPP(){
+  if($('input:radio[id=player]').is(':checked')){
+       	$('#PPosition').attr('disabled', false);
+        $('#CPosition').attr('disabled', true);
+        //선수단 자동 선택
+        $("#teamgroup").val("4").prop("selected", true);
+        
+        $("#h1").attr('value', 4);
+    }
+}
 
-let selectCP = document.getElementById("CPosition"); //포지션 선택
-let selectPP = document.getElementById("PPosition");
+$("#coach").click(function(event) { 
+	checkBoxCP();
+});
+$("#player").click(function(event) { 
+	checkBoxPP();
+});
+$("#teamgroup").change(function(event) { 
+  inputGroup();
+});
 
-let gs = document.getElementByName("tgNum"); //input창
-let ps = document.getElementByName("tpNum"); //input창
-
-//usehand 이벤트 핸들러 등록
-let hand1 = document.getElementsByName("useHand1");
-let hand2 = document.getElementsByName("useHand2");
-
-let usehand = document.getElementByName("useHand");
-let usetext = "";
-
-coach.addEventListener("select", coachInsert);	// 선택한 요소에 click 이벤트 리스너를 등록함.
-player.addEventListener("select",playerInsert);
-
-
-//0. 코치 선수 선택시, 
-//1. 코치라면 > 1. 선수단 제외시킴, 2. 포지션 코치용 활성화 3. radio 잠그고 usehand '해당없음으로 바꾸기'
-
-//2. 선수라면 > 1. 선수단 자동 선택, disabled 속성 추가 2포지션 선수용 활성화 4.usehand 활성화 5. usehand value조합기 사용하기
+$("#PPosition").change(function(event) { 
+	inputPositionP();
+});
+$("#CPosition").change(function(event) { 
+	inputPositionC();
+});
+$(".inputusehand").change(function(event) { 
+	inputusehand();
+});

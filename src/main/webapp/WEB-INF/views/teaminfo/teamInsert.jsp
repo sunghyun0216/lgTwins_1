@@ -12,7 +12,8 @@
 <title>Title</title>
 
 </head>
- <body class="bg-light">
+ <body>
+   <body class="bg-light">
     <c:import url="../template/header.jsp"></c:import>
     
 <div class="container">
@@ -50,6 +51,7 @@
         <h4 class="mb-3">Insert Team Member Info</h4>
         
         <form class="needs-validation" action="./teamInsert" method="post" enctype="multipart/form-data">
+          
           <div class="row g-3">
           
             <div class="col-sm-6">
@@ -92,13 +94,13 @@
           
            <div class="my-3">
             <div class="form-check">
-              <input id="coach" name="sort" type="radio" class="form-check-input" required>
+              <input id="coach" name="sort" type="radio" class="form-check-input" checked="true" value="1">
               <label class="form-check-label" for="credit">코치</label>
             </div>
             
             <div class="form-check">
-              <input id="player" name="sort" type="radio" class="form-check-input" required>
-              <label class="form-check-label" for="debit">선수</label>
+              <input id="player" name="sort" type="radio" class="form-check-input" value="21">
+              <label class="form-check-label" for="debit" >선수</label>
             </div>
           </div>
           
@@ -120,7 +122,7 @@
 
             <div class="col-md-4">
               <label for="state" class="form-label">포지션(코치)</label>
-              <select class="form-select" id="CPosition" required >
+              <select class="form-select" id="CPosition" >
                 <optgroup label="코치 포지션 선택">
                 <option value="1">감독</option>
                 <option value="2">수석코치</option>
@@ -142,7 +144,7 @@
             
             <div class="col-md-4">
               <label for="state" class="form-label">포지션(선수)</label>
-              <select class="form-select"  id="PPosition" required >
+              <select class="form-select"  id="PPosition">
                 <optgroup label="선수 포지션 선택">
                 <option value="11">투수</option>
                 <option value="12">포수</option>
@@ -157,35 +159,35 @@
             </div>
             
             <label class="form-check-label" for="h1">그룹 번호</label>
-            <input type="text" id = "h1"name="tgNum" disabled>
+            <input type="text" id = "h1"name="tgNum"  readonly>
             <label class="form-check-label" for="h2">포지션 번호</label>
-            <input type="text" id = "h2" name="tpNum" disabled>
+            <input type="text" id = "h2" name="tpNum" readonly>
             
             
             <h4 class="mb-3">사용손 선택</h4>
             <h5 class="mb-3">선수일 때만 활성화</h5>
 
-          <div class="my-3 inputusehand">
+          <div class="my-3" name ="inputusehand">
             <div class="form-check btn-group">
               <input id="uh1" name="useHand1" value="좌투" type="radio" class="form-check-input" checked required>
               <label class="form-check-label" for="uh1">좌투</label>
             </div>
             
-            <div class="form-check">
+            <div class="form-check" >
               <input id="uh2" name="useHand1" value="우투"  type="radio" class="form-check-input" required>
               <label class="form-check-label" for="uh2">우투</label>
             </div>
             
             <div class="form-check">
-              <input id="uh3" name="useHand2" value="좌타"  type="radio" class="form-check-input" checked required>
+              <input id="uh3" name="useHand2" value="좌타"  type="radio" class="form-check-input" checked >
               <label class="form-check-label" for="uh3">좌타</label>
             </div>
             <div class="form-check">
-              <input id="uh4" name="useHand2" value="우타"  type="radio" class="form-check-input" required>
+              <input id="uh4" name="useHand2" value="우타"  type="radio" class="form-check-input">
               <label class="form-check-label" for="uh4">우타</label>
             </div>
             <!--  -->
-            <input type="text" name="usehand" disabled>
+            <input type="text" id="usehand" name="usehand" readonly required>
           </div>
           
           <hr class="my-4">

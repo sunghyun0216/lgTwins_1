@@ -59,7 +59,7 @@
     		<div class="col">
      			<div class="text-center">
      			<h5>${playerprofile.tNum}</h5>
-					<img src="..." class="rounded" alt="..." size="">
+					<img class="rounded" alt="..." height = 120% width=120% src=${playerInfo.logo}>
 				</div>
     		</div>
     		<div class="col">
@@ -117,8 +117,7 @@
 		</c:forEach>
 		</div>
 		
-		<div id="player_pay_info">
-			<div id="player_career_info">
+			<div id="player_pay_info">
 			<c:forEach items="${playerPaydto}" var="playerPaydto">
 			<div class="card " style="width: 8rem;">
 				<div class="card-body">
@@ -127,7 +126,6 @@
 					</div>
 			</div>
 		</c:forEach>
-		</div>
 		</div>
 	</div><!-- end info Detail -->
 	<script type="text/javascript" src="../resources/js/playerInfo.js"></script>

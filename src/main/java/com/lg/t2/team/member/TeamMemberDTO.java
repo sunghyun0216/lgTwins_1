@@ -21,6 +21,16 @@ public class TeamMemberDTO {
 	
 	private int likeNum; // 좋아요 갯수 
 	
+	private String logo;
+	
+	public String getLogo() {
+		return logo;
+	}
+
+	public void setLogo(String logo) {
+		this.logo = logo;
+	}
+
 	private TeamPhotoDTO playerPhoto; //선수 프로필 사진 
 	
 	public int gettNum() {
