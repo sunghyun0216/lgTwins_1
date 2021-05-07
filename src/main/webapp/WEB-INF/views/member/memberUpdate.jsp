@@ -5,6 +5,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+	function memberUpdate(){
+		alert("재로그인해주세요.");
+	}
+</script>
 </head>
 <body>
 	<h1>Member Update Page</h1>
@@ -14,7 +19,7 @@
 		Name <input type="text" name="name" value="${member.name}"><br>
 		Phone <input type="text" name="phone" value="${member.phone}"><br>
 		Email <input type="text" name="email" value="${member.email}"><br>
-		<button>Update</button>
+		<button onclick='memberUpdate()'>Update</button>
 	</form>
 </body>
 </html>
