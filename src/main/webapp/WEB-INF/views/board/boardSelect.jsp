@@ -13,7 +13,7 @@
 
 <div class="container">
 	
-	<box>공지사항</box>
+	<box>Twins ${board}</box>
 
 	<h1>${dto.title}</h1>
 	<h5>${dto.regDate}</h5>

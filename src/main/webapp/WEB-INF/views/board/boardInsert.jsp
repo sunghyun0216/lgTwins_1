@@ -44,7 +44,6 @@
 					name="contents"></textarea>
 			</div>
 		
-			<input type="button" id="add" value="ADD" class="btn btn-danger">
 			
 			<div id="files" title="0"></div>
 			
