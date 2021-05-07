@@ -14,23 +14,31 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
-<script>
-// 	$(function() {
-// 		$("#photo_list").on("click", function() {
-// 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
-// 			.done(function() {
-// 				alert("요청 성공");
-// 			})
-// 			.fail(function() {
-// 				alert("요청 실패");
-// 			})
-// 			.always(function() {
-// 				alert("요청 완료");
-// 			});
-// 		});
-// 	});
-</script >
+<!-- <script> -->
+// // 	$(function() {
+// // 		$("#photo_list").on("click", function() {
+// // 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
+// // 			.done(function() {
+// // 				alert("요청 성공");
+// // 			})
+// // 			.fail(function() {
+// // 				alert("요청 실패");
+// // 			})
+// // 			.always(function() {
+// // 				alert("요청 완료");
+// // 			});
+// // 		});
+// // 	});
+<!-- </script > -->
 
+<script type="text/javascript">
+  function shareStoryWeb() {
+    Kakao.Story.share({
+      url: 'https://www.lgtwins.com/service/html.ncd?view=/pc_twins/twins_main/twins_main',
+      text: 'LG TWINS! :)',
+    })
+  }
+</script>
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -59,7 +67,7 @@
     		<div class="col">
      			<div class="text-center">
      			<h5>${playerprofile.tNum}</h5>
-					<img class="rounded" alt="..." height = 120% width=120% src=${playerInfo.logo}>
+					<img class="rounded" alt="..." height = 100% width=120% src=${playerInfo.logo}>
 				</div>
     		</div>
     		<div class="col">
@@ -85,8 +93,8 @@
     			<div class="col-sm-4">
     				<!-- ajax요청? -->
     				<a href="#" class="btn btn-primary btn-sm active" role="button" aria-pressed="true">팬  ${playerInfo.likeNum} </a>
-    				
-    				<a href="#" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">카카오스토리 공유</a>
+    				<a href="javascript:shareStoryWeb()" class="btn btn-secondary btn-sm active" role="button" aria-pressed="true">
+  					<img src="https://developers.kakao.com/sdk/js/resources/story/icon_small.png" />카카오스토리 공유</a>
     			</div>
   			</div>
   		</div>
@@ -129,5 +137,7 @@
 		</div>
 	</div><!-- end info Detail -->
 	<script type="text/javascript" src="../resources/js/playerInfo.js"></script>
+	
+
 </body>
 </html>
