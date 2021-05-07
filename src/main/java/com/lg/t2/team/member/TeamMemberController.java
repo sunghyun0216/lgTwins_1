@@ -59,7 +59,7 @@ public class TeamMemberController {
 		return mv;
 	}
 	
-	@RequestMapping("teaminfo/plrPerPosi") // 그냥 get 형식으로 전송하기
+	@GetMapping("teaminfo/plrPerPosi") // 그냥 get 형식으로 전송하기
 	public ModelAndView getPlrPosiList (TeamMemberDTO teamMemberDTO) throws Exception{
 		
 		ModelAndView mv = new ModelAndView();
