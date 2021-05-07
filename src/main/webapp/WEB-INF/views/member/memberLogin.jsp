@@ -9,7 +9,8 @@
 <c:import url="../template/bootStrap.jsp"></c:import>
 <title>Insert title here</title>
 
-<a class="navbar-brand" href="${pageContext.request.contextPath}/">Logo</a>
+<a class="navbar-brand" href="${pageContext.request.contextPath}/"><img src="https://www.lgtwins.com/images/twins_logoB.png" alt="My Image" width="150" height="100"></a>
+				
 </head>
 <body>
 	<div class="container">
@@ -35,11 +36,11 @@
     
     	<br>
     	    	<br>
-    	    	    	<br>
+    	    	    
     	    	    	    	<br>
-    	<a href="./memberJoin" class="btn btn-danger">회원가입</a>
+    	<a href="./memberJoinCheck" class="btn btn-danger">회원가입</a>
     	
-    
+   
     
         </div> 
 	</div>

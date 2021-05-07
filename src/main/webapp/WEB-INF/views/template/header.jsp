@@ -6,14 +6,14 @@
 		<ul class="navbar-nav">
 			
 			<c:if test="${empty member}">
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogin">Login</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">Join</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogin">회원 로그인</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberJoinCheck">회원가입</a></li>
 			</c:if>
 			
 			
 			<c:if test="${not empty member}">
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberPage">Page</a></li>
-			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogout">Logout</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberPage">회원 페이지</a></li>
+			<li class="nav-item"><a class="nav-link" href="${pageContext.request.contextPath}/member/memberLogout">회원 로그아웃</a></li>
 			</c:if>
 
 		</ul>
@@ -50,7 +50,6 @@
 				<div class="dropdown-menu">
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameBoxList">gamebox</a> 
 					<a class="dropdown-item" href="${pageContext.request.contextPath}/gameBox/gameCalendar">경기일정</a> 
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/match/matchList">꾸아아가</a> 
 				</div>
 			</li>
 			
@@ -72,9 +71,8 @@
 				class="nav-link dropdown-toggle" href="#" id="navbardrop"
 				data-toggle="dropdown"> Twins </a>
 				<div class="dropdown-menu">
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">공지사항/이벤트</a> 
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">twins news</a> 
-					<a class="dropdown-item" href="${pageContext.request.contextPath}/story/storyList">twins story</a>
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/notice/noticeList">트윈스 공지사항</a> 
+					<a class="dropdown-item" href="${pageContext.request.contextPath}/news/newsList">트윈스 뉴스</a> 
 				</div>
 			</li>
 		</ul>

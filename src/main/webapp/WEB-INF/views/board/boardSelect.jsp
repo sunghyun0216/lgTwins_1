@@ -41,7 +41,7 @@
 		const frm = document.getElementById("frm");
 	
 		del.addEventListener("click", function(){
-				let result = confirm("Delete??");
+				let result = confirm("해당 페이지를 삭제하시겠습니까?");
 		
 				if(result){
 					frm.setAttribute("method", "post");
