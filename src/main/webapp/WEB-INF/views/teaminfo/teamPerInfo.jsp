@@ -143,7 +143,7 @@
 	<script type="text/javascript" src="../resources/js/playerInfo.js"></script>
 	<script type="text/javascript">
 
-alert('불러오기!');
+
 
 $("#photo_list").click(function(event) { 
 	setDisplay1();

@@ -29,9 +29,8 @@
 	<insert id="setAddPlayer" parameterType="com.lg.t2.team.member.TeamBioDTO">
 		INSERT INTO twinsMemberInfo 
 		VALUES (TINFO_SEQ.nextval,,'#{tKName}','#{tEName}',' #{usehand}',2021,#{tgNum},#{tpNum},0, 
-		'https://www.lgtwins.com/service/download.ncd?actID=BR_RetrieveFile&baRq=IN_DS&baRs=DOWNLOAD&IN_DS.FILE_TYPE=TTM&IN_DS.REPRESENT_YN=Y&IN_DS.FILE_ID=263'
-		)
-	</insert>
+		'tt')
+</insert>
 	
 	<insert id="setAddPlayerBio" parameterType="com.lg.t2.team.member.TeamBioDTO">
 		INSERT INTO memberBio 

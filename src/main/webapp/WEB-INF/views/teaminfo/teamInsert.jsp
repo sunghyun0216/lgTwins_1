@@ -51,7 +51,7 @@
       <div class="col-md-7 col-lg-8">
         <h4 class="mb-3">Insert Team Member Info</h4>
         
-        <form class="needs-validation" action="./teamInsert" method="post" enctype="multipart/form-data">
+        <form class="needs-validation" action="./addMember" method="post" enctype="multipart/form-data">
           
           <div class="row g-3">
           

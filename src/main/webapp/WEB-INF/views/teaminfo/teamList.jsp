@@ -15,7 +15,7 @@
 <body>
 	<c:import url="../template/header.jsp"></c:import>
 		<!-- 임시라구요 -->
-	<a class="btn btn-primary" href="${pageContext.request.contextPath}/teaminfo/teamInsert" role="button">팀원 입력폼</a>
+	<a class="btn btn-primary" href="${pageContext.request.contextPath}/teaminfo/teamInsertForm" role="button">팀원 입력폼</a>
 	<h1> TEAM INFO List PAGE</h1>
 	<div class="teamInfo_header">
 		<p> 팀 > ${sortName} 
