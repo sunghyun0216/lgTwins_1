@@ -1,3 +1,23 @@
+$("#coach").click(function(event) { 
+	checkBoxCP();
+});
+$("#player").click(function(event) { 
+	checkBoxPP();
+});
+$("#teamgroup").change(function(event) { 
+  inputGroup();
+});
+
+$("#PPosition").change(function(event) { 
+	inputPositionP();
+});
+$("#CPosition").change(function(event) { 
+	inputPositionC();
+});
+$(".inputusehand").change(function(event) { 
+	inputusehand();
+});
+
 function inputusehand(){
 	var h1 = $("select[name=useHand1] option:selected").text();
   var h2 = $("select[name=useHand2] option:selected").text();
@@ -40,23 +60,3 @@ function checkBoxPP(){
         $("#h1").attr('value', 4);
     }
 }
-
-$("#coach").click(function(event) { 
-	checkBoxCP();
-});
-$("#player").click(function(event) { 
-	checkBoxPP();
-});
-$("#teamgroup").change(function(event) { 
-  inputGroup();
-});
-
-$("#PPosition").change(function(event) { 
-	inputPositionP();
-});
-$("#CPosition").change(function(event) { 
-	inputPositionC();
-});
-$(".inputusehand").change(function(event) { 
-	inputusehand();
-});

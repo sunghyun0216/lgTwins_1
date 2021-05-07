@@ -14,31 +14,35 @@
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script src="//code.jquery.com/ui/1.11.4/jquery-ui.min.js"></script>
 
-<!-- <script> -->
-// // 	$(function() {
-// // 		$("#photo_list").on("click", function() {
-// // 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
-// // 			.done(function() {
-// // 				alert("요청 성공");
-// // 			})
-// // 			.fail(function() {
-// // 				alert("요청 실패");
-// // 			})
-// // 			.always(function() {
-// // 				alert("요청 완료");
-// // 			});
-// // 		});
-// // 	});
-<!-- </script > -->
 
 <script type="text/javascript">
+  
   function shareStoryWeb() {
     Kakao.Story.share({
       url: 'https://www.lgtwins.com/service/html.ncd?view=/pc_twins/twins_main/twins_main',
       text: 'LG TWINS! :)',
     })
   }
+  
+//   $(function() {
+// 		$("#photo_list").on("click", function() {
+// 			$.ajax("/t2/teaminfo/AllplayerList") //ajax통신은 같은 컨트롤러에서 가능하다.
+// 			.done(function() {
+// 				alert("요청 성공");
+// 			})
+// 			.fail(function() {
+// 				alert("요청 실패");
+// 			})
+// 			.always(function() {
+// 				alert("요청 완료");
+// 			});
+// 	});
+// 	});
+  
 </script>
+
+ 	
+<!-- </script > -->
 </head>
 <body>
 	<c:import url="../template/header.jsp"></c:import>
@@ -137,7 +141,45 @@
 		</div>
 	</div><!-- end info Detail -->
 	<script type="text/javascript" src="../resources/js/playerInfo.js"></script>
-	
+	<script type="text/javascript">
+
+alert('불러오기!');
+
+$("#photo_list").click(function(event) { 
+	setDisplay1();
+});
+
+$("#career_list").click(function(event) { 
+	setDisplay2();
+});
+
+$("#pay_list").click(function(event) { 
+	setDisplay3();
+});
+
+function setDisplay1(){
+  if($('input:radio[id=photo_list]').is(':checked')){
+      $('#player_photo_List').hide();
+  }else{
+      $('#player_photo_List').show();
+  }
+}
+
+function setDisplay2(){
+  if($('input:radio[id=career_list]').is(':checked')){
+      $('#player_career_info').hide();
+  }else{
+      $('#player_career_info').show();
+  }
+}
+function setDisplay3(){
+  if($('input:radio[id=pay_list]').is(':checked')){
+      $('#player_pay_info').hide();
+  }else{
+      $('#player_pay_infot').show();
+  }
+}
+</script>
 
 </body>
 </html>

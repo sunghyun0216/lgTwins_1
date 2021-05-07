@@ -112,7 +112,7 @@ public class TeamMemberController {
 	}
 	
 	//post방식의 요청
-	@RequestMapping(value= "/teamInsert" ,  method = RequestMethod.POST)// post 방식으로 할 것
+	@PostMapping("teaminfo/teamInsert")// post 방식으로 할 것
 	public String setAddPlayer(TeamBioDTO teamBioDTO, HttpSession session, Model model) throws Exception{
 		
 		//팀원 입력 
