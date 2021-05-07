@@ -130,10 +130,10 @@
                 <option value="3">타격코치</option>
                 <option value="4">주루코치</option>
                 <option value="5">수석코치</option>
-                <option value="6">수석코치</option>
-                <option value="7">수석코치</option>
-                <option value="8">수석코치</option>
-                <option value="9">수석코치</option>
+                <option value="6">타격코치</option>
+                <option value="7">작전코치</option>
+                <option value="8">배터리코치</option>
+                <option value="9">재활코치</option>
                 <option value="10">컨디셔닝 코치</option>
                 </optgroup>
               </select>
@@ -168,27 +168,27 @@
             <h4 class="mb-3">사용손 선택</h4>
             <h5 class="mb-3">선수일 때만 활성화</h5>
 
-          <div class="my-3" name ="inputusehand">
+          <div class="my-3" id ="inputusehand">
             <div class="form-check btn-group">
-              <input id="uh1" name="useHand1" value="좌투" type="radio" class="form-check-input" checked required>
+              <input id="uh1" name="useHand" value="좌투" type="radio" class="form-check-input" checked >
               <label class="form-check-label" for="uh1">좌투</label>
             </div>
             
             <div class="form-check" >
-              <input id="uh2" name="useHand1" value="우투"  type="radio" class="form-check-input" required>
+              <input id="uh2" name="useHand" value="우투"  type="radio" class="form-check-input" >
               <label class="form-check-label" for="uh2">우투</label>
             </div>
             
             <div class="form-check">
-              <input id="uh3" name="useHand2" value="좌타"  type="radio" class="form-check-input" checked >
+              <input id="uh3" name="useHand1" value="좌타"  type="radio" class="form-check-input" checked >
               <label class="form-check-label" for="uh3">좌타</label>
             </div>
             <div class="form-check">
-              <input id="uh4" name="useHand2" value="우타"  type="radio" class="form-check-input">
+              <input id="uh4" name="useHand1" value="우타"  type="radio" class="form-check-input">
               <label class="form-check-label" for="uh4">우타</label>
             </div>
             <!--  -->
-            <input type="text" id="usehand" name="usehand" readonly required>
+            <input type="text" id="usehand" name="usehand" value="우투좌타"required>
           </div>
           
           <hr class="my-4">
@@ -238,13 +238,17 @@
 	$(".inputusehand").change(function(event) { 
 		inputusehand();
 	});
+	
 
 	function inputusehand(){
-		var h1 = $("select[name=useHand1] option:selected").text();
-	  var h2 = $("select[name=useHand2] option:selected").text();
-	  var str = h1 + h2 ;
-	  $("#usehand").attr('value', str);
-	  $("#usehand").attr('text', str);
+		
+		var h1 = $("select[name=useHand1] option:selected").val();
+	  	var h2 = $("select[name=useHand2] option:selected").val();
+	  	var str = h1 + h2 ;
+	  	
+	  	$("#usehand").attr('value', str);
+	  	$("#usehand").attr('text', str);
+	  	
 	}
 	function inputGroup(){
 		var str = $("#teamgroup option:selected").val();

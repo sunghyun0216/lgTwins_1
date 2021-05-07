@@ -112,7 +112,7 @@ public class TeamMemberController {
 	}
 	
 	//post방식의 요청
-	@PostMapping("teaminfo/teamInsert/addMember")// post 방식으로 할 것
+	@PostMapping("teaminfo/addMember")// post 방식으로 할 것
 	public String setAddPlayer(TeamBioDTO teamBioDTO, HttpSession session, Model model) throws Exception{
 		
 		//팀원 입력 
@@ -123,7 +123,8 @@ public class TeamMemberController {
 ////		System.out.println(teamFile.isEmpty());//파일의 존재 유무
 //		
 		String message = "팀원 입력 실패";
-		String path="edirect:/teaminfo/teamList";
+		String path="redirect:/teaminfo/teamList";
+		
 		
 		if(result>0) {
 			message ="팀원 입력 성공";
@@ -137,18 +138,40 @@ public class TeamMemberController {
 	}
 	
 	@PostMapping("teaminfo/infoManager/UpdatePlayer") // post 방식으로 할 것 어드민 넘기기
-	public int setUpdatePlr(TeamBioDTO teamBioDTO) throws Exception{
+	public String setUpdatePlr(TeamBioDTO teamBioDTO) throws Exception{
 		
 		int result = teamMemberService.setUpdatePlr(teamBioDTO);
 		result = teamMemberService.setUpdatePlrBio(teamBioDTO);
-		return result;
+		
+		String message = "팀원 삭제 실패";
+		String path="redirect:/teaminfo/teamList";
+		
+		
+		if(result>0) {
+			message ="팀원 삭제 성공";
+			path="redirect:/teaminfo/teamList";
+			System.out.println("팀원 입력 성공");
+		}
+		
+		return path;
 	}
 	
-	@PostMapping("teaminfo/DeletePlayer") // post방식 어드민 넘기기
-	public int setDeletePlayer(TeamMemberDTO teamMemberDTO) throws Exception{
+	@PostMapping("teaminfo/deletePlayer") // post방식 어드민 넘기기
+	public String setDeletePlayer(TeamMemberDTO teamMemberDTO) throws Exception{
 		
 		int result = teamMemberService.setDeletePlayer(teamMemberDTO);
-		return result;
+		
+		String message = "팀원 삭제 실패";
+		String path="redirect:/teaminfo/teamList";
+		
+		
+		if(result>0) {
+			message ="팀원 삭제 성공";
+			path="redirect:/teaminfo/teamList";
+			System.out.println("팀원 삭제 성공");
+		}
+		
+		return path;
 	}
 	
 	@PostMapping()
