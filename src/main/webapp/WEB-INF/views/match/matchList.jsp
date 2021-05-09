@@ -48,6 +48,24 @@
 			</c:forEach>
 		</tbody>
 		
+		
+		
 </table>
+
+		<div id="d1">
+			<div id="d2"></div>
+		</div>
+
+		<button id ="btn2" class="b">click</button>
+		
+<script type="text/javascript">
+
+	$("btn2").click(function () {
+		$.get("./test?num=3", function(data){
+			$("#d2").html(data);
+		});
+	})
+</script>	
+	
 </body>
 </html>
