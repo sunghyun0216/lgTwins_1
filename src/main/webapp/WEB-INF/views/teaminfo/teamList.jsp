@@ -51,7 +51,8 @@
 					</div>
 				</a>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-end">
-				<button class="btn btn-primary me-md-2" type="button" href = "${pageContext.request.contextPath}/teaminfo/deletePlayer/">delete</button>
+				<button class="btn btn-primary me-md-2" type="button" href = "${pageContext.request.contextPath}/teaminfo/deletePlayer/">
+				delete</button>
   			
 				</div>
 			</div>

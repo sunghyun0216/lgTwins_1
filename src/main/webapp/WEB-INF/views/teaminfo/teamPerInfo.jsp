@@ -66,6 +66,7 @@
    		 	<p class="card-text">${playerInfo.edu}</p>
    		 	<p class="card-text">${playerInfo.joinyear} 입단</p>
   		</div>
+		
 		</div>
     		</div>
     		<div class="col">
