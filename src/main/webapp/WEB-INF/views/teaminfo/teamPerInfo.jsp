@@ -78,7 +78,7 @@
     		<div class="col">
     		<div class="card" style="width: 18rem;">
     			<div class="card-body">
-      				<h5>이곳에 선수경기 성적이 <br> 들어갔다고 가정</h5 >
+      				<h5>년도 시즌 별 <br>선수경기 성적</h5 >
   				</div>
     		</div>	
     		</div>

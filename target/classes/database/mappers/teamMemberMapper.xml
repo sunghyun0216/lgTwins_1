@@ -28,11 +28,10 @@
 	<!-- 선수 추가  -->
 	<insert id="setAddPlayer" parameterType="com.lg.t2.team.member.TeamBioDTO">
 		INSERT INTO twinsMemberInfo 
-		VALUES (TINFO_SEQ.nextval,,'#{tKName}','#{tEName}',' #{usehand}',2021,#{tgNum},#{tpNum},0, 
-		'tt')
-</insert>
+		VALUES (TINFO_SEQ.nextval,,'#{tKName}','#{tEName}',' #{usehand}',2021,#{tgNum},#{tpNum},0,'#{imgName}')
+	</insert>
 	
-	<insert id="setAddPlayerBio" parameterType="com.lg.t2.team.member.TeamBioDTO">
+	<insert id="setAddPlayerBio" parameterType="com.lg.t2.team.member.TeamBioDTO"> 
 		INSERT INTO memberBio 
 		VALUES (BIOIFO_SEQ.nextval,'#{birth}',#{height},#{weight},#{edu})
 	</insert>

@@ -42,15 +42,6 @@ public class TeamMemberController {
 		List<TeamMemberDTO> td = teamMemberService.getALLPlayerList();
 		List<TeamPhotoDTO> fp = teamPhotoService.getTeamListprofile();
 		
-		//검색하기
-//		TeamPhotoDTO ptd = new TeamPhotoDTO();		
-//		//teamDTO에 값에 접근하고 
-//		
-//		for(int i=0; i< td.size();i++) {
-//			//TeamMemberDTO tdo = td.get(i);
-//			td.get(i).setPlayerPhoto(teamPhotoService.getMemberPhoto(td.get(i)));
-//			System.out.println(td.get(i).getPlayerPhoto().getfURL());
-//		}
 		mv.addObject("sortName", "선수단");
 		mv.addObject("playerdto", td);
 		mv.addObject("playerprofile", fp);
@@ -60,7 +51,7 @@ public class TeamMemberController {
 	}
 	
 	@GetMapping("teaminfo/plrPerPosi") // 그냥 get 형식으로 전송하기
-	public ModelAndView getPlrPosiList (TeamMemberDTO teamMemberDTO) throws Exception{
+	public ModelAndView getPlrPosiList (TeamMemberDTO teamMemberDTO) throws Exception{ 
 		
 		ModelAndView mv = new ModelAndView();
 		//선수단 포지션 별로 가져오기 
