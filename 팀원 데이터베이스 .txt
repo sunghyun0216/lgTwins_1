@@ -1,0 +1,245 @@
+------------------------------------------------성현(gambox, calender)------------------------------------------------------------------
+
+--gamebox 테이블
+CREATE TABLE gameBox
+(
+    orderNum    NUMBER           NOT NULL, 
+    Team        VARCHAR2(200)    NULL, 
+    score       NUMBER           NULL, 
+    place       VARCHAR2(200)    NULL, 
+    playDate    VARCHAR2(200)     NULL,
+    playTime     VARCHAR2(200)    NULL,
+    playing     VARCHAR2(200)    NULL, 
+    wwl         VARCHAR2(200)    NULL,
+    logo         VARCHAR2(200)   null,
+    CONSTRAINT PK_gameBox PRIMARY KEY (orderNum)
+)
+
+--gamebox 시퀀스
+CREATE SEQUENCE gameBox_SEQ;
+
+--match 테이블
+CREATE TABLE match
+(
+    orderNum     NUMBER           NULL,
+    score1       NUMBER           NULL,
+    score2       NUMBER           NULL,
+    score3       NUMBER           NULL,
+    score4       NUMBER           NULL,
+    score5       NUMBER           NULL,
+    score6       NUMBER           NULL,
+    score7       NUMBER           NULL,
+    score8       NUMBER           NULL,
+    score9       NUMBER           NULL,
+    runs         NUMBER           NULL, 
+    hits         NUMBER           NULL, 
+    mistake      NUMBER           NULL, 
+    balls        NUMBER           NULL,
+    CONSTRAINT match_PK PRIMARY KEY(orderNum),
+    CONSTRAINT match_FK FOREIGN KEY(orderNum) REFERENCES gameBox (orderNum) on delete cascade
+)
+
+--match 시퀀스
+CREATE SEQUENCE match_SEQ;
+
+------------------------------------------------한철(티켓 예매 / 구매)------------------------------------------------------------------------------
+
+create TABLE ticket(
+tNum number,
+team varchar(200),
+playDate varchar(200),
+playTime varchar(200),
+logo varchar(200),
+sitNum varchar(200),
+price long,
+id varchar(200)
+);
+
+CREATE SEQUENCE ticket_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+------------------------------------------------원교(회원가입, 로그인, 공지사항, 뉴스)--------------------------------------------------------------
+
+-- 멤버 테이블
+CREATE TABLE MEMBER (
+id varchar2(100) constraint lg_pk primary key,
+pw varchar2(100),
+name varchar2(100),
+phone varchar2(100) constraint lg_phone_u unique, 
+email varchar2(100) constraint lg_email_u unique
+);
+
+-- 멤버 사진 생성 테이블
+CREATE TABLE MEMBERFILE(
+NUM NUMBER CONSTRAINT MF_NUM_PK PRIMARY KEY,
+ID  VARCHAR2(100) CONSTRAINT MF_ID_FK REFERENCES MEMBER ON DELETE CASCADE,
+FILENAME VARCHAR2(400),
+ORIGINENAME VARCHAR2(400)
+)
+
+CREATE SEQUENCE FN_SEQ;
+
+
+-- 공지사항 생성 테이블
+CREATE TABLE NOTICE(
+    NUM NUMBER CONSTRAINT notice_num_pk PRIMARY KEY,
+    TITLE VARCHAR2(4000),
+    CONTENTS VARCHAR2(4000),
+    REGDATE DATE
+)
+CREATE SEQUENCE NOTICE_SEQ;
+
+-- 공지사항 사진 생성 테이블
+
+CREATE TABLE noticeFiles(
+    fileNum NUMBER CONSTRAINT NF_FN_PK PRIMARY KEY,
+     num NUMBER CONSTRAINT NF_num_FK REFERENCES notice (NUM) on delete cascade,
+     fileName VARCHAR2(4000),
+     origineName VARCHAR2(4000)
+) ;
+Create sequence file_seq;
+
+-- 트윈스 뉴스 
+CREATE TABLE NEWS(
+    NUM NUMBER CONSTRAINT news_num_pk PRIMARY KEY,
+    TITLE VARCHAR2(4000),
+    CONTENTS VARCHAR2(4000),
+    REGDATE DATE
+)
+
+CREATE SEQUENCE NEWS_SEQ;
+
+CREATE TABLE newsFiles(
+    fileNum NUMBER CONSTRAINT NF1_FN_PK PRIMARY KEY,
+     num NUMBER CONSTRAINT NF1_num_FK REFERENCES news (NUM) on delete cascade,
+     fileName VARCHAR2(4000),
+     origineName VARCHAR2(4000)
+) ;
+
+Create sequence newsfile_seq;
+
+------------------------------------------------혜린(팀원 정보)-----------------------------------------------------------------------------------------
+
+--2021/04/19 : 새 작성
+--2021/04/27 : 확정
+--그룹 테이블 저장
+CREATE TABLE teamGroup(
+    tgNum NUMBER,
+    tgName VARCHAR(12), --최대 4글자
+    
+    CONSTRAINT TG_PK PRIMARY KEY (tgNum)
+)
+CREATE Table teamConfig (
+    
+    tcNum NUMBER,
+    tcName Varchar2(15) not null,
+    tgNum not null,
+    
+    constraint tcg_FK FOREIGN KEY (tgNum) REFERENCES teamGroup(tgNum)
+)
+
+CREATE TABLE teamPosition(
+    
+    tcNum NUMBER,
+    tpNum NUMBER,
+    tpName VARCHAR(30), --최대 8글자 명칭 있음
+    
+    CONSTRAINT TP_PK PRIMARY KEY (tpNum)
+)
+
+CREATE TABLE twinsMemberInfo(
+    
+    tNum NUMBER, --primary key번호 (등록시 자동생성)
+    backNum NUMBER, --등 번호 --검사 필요
+    tKName VARCHAR2(20) NOT NULL, -- 한글이름
+    tEName VARCHAR2(30) NOT NULL,
+    useHand VARCHAR2(12) NOT NULL, -- 사용 손
+    joinyear NUMBER, --입단날짜
+    tgNum NUMBER,-- 소속 그룹 넘버
+    tpNum NUMBER, -- 포지션 구분 넘버
+    likeNum NUMBER default 0,
+    logo  VARCHAR2(2000),
+     
+    CONSTRAINT TWMember_PK PRIMARY KEY (tNum),
+    CONSTRAINT grNum_FK FOREIGN KEY(tgNum) REFERENCES teamGroup(tgNum),
+    CONSTRAINT psNum_FK FOREIGN KEY(tpNum) REFERENCES teamPosition(tpNum)
+)
+
+CREATE TABLE MemberBio( 
+    
+    tbNum NUMBER, --팀원 식별 외래키
+    birth DATE NOT NULL , 
+    height NUMBER NOT NULL,
+    weight NUMBER NOT NULL, 
+    edu VARCHAR2(200) null,
+
+    CONSTRAINT BioInfo_PK PRIMARY KEY (tbNum),
+    CONSTRAINT tpNum_FK FOREIGN KEY(tbNum) REFERENCES twinsMemberInfo(tNum) On DELETE CASCADE
+)
+    -- 입단 날짜,yyyy로 저장
+CREATE TABLE pCareer(
+
+    plrNum NUMBER NOT NULL ,--선수키번호, 외래키,중복가능
+    sYear NUMBER(4,0),--연봉년도(선수번호가 같다면 같은 년도 2개 있을 수 없음)
+    cContent VARCHAR2(300), -- 대강의 이력요약...
+    
+    CONSTRAINT pCareer_FK FOREIGN KEY(plrNum) REFERENCES twinsMemberInfo(tNum) On DELETE CASCADE
+)
+
+Select * from pCareer where plrNum= 2 sYear DESC; --내림차순 검색
+Insert into pCareer values (2,2021,'어쩌구 저쩌구');
+Insert into pCareer values (2,2020,'어쩌구 저쩌구');
+UPDATE pCareer SET cContent ='업데이트도 하고' WHERE (plrNum= 2 AND sYear=2021);
+DELETE pCareer WHERE (plrNum= 2 AND sYear=2021);
+
+CREATE TABLE pSalary( 
+    
+    plrNum NUMBER NOT NULL ,--선수키번호, 외래키,중복가능
+    sYear NUMBER(4,0),--연봉년도
+    salary NUMBER,--금액 (만원)
+    CONSTRAINT pSalary_FK FOREIGN KEY(plrNum) REFERENCES twinsMemberInfo(tNum) On DELETE CASCADE
+)
+Select * from pSalary where plrNum= 2 ORDER BY sYea DESC;
+
+Insert into pSalary values (2,2021,2000);
+Insert into pSalary values (2,2020,2000);
+update pSalary set salary =3000 where (plrNum= 2 AND sYear=2021);
+Delete pSalary where (plrNum= 2 AND sYear=2021);
+
+
+CREATE TABLE playerProfile( 
+
+    dexNum number,
+    tNum number,
+    kind number not null, --(1.프로필용 2.일반선수 사진용)
+    fURL varchar2(400) not null,
+    
+    CONSTRAINT Ppf_FK FOREIGN KEY (tNum) REFERENCES twinsMemberInfo(tNum) 
+)
+
+
+-----------------선수 정보 삽입을 위한 sequence 생성
+CREATE SEQUENCE TINFO_SEQ --팀 테이블 기본키 시퀀스 1~100
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 150 --최대값 100
+NOCYCLE; --순환하지않음
+
+CREATE SEQUENCE BIOIFO_SEQ --팀 테이블 기본키 시퀀스 1~100
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 150 --최대값 100
+NOCYCLE; --순환하지않음
+
+CREATE SEQUENCE FileNum_SEQ --팀 테이블 기본키 시퀀스 1~100
+INCREMENT BY 1 --증감숫자 1
+START WITH 1 --시작숫자 1
+MINVALUE 1 --최소값 1
+MAXVALUE 500 --최대값 100
+NOCYCLE; --순환하지않음
+
+------------END-----------------------------------------------------------------------------------------------------------------------------------
+
